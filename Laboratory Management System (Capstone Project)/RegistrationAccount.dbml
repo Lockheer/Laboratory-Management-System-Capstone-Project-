@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LabManagSys" Class="RegistrationAccountDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-4KSPM38V;Initial Catalog=LabManagSys;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Laboratory_Management_System__Capstone_Project_.Properties.Settings" SettingsPropertyName="LabManagSysConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AdminAccount" Member="AdminAccounts">
+    <Type Name="AdminAccount">
+      <Column Name="AccountID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AdminRegister_AdminAccount" Member="AdminRegister" ThisKey="AdminID" OtherKey="AdminID" Type="AdminRegister" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AdminRegister" Member="AdminRegisters">
+    <Type Name="AdminRegister">
+      <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="First_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Last_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Middle_Name" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_number" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Contact_Number" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthdate" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="AdminRegister_AdminAccount" Member="AdminAccounts" ThisKey="AdminID" OtherKey="AdminID" Type="AdminAccount" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_REGISTER" Method="SP_REGISTER">
+    <Parameter Name="First_Name" Parameter="first_Name" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Last_Name" Parameter="last_Name" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Middle_Name" Parameter="middle_Name" Type="System.String" DbType="NVarChar(60)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(60)" />
+    <Parameter Name="ID_number" Parameter="iD_number" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Contact_number" Parameter="contact_number" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Birthdate" Parameter="birthdate" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(60)" />
+    <ElementType Name="SP_REGISTERResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

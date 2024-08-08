@@ -1,0 +1,49 @@
+   private void btnExport_Click(object sender, EventArgs e)
+   {
+       if (currentDataGridView == null)
+       {
+           MessageBox.Show("No data available to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+           return;
+       }
+
+       using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+       {
+           saveFileDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+           saveFileDialog.Title = "Save an Excel File";
+           if (saveFileDialog.ShowDialog() == DialogResult.OK)
+           {
+               try
+               {
+                   ExcelPackage.LicenseContext = LicenseContext.NonCommercial; 
+
+                   using (ExcelPackage package = new ExcelPackage())
+                   {
+                       ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Data");
+
+                       //creates the sheet headers
+                       for (int i = 0; i < currentDataGridView.Columns.Count; i++)
+                       {
+                           worksheet.Cells[1, i + 1].Value = currentDataGridView.Columns[i].HeaderText;
+                       }
+
+                       //adding of data using count methodology
+                       for (int i = 0; i < currentDataGridView.Rows.Count; i++)
+                       {
+                           for (int j = 0; j < currentDataGridView.Columns.Count; j++)
+                           {
+                               worksheet.Cells[i + 2, j + 1].Value = currentDataGridView.Rows[i].Cells[j].Value;
+                           }
+                       }
+
+                       FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
+                       package.SaveAs(fileInfo);
+
+                       MessageBox.Show("Data exported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   }
+               }
+               catch (Exception ex)
+               {
+                   MessageBox.Show("An error occurred while exporting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               }
+           }
+       }

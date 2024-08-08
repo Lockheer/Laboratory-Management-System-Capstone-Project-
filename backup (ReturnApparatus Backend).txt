@@ -1,0 +1,179 @@
+namespace Laboratory_Management_System__Capstone_Project_
+{
+    public partial class ReturnApparatus : Form
+    {
+        public ReturnApparatus()
+        {
+            InitializeComponent();
+            dtpReturnDate.MinDate = DateTime.Today;
+        }
+
+        String appa_name;
+        String date_borrowed;
+        String due_date;
+        Int64 rowid;
+
+
+        private void ReturnApparatus_Load(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+            tbSearchID.Clear();
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+
+            cmd.CommandText = "select * from BorrowReturnTransaction";
+            SqlDataAdapter DA = new SqlDataAdapter(cmd);
+            DataSet DS = new DataSet();
+            DA.Fill(DS);
+
+            dgvReturnInformation.DataSource = DS.Tables[0];
+
+
+        }
+
+        private void dgvReturnInformation_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Check if the selected cell is valid
+            {
+                var selectedCell = dgvReturnInformation.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                if (selectedCell != null && !string.IsNullOrWhiteSpace(selectedCell.ToString()))
+                {
+                    panel2.Visible = true;
+                    rowid = Int64.Parse(dgvReturnInformation.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    appa_name = dgvReturnInformation.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    date_borrowed = dgvReturnInformation.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    due_date = dgvReturnInformation.Rows[e.RowIndex].Cells[8].Value.ToString();
+
+                    tbApparatusName.Text = appa_name;
+                    tbBorrowedDate.Text = date_borrowed;
+                    tbDue.Text = due_date;
+                }
+                else
+                {
+                    panel2.Visible = false;
+                    MessageBox.Show("The selected cell is empty or invalid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "select * from BorrowReturnTransaction where ID_Number = '" + tbSearchID.Text + "' and Date_Returned is NULL";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            if (ds.Tables[0].Rows.Count != 0)
+            {
+                dgvReturnInformation.DataSource = ds.Tables[0];
+            }else
+            {
+                MessageBox.Show("ID Number is invalid OR there are no apparatus that has been issued", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btnIssueReturn_Click(object sender, EventArgs e)
+        {
+            // Validate the return date
+            if (dtpReturnDate.Value < DateTime.Today)
+            {
+                MessageBox.Show("The return date cannot be earlier than today.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Connection and command setup
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+
+            // Update the LabTransaction table to set the return date
+            cmd.CommandText = "update BorrowReturnTransaction set Date_Returned = @ReturnDate, Remarks = @Remarks where ID_Number = @IDNumber and transactionID = @TransactionID";
+            cmd.Parameters.AddWithValue("@ReturnDate", dtpReturnDate.Text);
+            cmd.Parameters.AddWithValue("@Remarks", tbRemarks.Text);
+            cmd.Parameters.AddWithValue("@IDNumber", tbSearchID.Text);
+            cmd.Parameters.AddWithValue("@TransactionID", rowid);
+            cmd.ExecuteNonQuery();
+
+            // Retrieve the apparatus name from the transaction
+            string apparatusName = "";
+            cmd.CommandText = "select Apparatus_Name from BorrowReturnTransaction where transactionID = @TransactionID";
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                apparatusName = reader["Apparatus_Name"].ToString();
+            }
+            reader.Close();
+
+            // Update the quantity in the ApparatusList table
+            cmd.CommandText = "update ApparatusList set Quantity = Quantity + 1 where [Apparatus Name] = @ApparatusName";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@ApparatusName", apparatusName);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            MessageBox.Show("The transaction has been completed.\nThank you for returning the material.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ReturnApparatus_Load(this, null);
+        }
+
+        private void tbSearchID_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearchID.Text != "")
+            {
+                panel2.Visible = false;
+                dgvReturnInformation.DataSource = null;
+            }
+        }
+
+      
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            tbSearchID.Clear();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            panel2.Visible=false; 
+        }
+
+        private void tbSearchID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private void btnExitUpper_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to go back to the Dashboard?"
+                , "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                //Sets back to 0 to prevent restriction from occuring
+                Dashboard.formRestrict = 0;
+
+            }
+
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+    }
+}

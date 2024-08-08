@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="RegistrationAccount">
+  <DataContextMoniker Name="/RegistrationAccountDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3878c2c0-e938-4b8e-b1e3-2d6764d66b5d" absoluteBounds="3.5, 1.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RegistrationAccountDataContext/AdminAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c486c1c9-4bf8-4e38-bd81-9f816246a9c3" absoluteBounds="3.515, 1.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="20fde6f9-1bd1-49e8-ae1c-f4b638a40e6d" absoluteBounds="0.75, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/RegistrationAccountDataContext/AdminRegister" />
+      <nestedChildShapes>
+        <elementListCompartment Id="432c106a-4ee7-43a8-a920-ac2d8a4febfd" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.16429768880208); (3.5 : 2.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RegistrationAccountDataContext/AdminRegister/AdminRegister_AdminAccount" />
+      <nodes>
+        <classShapeMoniker Id="20fde6f9-1bd1-49e8-ae1c-f4b638a40e6d" />
+        <classShapeMoniker Id="3878c2c0-e938-4b8e-b1e3-2d6764d66b5d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

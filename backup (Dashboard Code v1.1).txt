@@ -1,0 +1,177 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Laboratory_Management_System__Capstone_Project_
+{
+    public partial class Dashboard : Form
+    {
+        public Dashboard()
+        {
+            InitializeComponent();
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            // Set up the panel to display forms
+            panelContainer.Dock = DockStyle.Fill;
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Logout Event or close event
+            if (MessageBox.Show("Are you sure you want to log out?", "Confirmation",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                //Goes back to the login layout
+                Form1 login = new Form1();
+                login.Show();
+                this.Hide();
+            }
+        }
+
+        //Limits the pop up form to one instance only
+        public static int formRestrict = 0;
+
+        //Method reference for the Panel Container
+        private void ShowFormInPanel(Form form)
+        {
+            // Clears the existing controls
+            panelContainer.Controls.Clear();
+
+            // Sets up form properties
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            // Addding the forms to the panel
+            panelContainer.Controls.Add(form);
+            form.Show();
+        }
+
+
+
+
+
+        //Buttons from panel with the applied form restriction
+        private void addANewApparatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Prevents multiple copies of the font to appear
+            if (formRestrict == 0)
+            {
+                formRestrict++;
+                AddApparatus addApparatus = new AddApparatus();
+                addApparatus.Show();
+            }else
+            {
+                MessageBox.Show("The add apparatus form is already opened.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void viewApparatusListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*if (formRestrict == 0)
+            {
+                formRestrict++;
+                ViewApparatus ViewApp = new ViewApparatus();
+                ViewApp.Show();
+            }else
+            {
+                MessageBox.Show("The apparatus list has already been opened.");
+            }*/
+
+                ViewApparatus viewApp = new ViewApparatus();
+                ShowFormInPanel(viewApp);
+
+        }
+
+        private void addAStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formRestrict == 0)
+            {
+                formRestrict++;
+                AddStudent addStudent = new AddStudent();
+                addStudent.Show();
+
+            }else
+            {
+                MessageBox.Show("The Form has already been opened.");
+            }
+            
+        }
+
+        private void viewStudentsInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+                ViewStudentInformation viewStudents = new ViewStudentInformation();
+                ShowFormInPanel (viewStudents);
+          
+        }
+
+        private void borrowTransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if ( formRestrict == 0)
+            {
+                formRestrict++;
+                BorrowingApparatus borrowApparatus = new BorrowingApparatus();
+                borrowApparatus.Show();
+
+            }else
+            {
+                MessageBox.Show("The borrowing transaction form has already been opened.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void returnRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formRestrict == 0)
+            {
+                formRestrict++;
+                ReturnApparatus returnApparatus = new ReturnApparatus();
+                returnApparatus.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("The return transaction form has already been opened.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void comToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formRestrict == 0)
+            {
+                formRestrict++;
+               TransactionDetails details = new TransactionDetails();
+                details.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("The instance has already been opened.");
+            }
+
+        }
+
+        private void penaltyRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+                PenaltiesRecords penalty = new PenaltiesRecords();
+                ShowFormInPanel(penalty);
+
+           
+        }
+
+       
+    }
+}

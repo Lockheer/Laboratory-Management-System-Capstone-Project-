@@ -1,0 +1,206 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+
+namespace Laboratory_Management_System__Capstone_Project_
+{
+    public partial class BorrowingApparatus : Form
+    {
+        public BorrowingApparatus()
+        {
+            InitializeComponent();
+        }
+       
+        //EXIT BUTTON
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to go back to the Dashboard?"
+                , "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                //Sets back to 0 to prevent restriction from occuring
+                Dashboard.formRestrict = 0;
+
+            }
+
+        }
+
+        private void BorrowingApparatus_Load(object sender, EventArgs e)
+        {
+            //Load the COMBO BOX with the apparatus name data source
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd = new SqlCommand("Select [Apparatus Name] from ApparatusList",con);
+            SqlDataReader Sdr = cmd.ExecuteReader();
+
+            while (Sdr.Read()) 
+            {
+                for (int i = 0; i < Sdr.FieldCount; i++)
+                {
+                    cbApparatusName.Items.Add(Sdr.GetString(i));
+                }
+
+            }
+            Sdr.Close();
+            con.Close();
+        }
+
+        //Counter var
+        int count;
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (tbSearch.Text != "")
+            {
+                String searchID = tbSearch.Text;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "Select count(ID_Number) from LabTransaction where ID_Number = '" + searchID+ "' and Student_Name = '" + searchID+ "' and Return_Date is NULL";
+                SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                DataSet DS = new DataSet();
+                DA.Fill(DS);
+
+                //---------------------------------------------------------------------------------------
+                //Code to count how many Apparatus has been borrowed by the following matching ID Number
+                cmd.CommandText = "Select * from Students where ID_Number = '" + searchID + "'";
+                SqlDataAdapter DA1 = new SqlDataAdapter(cmd);
+                DataSet DS1 = new DataSet();
+                DA.Fill(DS1);
+
+                count = int.Parse(DS1.Tables[0].Rows[0][0].ToString());
+
+                //---------------------------------------------------------------------------------------
+
+
+                if (DS.Tables[0].Rows.Count != 0)
+                {
+                    tbStudName.Text = DS.Tables[0].Rows[0][1].ToString();
+                    tbIDnum.Text = DS.Tables[0].Rows[0][2].ToString();
+                    tbEmail.Text = DS.Tables[0].Rows[0][3].ToString();
+                    tbContact.Text = DS.Tables[0].Rows[0][4].ToString();
+                    tbProgram.Text = DS.Tables[0].Rows[0][5].ToString();
+
+                }else
+                {
+                    tbStudName.Clear();
+                    tbIDnum.Clear(); 
+                    tbEmail.Clear(); 
+                    tbContact.Clear();
+                    tbProgram.Clear();
+                    MessageBox.Show("Student ID number does not exist or is invalid.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
+        }
+       
+        //Resetting the objects once a transaction is done.
+        private void ResetForm()
+        {
+            tbStudName.Clear();
+            tbIDnum.Clear();
+            tbEmail.Clear();
+            tbContact.Clear();
+            tbProgram.Clear();
+            tbSearch.Clear();
+
+            // Resets the combobox to default
+            cbApparatusName.SelectedIndex = -1;
+            dtpBorrowDate.Value = DateTime.Now;
+            dtpDueDate.Value = DateTime.Now;
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (tbStudName.Text != "")
+            {
+                //Maximum of 5 apparatuses can only be borrowed.
+                if (cbApparatusName.SelectedIndex != -1 && count <= 4)
+                {
+
+                    String Studname = tbStudName.Text;
+                    String IDnum = tbIDnum.Text;
+                    String Email = tbEmail.Text;
+                    Int64 Contact = Int64.Parse(tbContact.Text);
+                    String Program = tbProgram.Text;
+                    String AppaName = cbApparatusName.Text;
+                    String IssueDate = dtpBorrowDate.Text;
+                    String dueDate = dtpDueDate.Text;
+
+                    // Insert transaction
+                    SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True");
+                    SqlCommand cmd = new SqlCommand("INSERT INTO LabTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Borrow_Date, Due_Date) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, @Borrow_Date, @Due_Date)", con);
+                    cmd.Parameters.AddWithValue("@Student_Name", Studname);
+                    cmd.Parameters.AddWithValue("@ID_Number", IDnum);
+                    cmd.Parameters.AddWithValue("@Email_Address", Email);
+                    cmd.Parameters.AddWithValue("@Contact_Number", Contact);
+                    cmd.Parameters.AddWithValue("@Program", Program);
+                    cmd.Parameters.AddWithValue("@Apparatus_Name", AppaName);
+                    cmd.Parameters.AddWithValue("@Borrow_Date", IssueDate);
+                    cmd.Parameters.AddWithValue("@Due_Date", dueDate);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+
+                    // Update apparatus quantity
+                    SqlCommand cmdUpdateQty = new SqlCommand("UPDATE ApparatusList SET Quantity = Quantity - 1 WHERE [Apparatus Name] = @Apparatus_Name", con);
+                    cmdUpdateQty.Parameters.AddWithValue("@Apparatus_Name", AppaName);
+                    cmdUpdateQty.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show("Apparatus has been issued.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetForm();
+                }
+                else
+                {
+                    MessageBox.Show("Please select an Apparatus OR the student has reached their maximum borrow attempts.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid Student ID Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                ResetForm();
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            tbSearch.Clear();
+        }
+
+        //Pressing ENTER on the Search box
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+    }
+}

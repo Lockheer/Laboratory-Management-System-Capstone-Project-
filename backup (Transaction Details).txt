@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Laboratory_Management_System__Capstone_Project_
+{
+    public partial class TransactionDetails : Form
+    {
+        public TransactionDetails()
+        {
+            InitializeComponent();
+        }
+      
+        private void TransactionDetails_Load(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+
+            cmd.CommandText = "select * from LabTransaction where Return_Date is NULL";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dgvBorrowDetails.DataSource = ds.Tables[0];
+
+
+            cmd.CommandText = "select * from LabTransaction where Return_Date is not NULL";
+            SqlDataAdapter da01 = new SqlDataAdapter(cmd);
+            DataSet ds01 = new DataSet();
+            da01.Fill(ds01);
+            dgvReturnDetails.DataSource = ds01.Tables[0];
+
+            cmd.CommandText = "Select * from LaboratoryPenalties";
+            SqlDataAdapter dataAdapt = new SqlDataAdapter(cmd);
+            DataSet violds = new DataSet();
+            dataAdapt.Fill(violds);
+            dgvViolationRecords.DataSource = violds.Tables[0];
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Dashboard.formRestrict = 0;
+            PenaltiesRecords.detailRestrict = 0;
+        }
+
+       
+    }
+}
