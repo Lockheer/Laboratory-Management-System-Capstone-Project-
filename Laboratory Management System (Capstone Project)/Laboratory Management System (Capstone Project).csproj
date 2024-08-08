@@ -269,6 +269,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Jill.bmp" />
+    <None Include="Resources\angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909-pre.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
