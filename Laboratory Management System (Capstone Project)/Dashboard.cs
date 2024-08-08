@@ -22,7 +22,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            // Set up the panel to display forms
+            // Set up the panel to display forms(changes)
             panelContainer.Dock = DockStyle.Fill;
         }
 
