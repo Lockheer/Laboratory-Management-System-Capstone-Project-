@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.apparatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANewApparatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewApparatusListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,10 @@
             this.comToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
             this.panelContainer = new System.Windows.Forms.Panel();
+=======
+>>>>>>> 80d5e660218c2f1e63c0e95ae573349a1b5de6e1
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +71,17 @@
             this.menuStrip3.TabIndex = 3;
             this.menuStrip3.Text = "menuStrip3";
             // 
+            // panelContainer
+            // 
+            this.panelContainer.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909_pre;
+            this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(0, 72);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1119, 485);
+            this.panelContainer.TabIndex = 4;
+            // 
             // apparatusToolStripMenuItem
             // 
             this.apparatusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -82,7 +97,11 @@
             // 
             this.addANewApparatusToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addANewApparatusToolStripMenuItem.Image")));
             this.addANewApparatusToolStripMenuItem.Name = "addANewApparatusToolStripMenuItem";
+<<<<<<< HEAD
             this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(297, 26);
+=======
+            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+>>>>>>> 80d5e660218c2f1e63c0e95ae573349a1b5de6e1
             this.addANewApparatusToolStripMenuItem.Text = "Add a New Apparatus";
             this.addANewApparatusToolStripMenuItem.Click += new System.EventHandler(this.addANewApparatusToolStripMenuItem_Click);
             // 
@@ -90,7 +109,11 @@
             // 
             this.viewApparatusListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewApparatusListToolStripMenuItem.Image")));
             this.viewApparatusListToolStripMenuItem.Name = "viewApparatusListToolStripMenuItem";
+<<<<<<< HEAD
             this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(297, 26);
+=======
+            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+>>>>>>> 80d5e660218c2f1e63c0e95ae573349a1b5de6e1
             this.viewApparatusListToolStripMenuItem.Text = "View and Update Inventory List";
             this.viewApparatusListToolStripMenuItem.Click += new System.EventHandler(this.viewApparatusListToolStripMenuItem_Click);
             // 
@@ -180,6 +203,7 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+<<<<<<< HEAD
             // panelContainer
             // 
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -189,6 +213,8 @@
             this.panelContainer.Size = new System.Drawing.Size(1492, 614);
             this.panelContainer.TabIndex = 4;
             // 
+=======
+>>>>>>> 80d5e660218c2f1e63c0e95ae573349a1b5de6e1
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
