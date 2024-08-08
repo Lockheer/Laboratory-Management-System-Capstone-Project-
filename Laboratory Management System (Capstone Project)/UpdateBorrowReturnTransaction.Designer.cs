@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTransaction = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbAppaName = new System.Windows.Forms.ComboBox();
             this.lnklblClear = new System.Windows.Forms.LinkLabel();
@@ -56,19 +56,20 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvTransaction
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(57, 99);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1334, 439);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransaction.Location = new System.Drawing.Point(57, 99);
+            this.dgvTransaction.Name = "dgvTransaction";
+            this.dgvTransaction.RowHeadersWidth = 51;
+            this.dgvTransaction.RowTemplate.Height = 24;
+            this.dgvTransaction.Size = new System.Drawing.Size(1334, 439);
+            this.dgvTransaction.TabIndex = 0;
+            this.dgvTransaction.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel1
             // 
@@ -127,6 +128,7 @@
             this.btnDelete.TabIndex = 21;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -136,6 +138,7 @@
             this.btnUpdate.TabIndex = 20;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // tbRemarks
             // 
@@ -304,6 +307,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(324, 22);
             this.tbSearch.TabIndex = 24;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // lblSearch
             // 
@@ -328,17 +332,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1444, 1080);
+            this.ClientSize = new System.Drawing.Size(1444, 1101);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTransaction);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateBorrowReturnTransaction";
             this.Text = "Updating the Borrow-Return Transaction";
             this.Load += new System.EventHandler(this.UpdateBorrowReturnTransaction_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -348,7 +352,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTransaction;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbEmailAdd;
         private System.Windows.Forms.TextBox tbIDNum;
