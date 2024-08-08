@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.apparatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANewApparatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewApparatusListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,11 +44,7 @@
             this.comToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelContainer = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip3.SuspendLayout();
-            this.panelContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip3
@@ -70,6 +67,17 @@
             this.menuStrip3.TabIndex = 3;
             this.menuStrip3.Text = "menuStrip3";
             // 
+            // panelContainer
+            // 
+            this.panelContainer.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909_pre;
+            this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(0, 72);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1119, 485);
+            this.panelContainer.TabIndex = 4;
+            // 
             // apparatusToolStripMenuItem
             // 
             this.apparatusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -85,7 +93,7 @@
             // 
             this.addANewApparatusToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addANewApparatusToolStripMenuItem.Image")));
             this.addANewApparatusToolStripMenuItem.Name = "addANewApparatusToolStripMenuItem";
-            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.addANewApparatusToolStripMenuItem.Text = "Add a New Apparatus";
             this.addANewApparatusToolStripMenuItem.Click += new System.EventHandler(this.addANewApparatusToolStripMenuItem_Click);
             // 
@@ -93,7 +101,7 @@
             // 
             this.viewApparatusListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewApparatusListToolStripMenuItem.Image")));
             this.viewApparatusListToolStripMenuItem.Name = "viewApparatusListToolStripMenuItem";
-            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.viewApparatusListToolStripMenuItem.Text = "View and Update Inventory List";
             this.viewApparatusListToolStripMenuItem.Click += new System.EventHandler(this.viewApparatusListToolStripMenuItem_Click);
             // 
@@ -183,25 +191,6 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // panelContainer
-            // 
-            this.panelContainer.Controls.Add(this.pictureBox1);
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(0, 72);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1119, 485);
-            this.panelContainer.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.Jill;
-            this.pictureBox1.Location = new System.Drawing.Point(361, 152);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 190);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,8 +207,6 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
-            this.panelContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +228,5 @@
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.ToolStripMenuItem manuallyUpdateBorrowReturnTransactionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateTransactionsToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
