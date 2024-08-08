@@ -24,6 +24,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             // Set up the panel to display forms
             panelContainer.Dock = DockStyle.Fill;
+            
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,5 +139,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             UpdateBorrowReturnTransaction updateTransact = new UpdateBorrowReturnTransaction();
             ShowFormInPanel(updateTransact);
         }
+
+       
     }
 }
