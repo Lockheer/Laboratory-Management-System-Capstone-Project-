@@ -36,6 +36,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbRemarks = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbLifeSpan = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.lnklblRefresh = new System.Windows.Forms.LinkLabel();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.dtpDatePurchased = new System.Windows.Forms.DateTimePicker();
@@ -53,10 +57,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbLifeSpan = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbRemarks = new System.Windows.Forms.TextBox();
+            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -138,6 +139,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnImport);
             this.panel2.Controls.Add(this.tbRemarks);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.tbLifeSpan);
@@ -164,6 +166,41 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(596, 684);
             this.panel2.TabIndex = 2;
+            // 
+            // tbRemarks
+            // 
+            this.tbRemarks.Location = new System.Drawing.Point(157, 456);
+            this.tbRemarks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbRemarks.Multiline = true;
+            this.tbRemarks.Name = "tbRemarks";
+            this.tbRemarks.Size = new System.Drawing.Size(336, 125);
+            this.tbRemarks.TabIndex = 24;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(47, 456);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(93, 16);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Item Remarks:";
+            // 
+            // tbLifeSpan
+            // 
+            this.tbLifeSpan.Location = new System.Drawing.Point(157, 400);
+            this.tbLifeSpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbLifeSpan.Name = "tbLifeSpan";
+            this.tbLifeSpan.Size = new System.Drawing.Size(95, 22);
+            this.tbLifeSpan.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(74, 406);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 16);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Life Span:";
             // 
             // lnklblRefresh
             // 
@@ -326,40 +363,18 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Apparatus Name:";
             // 
-            // label8
+            // btnImport
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(74, 406);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 16);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Life Span:";
-            // 
-            // tbLifeSpan
-            // 
-            this.tbLifeSpan.Location = new System.Drawing.Point(157, 400);
-            this.tbLifeSpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbLifeSpan.Name = "tbLifeSpan";
-            this.tbLifeSpan.Size = new System.Drawing.Size(95, 22);
-            this.tbLifeSpan.TabIndex = 22;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(47, 456);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 16);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Item Remarks:";
-            // 
-            // tbRemarks
-            // 
-            this.tbRemarks.Location = new System.Drawing.Point(157, 456);
-            this.tbRemarks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbRemarks.Multiline = true;
-            this.tbRemarks.Name = "tbRemarks";
-            this.tbRemarks.Size = new System.Drawing.Size(336, 125);
-            this.tbRemarks.TabIndex = 24;
+            this.btnImport.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImport.Location = new System.Drawing.Point(209, 10);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(83, 29);
+            this.btnImport.TabIndex = 25;
+            this.btnImport.Text = "IMPORT";
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // AddApparatus
             // 
@@ -374,7 +389,6 @@
             this.Name = "AddApparatus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add an Apparatus";
-            this.Load += new System.EventHandler(this.AddApparatus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -415,5 +429,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbLifeSpan;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnImport;
     }
 }

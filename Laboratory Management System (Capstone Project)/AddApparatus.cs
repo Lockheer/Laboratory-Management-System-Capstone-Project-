@@ -1,9 +1,11 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +32,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 tbPrice.Text = PlaceHolderText;
                 tbPrice.ForeColor = Color.Gray;
-            }else
+            }
+            else
             {
                 tbPrice.ForeColor = Color.Black;
             }
@@ -108,15 +111,15 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void btnCancel_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("This will remove any UNSAVED data\nDo you still want to cancel this task?", 
+            if (MessageBox.Show("This will remove any UNSAVED data\nDo you still want to cancel this task?",
                 "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 this.Close();
                 //Sets back to 0 to prevent restriction from occuring
                 //Dashboard.formRestrict = 0;
             }
-           
-          
+
+
         }
 
         private void btnXMark_Click(object sender, EventArgs e)
@@ -134,6 +137,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             cbStatus.ResetText();
             tbQuantity.Clear();
             dtpDatePurchased.Value = DateTime.Now;
+            cbStatus.ResetText();
+            tbLifeSpan.Clear();
+            tbRemarks.Clear();
+
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -141,9 +148,66 @@ namespace Laboratory_Management_System__Capstone_Project_
             WindowState = FormWindowState.Minimized;
         }
 
-        private void AddApparatus_Load(object sender, EventArgs e)
+        private void btnImport_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx", ValidateNames = true })
+                {
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        using (var package = new ExcelPackage(new FileInfo(ofd.FileName)))
+                        {
+                            ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                            int rowCount = worksheet.Dimension.Rows;
+
+                            using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                            {
+                                connect.Open();
+                                for (int row = 2; row <= rowCount; row++)
+                                {
+                                    // Read data from Excel
+                                    string appa_name = worksheet.Cells[row, 1].Text;
+                                    string model_num = worksheet.Cells[row, 2].Text;
+                                    string date_purch = worksheet.Cells[row, 3].Text;
+                                    decimal price = decimal.Parse(worksheet.Cells[row, 4].Text);
+                                    string brand = worksheet.Cells[row, 5].Text;
+                                    string status = worksheet.Cells[row, 6].Text;
+                                    long quantity = long.Parse(worksheet.Cells[row, 7].Text);
+                                    string life_span = worksheet.Cells[row, 8].Text;
+                                    string remarks = worksheet.Cells[row, 9].Text;
+
+                                    // Insert data into the database
+                                    SqlCommand command = new SqlCommand("INSERT INTO ApparatusList ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [Life Span], [Remarks]) " +
+                                        "VALUES (@AppaName, @ModelNum, @DatePurch, @Price, @Brand, @Status, @Quantity, @LifeSpan, @Remarks)", connect);
+                                    command.Parameters.AddWithValue("@AppaName", appa_name);
+                                    command.Parameters.AddWithValue("@ModelNum", model_num);
+                                    command.Parameters.AddWithValue("@DatePurch", date_purch);
+                                    command.Parameters.AddWithValue("@Price", price);
+                                    command.Parameters.AddWithValue("@Brand", brand);
+                                    command.Parameters.AddWithValue("@Status", status);
+                                    command.Parameters.AddWithValue("@Quantity", quantity);
+                                    command.Parameters.AddWithValue("@LifeSpan", life_span);
+                                    command.Parameters.AddWithValue("@Remarks", remarks);
+
+                                    command.ExecuteNonQuery();
+                                }
+
+                                connect.Close();
+                            }
+
+                            MessageBox.Show("Data imported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred during import: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
+
     }
 }
