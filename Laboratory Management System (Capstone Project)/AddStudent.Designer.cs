@@ -50,6 +50,7 @@
             this.tbStudContact = new System.Windows.Forms.TextBox();
             this.tbIDNum = new System.Windows.Forms.TextBox();
             this.tbStudName = new System.Windows.Forms.TextBox();
+            this.btnImport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -129,6 +130,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.btnImport);
             this.panel2.Controls.Add(this.cbDepartment);
             this.panel2.Controls.Add(this.cbProgram);
             this.panel2.Controls.Add(this.btnSave);
@@ -147,7 +149,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(542, 505);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // cbDepartment
             // 
@@ -157,7 +158,7 @@
             "COE (College Of Education)",
             "CCS (College Of Computer Studies)",
             "Senior High School Branch"});
-            this.cbDepartment.Location = new System.Drawing.Point(212, 332);
+            this.cbDepartment.Location = new System.Drawing.Point(212, 287);
             this.cbDepartment.Name = "cbDepartment";
             this.cbDepartment.Size = new System.Drawing.Size(245, 24);
             this.cbDepartment.TabIndex = 16;
@@ -176,7 +177,7 @@
             "BSCpE",
             "BSCS",
             "SHS"});
-            this.cbProgram.Location = new System.Drawing.Point(212, 277);
+            this.cbProgram.Location = new System.Drawing.Point(212, 232);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(109, 24);
             this.cbProgram.TabIndex = 15;
@@ -185,7 +186,7 @@
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(54, 427);
+            this.btnSave.Location = new System.Drawing.Point(95, 427);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(132, 46);
             this.btnSave.TabIndex = 13;
@@ -197,7 +198,7 @@
             // 
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(212, 427);
+            this.btnRefresh.Location = new System.Drawing.Point(236, 427);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(132, 46);
             this.btnRefresh.TabIndex = 12;
@@ -209,7 +210,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(91, 336);
+            this.label7.Location = new System.Drawing.Point(91, 291);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 20);
             this.label7.TabIndex = 11;
@@ -219,7 +220,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(113, 277);
+            this.label6.Location = new System.Drawing.Point(113, 232);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 20);
             this.label6.TabIndex = 10;
@@ -229,7 +230,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(116, 233);
+            this.label5.Location = new System.Drawing.Point(116, 188);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 9;
@@ -239,7 +240,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(55, 183);
+            this.label4.Location = new System.Drawing.Point(55, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(151, 20);
             this.label4.TabIndex = 8;
@@ -249,7 +250,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(99, 133);
+            this.label3.Location = new System.Drawing.Point(99, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 20);
             this.label3.TabIndex = 7;
@@ -259,7 +260,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(73, 90);
+            this.label2.Location = new System.Drawing.Point(73, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 20);
             this.label2.TabIndex = 6;
@@ -267,31 +268,45 @@
             // 
             // tbStudEmail
             // 
-            this.tbStudEmail.Location = new System.Drawing.Point(212, 230);
+            this.tbStudEmail.Location = new System.Drawing.Point(212, 185);
             this.tbStudEmail.Name = "tbStudEmail";
             this.tbStudEmail.Size = new System.Drawing.Size(245, 22);
             this.tbStudEmail.TabIndex = 3;
             // 
             // tbStudContact
             // 
-            this.tbStudContact.Location = new System.Drawing.Point(212, 181);
+            this.tbStudContact.Location = new System.Drawing.Point(212, 136);
             this.tbStudContact.Name = "tbStudContact";
             this.tbStudContact.Size = new System.Drawing.Size(245, 22);
             this.tbStudContact.TabIndex = 2;
             // 
             // tbIDNum
             // 
-            this.tbIDNum.Location = new System.Drawing.Point(212, 131);
+            this.tbIDNum.Location = new System.Drawing.Point(212, 86);
             this.tbIDNum.Name = "tbIDNum";
             this.tbIDNum.Size = new System.Drawing.Size(245, 22);
             this.tbIDNum.TabIndex = 1;
             // 
             // tbStudName
             // 
-            this.tbStudName.Location = new System.Drawing.Point(212, 90);
+            this.tbStudName.Location = new System.Drawing.Point(212, 45);
             this.tbStudName.Name = "tbStudName";
             this.tbStudName.Size = new System.Drawing.Size(245, 22);
             this.tbStudName.TabIndex = 0;
+            // 
+            // btnImport
+            // 
+            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.ForeColor = System.Drawing.Color.Black;
+            this.btnImport.Location = new System.Drawing.Point(212, 11);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(89, 28);
+            this.btnImport.TabIndex = 17;
+            this.btnImport.Text = "IMPORT";
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // AddStudent
             // 
@@ -306,7 +321,6 @@
             this.Name = "AddStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adding of Student\'s Records";
-            this.Load += new System.EventHandler(this.AddStudent_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -340,5 +354,6 @@
         private System.Windows.Forms.ComboBox cbDepartment;
         private System.Windows.Forms.ComboBox cbProgram;
         private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.Button btnImport;
     }
 }
