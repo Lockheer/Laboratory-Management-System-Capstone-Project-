@@ -40,7 +40,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
         // Method to display forms in the panel container
-        private void ShowFormInPanel(Form form)
+        public void ShowFormInPanel(Form form)
         {
             // Clears the existing controls
             panelContainer.Controls.Clear();
@@ -135,8 +135,11 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void updateTransactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateBorrowReturnTransaction updateTransact = new UpdateBorrowReturnTransaction();
-            ShowFormInPanel(updateTransact);
+            
+            VerificationForUpdate verification = new VerificationForUpdate(this);
+            ShowRestrictedForm(verification);
+            //UpdateBorrowReturnTransaction updateTransact = new UpdateBorrowReturnTransaction();
+            //ShowFormInPanel(updateTransact);
         }
 
         private void panelContainer_Paint(object sender, PaintEventArgs e)
