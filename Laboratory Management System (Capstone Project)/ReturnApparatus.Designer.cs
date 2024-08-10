@@ -50,7 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnMinimize = new System.Windows.Forms.Button();
             this.btnExitUpper = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -299,27 +298,11 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel3.Controls.Add(this.btnMinimize);
             this.panel3.Controls.Add(this.btnExitUpper);
             this.panel3.Location = new System.Drawing.Point(-5, -10);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1424, 48);
             this.panel3.TabIndex = 9;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinimize.ForeColor = System.Drawing.Color.Black;
-            this.btnMinimize.Location = new System.Drawing.Point(1256, 10);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(63, 34);
-            this.btnMinimize.TabIndex = 39;
-            this.btnMinimize.Text = "-";
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnExitUpper
             // 
@@ -399,7 +382,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnExitUpper;
-        private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.TextBox tbRemarks;
         private System.Windows.Forms.Label label7;
     }

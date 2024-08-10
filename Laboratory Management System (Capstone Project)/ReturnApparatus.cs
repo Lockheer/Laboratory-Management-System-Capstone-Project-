@@ -208,9 +208,5 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
     }
 }

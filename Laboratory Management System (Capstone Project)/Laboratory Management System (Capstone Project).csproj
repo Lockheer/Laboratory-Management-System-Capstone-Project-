@@ -178,6 +178,12 @@
     <Compile Include="UpdateBorrowReturnTransaction.Designer.cs">
       <DependentUpon>UpdateBorrowReturnTransaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerificationForUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerificationForUpdate.Designer.cs">
+      <DependentUpon>VerificationForUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewApparatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateBorrowReturnTransaction.resx">
       <DependentUpon>UpdateBorrowReturnTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerificationForUpdate.resx">
+      <DependentUpon>VerificationForUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewApparatus.resx">
       <DependentUpon>ViewApparatus.cs</DependentUpon>

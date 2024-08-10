@@ -138,5 +138,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             UpdateBorrowReturnTransaction updateTransact = new UpdateBorrowReturnTransaction();
             ShowFormInPanel(updateTransact);
         }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
