@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -52,6 +53,21 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void tbPrice_Leave(object sender, EventArgs e)
         {
             SetPlaceholderText();
+
+            string value = tbPrice.Text;
+            bool thereIsDecimal = false;
+
+            foreach (char c in value)
+            {
+                if (c == '.')
+                {
+                    thereIsDecimal = true;
+                }
+            }
+            if (thereIsDecimal == false && tbPrice.Text != "")
+            {
+                tbPrice.Text = value + ".00";
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)

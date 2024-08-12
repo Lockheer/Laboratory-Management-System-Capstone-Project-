@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnImport = new System.Windows.Forms.Button();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbLifeSpan = new System.Windows.Forms.TextBox();
@@ -57,7 +58,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -166,6 +166,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(596, 684);
             this.panel2.TabIndex = 2;
+            // 
+            // btnImport
+            // 
+            this.btnImport.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImport.Location = new System.Drawing.Point(209, 10);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(83, 29);
+            this.btnImport.TabIndex = 25;
+            this.btnImport.Text = "IMPORT";
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // tbRemarks
             // 
@@ -362,19 +375,6 @@
             this.label2.Size = new System.Drawing.Size(112, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Apparatus Name:";
-            // 
-            // btnImport
-            // 
-            this.btnImport.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnImport.Location = new System.Drawing.Point(209, 10);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(83, 29);
-            this.btnImport.TabIndex = 25;
-            this.btnImport.Text = "IMPORT";
-            this.btnImport.UseVisualStyleBackColor = false;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // AddApparatus
             // 

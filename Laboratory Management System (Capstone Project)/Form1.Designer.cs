@@ -73,6 +73,7 @@
             this.tbPassword.Size = new System.Drawing.Size(187, 22);
             this.tbPassword.TabIndex = 2;
             this.tbPassword.Text = "Password";
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
             this.tbPassword.Leave += new System.EventHandler(this.tbPassword_Leave);
             // 

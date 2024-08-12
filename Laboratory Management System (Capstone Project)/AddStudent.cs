@@ -44,6 +44,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
+        //SAVE INFO BUTTON
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (tbIDNum.Text != "" && tbStudName.Text != "" && tbStudEmail.Text != ""
@@ -72,6 +73,10 @@ namespace Laboratory_Management_System__Capstone_Project_
                     {
                         MessageBox.Show("The email address or contact number already exists. Please use a different one.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    else if (tbStudContact.TextLength < 10 || tbStudContact.TextLength > 11)
+                    {
+                        MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                     else
                     {
                         // Proceed with insertion if no duplicate is found
@@ -96,10 +101,10 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("Please input the following empty fields or textboxes.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            if (tbStudContact.TextLength < 10 || tbStudContact.TextLength > 11)
-            {
-                MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            //if (tbStudContact.TextLength < 10 || tbStudContact.TextLength > 11)
+            //{
+            //    MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
         }
 
       
@@ -186,6 +191,11 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
 
 
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

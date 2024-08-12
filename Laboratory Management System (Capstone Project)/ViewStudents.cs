@@ -39,7 +39,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM Students WHERE ID_Number LIKE @SearchText + '%' OR Student_Name LIKE @SearchText + '%'";
+                    cmd.CommandText = "SELECT * FROM Students WHERE ID_Number LIKE @SearchText + '%' OR Student_Name LIKE @SearchText + '%' OR Email_Address LIKE @SearchText + '%' OR Contact_No LIKE @SearchText + '%' OR Program LIKE @SearchText + '%' OR Department LIKE @SearchText + '%'";
 
                     cmd.Parameters.AddWithValue("@SearchText", tbStudentSearch.Text);
 
@@ -149,49 +149,55 @@ namespace Laboratory_Management_System__Capstone_Project_
             // Ensure the clicked cell and row are within the valid range
             if (e.RowIndex >= 0 && dgvStudentsInformation.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                // Acquire the data that will match the Primary Key of the table
-                ID = int.Parse(dgvStudentsInformation.Rows[e.RowIndex].Cells[0].Value.ToString());
+                string cellValue = dgvStudentsInformation.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                panel2.Visible = true;
-
-                // Define the connection string
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-
-                using (SqlConnection con = new SqlConnection(connectionString))
+                if (!string.IsNullOrEmpty(cellValue) && int.TryParse(cellValue, out ID))
                 {
-                    // Define the SQL command
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE studID = @ID", con);
-                    cmd.Parameters.AddWithValue("@ID", ID);
+                    panel2.Visible = true;
 
-                    // Set up the data adapter with the command
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    // Define the connection string
+                    string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
 
-                    // To hold the data
-                    DataSet DS = new DataSet();
-
-                    try
+                    using (SqlConnection con = new SqlConnection(connectionString))
                     {
-                        con.Open();
-                        // Fill the DataSet with data from the database
-                        DA.Fill(DS);
+                        // Define the SQL command
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE studID = @ID", con);
+                        cmd.Parameters.AddWithValue("@ID", ID);
 
-                        // Check if the query returned any results
-                        if (DS.Tables[0].Rows.Count > 0)
+                        // Set up the data adapter with the command
+                        SqlDataAdapter DA = new SqlDataAdapter(cmd);
+
+                        // To hold the data
+                        DataSet DS = new DataSet();
+
+                        try
                         {
-                            // Extract data from the first row
-                            rowid = Int64.Parse(DS.Tables[0].Rows[0]["studID"].ToString());
-                            tbStudentName.Text = DS.Tables[0].Rows[0]["Student_Name"].ToString();
-                            tbIDNum.Text = DS.Tables[0].Rows[0]["ID_Number"].ToString();
-                            tbEmail.Text = DS.Tables[0].Rows[0]["Email_Address"].ToString();
-                            tbContactNum.Text = DS.Tables[0].Rows[0]["Contact_No"].ToString();
-                            cbProgram.Text = DS.Tables[0].Rows[0]["Program"].ToString();
-                            cbDept.Text = DS.Tables[0].Rows[0]["Department"].ToString();
+                            con.Open();
+                            // Fill the DataSet with data from the database
+                            DA.Fill(DS);
+
+                            // Check if the query returned any results
+                            if (DS.Tables[0].Rows.Count > 0)
+                            {
+                                // Extract data from the first row
+                                rowid = Int64.Parse(DS.Tables[0].Rows[0]["studID"].ToString());
+                                tbStudentName.Text = DS.Tables[0].Rows[0]["Student_Name"].ToString();
+                                tbIDNum.Text = DS.Tables[0].Rows[0]["ID_Number"].ToString();
+                                tbEmail.Text = DS.Tables[0].Rows[0]["Email_Address"].ToString();
+                                tbContactNum.Text = DS.Tables[0].Rows[0]["Contact_No"].ToString();
+                                cbProgram.Text = DS.Tables[0].Rows[0]["Program"].ToString();
+                                cbDept.Text = DS.Tables[0].Rows[0]["Department"].ToString();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred: " + ex.Message);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid selection. Please select a valid row.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
@@ -218,38 +224,45 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-
-                    cmd.CommandText = "UPDATE Students SET Student_Name = @StudentName, ID_Number = @IDNumber, Email_Address = @Email, Contact_No = @ContactNumber, Program = @Program, Department = @Department WHERE studID = @RowID";
-
-                    cmd.Parameters.AddWithValue("@StudentName", studname);
-                    cmd.Parameters.AddWithValue("@IDNumber", idnum);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@ContactNumber", contactnum);
-                    cmd.Parameters.AddWithValue("@Program", program);
-                    cmd.Parameters.AddWithValue("@Department", department);
-                    cmd.Parameters.AddWithValue("@RowID", rowid);
-
-                    try
+                    if (tbContactNum.TextLength < 10 || tbContactNum.TextLength > 11)
                     {
-                        con.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Student information updated successfully.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("No student found with the specified ID.");
-                        }
-
-                        // Refresh the data grid view with the updated data
-                        ViewStudentInformation_Load(this, null);
+                        MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("An error occurred: " + ex.Message);
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = "UPDATE Students SET Student_Name = @StudentName, ID_Number = @IDNumber, Email_Address = @Email, Contact_No = @ContactNumber, Program = @Program, Department = @Department WHERE studID = @RowID";
+
+                        cmd.Parameters.AddWithValue("@StudentName", studname);
+                        cmd.Parameters.AddWithValue("@IDNumber", idnum);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@ContactNumber", contactnum);
+                        cmd.Parameters.AddWithValue("@Program", program);
+                        cmd.Parameters.AddWithValue("@Department", department);
+                        cmd.Parameters.AddWithValue("@RowID", rowid);
+
+                        try
+                        {
+                            con.Open();
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Student information updated successfully.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No student found with the specified ID.");
+                            }
+
+                            // Refresh the data grid view with the updated data
+                            ViewStudentInformation_Load(this, null);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred: " + ex.Message);
+                        }
                     }
                 }
             }

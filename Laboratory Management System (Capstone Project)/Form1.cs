@@ -155,13 +155,16 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (CbShowPass.Checked)
+            if (tbPassword.Text != "Password")
             {
-                tbPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                tbPassword.UseSystemPasswordChar = true;
+                if (CbShowPass.Checked)
+                {
+                    tbPassword.UseSystemPasswordChar = false;
+                }
+                else
+                {
+                    tbPassword.UseSystemPasswordChar = true;
+                }
             }
         }
 
@@ -175,6 +178,18 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             failedLoginAttempts = 0;
             cooldownStartTime = DateTime.MinValue;
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+            if(CbShowPass.Checked)
+            {
+                tbPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tbPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }

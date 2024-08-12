@@ -36,6 +36,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnImport = new System.Windows.Forms.Button();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.cbProgram = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.tbStudContact = new System.Windows.Forms.TextBox();
             this.tbIDNum = new System.Windows.Forms.TextBox();
             this.tbStudName = new System.Windows.Forms.TextBox();
-            this.btnImport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -68,6 +68,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(851, 100);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnMinimize
             // 
@@ -149,6 +150,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(542, 505);
             this.panel2.TabIndex = 1;
+            // 
+            // btnImport
+            // 
+            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.ForeColor = System.Drawing.Color.Black;
+            this.btnImport.Location = new System.Drawing.Point(212, 11);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(89, 28);
+            this.btnImport.TabIndex = 17;
+            this.btnImport.Text = "IMPORT";
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // cbDepartment
             // 
@@ -293,20 +308,6 @@
             this.tbStudName.Name = "tbStudName";
             this.tbStudName.Size = new System.Drawing.Size(245, 22);
             this.tbStudName.TabIndex = 0;
-            // 
-            // btnImport
-            // 
-            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.ForeColor = System.Drawing.Color.Black;
-            this.btnImport.Location = new System.Drawing.Point(212, 11);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(89, 28);
-            this.btnImport.TabIndex = 17;
-            this.btnImport.Text = "IMPORT";
-            this.btnImport.UseVisualStyleBackColor = false;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // AddStudent
             // 
