@@ -45,6 +45,7 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
             this.menuStrip3.SuspendLayout();
+            this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip3
@@ -161,8 +162,8 @@
             this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem});
             this.comToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("comToolStripMenuItem.Image")));
             this.comToolStripMenuItem.Name = "comToolStripMenuItem";
-            this.comToolStripMenuItem.Size = new System.Drawing.Size(168, 68);
-            this.comToolStripMenuItem.Text = "Transaction Details";
+            this.comToolStripMenuItem.Size = new System.Drawing.Size(138, 68);
+            this.comToolStripMenuItem.Text = "Report Details";
             this.comToolStripMenuItem.Click += new System.EventHandler(this.comToolStripMenuItem_Click);
             // 
             // manuallyUpdateBorrowReturnTransactionsToolStripMenuItem
@@ -175,6 +176,7 @@
             // 
             this.panelContainer.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909_pre;
             this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelContainer.Controls.Add(this.lnklblLogOut);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 72);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -186,8 +188,10 @@
             // lnklblLogOut
             // 
             this.lnklblLogOut.AutoSize = true;
+            this.lnklblLogOut.BackColor = System.Drawing.Color.Transparent;
             this.lnklblLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnklblLogOut.Location = new System.Drawing.Point(1369, 27);
+            this.lnklblLogOut.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lnklblLogOut.Location = new System.Drawing.Point(1380, 22);
             this.lnklblLogOut.Name = "lnklblLogOut";
             this.lnklblLogOut.Size = new System.Drawing.Size(78, 18);
             this.lnklblLogOut.TabIndex = 0;
@@ -201,7 +205,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1492, 686);
-            this.Controls.Add(this.lnklblLogOut);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.menuStrip3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -212,6 +215,8 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
+            this.panelContainer.ResumeLayout(false);
+            this.panelContainer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
