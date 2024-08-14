@@ -1,6 +1,6 @@
 ﻿namespace Laboratory_Management_System__Capstone_Project_
 {
-    partial class ViewApparatus
+    partial class InventoryList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewApparatus));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryList));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -84,9 +84,9 @@
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(671, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(400, 34);
+            this.label1.Size = new System.Drawing.Size(375, 34);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Laboratory Apparatus List";
+            this.label1.Text = "Apparatus Inventory List";
             // 
             // pictureBox1
             // 
@@ -411,7 +411,7 @@
             this.panel3.Size = new System.Drawing.Size(1438, 42);
             this.panel3.TabIndex = 8;
             // 
-            // ViewApparatus
+            // InventoryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -427,7 +427,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "ViewApparatus";
+            this.Name = "InventoryList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Apparatus Inventory List";
             this.Load += new System.EventHandler(this.ViewApparatus_Load);

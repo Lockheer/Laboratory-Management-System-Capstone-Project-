@@ -42,8 +42,8 @@
             this.penaltyRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,8 +58,7 @@
             this.returnRecordsToolStripMenuItem,
             this.updateTransactionsToolStripMenuItem,
             this.penaltyRecordsToolStripMenuItem,
-            this.comToolStripMenuItem,
-            this.logoutToolStripMenuItem});
+            this.comToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -172,14 +171,6 @@
             this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem.Text = "Update ";
             // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(90, 68);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
             // panelContainer
             // 
             this.panelContainer.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909_pre;
@@ -192,12 +183,25 @@
             this.panelContainer.TabIndex = 4;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
+            // lnklblLogOut
+            // 
+            this.lnklblLogOut.AutoSize = true;
+            this.lnklblLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnklblLogOut.Location = new System.Drawing.Point(1369, 27);
+            this.lnklblLogOut.Name = "lnklblLogOut";
+            this.lnklblLogOut.Size = new System.Drawing.Size(78, 18);
+            this.lnklblLogOut.TabIndex = 0;
+            this.lnklblLogOut.TabStop = true;
+            this.lnklblLogOut.Text = "LOGOUT";
+            this.lnklblLogOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblLogOut_LinkClicked);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1492, 686);
+            this.Controls.Add(this.lnklblLogOut);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.menuStrip3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -225,9 +229,9 @@
         private System.Windows.Forms.ToolStripMenuItem returnRecordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem penaltyRecordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.ToolStripMenuItem manuallyUpdateBorrowReturnTransactionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateTransactionsToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel lnklblLogOut;
     }
 }

@@ -12,10 +12,10 @@ using System.Runtime.Remoting.Contexts;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
-    public partial class ViewApparatus : Form
+    public partial class InventoryList : Form
     {
         private const string PlaceholderText = "000.00";
-        public ViewApparatus()
+        public InventoryList()
         {
             InitializeComponent();
             tbPrice.Enter += tbPrice_Enter;

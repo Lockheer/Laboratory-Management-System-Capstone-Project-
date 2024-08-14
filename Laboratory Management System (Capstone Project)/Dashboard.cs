@@ -26,19 +26,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             panelContainer.Dock = DockStyle.Fill;
         }
 
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-            if (MessageBox.Show("Are you sure you want to log out?", "Confirmation",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-               
-                Form1 login = new Form1();
-                login.Show();
-                this.Hide();
-                }
-        }
-
         // Method to display forms in the panel container
         public void ShowFormInPanel(Form form)
         {
@@ -93,7 +80,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void viewApparatusListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ViewApparatus viewApp = new ViewApparatus();
+            InventoryList viewApp = new InventoryList();
             ShowFormInPanel(viewApp);
         }
 
@@ -145,6 +132,19 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void panelContainer_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void lnklblLogOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            if (MessageBox.Show("Are you sure you want to log out?", "Confirmation",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+                Form1 login = new Form1();
+                login.Show();
+                this.Hide();
+            }
         }
     }
 }
