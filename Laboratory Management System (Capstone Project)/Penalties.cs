@@ -306,62 +306,69 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void dgvPenalties_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ensure the clicked cell and row are within the valid range
-            if (e.RowIndex >= 0 && dgvPenalties.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            if (e.RowIndex >= 0)
             {
-                // Acquire the data that will match the Primary Key of the table
-                ID = int.Parse(dgvPenalties.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-                btnUpdate.Visible = true;
-
-                // Define the connection string
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-
-                using (SqlConnection con = new SqlConnection(connectionString))
+                // Check if the cell value is not null or empty
+                if (dgvPenalties.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null &&
+                    !string.IsNullOrWhiteSpace(dgvPenalties.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
                 {
-                    // Define the SQL command
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE studID = @ID", con);
-                    cmd.Parameters.AddWithValue("@ID", ID);
+                    // Acquire the data that will match the Primary Key of the table
+                    ID = int.Parse(dgvPenalties.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                    // Set up the data adapter with the command
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    btnUpdate.Visible = true;
 
-                    // To hold the data
-                    DataSet DS = new DataSet();
+                    // Define the connection string
+                    string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
 
-                    try
+                    using (SqlConnection con = new SqlConnection(connectionString))
                     {
-                        con.Open();
-                        // Fill the DataSet with data from the database
-                        DA.Fill(DS);
+                        // Define the SQL command
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE studID = @ID", con);
+                        cmd.Parameters.AddWithValue("@ID", ID);
 
-                        // Check if the query returned any results
-                        if (DS.Tables[0].Rows.Count > 0)
+                        // Set up the data adapter with the command
+                        SqlDataAdapter DA = new SqlDataAdapter(cmd);
+
+                        // To hold the data
+                        DataSet DS = new DataSet();
+
+                        try
                         {
-                            // Extract data from the first row
-                            rowid = Int64.Parse(DS.Tables[0].Rows[0]["PenaltyID"].ToString());
-                            tbIDnum.Text = DS.Tables[0].Rows[0]["[ID Number]"].ToString();
-                            tbStudentName.Text = DS.Tables[0].Rows[0]["[Student Name]"].ToString();
-                            tbContact.Text = DS.Tables[0].Rows[0]["[Contact Number]"].ToString();
-                            tbEmail.Text = DS.Tables[0].Rows[0]["[Email Address]"].ToString();
-                            dtpPenaltyDate.Text = DS.Tables[0].Rows[0]["[Penalty Issued Date]"].ToString();
-                            tbViolation.Text = DS.Tables[0].Rows[0]["[Violation]"].ToString();
-                            cbCondition.Text = DS.Tables[0].Rows[0]["[Penalty Condition]"].ToString();
-                            tbAmtToBe.Text = DS.Tables[0].Rows[0]["[Amount to be Paid]"].ToString();
-                            tbAmtPayed.Text = DS.Tables[0].Rows[0]["[Amount Received]"].ToString();
-                            lblRemainingBalance.Text = DS.Tables[0].Rows[0]["[Balance]"].ToString();
-                            cbStatus.Text = DS.Tables[0].Rows[0]["[Penalty Status]"].ToString();
-                            cbTransact.Text = DS.Tables[0].Rows[0]["[Transaction Reference Number]"].ToString();
+                            con.Open();
+                            // Fill the DataSet with data from the database
+                            DA.Fill(DS);
 
+                            // Check if the query returned any results
+                            if (DS.Tables[0].Rows.Count > 0)
+                            {
+                                // Extract data from the first row
+                                rowid = Int64.Parse(DS.Tables[0].Rows[0]["PenaltyID"].ToString());
+                                tbIDnum.Text = DS.Tables[0].Rows[0]["[ID Number]"].ToString();
+                                tbStudentName.Text = DS.Tables[0].Rows[0]["[Student Name]"].ToString();
+                                tbContact.Text = DS.Tables[0].Rows[0]["[Contact Number]"].ToString();
+                                tbEmail.Text = DS.Tables[0].Rows[0]["[Email Address]"].ToString();
+                                dtpPenaltyDate.Text = DS.Tables[0].Rows[0]["[Penalty Issued Date]"].ToString();
+                                tbViolation.Text = DS.Tables[0].Rows[0]["[Violation]"].ToString();
+                                cbCondition.Text = DS.Tables[0].Rows[0]["[Penalty Condition]"].ToString();
+                                tbAmtToBe.Text = DS.Tables[0].Rows[0]["[Amount to be Paid]"].ToString();
+                                tbAmtPayed.Text = DS.Tables[0].Rows[0]["[Amount Received]"].ToString();
+                                lblRemainingBalance.Text = DS.Tables[0].Rows[0]["[Balance]"].ToString();
+                                cbStatus.Text = DS.Tables[0].Rows[0]["[Penalty Status]"].ToString();
+                                cbTransact.Text = DS.Tables[0].Rows[0]["[Transaction Reference Number]"].ToString();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred: " + ex.Message);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
+                }
+                else
+                {
+                    // Display an error message if the cell is empty or null
+                    MessageBox.Show("The selected cell is empty. Please select a valid cell.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-
-
         }
 
 
@@ -472,5 +479,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             this.Close();
         }
+
+       
     }
 }

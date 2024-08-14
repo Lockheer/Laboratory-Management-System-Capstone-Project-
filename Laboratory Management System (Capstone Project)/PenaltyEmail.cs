@@ -59,45 +59,47 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void dgvViewPenaltyRecords_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ensure the clicked cell and row are within the valid range
-            if (e.RowIndex >= 0 && dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            if (e.RowIndex >= 0)
             {
-
-                ID = int.Parse(dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-              
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-
-                using (SqlConnection con = new SqlConnection(connectionString))
+                // Check if the cell value is not null or empty
+                if (dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null &&
+                    !string.IsNullOrWhiteSpace(dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
                 {
-               
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM LaboratoryPenalties WHERE PenaltyID = @ID", con);
-                    cmd.Parameters.AddWithValue("@ID", ID);
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                    DataSet DS = new DataSet();
+                    ID = int.Parse(dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                    try
+                    string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+
+                    using (SqlConnection con = new SqlConnection(connectionString))
                     {
-                        con.Open();
-                        // Fill the DataSet with data from the database
-                        DA.Fill(DS);
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM LaboratoryPenalties WHERE PenaltyID = @ID", con);
+                        cmd.Parameters.AddWithValue("@ID", ID);
+                        SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                        DataSet DS = new DataSet();
 
-                        // Check if the query returned any results
-                        if (DS.Tables[0].Rows.Count > 0)
+                        try
                         {
-                            // Extract data from the first row
-                            rowid = Int64.Parse(DS.Tables[0].Rows[0]["PenaltyID"].ToString());
-                            tbEmailRecipient.Text = DS.Tables[0].Rows[0]["[Email Address]"].ToString();
+                            con.Open();
+                            DA.Fill(DS);
 
+                            //Checks if the query returned any results
+                            if (DS.Tables[0].Rows.Count > 0)
+                            {
+                                //Extracts data from the first row
+                                rowid = Int64.Parse(DS.Tables[0].Rows[0]["PenaltyID"].ToString());
+                                tbEmailRecipient.Text = DS.Tables[0].Rows[0]["[Email Address]"].ToString();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred: " + ex.Message);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
                 }
-
-
-
+                else
+                {
+                    // Display an error message if the cell is empty or null
+                    MessageBox.Show("The selected cell is empty. Please select a valid cell.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 

@@ -410,6 +410,7 @@
             this.dgvPenalties.Size = new System.Drawing.Size(1224, 423);
             this.dgvPenalties.TabIndex = 0;
             this.dgvPenalties.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPenalties_CellClick);
+       
             // 
             // tbSearchPenalty
             // 
