@@ -102,6 +102,20 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-      
+        private void chckSHowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chckSHowPass.Checked)
+            {
+                // Show password
+                tbNewPassword.UseSystemPasswordChar = false;
+                chckSHowPass.Text = "Hide Password";
+            }
+            else
+            {
+                // Hide password
+                tbNewPassword.UseSystemPasswordChar = true;
+                chckSHowPass.Text = "Show Password";
+            }
+        }
     }
 }

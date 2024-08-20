@@ -68,6 +68,8 @@
             this.lblShowPass = new System.Windows.Forms.Label();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.lblRole = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.lblCredentials = new System.Windows.Forms.Label();
             this.groupGender.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +77,7 @@
             // tbFirstName
             // 
             this.tbFirstName.Location = new System.Drawing.Point(154, 92);
-            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(143, 20);
             this.tbFirstName.TabIndex = 0;
@@ -89,7 +91,7 @@
             // tbLastName
             // 
             this.tbLastName.Location = new System.Drawing.Point(154, 130);
-            this.tbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(2);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(143, 20);
             this.tbLastName.TabIndex = 2;
@@ -97,7 +99,7 @@
             // tbMiddleName
             // 
             this.tbMiddleName.Location = new System.Drawing.Point(154, 167);
-            this.tbMiddleName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMiddleName.Margin = new System.Windows.Forms.Padding(2);
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(76, 20);
             this.tbMiddleName.TabIndex = 3;
@@ -105,7 +107,7 @@
             // tbUsername
             // 
             this.tbUsername.Location = new System.Drawing.Point(556, 92);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(115, 20);
             this.tbUsername.TabIndex = 5;
@@ -155,7 +157,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(481, 97);
+            this.lblUsername.Location = new System.Drawing.Point(494, 97);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(58, 13);
@@ -195,7 +197,7 @@
             // tbPass
             // 
             this.tbPass.Location = new System.Drawing.Point(576, 162);
-            this.tbPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(2);
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(95, 20);
             this.tbPass.TabIndex = 15;
@@ -204,7 +206,7 @@
             // tbConfirmPass
             // 
             this.tbConfirmPass.Location = new System.Drawing.Point(576, 190);
-            this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(2);
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(95, 20);
             this.tbConfirmPass.TabIndex = 16;
@@ -213,7 +215,7 @@
             // btnRegister
             // 
             this.btnRegister.Location = new System.Drawing.Point(598, 375);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(106, 37);
             this.btnRegister.TabIndex = 17;
@@ -224,7 +226,7 @@
             // btnRefresh
             // 
             this.btnRefresh.Location = new System.Drawing.Point(598, 417);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(106, 36);
             this.btnRefresh.TabIndex = 18;
@@ -234,7 +236,7 @@
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(598, 457);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(106, 36);
             this.btnBack.TabIndex = 19;
@@ -247,9 +249,9 @@
             this.groupGender.Controls.Add(this.radiobtnMale);
             this.groupGender.Controls.Add(this.lblGender);
             this.groupGender.Location = new System.Drawing.Point(41, 348);
-            this.groupGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupGender.Margin = new System.Windows.Forms.Padding(2);
             this.groupGender.Name = "groupGender";
-            this.groupGender.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupGender.Padding = new System.Windows.Forms.Padding(2);
             this.groupGender.Size = new System.Drawing.Size(180, 102);
             this.groupGender.TabIndex = 20;
             this.groupGender.TabStop = false;
@@ -259,7 +261,7 @@
             // 
             this.radiobtnFemale.AutoSize = true;
             this.radiobtnFemale.Location = new System.Drawing.Point(4, 38);
-            this.radiobtnFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radiobtnFemale.Margin = new System.Windows.Forms.Padding(2);
             this.radiobtnFemale.Name = "radiobtnFemale";
             this.radiobtnFemale.Size = new System.Drawing.Size(59, 17);
             this.radiobtnFemale.TabIndex = 1;
@@ -272,7 +274,7 @@
             // 
             this.radiobtnMale.AutoSize = true;
             this.radiobtnMale.Location = new System.Drawing.Point(4, 17);
-            this.radiobtnMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radiobtnMale.Margin = new System.Windows.Forms.Padding(2);
             this.radiobtnMale.Name = "radiobtnMale";
             this.radiobtnMale.Size = new System.Drawing.Size(48, 17);
             this.radiobtnMale.TabIndex = 0;
@@ -294,7 +296,7 @@
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(152, 198);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(145, 20);
             this.tbEmail.TabIndex = 22;
@@ -312,7 +314,7 @@
             // tbID
             // 
             this.tbID.Location = new System.Drawing.Point(152, 228);
-            this.tbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(76, 20);
             this.tbID.TabIndex = 24;
@@ -330,7 +332,7 @@
             // tbContactNumber
             // 
             this.tbContactNumber.Location = new System.Drawing.Point(152, 263);
-            this.tbContactNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbContactNumber.Margin = new System.Windows.Forms.Padding(2);
             this.tbContactNumber.Name = "tbContactNumber";
             this.tbContactNumber.Size = new System.Drawing.Size(108, 20);
             this.tbContactNumber.TabIndex = 26;
@@ -349,7 +351,7 @@
             // dtpBirthdate
             // 
             this.dtpBirthdate.Location = new System.Drawing.Point(152, 302);
-            this.dtpBirthdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpBirthdate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(186, 20);
             this.dtpBirthdate.TabIndex = 30;
@@ -357,7 +359,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Location = new System.Drawing.Point(41, 457);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(106, 37);
             this.btnPrevious.TabIndex = 31;
@@ -368,7 +370,7 @@
             // btnNext
             // 
             this.btnNext.Location = new System.Drawing.Point(152, 457);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(106, 37);
             this.btnNext.TabIndex = 32;
@@ -382,7 +384,7 @@
             this.panel1.Controls.Add(this.btnMinimize);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(815, 32);
             this.panel1.TabIndex = 33;
@@ -396,7 +398,7 @@
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.Black;
             this.btnMinimize.Location = new System.Drawing.Point(731, -1);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(38, 37);
             this.btnMinimize.TabIndex = 21;
@@ -413,7 +415,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(775, -1);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(38, 37);
             this.btnExit.TabIndex = 20;
@@ -425,7 +427,7 @@
             // 
             this.chkShowPass.AutoSize = true;
             this.chkShowPass.Location = new System.Drawing.Point(674, 162);
-            this.chkShowPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkShowPass.Margin = new System.Windows.Forms.Padding(2);
             this.chkShowPass.Name = "chkShowPass";
             this.chkShowPass.Size = new System.Drawing.Size(15, 14);
             this.chkShowPass.TabIndex = 35;
@@ -446,7 +448,7 @@
             // 
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Location = new System.Drawing.Point(576, 222);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(2);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(92, 21);
             this.cbRole.TabIndex = 37;
@@ -461,11 +463,35 @@
             this.lblRole.TabIndex = 38;
             this.lblRole.Text = "Set Role:";
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(80, 55);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(165, 18);
+            this.lblInfo.TabIndex = 39;
+            this.lblInfo.Text = "Personal Information";
+            // 
+            // lblCredentials
+            // 
+            this.lblCredentials.AutoSize = true;
+            this.lblCredentials.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCredentials.Location = new System.Drawing.Point(483, 55);
+            this.lblCredentials.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCredentials.Name = "lblCredentials";
+            this.lblCredentials.Size = new System.Drawing.Size(159, 18);
+            this.lblCredentials.TabIndex = 40;
+            this.lblCredentials.Text = "User log credentials";
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 526);
+            this.Controls.Add(this.lblCredentials);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.lblShowPass);
@@ -499,7 +525,7 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbFirstName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RegistrationForm";
             this.Text = "RegisterForm";
             this.Load += new System.EventHandler(this.RegistrationForm_Load);
@@ -552,5 +578,7 @@
         private System.Windows.Forms.Label lblShowPass;
         private System.Windows.Forms.ComboBox cbRole;
         private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label lblCredentials;
     }
 }

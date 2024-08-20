@@ -44,9 +44,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             chkShowPass.Hide();
             lblShowPass.Hide();
             btnRegister.Hide();
-            lblRole.Hide();
-            cbRole.Hide();
             btnPrevious.Hide();
+            lblCredentials.Hide();
             LoadRoles();
         }
 
@@ -254,6 +253,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbContactNumber.Visible = false;
             lblBirth.Visible = false;
             btnNext.Visible = false;
+            lblRole.Visible = false;
+            cbRole.Visible = false;
+            lblInfo.Visible = false;
 
             lblUsername.Visible = true;
             tbUsername.Visible = true;
@@ -265,9 +267,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             chkShowPass.Visible = true;
             lblShowPass.Visible = true;
             btnRegister.Visible = true;
-            lblRole.Visible = true;
-            cbRole.Visible = true;
             btnPrevious.Visible = true;
+            lblCredentials.Visible = true;
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -287,6 +288,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             dtpBirthdate.Visible = true;
             groupGender.Visible = true;
             btnNext.Visible = true;
+            lblRole.Visible = true;
+            cbRole.Visible = true;
+            lblInfo.Visible = true;
 
             lblUsername.Visible = false;
             tbUsername.Visible = false;
@@ -298,9 +302,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             chkShowPass.Visible = false;
             lblShowPass.Visible = false;
             btnRegister.Visible = false;
-            lblRole.Visible = false;
-            cbRole.Visible = false;
             btnPrevious.Visible = false;
+            lblCredentials.Visible = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
