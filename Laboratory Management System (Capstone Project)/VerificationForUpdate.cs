@@ -53,7 +53,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             var hashedPassword = hashHelper.CreateMD5Hash(hashHelper.CreateMD5Hash(tbConfirmPass.Text));
 
-            var admin = db.AdminAccounts
+            var admin = db.Accounts
                           .Where(o => o.AccountID == Form1.Session.AccountID && o.Password == hashedPassword)
                           .FirstOrDefault();
 

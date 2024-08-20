@@ -30,12 +30,12 @@ namespace Laboratory_Management_System__Capstone_Project_
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAdminAccount(AdminAccount instance);
-    partial void UpdateAdminAccount(AdminAccount instance);
-    partial void DeleteAdminAccount(AdminAccount instance);
-    partial void InsertAdminRegister(AdminRegister instance);
-    partial void UpdateAdminRegister(AdminRegister instance);
-    partial void DeleteAdminRegister(AdminRegister instance);
+    partial void InsertAccount(Account instance);
+    partial void UpdateAccount(Account instance);
+    partial void DeleteAccount(Account instance);
+    partial void InsertUserRegistration(UserRegistration instance);
+    partial void UpdateUserRegistration(UserRegistration instance);
+    partial void DeleteUserRegistration(UserRegistration instance);
     #endregion
 		
 		public RegistrationAccountDataContext() : 
@@ -68,32 +68,32 @@ namespace Laboratory_Management_System__Capstone_Project_
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<AdminAccount> AdminAccounts
+		public System.Data.Linq.Table<Account> Accounts
 		{
 			get
 			{
-				return this.GetTable<AdminAccount>();
+				return this.GetTable<Account>();
 			}
 		}
 		
-		public System.Data.Linq.Table<AdminRegister> AdminRegisters
+		public System.Data.Linq.Table<UserRegistration> UserRegistrations
 		{
 			get
 			{
-				return this.GetTable<AdminRegister>();
+				return this.GetTable<UserRegistration>();
 			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_REGISTER")]
-		public ISingleResult<SP_REGISTERResult> SP_REGISTER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="First_Name", DbType="VarChar(255)")] string first_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Last_Name", DbType="VarChar(255)")] string last_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Middle_Name", DbType="NVarChar(60)")] string middle_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(60)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_number", DbType="NVarChar(255)")] string iD_number, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contact_number", DbType="NVarChar(50)")] string contact_number, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthdate", DbType="NVarChar(30)")] string birthdate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(255)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(60)")] string password)
+		public int SP_REGISTER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="First_Name", DbType="VarChar(255)")] string first_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Last_Name", DbType="VarChar(255)")] string last_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Middle_Name", DbType="NVarChar(60)")] string middle_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(60)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_number", DbType="NVarChar(255)")] string iD_number, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contact_number", DbType="NVarChar(50)")] string contact_number, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthdate", DbType="NVarChar(50)")] string birthdate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(255)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(60)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleID", DbType="Int")] System.Nullable<int> roleID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), first_Name, last_Name, middle_Name, email, gender, iD_number, contact_number, birthdate, username, password);
-			return ((ISingleResult<SP_REGISTERResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), first_Name, last_Name, middle_Name, email, gender, iD_number, contact_number, birthdate, username, password, roleID);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AdminAccount")]
-	public partial class AdminAccount : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Accounts")]
+	public partial class Account : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -104,9 +104,11 @@ namespace Laboratory_Management_System__Capstone_Project_
 		
 		private string _Password;
 		
-		private System.Nullable<int> _AdminID;
+		private int _UserID;
 		
-		private EntityRef<AdminRegister> _AdminRegister;
+		private int _RoleID;
+		
+		private EntityRef<UserRegistration> _UserRegistration;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -118,13 +120,15 @@ namespace Laboratory_Management_System__Capstone_Project_
     partial void OnUsernameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
-    partial void OnAdminIDChanging(System.Nullable<int> value);
-    partial void OnAdminIDChanged();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnRoleIDChanging(int value);
+    partial void OnRoleIDChanged();
     #endregion
 		
-		public AdminAccount()
+		public Account()
 		{
-			this._AdminRegister = default(EntityRef<AdminRegister>);
+			this._UserRegistration = default(EntityRef<UserRegistration>);
 			OnCreated();
 		}
 		
@@ -188,60 +192,80 @@ namespace Laboratory_Management_System__Capstone_Project_
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminID", DbType="Int")]
-		public System.Nullable<int> AdminID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
+		public int UserID
 		{
 			get
 			{
-				return this._AdminID;
+				return this._UserID;
 			}
 			set
 			{
-				if ((this._AdminID != value))
+				if ((this._UserID != value))
 				{
-					if (this._AdminRegister.HasLoadedOrAssignedValue)
+					if (this._UserRegistration.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnAdminIDChanging(value);
+					this.OnUserIDChanging(value);
 					this.SendPropertyChanging();
-					this._AdminID = value;
-					this.SendPropertyChanged("AdminID");
-					this.OnAdminIDChanged();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AdminRegister_AdminAccount", Storage="_AdminRegister", ThisKey="AdminID", OtherKey="AdminID", IsForeignKey=true)]
-		public AdminRegister AdminRegister
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", DbType="Int NOT NULL")]
+		public int RoleID
 		{
 			get
 			{
-				return this._AdminRegister.Entity;
+				return this._RoleID;
 			}
 			set
 			{
-				AdminRegister previousValue = this._AdminRegister.Entity;
+				if ((this._RoleID != value))
+				{
+					this.OnRoleIDChanging(value);
+					this.SendPropertyChanging();
+					this._RoleID = value;
+					this.SendPropertyChanged("RoleID");
+					this.OnRoleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserRegistration_Account", Storage="_UserRegistration", ThisKey="UserID", OtherKey="UserID", IsForeignKey=true)]
+		public UserRegistration UserRegistration
+		{
+			get
+			{
+				return this._UserRegistration.Entity;
+			}
+			set
+			{
+				UserRegistration previousValue = this._UserRegistration.Entity;
 				if (((previousValue != value) 
-							|| (this._AdminRegister.HasLoadedOrAssignedValue == false)))
+							|| (this._UserRegistration.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._AdminRegister.Entity = null;
-						previousValue.AdminAccounts.Remove(this);
+						this._UserRegistration.Entity = null;
+						previousValue.Accounts.Remove(this);
 					}
-					this._AdminRegister.Entity = value;
+					this._UserRegistration.Entity = value;
 					if ((value != null))
 					{
-						value.AdminAccounts.Add(this);
-						this._AdminID = value.AdminID;
+						value.Accounts.Add(this);
+						this._UserID = value.UserID;
 					}
 					else
 					{
-						this._AdminID = default(Nullable<int>);
+						this._UserID = default(int);
 					}
-					this.SendPropertyChanged("AdminRegister");
+					this.SendPropertyChanged("UserRegistration");
 				}
 			}
 		}
@@ -267,13 +291,13 @@ namespace Laboratory_Management_System__Capstone_Project_
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AdminRegister")]
-	public partial class AdminRegister : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserRegistration")]
+	public partial class UserRegistration : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _AdminID;
+		private int _UserID;
 		
 		private string _First_Name;
 		
@@ -291,14 +315,14 @@ namespace Laboratory_Management_System__Capstone_Project_
 		
 		private string _Birthdate;
 		
-		private EntitySet<AdminAccount> _AdminAccounts;
+		private EntitySet<Account> _Accounts;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnAdminIDChanging(int value);
-    partial void OnAdminIDChanged();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
     partial void OnFirst_NameChanging(string value);
     partial void OnFirst_NameChanged();
     partial void OnLast_NameChanging(string value);
@@ -317,28 +341,28 @@ namespace Laboratory_Management_System__Capstone_Project_
     partial void OnBirthdateChanged();
     #endregion
 		
-		public AdminRegister()
+		public UserRegistration()
 		{
-			this._AdminAccounts = new EntitySet<AdminAccount>(new Action<AdminAccount>(this.attach_AdminAccounts), new Action<AdminAccount>(this.detach_AdminAccounts));
+			this._Accounts = new EntitySet<Account>(new Action<Account>(this.attach_Accounts), new Action<Account>(this.detach_Accounts));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int AdminID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UserID
 		{
 			get
 			{
-				return this._AdminID;
+				return this._UserID;
 			}
 			set
 			{
-				if ((this._AdminID != value))
+				if ((this._UserID != value))
 				{
-					this.OnAdminIDChanging(value);
+					this.OnUserIDChanging(value);
 					this.SendPropertyChanging();
-					this._AdminID = value;
-					this.SendPropertyChanged("AdminID");
-					this.OnAdminIDChanged();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
 				}
 			}
 		}
@@ -483,7 +507,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthdate", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthdate", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Birthdate
 		{
 			get
@@ -503,16 +527,16 @@ namespace Laboratory_Management_System__Capstone_Project_
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AdminRegister_AdminAccount", Storage="_AdminAccounts", ThisKey="AdminID", OtherKey="AdminID")]
-		public EntitySet<AdminAccount> AdminAccounts
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserRegistration_Account", Storage="_Accounts", ThisKey="UserID", OtherKey="UserID")]
+		public EntitySet<Account> Accounts
 		{
 			get
 			{
-				return this._AdminAccounts;
+				return this._Accounts;
 			}
 			set
 			{
-				this._AdminAccounts.Assign(value);
+				this._Accounts.Assign(value);
 			}
 		}
 		
@@ -536,42 +560,16 @@ namespace Laboratory_Management_System__Capstone_Project_
 			}
 		}
 		
-		private void attach_AdminAccounts(AdminAccount entity)
+		private void attach_Accounts(Account entity)
 		{
 			this.SendPropertyChanging();
-			entity.AdminRegister = this;
+			entity.UserRegistration = this;
 		}
 		
-		private void detach_AdminAccounts(AdminAccount entity)
+		private void detach_Accounts(Account entity)
 		{
 			this.SendPropertyChanging();
-			entity.AdminRegister = null;
-		}
-	}
-	
-	public partial class SP_REGISTERResult
-	{
-		
-		private System.Nullable<int> _Column1;
-		
-		public SP_REGISTERResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
-		public System.Nullable<int> Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
-				}
-			}
+			entity.UserRegistration = null;
 		}
 	}
 }

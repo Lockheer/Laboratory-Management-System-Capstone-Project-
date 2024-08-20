@@ -115,6 +115,12 @@
     <Compile Include="BorrowingApparatus.Designer.cs">
       <DependentUpon>BorrowingApparatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePassVerification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassVerification.Designer.cs">
+      <DependentUpon>ChangePassVerification.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetPin.cs" />
     <Compile Include="Helpers\HashHelpers.cs" />
     <Compile Include="Penalties.cs">
       <SubType>Form</SubType>
@@ -171,6 +178,7 @@
     <Compile Include="SendingForm.Designer.cs">
       <DependentUpon>SendingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="smtp_Framework.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TransactionDetails.cs">
       <SubType>Form</SubType>
@@ -210,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowingApparatus.resx">
       <DependentUpon>BorrowingApparatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassVerification.resx">
+      <DependentUpon>ChangePassVerification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>

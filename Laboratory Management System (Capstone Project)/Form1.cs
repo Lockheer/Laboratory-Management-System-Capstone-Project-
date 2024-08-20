@@ -81,9 +81,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             // Appliance of Double hashing to ensure security
             var hashedPassword = hashHelper.CreateMD5Hash(hashHelper.CreateMD5Hash(tbPassword.Text));
-            var admin = db.AdminAccounts
-                           .Where(o => o.Username == tbUsername.Text && o.Password == hashedPassword)
-                           .FirstOrDefault();
+            var admin = db.Accounts.Where(o => o.Username == tbUsername.Text && o.Password == hashedPassword).FirstOrDefault();
 
             if (admin == null)
             {
@@ -104,9 +102,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             failedLoginAttempts = 0;
 
             // Stores the AccountID in the static Session class
-            Session.AccountID = admin.AccountID;
+            Form1.Session.AccountID = admin.AccountID;
 
-            
+
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Hide(); 
@@ -190,6 +188,12 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 tbPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void lnklblChangePass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ChangePassVerification changePass = new ChangePassVerification();
+            changePass.ShowDialog();
         }
     }
 }

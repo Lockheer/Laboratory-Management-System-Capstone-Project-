@@ -1,9 +1,3 @@
-﻿using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Windows.Forms;
-using System;
-using System.Windows.Forms.VisualStyles;
-
 namespace Laboratory_Management_System__Capstone_Project_
 {
     public partial class Dashboard : Form
@@ -21,15 +15,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             panelContainer.Dock = DockStyle.Fill;
 
             int currentAccountId = GetCurrentAccountId();
-            if (currentAccountId == -1)
-            {
-                MessageBox.Show("Invalid session. Please log in again.", "Session Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Form1 login = new Form1();
-                login.Show();
-                this.Hide();
-                return;
-            }
-
             string userRole = GetUserRole(currentAccountId);
 
             // Restrict access based on user role
@@ -48,7 +33,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             string role = string.Empty;
 
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
             string query = @"
             SELECT r.RoleName
             FROM Accounts a
@@ -64,6 +49,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     connection.Open();
                     object result = command.ExecuteScalar();
+
                     if (result != null)
                     {
                         role = result.ToString();
@@ -71,7 +57,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
 
@@ -81,15 +67,20 @@ namespace Laboratory_Management_System__Capstone_Project_
         // Method to display forms in the panel container
         public void ShowFormInPanel(Form form)
         {
+            // Clears the existing controls
             panelContainer.Controls.Clear();
+
+            // form properties
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
+
+            // Adding the form to the panel
             panelContainer.Controls.Add(form);
             form.Show();
         }
 
-        // Method to handle the Form closed event
+        //method to handle the Form closed event
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form form = sender as Form;
@@ -97,24 +88,28 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 openForms.Remove(form.GetType());
                 form.FormClosed -= Form_FormClosed; // Unsubscribe from the event
-                form.Dispose(); // Release resources
             }
         }
 
-        // Method to restrict multiple instances of a form
+        // Method to restrict multiple instances of a form in order to prevent duplications
         private void ShowRestrictedForm(Form form)
         {
+            // Check if the form type is already open
             if (openForms.ContainsKey(form.GetType()))
             {
-                MessageBox.Show($"{form.Text} is already open.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{form.Text} is already opened.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
+            // Event handler to remove form from the dictionary when closed
             form.FormClosed += Form_FormClosed;
+
+            // Show the form and add it to the dictionary
             form.Show();
             openForms[form.GetType()] = form;
         }
 
+        // Buttons from panel with the applied form restriction
         private void addANewApparatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddApparatus addApparatus = new AddApparatus();
@@ -165,17 +160,25 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void updateTransactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             VerificationForUpdate verification = new VerificationForUpdate(this);
             ShowRestrictedForm(verification);
+            //UpdateBorrowReturnTransaction updateTransact = new UpdateBorrowReturnTransaction();
+            //ShowFormInPanel(updateTransact);
         }
 
-    
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         private void lnklblLogOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
             if (MessageBox.Show("Are you sure you want to log out?", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+
                 Form1 login = new Form1();
                 login.Show();
                 this.Hide();

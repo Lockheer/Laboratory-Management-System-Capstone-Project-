@@ -225,5 +225,9 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

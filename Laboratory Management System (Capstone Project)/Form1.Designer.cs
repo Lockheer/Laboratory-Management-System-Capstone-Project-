@@ -230,6 +230,7 @@
             this.lnklblChangePass.TabIndex = 14;
             this.lnklblChangePass.TabStop = true;
             this.lnklblChangePass.Text = "Change Password";
+            this.lnklblChangePass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblChangePass_LinkClicked);
             // 
             // Form1
             // 

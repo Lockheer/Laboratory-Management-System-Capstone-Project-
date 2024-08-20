@@ -1,10 +1,12 @@
 ﻿using Laboratory_Management_System__Capstone_Project_.Helpers;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,21 +17,17 @@ namespace Laboratory_Management_System__Capstone_Project_
     {
         RegistrationAccountDataContext db = new RegistrationAccountDataContext();
         HashHelpers hashHelper = new HashHelpers();
-
-        public ChangePasswordForm()
+        string email = "";
+        public ChangePasswordForm(string email)
         {
             InitializeComponent();
+            this.email = email;
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrEmpty(tbCurrentPassword.Text))
-                {
-                    MessageBox.Show("Please enter your current password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
                 if (string.IsNullOrEmpty(tbNewPassword.Text) || string.IsNullOrEmpty(tbConfirmPassword.Text))
                 {
@@ -50,25 +48,34 @@ namespace Laboratory_Management_System__Capstone_Project_
                     return;
                 }
 
-                // Hash the current password for validation
-                var hashedCurrentPassword = hashHelper.CreateMD5Hash(hashHelper.CreateMD5Hash(tbCurrentPassword.Text));
+                // Hash the new password
+                var hashedNewPassword = hashHelper.CreateMD5Hash(hashHelper.CreateMD5Hash(tbNewPassword.Text));
 
-                // Fetch the current user's record from the database
-                var admin = db.AdminAccounts
-                               .Where(o => o.AccountID == Form1.Session.AccountID && o.Password == hashedCurrentPassword)
+                // Fetch the user record from UserRegistrations based on email
+                var admin = db.UserRegistrations
+                               //.Where(o => o.AccountID == Form1.Session.AccountID && o.Password == hashedCurrentPassword)
+                               .Where(u => u.Email == email)
                                .FirstOrDefault();
 
                 if (admin == null)
                 {
-                    MessageBox.Show("Incorrect current password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Hash the new password
-                var hashedNewPassword = hashHelper.CreateMD5Hash(hashHelper.CreateMD5Hash(tbNewPassword.Text));
+
+                var admin2 = db.Accounts
+                               .Where(o => o.AccountID == admin.UserID )
+                                .FirstOrDefault();
+
+                if (admin2 == null)
+                {
+                    MessageBox.Show("Account not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 // Update the password in the database
-                admin.Password = hashedNewPassword;
+                admin2.Password = hashedNewPassword;
                 db.SubmitChanges();
 
                 MessageBox.Show("Password changed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

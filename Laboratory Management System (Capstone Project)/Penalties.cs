@@ -480,6 +480,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.Close();
         }
 
-       
+        private void dgvPenalties_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

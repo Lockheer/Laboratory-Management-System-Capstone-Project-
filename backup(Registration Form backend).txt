@@ -1,39 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Net;
-using System.Text.RegularExpressions;
-using Laboratory_Management_System__Capstone_Project_.Helpers;
-
-
-namespace Laboratory_Management_System__Capstone_Project_
+/**namespace Laboratory_Management_System__Capstone_Project_
 {
     public partial class RegistrationForm : Form
     {
         string gender;
+      
 
         public RegistrationForm()
         {
             InitializeComponent();
-            // Key press event handler for the Contact Number input
+            //Key press event handler for the Contact Number input
             tbContactNumber.KeyPress += new KeyPressEventHandler(tbContactNumber_KeyPress);
         }
-
-        // Connecting to DataContext class from SQL
+        //Connecting to DataContext class from SQL
         RegistrationAccountDataContext db = new RegistrationAccountDataContext();
 
-        // Hashing 
+        //Hashing 
         HashHelpers hashHelper = new HashHelpers();
+
+
 
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
+          
             lblUsername.Hide();
             tbUsername.Hide();
             lblPassword.Hide();
@@ -46,8 +34,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             btnRegister.Hide();
             lblRole.Hide();
             cbRole.Hide();
-            btnPrevious.Hide();
             LoadRoles();
+
         }
 
         private void LoadRoles()
@@ -65,17 +53,14 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                     while (reader.Read())
                     {
-                        var roleName = reader.GetString(1);
-                        var roleID = reader.GetInt32(0);
-
-                        // Create a new ComboBoxItem with RoleName as the text and RoleID in the Tag property
-                        ComboBoxItem item = new ComboBoxItem
+                        // Create a new ComboBox item with RoleID and RoleName
+                        var role = new
                         {
-                            Text = roleName,
-                            Tag = roleID
+                            RoleID = reader.GetInt32(0),
+                            RoleName = reader.GetString(1)
                         };
 
-                        cbRole.Items.Add(item);
+                        cbRole.Items.Add(role);
                     }
 
                     // Close reader
@@ -88,7 +73,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        // Restriction for the ContactNumber input
+
+        //Restriction for the ContactNumber input
         private void tbContactNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -96,6 +82,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 e.Handled = true;
             }
         }
+
 
         private void radiobtnMale_CheckedChanged(object sender, EventArgs e)
         {
@@ -106,12 +93,13 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void radiobtnFemale_CheckedChanged(object sender, EventArgs e)
         {
             gender = "Female";
-            lblGender.Text = gender;
+            lblGender.Text = gender;    
         }
 
         private void textBox5_Enter(object sender, EventArgs e)
         {
-            lblReminder.Show();
+            
+                lblReminder.Show();
         }
 
         private void textBox5_Leave(object sender, EventArgs e)
@@ -119,10 +107,11 @@ namespace Laboratory_Management_System__Capstone_Project_
             lblReminder.Hide();
         }
 
-        // Registration Method and Event
+        //Registration Method and Event
         private void btnRegister_Click(object sender, EventArgs e)
         {
             db = new RegistrationAccountDataContext();
+
 
             if (cbRole.SelectedItem == null)
             {
@@ -130,12 +119,12 @@ namespace Laboratory_Management_System__Capstone_Project_
                 return;
             }
 
-            // Retrieve the selected role
-            ComboBoxItem selectedItem = (ComboBoxItem)cbRole.SelectedItem;
-            int roleID = (int)selectedItem.Tag;
+            var selectedRole = (dynamic)cbRole.SelectedItem;
+            //obtaining the RoleID
+            int roleID = selectedRole.RoleID;
 
             // Check if Admin role limit is reached
-            if (selectedItem.Text == "Admin")
+            if (selectedRole.RoleName == "Admin")
             {
                 using (SqlConnection conn = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
@@ -150,6 +139,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
+
+
+
 
             // Restrictions for valid email
             if (!tbEmail.Text.Contains("@") || !tbEmail.Text.Contains("."))
@@ -236,6 +228,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.Hide();
         }
 
+
+      
+
         private void btnNext_Click(object sender, EventArgs e)
         {
             lbFN.Visible = false;
@@ -253,21 +248,21 @@ namespace Laboratory_Management_System__Capstone_Project_
             groupGender.Visible = false;
             tbContactNumber.Visible = false;
             lblBirth.Visible = false;
-            btnNext.Visible = false;
+
 
             lblUsername.Visible = true;
             tbUsername.Visible = true;
-            lblPassword.Visible = true;
+            lblPassword.Visible =  true;
             tbPass.Visible = true;
             lblConfirm.Visible = true;
             tbConfirmPass.Visible = true;
             lblReminder.Visible = true;
             chkShowPass.Visible = true;
             lblShowPass.Visible = true;
-            btnRegister.Visible = true;
+           btnRegister.Visible = true;
             lblRole.Visible = true;
             cbRole.Visible = true;
-            btnPrevious.Visible = true;
+
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -286,7 +281,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbContactNumber.Visible = true;
             dtpBirthdate.Visible = true;
             groupGender.Visible = true;
-            btnNext.Visible = true;
+        
+
 
             lblUsername.Visible = false;
             tbUsername.Visible = false;
@@ -300,12 +296,13 @@ namespace Laboratory_Management_System__Capstone_Project_
             btnRegister.Visible = false;
             lblRole.Visible = false;
             cbRole.Visible = false;
-            btnPrevious.Visible = false;
+
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+           this.Close();
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -313,33 +310,18 @@ namespace Laboratory_Management_System__Capstone_Project_
             WindowState = FormWindowState.Minimized;
         }
 
-
         private void chkShowPass_CheckedChanged(object sender, EventArgs e)
         {
             if (chkShowPass.Checked)
             {
                 // Show password
                 tbPass.UseSystemPasswordChar = false;
-                lblShowPass.Text = "Hide Password";
             }
             else
             {
                 // Hide password
                 tbPass.UseSystemPasswordChar = true;
-                lblShowPass.Text = "Show Password";
-            }
-        }
-
-        // Define a class to hold role data
-        public class ComboBoxItem
-        {
-            public string Text { get; set; }
-            public object Tag { get; set; }
-
-            public override string ToString()
-            {
-                return Text; // This will be displayed in the ComboBox
             }
         }
     }
-}
+}**/

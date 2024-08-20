@@ -66,15 +66,18 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.chkShowPass = new System.Windows.Forms.CheckBox();
             this.lblShowPass = new System.Windows.Forms.Label();
+            this.cbRole = new System.Windows.Forms.ComboBox();
+            this.lblRole = new System.Windows.Forms.Label();
             this.groupGender.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(206, 113);
+            this.tbFirstName.Location = new System.Drawing.Point(154, 92);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(189, 22);
+            this.tbFirstName.Size = new System.Drawing.Size(143, 20);
             this.tbFirstName.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -85,23 +88,26 @@
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(206, 160);
+            this.tbLastName.Location = new System.Drawing.Point(154, 130);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(189, 22);
+            this.tbLastName.Size = new System.Drawing.Size(143, 20);
             this.tbLastName.TabIndex = 2;
             // 
             // tbMiddleName
             // 
-            this.tbMiddleName.Location = new System.Drawing.Point(206, 205);
+            this.tbMiddleName.Location = new System.Drawing.Point(154, 167);
+            this.tbMiddleName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbMiddleName.Name = "tbMiddleName";
-            this.tbMiddleName.Size = new System.Drawing.Size(100, 22);
+            this.tbMiddleName.Size = new System.Drawing.Size(76, 20);
             this.tbMiddleName.TabIndex = 3;
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(741, 113);
+            this.tbUsername.Location = new System.Drawing.Point(556, 92);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(152, 22);
+            this.tbUsername.Size = new System.Drawing.Size(115, 20);
             this.tbUsername.TabIndex = 5;
             this.tbUsername.Enter += new System.EventHandler(this.textBox5_Enter);
             this.tbUsername.Leave += new System.EventHandler(this.textBox5_Leave);
@@ -109,96 +115,107 @@
             // lbFN
             // 
             this.lbFN.AutoSize = true;
-            this.lbFN.Location = new System.Drawing.Point(106, 119);
+            this.lbFN.Location = new System.Drawing.Point(80, 97);
+            this.lbFN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFN.Name = "lbFN";
-            this.lbFN.Size = new System.Drawing.Size(75, 16);
+            this.lbFN.Size = new System.Drawing.Size(60, 13);
             this.lbFN.TabIndex = 7;
             this.lbFN.Text = "First Name:";
             // 
             // lbLN
             // 
             this.lbLN.AutoSize = true;
-            this.lbLN.Location = new System.Drawing.Point(106, 160);
+            this.lbLN.Location = new System.Drawing.Point(80, 130);
+            this.lbLN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbLN.Name = "lbLN";
-            this.lbLN.Size = new System.Drawing.Size(75, 16);
+            this.lbLN.Size = new System.Drawing.Size(61, 13);
             this.lbLN.TabIndex = 8;
             this.lbLN.Text = "Last Name:";
             // 
             // lbMN
             // 
             this.lbMN.AutoSize = true;
-            this.lbMN.Location = new System.Drawing.Point(106, 208);
+            this.lbMN.Location = new System.Drawing.Point(80, 169);
+            this.lbMN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbMN.Name = "lbMN";
-            this.lbMN.Size = new System.Drawing.Size(91, 16);
+            this.lbMN.Size = new System.Drawing.Size(72, 13);
             this.lbMN.TabIndex = 9;
             this.lbMN.Text = "Middle Name:";
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(6, 96);
+            this.lblGender.Location = new System.Drawing.Point(4, 78);
+            this.lblGender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(55, 16);
+            this.lblGender.Size = new System.Drawing.Size(45, 13);
             this.lblGender.TabIndex = 10;
             this.lblGender.Text = "Gender:";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(641, 119);
+            this.lblUsername.Location = new System.Drawing.Point(481, 97);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(73, 16);
+            this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 11;
             this.lblUsername.Text = "Username:";
             // 
             // lblReminder
             // 
             this.lblReminder.AutoSize = true;
-            this.lblReminder.Location = new System.Drawing.Point(641, 149);
+            this.lblReminder.Location = new System.Drawing.Point(481, 121);
+            this.lblReminder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReminder.Name = "lblReminder";
-            this.lblReminder.Size = new System.Drawing.Size(321, 16);
+            this.lblReminder.Size = new System.Drawing.Size(259, 13);
             this.lblReminder.TabIndex = 12;
             this.lblReminder.Text = "Take Note: Your ID Number will be your USERNAME";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(668, 199);
+            this.lblPassword.Location = new System.Drawing.Point(501, 162);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(70, 16);
+            this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 13;
             this.lblPassword.Text = "Password:";
             // 
             // lblConfirm
             // 
             this.lblConfirm.AutoSize = true;
-            this.lblConfirm.Location = new System.Drawing.Point(644, 237);
+            this.lblConfirm.Location = new System.Drawing.Point(483, 193);
+            this.lblConfirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConfirm.Name = "lblConfirm";
-            this.lblConfirm.Size = new System.Drawing.Size(118, 16);
+            this.lblConfirm.Size = new System.Drawing.Size(94, 13);
             this.lblConfirm.TabIndex = 14;
             this.lblConfirm.Text = "Confirm Password:";
             // 
             // tbPass
             // 
-            this.tbPass.Location = new System.Drawing.Point(768, 199);
+            this.tbPass.Location = new System.Drawing.Point(576, 162);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(125, 22);
+            this.tbPass.Size = new System.Drawing.Size(95, 20);
             this.tbPass.TabIndex = 15;
             this.tbPass.UseSystemPasswordChar = true;
             // 
             // tbConfirmPass
             // 
-            this.tbConfirmPass.Location = new System.Drawing.Point(768, 234);
+            this.tbConfirmPass.Location = new System.Drawing.Point(576, 190);
+            this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbConfirmPass.Name = "tbConfirmPass";
-            this.tbConfirmPass.Size = new System.Drawing.Size(125, 22);
+            this.tbConfirmPass.Size = new System.Drawing.Size(95, 20);
             this.tbConfirmPass.TabIndex = 16;
             this.tbConfirmPass.UseSystemPasswordChar = true;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(797, 461);
+            this.btnRegister.Location = new System.Drawing.Point(598, 375);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(142, 46);
+            this.btnRegister.Size = new System.Drawing.Size(106, 37);
             this.btnRegister.TabIndex = 17;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -206,18 +223,20 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(797, 513);
+            this.btnRefresh.Location = new System.Drawing.Point(598, 417);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(142, 44);
+            this.btnRefresh.Size = new System.Drawing.Size(106, 36);
             this.btnRefresh.TabIndex = 18;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(797, 563);
+            this.btnBack.Location = new System.Drawing.Point(598, 457);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(142, 44);
+            this.btnBack.Size = new System.Drawing.Size(106, 36);
             this.btnBack.TabIndex = 19;
             this.btnBack.Text = "Back to Login";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -227,9 +246,11 @@
             this.groupGender.Controls.Add(this.radiobtnFemale);
             this.groupGender.Controls.Add(this.radiobtnMale);
             this.groupGender.Controls.Add(this.lblGender);
-            this.groupGender.Location = new System.Drawing.Point(55, 428);
+            this.groupGender.Location = new System.Drawing.Point(41, 348);
+            this.groupGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupGender.Name = "groupGender";
-            this.groupGender.Size = new System.Drawing.Size(240, 125);
+            this.groupGender.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupGender.Size = new System.Drawing.Size(180, 102);
             this.groupGender.TabIndex = 20;
             this.groupGender.TabStop = false;
             this.groupGender.Text = "Gender:";
@@ -237,9 +258,10 @@
             // radiobtnFemale
             // 
             this.radiobtnFemale.AutoSize = true;
-            this.radiobtnFemale.Location = new System.Drawing.Point(6, 47);
+            this.radiobtnFemale.Location = new System.Drawing.Point(4, 38);
+            this.radiobtnFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radiobtnFemale.Name = "radiobtnFemale";
-            this.radiobtnFemale.Size = new System.Drawing.Size(74, 20);
+            this.radiobtnFemale.Size = new System.Drawing.Size(59, 17);
             this.radiobtnFemale.TabIndex = 1;
             this.radiobtnFemale.TabStop = true;
             this.radiobtnFemale.Text = "Female";
@@ -249,9 +271,10 @@
             // radiobtnMale
             // 
             this.radiobtnMale.AutoSize = true;
-            this.radiobtnMale.Location = new System.Drawing.Point(6, 21);
+            this.radiobtnMale.Location = new System.Drawing.Point(4, 17);
+            this.radiobtnMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radiobtnMale.Name = "radiobtnMale";
-            this.radiobtnMale.Size = new System.Drawing.Size(58, 20);
+            this.radiobtnMale.Size = new System.Drawing.Size(48, 17);
             this.radiobtnMale.TabIndex = 0;
             this.radiobtnMale.TabStop = true;
             this.radiobtnMale.Text = "Male";
@@ -261,73 +284,82 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(153, 244);
+            this.lblEmail.Location = new System.Drawing.Point(115, 198);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(44, 16);
+            this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 21;
             this.lblEmail.Text = "Email:";
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(203, 244);
+            this.tbEmail.Location = new System.Drawing.Point(152, 198);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(192, 22);
+            this.tbEmail.Size = new System.Drawing.Size(145, 20);
             this.tbEmail.TabIndex = 22;
             // 
             // lbIDnum
             // 
             this.lbIDnum.AutoSize = true;
-            this.lbIDnum.Location = new System.Drawing.Point(123, 281);
+            this.lbIDnum.Location = new System.Drawing.Point(92, 228);
+            this.lbIDnum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbIDnum.Name = "lbIDnum";
-            this.lbIDnum.Size = new System.Drawing.Size(74, 16);
+            this.lbIDnum.Size = new System.Drawing.Size(61, 13);
             this.lbIDnum.TabIndex = 23;
             this.lbIDnum.Text = "ID Number:";
             // 
             // tbID
             // 
-            this.tbID.Location = new System.Drawing.Point(203, 281);
+            this.tbID.Location = new System.Drawing.Point(152, 228);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(100, 22);
+            this.tbID.Size = new System.Drawing.Size(76, 20);
             this.tbID.TabIndex = 24;
             // 
             // lbContact
             // 
             this.lbContact.AutoSize = true;
-            this.lbContact.Location = new System.Drawing.Point(91, 324);
+            this.lbContact.Location = new System.Drawing.Point(68, 263);
+            this.lbContact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbContact.Name = "lbContact";
-            this.lbContact.Size = new System.Drawing.Size(106, 16);
+            this.lbContact.Size = new System.Drawing.Size(87, 13);
             this.lbContact.TabIndex = 25;
             this.lbContact.Text = "Contact Number:";
             // 
             // tbContactNumber
             // 
-            this.tbContactNumber.Location = new System.Drawing.Point(203, 324);
+            this.tbContactNumber.Location = new System.Drawing.Point(152, 263);
+            this.tbContactNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbContactNumber.Name = "tbContactNumber";
-            this.tbContactNumber.Size = new System.Drawing.Size(143, 22);
+            this.tbContactNumber.Size = new System.Drawing.Size(108, 20);
             this.tbContactNumber.TabIndex = 26;
             this.tbContactNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbContactNumber_KeyPress);
             // 
             // lblBirth
             // 
             this.lblBirth.AutoSize = true;
-            this.lblBirth.Location = new System.Drawing.Point(91, 377);
+            this.lblBirth.Location = new System.Drawing.Point(68, 306);
+            this.lblBirth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBirth.Name = "lblBirth";
-            this.lblBirth.Size = new System.Drawing.Size(82, 16);
+            this.lblBirth.Size = new System.Drawing.Size(69, 13);
             this.lblBirth.TabIndex = 27;
             this.lblBirth.Text = "Date of Birth:";
             // 
             // dtpBirthdate
             // 
-            this.dtpBirthdate.Location = new System.Drawing.Point(203, 372);
+            this.dtpBirthdate.Location = new System.Drawing.Point(152, 302);
+            this.dtpBirthdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpBirthdate.Name = "dtpBirthdate";
-            this.dtpBirthdate.Size = new System.Drawing.Size(247, 22);
+            this.dtpBirthdate.Size = new System.Drawing.Size(186, 20);
             this.dtpBirthdate.TabIndex = 30;
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(55, 563);
+            this.btnPrevious.Location = new System.Drawing.Point(41, 457);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(142, 46);
+            this.btnPrevious.Size = new System.Drawing.Size(106, 37);
             this.btnPrevious.TabIndex = 31;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
@@ -335,9 +367,10 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(203, 563);
+            this.btnNext.Location = new System.Drawing.Point(152, 457);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(142, 46);
+            this.btnNext.Size = new System.Drawing.Size(106, 37);
             this.btnNext.TabIndex = 32;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -349,8 +382,9 @@
             this.panel1.Controls.Add(this.btnMinimize);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1087, 39);
+            this.panel1.Size = new System.Drawing.Size(815, 32);
             this.panel1.TabIndex = 33;
             // 
             // btnMinimize
@@ -361,10 +395,10 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.Black;
-            this.btnMinimize.Location = new System.Drawing.Point(975, -1);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMinimize.Location = new System.Drawing.Point(731, -1);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(51, 46);
+            this.btnMinimize.Size = new System.Drawing.Size(38, 37);
             this.btnMinimize.TabIndex = 21;
             this.btnMinimize.Text = "___";
             this.btnMinimize.UseVisualStyleBackColor = false;
@@ -378,10 +412,10 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(1033, -1);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Location = new System.Drawing.Point(775, -1);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(51, 46);
+            this.btnExit.Size = new System.Drawing.Size(38, 37);
             this.btnExit.TabIndex = 20;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -390,9 +424,10 @@
             // chkShowPass
             // 
             this.chkShowPass.AutoSize = true;
-            this.chkShowPass.Location = new System.Drawing.Point(899, 200);
+            this.chkShowPass.Location = new System.Drawing.Point(674, 162);
+            this.chkShowPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkShowPass.Name = "chkShowPass";
-            this.chkShowPass.Size = new System.Drawing.Size(18, 17);
+            this.chkShowPass.Size = new System.Drawing.Size(15, 14);
             this.chkShowPass.TabIndex = 35;
             this.chkShowPass.UseVisualStyleBackColor = true;
             this.chkShowPass.CheckedChanged += new System.EventHandler(this.chkShowPass_CheckedChanged);
@@ -400,17 +435,39 @@
             // lblShowPass
             // 
             this.lblShowPass.AutoSize = true;
-            this.lblShowPass.Location = new System.Drawing.Point(923, 199);
+            this.lblShowPass.Location = new System.Drawing.Point(692, 162);
+            this.lblShowPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblShowPass.Name = "lblShowPass";
-            this.lblShowPass.Size = new System.Drawing.Size(103, 16);
+            this.lblShowPass.Size = new System.Drawing.Size(83, 13);
             this.lblShowPass.TabIndex = 36;
             this.lblShowPass.Text = "Show Password";
             // 
+            // cbRole
+            // 
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Location = new System.Drawing.Point(576, 222);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(92, 21);
+            this.cbRole.TabIndex = 37;
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Location = new System.Drawing.Point(521, 225);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(51, 13);
+            this.lblRole.TabIndex = 38;
+            this.lblRole.Text = "Set Role:";
+            // 
             // RegistrationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 647);
+            this.ClientSize = new System.Drawing.Size(812, 526);
+            this.Controls.Add(this.lblRole);
+            this.Controls.Add(this.cbRole);
             this.Controls.Add(this.lblShowPass);
             this.Controls.Add(this.chkShowPass);
             this.Controls.Add(this.panel1);
@@ -442,6 +499,7 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbFirstName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RegistrationForm";
             this.Text = "RegisterForm";
             this.Load += new System.EventHandler(this.RegistrationForm_Load);
@@ -492,5 +550,7 @@
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.CheckBox chkShowPass;
         private System.Windows.Forms.Label lblShowPass;
+        private System.Windows.Forms.ComboBox cbRole;
+        private System.Windows.Forms.Label lblRole;
     }
 }

@@ -92,7 +92,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SendingForm";
-    
+            this.Load += new System.EventHandler(this.SendingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
