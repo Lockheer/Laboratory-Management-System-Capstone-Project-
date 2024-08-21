@@ -1,0 +1,47 @@
+USE [LabManagSys]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_REGISTER]    Script Date: 17/08/2024 10:30:48 am ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_REGISTER] 
+    @First_Name varchar(255),
+    @Last_Name varchar(255),
+    @Middle_Name nvarchar(60),
+    @Email nvarchar(255),
+    @Gender varchar(60),
+    @ID_number nvarchar(255),
+    @Contact_number nvarchar(50),
+    @Birthdate nvarchar(50),
+    @Username nvarchar(255),
+    @Password nvarchar(60),
+    @RoleID int
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Check if RoleID is Admin and limit to 4 users
+    IF EXISTS (SELECT 1 FROM Roles WHERE RoleID = @RoleID AND RoleName = 'Admin')
+    BEGIN
+        IF (SELECT COUNT(*) FROM Accounts WHERE RoleID = @RoleID) >= 4
+        BEGIN
+            RAISERROR('The Admin role can only have up to 4 users.', 16, 1);
+            RETURN;
+        END
+    END
+
+    -- Insert into UserRegistration
+    INSERT INTO UserRegistration
+    (First_Name, Last_Name, Middle_Name, Email, Gender, ID_number, Contact_Number, Birthdate)
+    VALUES
+    (@First_Name, @Last_Name, @Middle_Name, @Email, @Gender, @ID_number, @Contact_number, @Birthdate);
+
+    -- Declare and set the @CurrentUserID variable
+    DECLARE @CurrentUserID int;
+    SELECT @CurrentUserID = SCOPE_IDENTITY();
+
+    -- Insert into Accounts with the correct @CurrentUserID and RoleID
+    INSERT INTO Accounts (Username, [Password], UserID, RoleID)
+    VALUES (@Username, @Password, @CurrentUserID, @RoleID);
+END
