@@ -39,28 +39,27 @@
             // 
             // tbNewPassword
             // 
-            this.tbNewPassword.Location = new System.Drawing.Point(204, 66);
-            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNewPassword.Location = new System.Drawing.Point(272, 84);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.Size = new System.Drawing.Size(220, 20);
+            this.tbNewPassword.Size = new System.Drawing.Size(292, 22);
             this.tbNewPassword.TabIndex = 1;
             // 
             // tbConfirmPassword
             // 
-            this.tbConfirmPassword.Location = new System.Drawing.Point(204, 102);
-            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(272, 126);
+            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.Size = new System.Drawing.Size(220, 20);
+            this.tbConfirmPassword.Size = new System.Drawing.Size(292, 22);
             this.tbConfirmPassword.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(96, 66);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(127, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 17);
+            this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "New Password:";
             // 
@@ -68,10 +67,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(74, 103);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(97, 128);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 17);
+            this.label3.Size = new System.Drawing.Size(169, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Confirm Password:";
             // 
@@ -81,10 +79,10 @@
             this.btnChangePassword.FlatAppearance.BorderSize = 50;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.Location = new System.Drawing.Point(204, 161);
-            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChangePassword.Location = new System.Drawing.Point(272, 198);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(166, 38);
+            this.btnChangePassword.Size = new System.Drawing.Size(221, 47);
             this.btnChangePassword.TabIndex = 6;
             this.btnChangePassword.Text = "CHANGE PASSWORD";
             this.btnChangePassword.UseVisualStyleBackColor = true;
@@ -94,9 +92,10 @@
             // 
             this.chckSHowPass.AutoSize = true;
             this.chckSHowPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chckSHowPass.Location = new System.Drawing.Point(429, 69);
+            this.chckSHowPass.Location = new System.Drawing.Point(572, 85);
+            this.chckSHowPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chckSHowPass.Name = "chckSHowPass";
-            this.chckSHowPass.Size = new System.Drawing.Size(115, 17);
+            this.chckSHowPass.Size = new System.Drawing.Size(142, 21);
             this.chckSHowPass.TabIndex = 7;
             this.chckSHowPass.Text = "Show Password";
             this.chckSHowPass.UseVisualStyleBackColor = true;
@@ -106,18 +105,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(169, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(225, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 18);
+            this.label1.Size = new System.Drawing.Size(314, 23);
             this.label1.TabIndex = 8;
             this.label1.Text = "Time to Change your Password";
             // 
             // ChangePasswordForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 210);
+            this.ClientSize = new System.Drawing.Size(787, 258);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chckSHowPass);
             this.Controls.Add(this.btnChangePassword);
@@ -125,10 +123,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbConfirmPassword);
             this.Controls.Add(this.tbNewPassword);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ChangePasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Password";
+            this.Load += new System.EventHandler(this.ChangePasswordForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

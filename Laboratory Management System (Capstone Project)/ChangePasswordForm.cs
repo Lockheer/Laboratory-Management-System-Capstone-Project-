@@ -117,5 +117,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                 chckSHowPass.Text = "Show Password";
             }
         }
+
+        private void ChangePasswordForm_Load(object sender, EventArgs e)
+        {
+            tbNewPassword.PasswordChar = '*'; 
+            tbConfirmPassword.PasswordChar = '*';
+        }
     }
 }

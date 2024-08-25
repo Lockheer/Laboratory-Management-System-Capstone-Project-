@@ -35,6 +35,12 @@ namespace Laboratory_Management_System__Capstone_Project_
                   .Where(o => o.Email == tbEmail.Text)
                   .FirstOrDefault();
 
+            if (!tbEmail.Text.Contains("@") || !tbEmail.Text.Contains("."))
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
             if (tbEmail.Text == "")
             {
                 MessageBox.Show("Please enter your email address.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
