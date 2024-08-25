@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,12 +17,14 @@ namespace Laboratory_Management_System__Capstone_Project_
         [STAThread]
         static void Main()
         {
+           
             // Load native assemblies for spatial data types
             SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             //Application.Run(new Dashboard());
+            
            
         }
     }

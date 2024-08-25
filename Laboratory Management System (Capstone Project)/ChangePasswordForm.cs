@@ -107,13 +107,13 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (chckSHowPass.Checked)
             {
                 // Show password
-                tbNewPassword.UseSystemPasswordChar = false;
+                tbNewPassword.PasswordChar = '\0'; // Displays plain text
                 chckSHowPass.Text = "Hide Password";
             }
             else
             {
                 // Hide password
-                tbNewPassword.UseSystemPasswordChar = true;
+                tbNewPassword.PasswordChar = '*'; // Use '*' as the password char
                 chckSHowPass.Text = "Show Password";
             }
         }

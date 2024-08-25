@@ -194,6 +194,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             ChangePassVerification changePass = new ChangePassVerification();
             changePass.ShowDialog();
+            this.Hide();
         }
     }
 }

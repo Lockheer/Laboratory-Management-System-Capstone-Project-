@@ -85,8 +85,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                 ChangePasswordForm changePasswordForm = new ChangePasswordForm(tbEmail.Text);
                 changePasswordForm.Show();
                 this.Hide();
-                Form1 login = new Form1();
-                login.Hide();
+                Form1 form1 = new Form1();
+                form1.Hide();
             }
             else
             {
