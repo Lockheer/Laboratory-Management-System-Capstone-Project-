@@ -232,7 +232,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 string.IsNullOrEmpty(tbPass.Text) ||
                 string.IsNullOrEmpty(tbConfirmPass.Text))
             {
-                MessageBox.Show("Please fill in all the fields.");
+                MessageBox.Show("Please fill in all the necessary fields.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
