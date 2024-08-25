@@ -93,5 +93,11 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+        private void lnklblBack_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
     }
 }

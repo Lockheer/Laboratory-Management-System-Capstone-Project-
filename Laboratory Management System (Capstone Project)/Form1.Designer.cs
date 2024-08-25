@@ -32,7 +32,6 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CbShowPass = new System.Windows.Forms.CheckBox();
@@ -45,6 +44,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lnklblChangePass = new System.Windows.Forms.LinkLabel();
+            this.lnkLblRegister = new System.Windows.Forms.LinkLabel();
             this.pnelHeader.SuspendLayout();
             this.pnelControlBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -79,23 +79,14 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(210, 411);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(226, 411);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(195, 42);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Login";
+            this.button1.Text = "LOGIN";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(210, 471);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 39);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Register";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -223,14 +214,27 @@
             // lnklblChangePass
             // 
             this.lnklblChangePass.AutoSize = true;
-            this.lnklblChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnklblChangePass.Location = new System.Drawing.Point(238, 524);
+            this.lnklblChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnklblChangePass.Location = new System.Drawing.Point(255, 525);
             this.lnklblChangePass.Name = "lnklblChangePass";
-            this.lnklblChangePass.Size = new System.Drawing.Size(130, 18);
+            this.lnklblChangePass.Size = new System.Drawing.Size(136, 20);
             this.lnklblChangePass.TabIndex = 14;
             this.lnklblChangePass.TabStop = true;
-            this.lnklblChangePass.Text = "Change Password";
+            this.lnklblChangePass.Text = "Forgot Password";
             this.lnklblChangePass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblChangePass_LinkClicked);
+            // 
+            // lnkLblRegister
+            // 
+            this.lnkLblRegister.AutoSize = true;
+            this.lnkLblRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLblRegister.LinkColor = System.Drawing.Color.White;
+            this.lnkLblRegister.Location = new System.Drawing.Point(269, 466);
+            this.lnkLblRegister.Name = "lnkLblRegister";
+            this.lnkLblRegister.Size = new System.Drawing.Size(77, 22);
+            this.lnkLblRegister.TabIndex = 15;
+            this.lnkLblRegister.TabStop = true;
+            this.lnkLblRegister.Text = "Register";
+            this.lnkLblRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLblRegister_LinkClicked);
             // 
             // Form1
             // 
@@ -238,6 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(26)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(646, 638);
+            this.Controls.Add(this.lnkLblRegister);
             this.Controls.Add(this.lnklblChangePass);
             this.Controls.Add(this.pnelHeader);
             this.Controls.Add(this.lblHint);
@@ -246,7 +251,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
@@ -272,7 +276,6 @@
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label1;
@@ -284,6 +287,7 @@
         private System.Windows.Forms.Panel pnelControlBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.LinkLabel lnklblChangePass;
+        private System.Windows.Forms.LinkLabel lnkLblRegister;
     }
 }
 

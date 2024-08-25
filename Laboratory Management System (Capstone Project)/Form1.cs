@@ -40,13 +40,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             Application.Exit();
         }
 
-        // REGISTER BUTTON
-        private void button2_Click(object sender, EventArgs e)
-        {
-            RegistrationForm registrationForm = new RegistrationForm();
-            registrationForm.Show();
-            this.Hide();
-        }
 
         // LOGIN BUTTON
         private void button1_Click(object sender, EventArgs e)
@@ -196,6 +189,13 @@ namespace Laboratory_Management_System__Capstone_Project_
             ChangePassVerification changePass = new ChangePassVerification();
             changePass.ShowDialog();
           
+        }
+
+        private void lnkLblRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegistrationForm registrationForm = new RegistrationForm();
+            registrationForm.Show();
+            this.Hide();
         }
     }
 }

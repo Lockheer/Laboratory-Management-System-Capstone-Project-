@@ -356,5 +356,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                 return Text; // This will be displayed in the ComboBox
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Form1 login = new Form1();
+            login.Show();
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lnklblBack = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // tbEmail
@@ -124,7 +125,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(116, 294);
+            this.label4.Location = new System.Drawing.Point(150, 284);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(478, 20);
@@ -142,11 +143,25 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Email Address:";
             // 
+            // lnklblBack
+            // 
+            this.lnklblBack.AutoSize = true;
+            this.lnklblBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnklblBack.LinkColor = System.Drawing.Color.Blue;
+            this.lnklblBack.Location = new System.Drawing.Point(689, 338);
+            this.lnklblBack.Name = "lnklblBack";
+            this.lnklblBack.Size = new System.Drawing.Size(136, 18);
+            this.lnklblBack.TabIndex = 9;
+            this.lnklblBack.TabStop = true;
+            this.lnklblBack.Text = "BACK TO LOGIN";
+            this.lnklblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblBack_LinkClicked);
+            // 
             // ChangePassVerification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 343);
+            this.ClientSize = new System.Drawing.Size(865, 376);
+            this.Controls.Add(this.lnklblBack);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -177,5 +192,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel lnklblBack;
     }
 }
