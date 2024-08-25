@@ -142,9 +142,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Accounts WHERE RoleID = @RoleID", conn);
                     cmd.Parameters.AddWithValue("@RoleID", roleID);
                     int count = (int)cmd.ExecuteScalar();
-                    if (count >= 4)
+                    if (count >= 10)
                     {
-                        MessageBox.Show("The Admin role can only have up to 4 users.");
+                        MessageBox.Show("The Admin role can only have up to 10 registered users.");
                         return;
                     }
                 }
@@ -201,6 +201,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("Your username must be your ID Number.");
                 return;
             }
+
+
+            if (cbRole.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a role.","Error: No Role registered.", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
 
             // Validate ID number format
             if (tbID.TextLength != 10 || !tbID.Text.Contains("-"))
