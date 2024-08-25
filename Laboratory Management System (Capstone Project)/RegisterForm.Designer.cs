@@ -206,7 +206,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(797, 462);
+            this.btnRegister.Location = new System.Drawing.Point(821, 526);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(141, 46);
@@ -217,7 +217,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(797, 513);
+            this.btnRefresh.Location = new System.Drawing.Point(821, 588);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(141, 44);
@@ -227,7 +227,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(797, 562);
+            this.btnBack.Location = new System.Drawing.Point(821, 647);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(141, 44);
@@ -241,7 +241,7 @@
             this.groupGender.Controls.Add(this.radiobtnFemale);
             this.groupGender.Controls.Add(this.radiobtnMale);
             this.groupGender.Controls.Add(this.lblGender);
-            this.groupGender.Location = new System.Drawing.Point(55, 428);
+            this.groupGender.Location = new System.Drawing.Point(94, 479);
             this.groupGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupGender.Name = "groupGender";
             this.groupGender.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -347,7 +347,7 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(55, 562);
+            this.btnPrevious.Location = new System.Drawing.Point(94, 613);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(141, 46);
@@ -358,7 +358,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(203, 562);
+            this.btnNext.Location = new System.Drawing.Point(242, 613);
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(141, 46);
@@ -435,7 +435,7 @@
             // cbRole
             // 
             this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(768, 273);
+            this.cbRole.Location = new System.Drawing.Point(203, 420);
             this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(121, 24);
@@ -444,7 +444,7 @@
             // lblRole
             // 
             this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(695, 277);
+            this.lblRole.Location = new System.Drawing.Point(130, 424);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(62, 16);
             this.lblRole.TabIndex = 38;
@@ -474,7 +474,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 647);
+            this.ClientSize = new System.Drawing.Size(1096, 712);
             this.Controls.Add(this.lblCredentials);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.lblRole);
