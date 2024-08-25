@@ -85,13 +85,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                 ChangePasswordForm changePasswordForm = new ChangePasswordForm(tbEmail.Text);
                 changePasswordForm.Show();
                 this.Hide();
-                Form1 form1 = new Form1();
-                form1.Hide();
+             
             }
             else
             {
                 MessageBox.Show("Invalid Pin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
