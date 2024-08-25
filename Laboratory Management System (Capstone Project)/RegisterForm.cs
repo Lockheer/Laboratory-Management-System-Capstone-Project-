@@ -206,8 +206,13 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (cbRole.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a role.","Error: No Role registered.", MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+                return;
 
+            }else if (lblGender.Text == "Gender")
+            {
+                MessageBox.Show("Please choose your gender.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             // Validate ID number format
             if (tbID.TextLength != 10 || !tbID.Text.Contains("-"))
