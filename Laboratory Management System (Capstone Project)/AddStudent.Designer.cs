@@ -169,9 +169,9 @@
             // 
             this.cbDepartment.FormattingEnabled = true;
             this.cbDepartment.Items.AddRange(new object[] {
-            "CE (College Of Engineering)",
-            "COE (College Of Education)",
-            "CCS (College Of Computer Studies)",
+            "College Of Engineering",
+            "College Of Education",
+            "College Of Computer Studies",
             "Senior High School Branch"});
             this.cbDepartment.Location = new System.Drawing.Point(212, 287);
             this.cbDepartment.Name = "cbDepartment";
@@ -186,8 +186,10 @@
             "BSEE",
             "BSIE",
             "BSCE",
-            "BS-EDU (Elem)",
-            "BS-EDU(Secondary)",
+            "BS-EDU (Primary)",
+            "BS-EDU(Secondary English Major)",
+            "BS-EDU(Secondary Mathematics Major)",
+            "BS-EDU(Secondary Filipino Major)",
             "BSIT",
             "BSCpE",
             "BSCS",
@@ -196,6 +198,7 @@
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(109, 24);
             this.cbProgram.TabIndex = 15;
+            this.cbProgram.SelectedIndexChanged += new System.EventHandler(this.cbProgram_SelectedIndexChanged);
             // 
             // btnSave
             // 

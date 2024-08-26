@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewStudentInformation));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -54,8 +56,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnMinimize = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsInformation)).BeginInit();
@@ -75,7 +75,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1190, 130);
             this.panel1.TabIndex = 0;
-         
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimize.ForeColor = System.Drawing.Color.Black;
+            this.btnMinimize.Location = new System.Drawing.Point(1032, 0);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(66, 44);
+            this.btnMinimize.TabIndex = 41;
+            this.btnMinimize.Text = "-";
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(1104, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(65, 42);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label2
             // 
@@ -186,9 +215,9 @@
             // 
             this.cbDept.FormattingEnabled = true;
             this.cbDept.Items.AddRange(new object[] {
-            "CE (College Of Engineering)",
-            "COE (College Of Education)",
-            "CCS (College Of Computer Studies)",
+            "College Of Engineering",
+            "College Of Education",
+            "College Of Computer Studies",
             "Senior High School Branch"});
             this.cbDept.Location = new System.Drawing.Point(795, 129);
             this.cbDept.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -204,8 +233,10 @@
             "BSEE",
             "BSIE",
             "BSCE",
-            "BS-EDU (Elem)",
-            "BS-EDU(Secondary)",
+            "BS-EDU (Primary)",
+            "BS-EDU(Secondary English Major)",
+            "BS-EDU(Secondary Mathematics Major)",
+            "BS-EDU(Secondary Filipino Major)",
             "BSIT",
             "BSCpE",
             "BSCS",
@@ -213,8 +244,9 @@
             this.cbProgram.Location = new System.Drawing.Point(795, 84);
             this.cbProgram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbProgram.Name = "cbProgram";
-            this.cbProgram.Size = new System.Drawing.Size(252, 24);
+            this.cbProgram.Size = new System.Drawing.Size(135, 24);
             this.cbProgram.TabIndex = 22;
+            this.cbProgram.SelectedIndexChanged += new System.EventHandler(this.cbProgram_SelectedIndexChanged);
             // 
             // btnClearAll
             // 
@@ -359,36 +391,6 @@
             this.label4.Size = new System.Drawing.Size(133, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Student Name:";
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(1104, 2);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(65, 42);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinimize.ForeColor = System.Drawing.Color.Black;
-            this.btnMinimize.Location = new System.Drawing.Point(1032, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(66, 44);
-            this.btnMinimize.TabIndex = 41;
-            this.btnMinimize.Text = "-";
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // ViewStudentInformation
             // 

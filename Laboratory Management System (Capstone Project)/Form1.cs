@@ -46,13 +46,13 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             if (string.IsNullOrEmpty(tbUsername.Text) || tbUsername.Text == "Username")
             {
-                MessageBox.Show("Please enter a username.");
+                MessageBox.Show("Please enter your username.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
             if (string.IsNullOrEmpty(tbPassword.Text) || tbPassword.Text == "Password")
             {
-                MessageBox.Show("Please enter a password.");
+                MessageBox.Show("Please enter your password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
 
-            // Appliance of Double hashing to ensure security
+            //Double hashing
             var hashedPassword = hashHelper.CreateMD5Hash(hashHelper.CreateMD5Hash(tbPassword.Text));
             var admin = db.Accounts.Where(o => o.Username == tbUsername.Text && o.Password == hashedPassword).FirstOrDefault();
 
@@ -86,7 +86,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password.");
+                    MessageBox.Show("Invalid username or password.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 return;
             }

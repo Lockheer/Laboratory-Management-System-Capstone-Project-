@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using OfficeOpenXml;
+using System.Text.RegularExpressions;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -18,6 +19,8 @@ namespace Laboratory_Management_System__Capstone_Project_
         public AddStudent()
         {
             InitializeComponent();
+           
+            cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -48,7 +51,8 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (tbIDNum.Text != "" && tbStudName.Text != "" && tbStudEmail.Text != ""
-                && tbStudContact.Text != "" && cbProgram.Text != "" && cbDepartment.Text != "")
+                && tbStudContact.Text != "" && cbProgram.Text != "" && cbDepartment.Text != "" && cbProgram.SelectedIndex != -1 &&
+                cbDepartment.SelectedIndex != -1)
             {
                 String name = tbStudName.Text;
                 String idnum = tbIDNum.Text;
@@ -71,15 +75,25 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                     if (count > 0)
                     {
+
+
                         MessageBox.Show("The email address or contact number already exists. Please use a different one.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+
+
+                    } //Contact number validation
                     else if (tbStudContact.TextLength < 10 || tbStudContact.TextLength > 11)
                     {
+
                         MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    }//email address validation using Regular expression classes 
+                    else if(!Regex.IsMatch(tbStudEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+                    {
+                        MessageBox.Show("Please enter a valid email address.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
-                        // Proceed with insertion if no duplicate is found
+                        // Proceed with insertion
                         SqlCommand command = new SqlCommand("insert into Students (Student_Name, ID_Number, Email_Address, Contact_No, Program, Department) values (@Name, @IDNum, @Email, @Contact, @Program, @Department)", connect);
                         command.Parameters.AddWithValue("@Name", name);
                         command.Parameters.AddWithValue("@IDNum", idnum);
@@ -101,10 +115,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("Please input the following empty fields or textboxes.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            //if (tbStudContact.TextLength < 10 || tbStudContact.TextLength > 11)
-            //{
-            //    MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+          
         }
 
       
@@ -198,5 +209,48 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
 
         }
+
+
+        private void cbProgram_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Ensure controls are not null
+            if (cbProgram == null || cbDepartment == null) return;
+
+            // Ensure the selected item is not null
+            if (cbProgram.SelectedItem == null) return;
+
+            // Automatically select the department based on the selected program
+            switch (cbProgram.SelectedItem.ToString())
+            {
+                case "BSCE":
+                case "BSME":
+                case "BSIE":
+                case "BSEE":
+                    cbDepartment.SelectedItem = "College Of Engineering";
+                    break;
+
+                case "BSIT":
+                case "BSCS":
+                case "BSCpE":
+                    cbDepartment.SelectedItem = "College Of Computer Studies";
+                    break;
+
+                case "BS-EDU (Primary)":
+                case "BS-EDU(Secondary English Major)":
+                case "BS-EDU(Secondary Mathematics Major)":
+                case "BS-EDU(Secondary Filipino Major)":
+                    cbDepartment.SelectedItem = "College Of Education";
+                    break;
+
+                case "SHS":
+                    cbDepartment.SelectedItem = "Senior High School Branch";
+                    break;
+
+                default:
+                    cbDepartment.SelectedIndex = -1; // Clear selection if no match is found
+                    break;
+            }
+        }
+
     }
 }

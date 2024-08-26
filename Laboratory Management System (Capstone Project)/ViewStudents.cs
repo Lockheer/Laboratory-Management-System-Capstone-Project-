@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -17,6 +18,12 @@ namespace Laboratory_Management_System__Capstone_Project_
         public ViewStudentInformation()
         {
             InitializeComponent();
+            cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
+        }
+
+        private void CbProgram_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -63,7 +70,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred: " + ex.Message);
+                        MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -100,7 +107,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred: " + ex.Message);
+                        MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -135,7 +142,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message);
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -191,7 +198,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("An error occurred: " + ex.Message);
+                            MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -207,15 +214,26 @@ namespace Laboratory_Management_System__Capstone_Project_
             String idnum = tbIDNum.Text;
             String email = tbEmail.Text;
             Int64 contactnum;
+            String program = cbProgram.Text;
+            String department = cbDept.Text;
 
             if (!Int64.TryParse(tbContactNum.Text, out contactnum))
             {
                 MessageBox.Show("Invalid contact number.");
                 return;
             }
-
-            String program = cbProgram.Text;
-            String department = cbDept.Text;
+            if (tbContactNum.TextLength < 10 || tbContactNum.TextLength > 11)
+            {
+                MessageBox.Show("Please enter a valid contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!Regex.IsMatch(tbEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(tbStudentName.Text) || string.IsNullOrEmpty(tbIDNum.Text) || string.IsNullOrEmpty(tbEmail.Text) || string.IsNullOrEmpty(tbContactNum.Text) || string.IsNullOrEmpty(cbProgram.Text) || string.IsNullOrEmpty(cbDept.Text))
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             if (MessageBox.Show("Student's Information will now be updated.\n" +
                 "\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -224,12 +242,8 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    if (tbContactNum.TextLength < 10 || tbContactNum.TextLength > 11)
-                    {
-                        MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                    else
-                    {
+                   
+                   
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
@@ -249,11 +263,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                             int rowsAffected = cmd.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
-                                MessageBox.Show("Student information updated successfully.");
+                                MessageBox.Show("Student information updated successfully.","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("No student found with the specified ID.");
+                                MessageBox.Show("No student found with the specified ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                             // Refresh the data grid view with the updated data
@@ -261,14 +275,14 @@ namespace Laboratory_Management_System__Capstone_Project_
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("An error occurred: " + ex.Message);
+                            MessageBox.Show("An error occurred: " + ex.Message, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         }
-                    }
+                    
                 }
             }
         }
 
-        //add more restrictions
+    
 
 
 
@@ -296,11 +310,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Student record deleted successfully.");
+                            MessageBox.Show("Student record deleted successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("No student found with the specified ID.");
+                            MessageBox.Show("No student found with the specified ID.","No ID Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                         // Refresh the data grid view with the updated data
@@ -308,7 +322,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred: " + ex.Message);
+                        MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -346,6 +360,47 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void cbProgram_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Ensure controls are not null
+            if (cbProgram == null || cbDept == null) return;
+
+            // Ensure the selected item is not null
+            if (cbProgram.SelectedItem == null) return;
+
+            // Automatically select the department based on the selected program
+            switch (cbProgram.SelectedItem.ToString())
+            {
+                case "BSCE":
+                case "BSME":
+                case "BSIE":
+                case "BSEE":
+                    cbDept.SelectedItem = "College Of Engineering";
+                    break;
+
+                case "BSIT":
+                case "BSCS":
+                case "BSCpE":
+                    cbDept.SelectedItem = "College Of Computer Studies";
+                    break;
+
+                case "BS-EDU (Primary)":
+                case "BS-EDU(Secondary English Major)":
+                case "BS-EDU(Secondary Mathematics Major)":
+                case "BS-EDU(Secondary Filipino Major)":
+                    cbDept.SelectedItem = "College Of Education";
+                    break;
+
+                case "SHS":
+                    cbDept.SelectedItem = "Senior High School Branch";
+                    break;
+
+                default:
+                    cbDept.SelectedIndex = -1; // Clear selection if no match is found
+                    break;
+            }
         }
     }
 }
