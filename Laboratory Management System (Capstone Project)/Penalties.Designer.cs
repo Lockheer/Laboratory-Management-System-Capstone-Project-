@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+       #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -65,6 +65,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnExitUpper = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.PanelCRUD.SuspendLayout();
             this.panelPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPenalties)).BeginInit();
@@ -72,6 +73,7 @@
             // 
             // PanelCRUD
             // 
+            this.PanelCRUD.Controls.Add(this.label9);
             this.PanelCRUD.Controls.Add(this.cbStatus);
             this.PanelCRUD.Controls.Add(this.panelPayment);
             this.PanelCRUD.Controls.Add(this.cbCondition);
@@ -82,6 +84,7 @@
             this.PanelCRUD.Controls.Add(this.btnSendEmail);
             this.PanelCRUD.Controls.Add(this.btnDetails);
             this.PanelCRUD.Controls.Add(this.btnBack);
+            this.PanelCRUD.Controls.Add(this.label7);
             this.PanelCRUD.Controls.Add(this.tbViolation);
             this.PanelCRUD.Controls.Add(this.label10);
             this.PanelCRUD.Controls.Add(this.tbContact);
@@ -89,7 +92,6 @@
             this.PanelCRUD.Controls.Add(this.tbStudentName);
             this.PanelCRUD.Controls.Add(this.tbIDnum);
             this.PanelCRUD.Controls.Add(this.label8);
-            this.PanelCRUD.Controls.Add(this.label7);
             this.PanelCRUD.Controls.Add(this.label6);
             this.PanelCRUD.Controls.Add(this.label5);
             this.PanelCRUD.Controls.Add(this.label4);
@@ -109,7 +111,7 @@
             this.cbStatus.Items.AddRange(new object[] {
             "Ongoing Penalty",
             "Cleared"});
-            this.cbStatus.Location = new System.Drawing.Point(203, 322);
+            this.cbStatus.Location = new System.Drawing.Point(207, 364);
             this.cbStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(151, 24);
@@ -188,7 +190,7 @@
             "Payment",
             "Item Replacement",
             "Borrowing Restriction"});
-            this.cbCondition.Location = new System.Drawing.Point(197, 239);
+            this.cbCondition.Location = new System.Drawing.Point(207, 327);
             this.cbCondition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCondition.Name = "cbCondition";
             this.cbCondition.Size = new System.Drawing.Size(176, 24);
@@ -198,16 +200,17 @@
             // cbTransact
             // 
             this.cbTransact.FormattingEnabled = true;
-            this.cbTransact.Location = new System.Drawing.Point(203, 281);
+            this.cbTransact.Location = new System.Drawing.Point(210, 74);
             this.cbTransact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTransact.Name = "cbTransact";
             this.cbTransact.Size = new System.Drawing.Size(151, 24);
             this.cbTransact.TabIndex = 33;
+            this.cbTransact.SelectedIndexChanged += new System.EventHandler(this.cbTransact_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(91, 326);
+            this.label11.Location = new System.Drawing.Point(95, 368);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 16);
             this.label11.TabIndex = 31;
@@ -243,10 +246,10 @@
             // 
             // btnDetails
             // 
-            this.btnDetails.Location = new System.Drawing.Point(379, 272);
+            this.btnDetails.Location = new System.Drawing.Point(386, 65);
             this.btnDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDetails.Name = "btnDetails";
-            this.btnDetails.Size = new System.Drawing.Size(203, 39);
+            this.btnDetails.Size = new System.Drawing.Size(175, 39);
             this.btnDetails.TabIndex = 23;
             this.btnDetails.Text = "CHECK DETAILS";
             this.btnDetails.UseVisualStyleBackColor = true;
@@ -265,7 +268,7 @@
             // 
             // tbViolation
             // 
-            this.tbViolation.Location = new System.Drawing.Point(200, 198);
+            this.tbViolation.Location = new System.Drawing.Point(210, 286);
             this.tbViolation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbViolation.Name = "tbViolation";
             this.tbViolation.Size = new System.Drawing.Size(324, 22);
@@ -274,7 +277,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(117, 198);
+            this.label10.Location = new System.Drawing.Point(127, 286);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 16);
             this.label10.TabIndex = 21;
@@ -282,7 +285,7 @@
             // 
             // tbContact
             // 
-            this.tbContact.Location = new System.Drawing.Point(203, 153);
+            this.tbContact.Location = new System.Drawing.Point(213, 241);
             this.tbContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(321, 22);
@@ -290,7 +293,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(203, 112);
+            this.tbEmail.Location = new System.Drawing.Point(213, 200);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(321, 22);
@@ -298,7 +301,7 @@
             // 
             // tbStudentName
             // 
-            this.tbStudentName.Location = new System.Drawing.Point(203, 71);
+            this.tbStudentName.Location = new System.Drawing.Point(213, 159);
             this.tbStudentName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbStudentName.Name = "tbStudentName";
             this.tbStudentName.Size = new System.Drawing.Size(321, 22);
@@ -306,7 +309,7 @@
             // 
             // tbIDnum
             // 
-            this.tbIDnum.Location = new System.Drawing.Point(203, 33);
+            this.tbIDnum.Location = new System.Drawing.Point(213, 121);
             this.tbIDnum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbIDnum.Name = "tbIDnum";
             this.tbIDnum.Size = new System.Drawing.Size(321, 22);
@@ -315,7 +318,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(80, 242);
+            this.label8.Location = new System.Drawing.Point(90, 330);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(114, 16);
             this.label8.TabIndex = 12;
@@ -324,7 +327,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 283);
+            this.label7.Location = new System.Drawing.Point(42, 76);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(158, 16);
             this.label7.TabIndex = 11;
@@ -333,7 +336,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 156);
+            this.label6.Location = new System.Drawing.Point(98, 244);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 16);
             this.label6.TabIndex = 10;
@@ -342,7 +345,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(99, 114);
+            this.label5.Location = new System.Drawing.Point(109, 202);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 9;
@@ -351,7 +354,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(99, 74);
+            this.label4.Location = new System.Drawing.Point(109, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 16);
             this.label4.TabIndex = 8;
@@ -360,7 +363,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(99, 33);
+            this.label3.Location = new System.Drawing.Point(109, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 16);
             this.label3.TabIndex = 7;
@@ -368,7 +371,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(347, 397);
+            this.btnDelete.Location = new System.Drawing.Point(185, 414);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(139, 39);
@@ -379,7 +382,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(189, 397);
+            this.btnUpdate.Location = new System.Drawing.Point(330, 414);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(139, 39);
@@ -390,7 +393,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(33, 397);
+            this.btnAdd.Location = new System.Drawing.Point(31, 414);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(139, 39);
@@ -410,7 +413,6 @@
             this.dgvPenalties.Size = new System.Drawing.Size(1224, 423);
             this.dgvPenalties.TabIndex = 0;
             this.dgvPenalties.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPenalties_CellClick);
-            this.dgvPenalties.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPenalties_CellContentClick);
             // 
             // tbSearchPenalty
             // 
@@ -446,7 +448,7 @@
             this.btnExitUpper.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExitUpper.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitUpper.ForeColor = System.Drawing.Color.White;
-            this.btnExitUpper.Location = new System.Drawing.Point(1287, -1);
+            this.btnExitUpper.Location = new System.Drawing.Point(1298, -2);
             this.btnExitUpper.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExitUpper.Name = "btnExitUpper";
             this.btnExitUpper.Size = new System.Drawing.Size(63, 34);
@@ -454,6 +456,16 @@
             this.btnExitUpper.Text = "X";
             this.btnExitUpper.UseVisualStyleBackColor = false;
             this.btnExitUpper.Click += new System.EventHandler(this.btnExitUpper_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(42, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(301, 18);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Select an existing Laboratory Transaction";
             // 
             // PenaltiesRecords
             // 
@@ -522,5 +534,6 @@
         private System.Windows.Forms.Label lblRemainingBalance;
         private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Button btnExitUpper;
+        private System.Windows.Forms.Label label9;
     }
 }

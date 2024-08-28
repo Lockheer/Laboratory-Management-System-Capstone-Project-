@@ -14,6 +14,499 @@ namespace Laboratory_Management_System__Capstone_Project_
 {
     public partial class PenaltiesRecords : Form
     {
+        // Prevents multiple instances of TransactionDetails and PenaltyEmail forms
+        public static int detailRestrict = 0;
+        public static int emailFormRestrict = 0;
+
+        private int ID;
+        private Int64 rowid;
+
+        public PenaltiesRecords()
+        {
+            InitializeComponent();
+
+            // Attach event handlers
+            tbAmtToBe.TextChanged += tbAmount_TextChanged;
+            tbAmtPayed.TextChanged += tbAmount_TextChanged;
+            cbTransact.SelectedIndexChanged += cbTransact_SelectedIndexChanged;
+        }
+
+        private void PenaltiesRecords_Load(object sender, EventArgs e)
+        {
+            // Initial setup
+            btnUpdate.Hide();
+            panelPayment.Visible = false;
+            cbCondition.SelectedIndexChanged += cbCondition_SelectedIndexChanged;
+
+            // Load Penalties data and Transaction IDs into ComboBox
+            LoadPenaltiesData();
+            LoadTransactionIDs();
+        }
+
+        private void LoadPenaltiesData()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand("select * from LaboratoryPenalties", con);
+                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    DataSet DS = new DataSet();
+                    DA.Fill(DS);
+
+                    dgvPenalties.DataSource = DS.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading penalties data: " + ex.Message);
+            }
+        }
+
+        private void LoadTransactionIDs()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand("Select transactionID from BorrowReturnTransaction", con);
+                    con.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cbTransact.Items.Add(reader.GetInt32(0));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading transaction IDs: " + ex.Message);
+            }
+        }
+
+        private void cbCondition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool isPaymentCondition = cbCondition.SelectedItem != null && (cbCondition.SelectedItem.ToString().Equals("Payment", StringComparison.OrdinalIgnoreCase));
+
+            panelPayment.Visible = isPaymentCondition;
+            tbAmtToBe.Visible = isPaymentCondition;
+            tbAmtPayed.Visible = isPaymentCondition;
+            lblRemainingBalance.Visible = isPaymentCondition;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (ValidateInputs())
+            {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    {
+                        SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],[Transaction Reference Number]) " +
+                                                        "VALUES (@IDNumber, @StudentName, @ContactNumber, @Email, @PenaltyDate, @Violation, @Condition, @ToBePayed, @Payed, @Balance, @Status, @RefNum)", con);
+
+                        // Add parameters
+                        cmd.Parameters.AddWithValue("@IDNumber", tbIDnum.Text);
+                        cmd.Parameters.AddWithValue("@StudentName", tbStudentName.Text);
+                        cmd.Parameters.AddWithValue("@ContactNumber", Int64.Parse(tbContact.Text));
+                        cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
+                        cmd.Parameters.AddWithValue("@PenaltyDate", dtpPenaltyDate.Text);
+                        cmd.Parameters.AddWithValue("@Violation", tbViolation.Text);
+                        cmd.Parameters.AddWithValue("@Condition", cbCondition.Text);
+                        cmd.Parameters.AddWithValue("@ToBePayed", Decimal.Parse(tbAmtToBe.Text));
+                        cmd.Parameters.AddWithValue("@Payed", Decimal.Parse(tbAmtPayed.Text));
+                        cmd.Parameters.AddWithValue("@Balance", Decimal.Parse(lblRemainingBalance.Text));
+                        cmd.Parameters.AddWithValue("@Status", cbStatus.Text);
+                        cmd.Parameters.AddWithValue("@RefNum", Int64.Parse(cbTransact.Text));
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("The Student's information has been saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Refresh Data
+                        LoadPenaltiesData();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving student's information: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateInputs())
+            {
+                if (MessageBox.Show("The Penalty and Violation records will now be updated.\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                        {
+                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed, [Balance] = @Balance, [Penalty Status] = @Status, [Transaction Reference Number] = @RefNum WHERE PenaltyID = @RowID", con);
+
+                            // Add parameters
+                            cmd.Parameters.AddWithValue("@IDNumber", tbIDnum.Text);
+                            cmd.Parameters.AddWithValue("@StudentName", tbStudentName.Text);
+                            cmd.Parameters.AddWithValue("@ContactNumber", Int64.Parse(tbContact.Text));
+                            cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
+                            cmd.Parameters.AddWithValue("@PenaltyDate", dtpPenaltyDate.Text);
+                            cmd.Parameters.AddWithValue("@Violation", tbViolation.Text);
+                            cmd.Parameters.AddWithValue("@Condition", cbCondition.Text);
+                            cmd.Parameters.AddWithValue("@ToBePayed", Decimal.Parse(tbAmtToBe.Text));
+                            cmd.Parameters.AddWithValue("@Payed", Decimal.Parse(tbAmtPayed.Text));
+                            cmd.Parameters.AddWithValue("@Balance", Decimal.Parse(lblRemainingBalance.Text));
+                            cmd.Parameters.AddWithValue("@Status", cbStatus.Text);
+                            cmd.Parameters.AddWithValue("@RefNum", Int64.Parse(cbTransact.Text));
+                            cmd.Parameters.AddWithValue("@RowID", rowid);
+
+                            con.Open();
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("The Penalty information has been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                // Refresh Data
+                                LoadPenaltiesData();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No existing Penalty found with the specified ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error updating penalty information: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("The selected information will now be deleted.\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    {
+                        SqlCommand cmd = new SqlCommand("DELETE FROM LaboratoryPenalties WHERE PenaltyID = @RowID", con);
+                        cmd.Parameters.AddWithValue("@RowID", rowid);
+
+                        con.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("The Penalty record has been removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Refresh Data
+                            LoadPenaltiesData();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No penalty record found with the specified ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting penalty record: " + ex.Message);
+                }
+            }
+        }
+
+
+
+
+        //Penalty search bar box
+        private void tbSearchPenalty_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearchPenalty.Text != "")
+            {
+                // Perform the search
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "SELECT * FROM LaboratoryPenalties WHERE [ID Number] LIKE @SearchText + '%' OR [Student Name] LIKE @SearchText + '%' OR [Penalty Issued Date] LIKE @SearchText + '%'";
+
+                    cmd.Parameters.AddWithValue("@SearchText", tbSearchPenalty.Text);
+
+                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    DataSet DS = new DataSet();
+
+                    try
+                    {
+                        con.Open();
+                        DA.Fill(DS);
+
+                        // Check if the dataset is empty
+                        if (DS.Tables[0].Rows.Count > 0)
+                        {
+                            dgvPenalties.DataSource = DS.Tables[0];
+                        }
+                        else
+                        {
+                            dgvPenalties.DataSource = null;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                // Load all penalty data when the search box is empty
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "SELECT * FROM LaboratoryPenalties";
+
+                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    DataSet DS = new DataSet();
+
+                    try
+                    {
+                        con.Open();
+                        DA.Fill(DS);
+
+                        // Check if the dataset is empty
+                        if (DS.Tables[0].Rows.Count > 0)
+                        {
+                            dgvPenalties.DataSource = DS.Tables[0];
+                        }
+                        else
+                        {
+                            dgvPenalties.DataSource = null;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+        private void dgvPenalties_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+                if (e.RowIndex >= 0 && dgvPenalties.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+            
+                    ID = Convert.ToInt32(dgvPenalties.Rows[e.RowIndex].Cells[0].Value);
+                    LoadPenaltyDetails(ID);
+                    btnUpdate.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // General exception handler for any other exceptions
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadPenaltyDetails(int penaltyID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM LaboratoryPenalties WHERE PenaltyID = @PenaltyID", con);
+                    cmd.Parameters.AddWithValue("@PenaltyID", penaltyID);
+
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            rowid = penaltyID;
+
+                            tbIDnum.Text = reader["ID Number"].ToString();
+                            tbStudentName.Text = reader["Student Name"].ToString();
+                            tbContact.Text = reader["Contact Number"].ToString();
+                            tbEmail.Text = reader["Email Address"].ToString();
+                            dtpPenaltyDate.Text = reader["Penalty Issued Date"].ToString();
+                            tbViolation.Text = reader["Violation"].ToString();
+                            cbCondition.Text = reader["Penalty Condition"].ToString();
+                            tbAmtToBe.Text = reader["Amount to be Paid"].ToString();
+                            tbAmtPayed.Text = reader["Amount Received"].ToString();
+                            lblRemainingBalance.Text = reader["Balance"].ToString();
+                            cbStatus.Text = reader["Penalty Status"].ToString();
+                            cbTransact.Text = reader["Transaction Reference Number"].ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading penalty details: " + ex.Message);
+            }
+        }
+
+
+        //Payment method algorithm
+        private void tbAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (Decimal.TryParse(tbAmtToBe.Text, out decimal toBePayed) && Decimal.TryParse(tbAmtPayed.Text, out decimal payed))
+            {
+                lblRemainingBalance.Text = (toBePayed - payed).ToString("F2");
+            }
+            else
+            {
+                lblRemainingBalance.Text = "0.00";
+            }
+        }
+
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrEmpty(tbIDnum.Text) || string.IsNullOrEmpty(tbStudentName.Text) || string.IsNullOrEmpty(tbContact.Text) ||
+                string.IsNullOrEmpty(tbEmail.Text) || string.IsNullOrEmpty(tbViolation.Text) || string.IsNullOrEmpty(cbCondition.Text))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+
+        //RETURN Button
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //Dashboard.formRestrict = 0;
+        }
+
+        //Transaction Details button
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (detailRestrict == 0)
+            {
+                detailRestrict++;
+                TransactionDetails details = new TransactionDetails();
+                details.Show();
+            }
+            else
+            {
+                MessageBox.Show("The summary form has already been opened.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        //Opens the SMTP Email sending form
+        private void btnSendEmail_Click(object sender, EventArgs e)
+        {
+            if (emailFormRestrict == 0)
+            {
+                emailFormRestrict++;
+                PenaltyEmail penaltyEmail = new PenaltyEmail();
+                penaltyEmail.Show();
+            }
+            else
+            {
+                MessageBox.Show("The instance has already been opened.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnExitUpper_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //Automation of the following textboxes (Student name, contact number, email address and ID number)
+        private void cbTransact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbTransact.SelectedItem != null)
+                {
+                   
+                    if (int.TryParse(cbTransact.SelectedItem.ToString(), out int selectedTransactionID))
+                    {
+                        LoadTransactionDetails(selectedTransactionID);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Transaction ID selected. Please choose a valid transaction.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while selecting the transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        //Automation method
+        private void LoadTransactionDetails(int transactionID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT ID_Number, Student_Name, Email_Address, Contact_Number FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con);
+                    cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            tbIDnum.Text = reader["ID_Number"].ToString();
+                            tbStudentName.Text = reader["Student_Name"].ToString();
+                            tbEmail.Text = reader["Email_Address"].ToString();
+                            tbContact.Text = reader["Contact_Number"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No matching record found for the selected Transaction ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading transaction details: " + ex.Message);
+            }
+        }
+
+
+
+
+
+    }
+}
+
+
+
+
+
+/*using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Runtime.InteropServices;
+
+namespace Laboratory_Management_System__Capstone_Project_
+{
+    public partial class PenaltiesRecords : Form
+    {
        
         public PenaltiesRecords()
         {
@@ -50,32 +543,37 @@ namespace Laboratory_Management_System__Capstone_Project_
             DA.Fill(DS);
 
             dgvPenalties.DataSource = DS.Tables[0];
-
             // Load the COMBO BOX with the transaction ID data source
-            SqlConnection combo_con = new SqlConnection();
-            combo_con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-            SqlCommand new_cmd = new SqlCommand();
-            new_cmd.Connection = combo_con;
-            combo_con.Open();
-            new_cmd.CommandText = "Select transactionID from BorrowReturnTransaction";
-            SqlDataReader reader = new_cmd.ExecuteReader();
-
-            while (reader.Read())
+            using (SqlConnection combo_con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
             {
-                // Read the integer transaction ID and add it to the ComboBox
-                cbTransact.Items.Add(reader.GetInt32(0));
+                using (SqlCommand new_cmd = new SqlCommand("Select transactionID from BorrowReturnTransaction", combo_con))
+                {
+                    try
+                    {
+                        combo_con.Open();
+                        using (SqlDataReader reader = new_cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Read the integer transaction ID and add it to the ComboBox
+                                cbTransact.Items.Add(reader.GetInt32(0));
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle the exception (e.g., log it or show a message to the user)
+                        MessageBox.Show("An error occurred while loading transaction IDs: " + ex.Message);
+                    }
+                }
             }
 
-            reader.Close();
-            combo_con.Close();
-            con.Close();
 
 
-          
 
         }
 
-      
+
 
 
         private void cbCondition_SelectedIndexChanged(object sender, EventArgs e)
@@ -486,3 +984,4 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
     }
 }
+*/
