@@ -199,9 +199,9 @@
             this.lblIDNumber.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDNumber.Location = new System.Drawing.Point(1222, 26);
             this.lblIDNumber.Name = "lblIDNumber";
-            this.lblIDNumber.Size = new System.Drawing.Size(144, 27);
+            this.lblIDNumber.Size = new System.Drawing.Size(233, 27);
             this.lblIDNumber.TabIndex = 0;
-            this.lblIDNumber.Text = "ID NUMBER";
+            this.lblIDNumber.Text = "ID NUMBER + ROLE";
             // 
             // lblFirstName
             // 
