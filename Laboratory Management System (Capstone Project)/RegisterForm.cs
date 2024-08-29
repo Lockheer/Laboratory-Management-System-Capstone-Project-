@@ -361,6 +361,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             Form1 login = new Form1();
             login.Show();
+            this.Hide();
         }
     }
 }

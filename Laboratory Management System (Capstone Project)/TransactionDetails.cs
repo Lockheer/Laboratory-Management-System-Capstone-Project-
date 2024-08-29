@@ -49,7 +49,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 dgvViolationRecords.DataSource = violds.Tables[0];
 
                 // Load Apparatus List
-                cmd.CommandText = "Select * from ApparatusList";
+                cmd.CommandText = "Select * from Inventory";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataSet set = new DataSet();
                 adapter.Fill(set);

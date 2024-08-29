@@ -39,7 +39,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT [Apparatus Name] FROM ApparatusList", con);
+                    SqlCommand cmd = new SqlCommand("SELECT [Apparatus Name] FROM Inventory", con);
                     SqlDataReader sdataread = cmd.ExecuteReader();
 
                     while (sdataread.Read())
@@ -136,7 +136,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                     studentID = Convert.ToInt32(resultStudent);
 
-                    SqlCommand cmdGetApparatusID = new SqlCommand("SELECT ApparatusID FROM ApparatusList WHERE [Apparatus Name] = @Apparatus_Name", con);
+                    SqlCommand cmdGetApparatusID = new SqlCommand("SELECT ApparatusID FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
                     cmdGetApparatusID.Parameters.AddWithValue("@Apparatus_Name", apparatusName);
                     object resultApparatus = cmdGetApparatusID.ExecuteScalar();
                     if (resultApparatus == null)

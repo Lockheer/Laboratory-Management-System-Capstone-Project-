@@ -13,7 +13,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
     public partial class ChangePassVerification : Form
     {
-        int timer = 60 *10;
+        int timer = 60 * 5;
         string pin = "";
 
 
@@ -37,7 +37,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             if (!tbEmail.Text.Contains("@") || !tbEmail.Text.Contains("."))
             {
-                MessageBox.Show("Please enter a valid email address.");
+                MessageBox.Show("Please enter a valid email address.", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 

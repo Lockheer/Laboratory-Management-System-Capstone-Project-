@@ -65,7 +65,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             con.Open();
-            cmd = new SqlCommand("Select [Apparatus Name] from ApparatusList",con);
+            cmd = new SqlCommand("Select [Apparatus Name] from Inventory",con);
             SqlDataReader Sdr = cmd.ExecuteReader();
 
             while (Sdr.Read()) 
@@ -92,47 +92,43 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (tbSearch.Text != "")
             {
                 String searchID = tbSearch.Text;
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "Select count(ID_Number) from BorrowReturnTransaction where ID_Number = '" + searchID+ "' and Student_Name = '" + searchID+ "' and Date_Returned is NULL";
-                SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                DataSet DS = new DataSet();
-                DA.Fill(DS);
-
-                //---------------------------------------------------------------------------------------
-                //Code to count how many Apparatus has been borrowed by the following matching ID Number
-                cmd.CommandText = "Select * from Students where ID_Number = '" + searchID + "'";
-                SqlDataAdapter DA1 = new SqlDataAdapter(cmd);
-                DataSet DS1 = new DataSet();
-                DA.Fill(DS1);
-
-                count = int.Parse(DS1.Tables[0].Rows[0][0].ToString());
-
-                //---------------------------------------------------------------------------------------
-
-
-                if (DS.Tables[0].Rows.Count != 0)
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
-                    tbStudName.Text = DS.Tables[0].Rows[0][1].ToString();
-                    tbIDnum.Text = DS.Tables[0].Rows[0][2].ToString();
-                    tbEmail.Text = DS.Tables[0].Rows[0][3].ToString();
-                    tbContact.Text = DS.Tables[0].Rows[0][4].ToString();
-                    tbProgram.Text = DS.Tables[0].Rows[0][5].ToString();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE ID_Number = @ID_Number", con);
+                    cmd.Parameters.AddWithValue("@ID_Number", searchID);
+                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    DataSet DS = new DataSet();
+                    DA.Fill(DS);
 
-                }else
-                {
-                    tbStudName.Clear();
-                    tbIDnum.Clear(); 
-                    tbEmail.Clear(); 
-                    tbContact.Clear();
-                    tbProgram.Clear();
-                    MessageBox.Show("Student ID number does not exist or is invalid.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    if (DS.Tables[0].Rows.Count != 0)
+                    {
+                        DataRow dr = DS.Tables[0].Rows[0];
+                        tbStudName.Text = dr["Student_Name"].ToString();
+                        tbIDnum.Text = dr["ID_Number"].ToString();
+                        tbEmail.Text = dr["Email_Address"].ToString();
+                        tbContact.Text = dr["Contact_No"].ToString();
+                        tbProgram.Text = dr["Program"].ToString();
+                    }
+                    else
+                    {
+                        tbStudName.Clear();
+                        tbIDnum.Clear();
+                        tbEmail.Clear();
+                        tbContact.Clear();
+                        tbProgram.Clear();
+                        MessageBox.Show("Student ID number does not exist or is invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    // Count how many apparatuses have been borrowed by this student
+                    SqlCommand cmdCount = new SqlCommand("SELECT COUNT(*) FROM BorrowReturnTransaction WHERE ID_Number = @ID_Number AND Date_Returned IS NULL", con);
+                    cmdCount.Parameters.AddWithValue("@ID_Number", searchID);
+                    con.Open();
+                    count = (int)cmdCount.ExecuteScalar();
+                    con.Close();
                 }
             }
         }
-       
+
         //Resetting the objects once a transaction is done.
         private void ResetForm()
         {
@@ -175,7 +171,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         con.Open();
 
                         // Get ApparatusID based on the selected apparatus name
-                        SqlCommand cmdGetApparatusID = new SqlCommand("SELECT ApparatusID FROM ApparatusList WHERE [Apparatus Name] = @Apparatus_Name", con);
+                        SqlCommand cmdGetApparatusID = new SqlCommand("SELECT ApparatusID FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
                         cmdGetApparatusID.Parameters.AddWithValue("@Apparatus_Name", AppaName);
                         object resultApparatus = cmdGetApparatusID.ExecuteScalar();
                         if (resultApparatus != null)
@@ -218,7 +214,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         cmdInsertTransaction.ExecuteNonQuery();
 
                         // Update apparatus quantity
-                        SqlCommand cmdUpdateQty = new SqlCommand("UPDATE ApparatusList SET Quantity = Quantity - 1 WHERE ApparatusID = @ApparatusID", con);
+                        SqlCommand cmdUpdateQty = new SqlCommand("UPDATE Inventory SET Quantity = Quantity - 1 WHERE ApparatusID = @ApparatusID", con);
                         cmdUpdateQty.Parameters.AddWithValue("@ApparatusID", apparatusID);
                         cmdUpdateQty.ExecuteNonQuery();
 

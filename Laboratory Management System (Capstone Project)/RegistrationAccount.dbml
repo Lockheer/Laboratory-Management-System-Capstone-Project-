@@ -8,6 +8,7 @@
       <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="UserRegistration_Account" Member="UserRegistration" ThisKey="UserID" OtherKey="UserID" Type="UserRegistration" IsForeignKey="true" />
+      <Association Name="Role_Account" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.UserRegistration" Member="UserRegistrations">
@@ -22,6 +23,13 @@
       <Column Name="Contact_Number" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Birthdate" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="UserRegistration_Account" Member="Accounts" ThisKey="UserID" OtherKey="UserID" Type="Account" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Role_Account" Member="Accounts" ThisKey="RoleID" OtherKey="RoleID" Type="Account" />
     </Type>
   </Table>
   <Function Name="dbo.SP_REGISTER" Method="SP_REGISTER">

@@ -32,12 +32,22 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             string userRole = GetUserRole(currentAccountId);
 
+            lblIDNumber.Text = $"{Form1.Session.IDNumber} - " + $"{Form1.Session.Role}";
+            lblFirstName.Text = $"{Form1.Session.FirstName}";
+            
+
             // Restrict access based on user role
             if (userRole == "Personnel")
             {
                 penaltyRecordsToolStripMenuItem.Visible = false; // Hide access to PenaltiesRecords for Personnel
             }
+
+
         }
+
+
+
+
 
         private int GetCurrentAccountId()
         {

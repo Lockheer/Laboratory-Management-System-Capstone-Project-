@@ -82,6 +82,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             failedPasswordAttempts = 0;
             cooldownStartTime = DateTime.MinValue;
+            tbConfirmPass.UseSystemPasswordChar = true;
         }
     }
 }

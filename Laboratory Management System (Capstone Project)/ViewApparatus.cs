@@ -34,7 +34,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "select * from ApparatusList";
+            cmd.CommandText = "select * from Inventory";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -84,7 +84,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "select * from ApparatusList where ApparatusID= " + id + "";
+            cmd.CommandText = "select * from Inventory where ApparatusID= " + id + "";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -123,14 +123,14 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             if (tbAppaSearch.Text != "")
             {
-                cmd.CommandText = "select * from ApparatusList where [Apparatus Name] LIKE @SearchText + '%' OR [Model Number] LIKE @SearchText + '%' " +
+                cmd.CommandText = "select * from Inventory where [Apparatus Name] LIKE @SearchText + '%' OR [Model Number] LIKE @SearchText + '%' " +
                                   "OR [Date Purchased] LIKE @SearchText + '%' OR [Price] LIKE @SearchText + '%' OR [Brand] LIKE @SearchText + '%' " +
-                                  "OR [Status] LIKE @SearchText + '%' OR [Quantity] LIKE @SearchText + '%'";
+                                  "OR [Status] LIKE @SearchText + '%' OR [Quantity] LIKE @SearchText + '%' OR [Life Span] LIKE @SearchText + '%' OR [Remarks] LIKE @SearchText + '%'";
                 cmd.Parameters.AddWithValue("@SearchText", tbAppaSearch.Text);
             }
             else
             {
-                cmd.CommandText = "select * from ApparatusList";
+                cmd.CommandText = "select * from Inventory";
             }
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -174,7 +174,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "update ApparatusList set [Apparatus Name] = '" + appa_name + "',  [Model Number] ='" + model_num + "', [Date Purchased] = '" + date_purch + "' ,[Price] =" + price + " ,[Brand] = '" + brand + "' ,[Status] = '" + status + "' ,[Quantity] =" + quantity + " ,[Life Span] = '" + life_span + "' ,[Remarks] = '" + remarks + "' where ApparatusID = " + rowid + "";
+                cmd.CommandText = "update Inventory set [Apparatus Name] = '" + appa_name + "',  [Model Number] ='" + model_num + "', [Date Purchased] = '" + date_purch + "' ,[Price] =" + price + " ,[Brand] = '" + brand + "' ,[Status] = '" + status + "' ,[Quantity] =" + quantity + " ,[Life Span] = '" + life_span + "' ,[Remarks] = '" + remarks + "' where ApparatusID = " + rowid + "";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -193,7 +193,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "delete from ApparatusList where ApparatusID = " + rowid + "";
+                cmd.CommandText = "delete from Inventory where ApparatusID = " + rowid + "";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);

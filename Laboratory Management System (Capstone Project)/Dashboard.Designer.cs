@@ -39,11 +39,12 @@
             this.borrowTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.penaltyRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.penaltyRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
+            this.lblIDNumber = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
             this.menuStrip3.SuspendLayout();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
@@ -62,8 +63,8 @@
             this.penaltyRecordsToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip3.Size = new System.Drawing.Size(1119, 72);
+            this.menuStrip3.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip3.Size = new System.Drawing.Size(1492, 72);
             this.menuStrip3.TabIndex = 3;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -75,14 +76,14 @@
             this.apparatusToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("apparatusToolStripMenuItem.Image")));
             this.apparatusToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.apparatusToolStripMenuItem.Name = "apparatusToolStripMenuItem";
-            this.apparatusToolStripMenuItem.Size = new System.Drawing.Size(228, 68);
+            this.apparatusToolStripMenuItem.Size = new System.Drawing.Size(267, 68);
             this.apparatusToolStripMenuItem.Text = "Apparatus Inventory Listing";
             // 
             // addANewApparatusToolStripMenuItem
             // 
             this.addANewApparatusToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addANewApparatusToolStripMenuItem.Image")));
             this.addANewApparatusToolStripMenuItem.Name = "addANewApparatusToolStripMenuItem";
-            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(297, 26);
             this.addANewApparatusToolStripMenuItem.Text = "Add a New Apparatus";
             this.addANewApparatusToolStripMenuItem.Click += new System.EventHandler(this.addANewApparatusToolStripMenuItem_Click);
             // 
@@ -90,7 +91,7 @@
             // 
             this.viewApparatusListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewApparatusListToolStripMenuItem.Image")));
             this.viewApparatusListToolStripMenuItem.Name = "viewApparatusListToolStripMenuItem";
-            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(297, 26);
             this.viewApparatusListToolStripMenuItem.Text = "View and Update Inventory List";
             this.viewApparatusListToolStripMenuItem.Click += new System.EventHandler(this.viewApparatusListToolStripMenuItem_Click);
             // 
@@ -102,7 +103,7 @@
             this.registeredToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("registeredToolStripMenuItem.Image")));
             this.registeredToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.registeredToolStripMenuItem.Name = "registeredToolStripMenuItem";
-            this.registeredToolStripMenuItem.Size = new System.Drawing.Size(136, 68);
+            this.registeredToolStripMenuItem.Size = new System.Drawing.Size(156, 68);
             this.registeredToolStripMenuItem.Text = "Students List";
             // 
             // addAStudentToolStripMenuItem
@@ -110,7 +111,7 @@
             this.addAStudentToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addAStudentToolStripMenuItem.Image")));
             this.addAStudentToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.addAStudentToolStripMenuItem.Name = "addAStudentToolStripMenuItem";
-            this.addAStudentToolStripMenuItem.Size = new System.Drawing.Size(309, 56);
+            this.addAStudentToolStripMenuItem.Size = new System.Drawing.Size(375, 56);
             this.addAStudentToolStripMenuItem.Text = "Add a Student Registration";
             this.addAStudentToolStripMenuItem.Click += new System.EventHandler(this.addAStudentToolStripMenuItem_Click);
             // 
@@ -119,7 +120,7 @@
             this.viewStudentsInformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewStudentsInformationToolStripMenuItem.Image")));
             this.viewStudentsInformationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.viewStudentsInformationToolStripMenuItem.Name = "viewStudentsInformationToolStripMenuItem";
-            this.viewStudentsInformationToolStripMenuItem.Size = new System.Drawing.Size(309, 56);
+            this.viewStudentsInformationToolStripMenuItem.Size = new System.Drawing.Size(375, 56);
             this.viewStudentsInformationToolStripMenuItem.Text = "View Registered Student\'s Information";
             this.viewStudentsInformationToolStripMenuItem.Click += new System.EventHandler(this.viewStudentsInformationToolStripMenuItem_Click);
             // 
@@ -128,7 +129,7 @@
             this.borrowTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("borrowTransactionToolStripMenuItem.Image")));
             this.borrowTransactionToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.borrowTransactionToolStripMenuItem.Name = "borrowTransactionToolStripMenuItem";
-            this.borrowTransactionToolStripMenuItem.Size = new System.Drawing.Size(127, 68);
+            this.borrowTransactionToolStripMenuItem.Size = new System.Drawing.Size(150, 68);
             this.borrowTransactionToolStripMenuItem.Text = "Borrow Issuing";
             this.borrowTransactionToolStripMenuItem.Click += new System.EventHandler(this.borrowTransactionToolStripMenuItem_Click);
             // 
@@ -136,7 +137,7 @@
             // 
             this.returnRecordsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("returnRecordsToolStripMenuItem.Image")));
             this.returnRecordsToolStripMenuItem.Name = "returnRecordsToolStripMenuItem";
-            this.returnRecordsToolStripMenuItem.Size = new System.Drawing.Size(137, 68);
+            this.returnRecordsToolStripMenuItem.Size = new System.Drawing.Size(165, 68);
             this.returnRecordsToolStripMenuItem.Text = "Return Transaction";
             this.returnRecordsToolStripMenuItem.Click += new System.EventHandler(this.returnRecordsToolStripMenuItem_Click);
             // 
@@ -144,44 +145,37 @@
             // 
             this.updateTransactionsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("updateTransactionsToolStripMenuItem.Image")));
             this.updateTransactionsToolStripMenuItem.Name = "updateTransactionsToolStripMenuItem";
-            this.updateTransactionsToolStripMenuItem.Size = new System.Drawing.Size(145, 68);
+            this.updateTransactionsToolStripMenuItem.Size = new System.Drawing.Size(177, 68);
             this.updateTransactionsToolStripMenuItem.Text = "Update Transactions";
             this.updateTransactionsToolStripMenuItem.Click += new System.EventHandler(this.updateTransactionsToolStripMenuItem_Click);
+            // 
+            // comToolStripMenuItem
+            // 
+            this.comToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("comToolStripMenuItem.Image")));
+            this.comToolStripMenuItem.Name = "comToolStripMenuItem";
+            this.comToolStripMenuItem.Size = new System.Drawing.Size(138, 68);
+            this.comToolStripMenuItem.Text = "Report Details";
+            this.comToolStripMenuItem.Click += new System.EventHandler(this.comToolStripMenuItem_Click);
             // 
             // penaltyRecordsToolStripMenuItem
             // 
             this.penaltyRecordsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("penaltyRecordsToolStripMenuItem.Image")));
             this.penaltyRecordsToolStripMenuItem.Name = "penaltyRecordsToolStripMenuItem";
-            this.penaltyRecordsToolStripMenuItem.Size = new System.Drawing.Size(164, 68);
+            this.penaltyRecordsToolStripMenuItem.Size = new System.Drawing.Size(200, 68);
             this.penaltyRecordsToolStripMenuItem.Text = "Penalties and Violations";
             this.penaltyRecordsToolStripMenuItem.Click += new System.EventHandler(this.penaltyRecordsToolStripMenuItem_Click);
-            // 
-            // comToolStripMenuItem
-            // 
-            this.comToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem});
-            this.comToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("comToolStripMenuItem.Image")));
-            this.comToolStripMenuItem.Name = "comToolStripMenuItem";
-            this.comToolStripMenuItem.Size = new System.Drawing.Size(112, 68);
-            this.comToolStripMenuItem.Text = "Report Details";
-            this.comToolStripMenuItem.Click += new System.EventHandler(this.comToolStripMenuItem_Click);
-            // 
-            // manuallyUpdateBorrowReturnTransactionsToolStripMenuItem
-            // 
-            this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem.Name = "manuallyUpdateBorrowReturnTransactionsToolStripMenuItem";
-            this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.manuallyUpdateBorrowReturnTransactionsToolStripMenuItem.Text = "Update ";
             // 
             // panelContainer
             // 
             this.panelContainer.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909_pre;
             this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelContainer.Controls.Add(this.lnklblLogOut);
+            this.panelContainer.Controls.Add(this.lblFirstName);
+            this.panelContainer.Controls.Add(this.lblIDNumber);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 72);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1119, 485);
+            this.panelContainer.Size = new System.Drawing.Size(1492, 614);
             this.panelContainer.TabIndex = 4;
             // 
             // lnklblLogOut
@@ -190,25 +184,47 @@
             this.lnklblLogOut.BackColor = System.Drawing.Color.Transparent;
             this.lnklblLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnklblLogOut.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lnklblLogOut.Location = new System.Drawing.Point(1024, 24);
-            this.lnklblLogOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lnklblLogOut.Location = new System.Drawing.Point(1402, 40);
             this.lnklblLogOut.Name = "lnklblLogOut";
-            this.lnklblLogOut.Size = new System.Drawing.Size(63, 15);
+            this.lnklblLogOut.Size = new System.Drawing.Size(78, 18);
             this.lnklblLogOut.TabIndex = 0;
             this.lnklblLogOut.TabStop = true;
             this.lnklblLogOut.Text = "LOGOUT";
             this.lnklblLogOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblLogOut_LinkClicked);
             // 
+            // lblIDNumber
+            // 
+            this.lblIDNumber.AutoSize = true;
+            this.lblIDNumber.BackColor = System.Drawing.Color.Transparent;
+            this.lblIDNumber.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDNumber.Location = new System.Drawing.Point(1222, 26);
+            this.lblIDNumber.Name = "lblIDNumber";
+            this.lblIDNumber.Size = new System.Drawing.Size(144, 27);
+            this.lblIDNumber.TabIndex = 0;
+            this.lblIDNumber.Text = "ID NUMBER";
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFirstName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Location = new System.Drawing.Point(1294, 83);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(153, 27);
+            this.lblFirstName.TabIndex = 1;
+            this.lblFirstName.Text = "FIRST NAME";
+            // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1119, 557);
+            this.ClientSize = new System.Drawing.Size(1492, 686);
+            this.Controls.Add(this.lnklblLogOut);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.menuStrip3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -235,8 +251,9 @@
         private System.Windows.Forms.ToolStripMenuItem penaltyRecordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comToolStripMenuItem;
         private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.ToolStripMenuItem manuallyUpdateBorrowReturnTransactionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateTransactionsToolStripMenuItem;
         private System.Windows.Forms.LinkLabel lnklblLogOut;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblIDNumber;
     }
 }

@@ -90,7 +90,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 command.Connection = connect;
 
                 connect.Open();
-                command.CommandText = "INSERT INTO ApparatusList ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [Life Span], [Remarks]) " +
+                command.CommandText = "INSERT INTO Inventory ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [Life Span], [Remarks]) " +
                                       "VALUES (@AppaName, @ModelNum, @DatePurch, @Price, @Brand, @Status, @Quantity, @LifeSpan, @Remarks)";
                 command.Parameters.AddWithValue("@AppaName", appa_name);
                 command.Parameters.AddWithValue("@ModelNum", model_num);
@@ -194,7 +194,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     string remarks = worksheet.Cells[row, 9].Text;
 
                                     // Insert data into the database
-                                    SqlCommand command = new SqlCommand("INSERT INTO ApparatusList ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [Life Span], [Remarks]) " +
+                                    SqlCommand command = new SqlCommand("INSERT INTO Inventory ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [Life Span], [Remarks]) " +
                                         "VALUES (@AppaName, @ModelNum, @DatePurch, @Price, @Brand, @Status, @Quantity, @LifeSpan, @Remarks)", connect);
                                     command.Parameters.AddWithValue("@AppaName", appa_name);
                                     command.Parameters.AddWithValue("@ModelNum", model_num);

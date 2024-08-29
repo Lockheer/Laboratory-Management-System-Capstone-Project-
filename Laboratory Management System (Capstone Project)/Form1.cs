@@ -25,6 +25,9 @@ namespace Laboratory_Management_System__Capstone_Project_
         public static class Session
         {
             public static int AccountID { get; set; }
+            public static string IDNumber { get; set; }  
+            public static string FirstName { get; set; }  
+            public static string Role { get; set; }  
         }
 
 
@@ -94,8 +97,19 @@ namespace Laboratory_Management_System__Capstone_Project_
            
             failedLoginAttempts = 0;
 
-            // Stores the AccountID in the static Session class
+           
+
+            // Retrieve the additional information
+            var userInfo = db.UserRegistrations.FirstOrDefault(u => u.UserID == admin.UserID);
+            var role = db.Roles.FirstOrDefault(r => r.RoleID == admin.RoleID);
+
             Form1.Session.AccountID = admin.AccountID;
+            Form1.Session.IDNumber = userInfo?.ID_number;
+            Form1.Session.FirstName = userInfo?.First_Name;
+            Form1.Session.Role = role?.RoleName;
+
+
+
 
 
             Dashboard dashboard = new Dashboard();
