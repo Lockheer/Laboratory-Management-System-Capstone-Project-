@@ -1,0 +1,185 @@
+Create Database LabManagSys
+
+Create Table UserRegistration (
+
+UserID int Primary Key Identity (1,1),
+First_Name varchar(255) not null,
+Last_Name varchar(255) not null,
+Middle_Name nvarchar(60),
+Email nvarchar(255) not null,
+Gender varchar(60) not null,
+ID_number nvarchar(255) not null,
+Contact_Number nvarchar (50) not null,
+Birthdate nvarchar(50) not null
+
+)
+
+Create Table Roles (
+
+ RoleID int primary key identity(10,1),
+ RoleName varchar(100) not null
+
+)
+
+
+--rename to Account
+Create Table Accounts (
+
+AccountID int Primary Key Identity (1,1),
+Username nvarchar(255) not null,
+[Password] nvarchar (60) not null,
+UserID int NOT NULL,
+RoleID int NOT NULL,
+CONSTRAINT FK_UserRegistration_UserID FOREIGN KEY (UserID) 
+REFERENCES UserRegistration(UserID),
+CONSTRAINT FK_Roles_RoleID FOREIGN KEY (RoleID) 
+REFERENCES Roles(RoleID)
+
+)
+
+Insert into Roles (RoleName)
+VALUES 
+    ('Admin'),
+    ('Personnel')
+
+
+--Apparatus List
+Create Table Inventory (
+
+ApparatusID int Identity (1,1) primary key,
+[Apparatus Name] varchar(250) not null,
+[Model Number] nvarchar(250)not null,
+[Date Purchased] nvarchar(250) not null,
+[Price] decimal(18, 2),
+[Brand] varchar(250),
+[Status] varchar(250) not null,	
+[Quantity] bigint not null,
+[Life Span] nvarchar(250),
+[Remarks] nvarchar(250)
+
+)
+
+Select * From Inventory
+
+
+
+--Students List
+Create Table Students (
+
+studID int not null identity(1,1) primary key,
+Student_Name varchar(255) not null,
+ID_Number nvarchar(255) not null,
+Email_Address nvarchar(255) not null,
+Contact_No bigint not null,
+Program varchar(100) not null,
+Department varchar(100) not null,
+Address nvarchar(255) not null
+
+
+)
+
+Truncate Table Students
+
+--Transactions Borrow Records and Return Records
+Create Table BorrowReturnTransaction (
+
+transactionID int not null identity(100,1) primary key,
+[Student_Name] varchar(250) not null,
+[ID_Number] nvarchar(250) not null,
+[Email_Address] varchar(250) not null,
+[Contact_Number] bigint not null,
+[Program] varchar(250) not null,
+[Apparatus_Name] varchar(250) not null,
+[Borrow_Date] nvarchar(250) not null,
+[Due_Date] nvarchar(250) not null,
+[Date_Returned] nvarchar(250),
+[studID] int NOT NULL,
+[AccountID] int NOT NULL,
+[ApparatusID] int Not null,
+[Remarks] NVARCHAR(250),
+CONSTRAINT FK_BorrowReturnTransactions_Student  FOREIGN KEY (studID) REFERENCES Students(studID),
+CONSTRAINT FK_BorrowReturnTransactions_Account  FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
+CONSTRAINT FK_BorrowReturnTransactions_ApparatusList FOREIGN KEY (ApparatusID) REFERENCES ApparatusList(ApparatusID)
+);	
+
+ALTER TABLE BorrowReturnTransaction
+DROP CONSTRAINT FK_BorrowReturnTransactions_Student;
+
+ALTER TABLE BorrowReturnTransaction
+ADD CONSTRAINT FK_BorrowReturnTransactions_Student FOREIGN KEY (studID) REFERENCES Students(studID);
+
+Select * From BorrowReturnTransaction
+
+
+--Penalties and Violations
+Create Table LaboratoryPenalties (
+
+[PenaltyID] int primary key identity(100,1),
+[ID Number] nvarchar(250) not null,
+[Student Name] varchar(250) not null,
+[Contact Number] nvarchar(250) not null,
+[Email Address] nvarchar(250) not null,
+[Penalty Issued Date] varchar(250) not null,
+[Violation] varchar(250) not null,
+[Penalty Condition] varchar(250) not null,
+[Amount to be Paid] decimal(18, 2), 
+[Amount Received] decimal(18, 2), 
+[Penalty Status] varchar(250) not null,
+[Balance] decimal (18,2),
+
+--Referencial Foreign Key--
+[Transaction Reference Number] int not null,
+CONSTRAINT FK_TransactionReferenceNumber_LabTransaction Foreign Key ([Transaction Reference Number])
+References BorrowReturnTransaction (transactionID)
+
+
+
+
+)
+
+
+--Emails
+CREATE TABLE PenaltyEmails (
+
+
+[Email_ID] int PRIMARY KEY IDENTITY(100,1),
+[Sender] nvarchar(250) NOT NULL,
+[Recipient] nvarchar(250) NOT NULL,
+[Subject] nvarchar(200) NOT NULL,
+[Mail_Description] nvarchar(255) NOT NULL,
+[penaltyID] int NOT NULL,
+CONSTRAINT FK_Violation_Email FOREIGN KEY (penaltyID) REFERENCES LaboratoryPenalties(penaltyID)
+
+
+);
+GO
+
+
+truncate table UserRegistration
+truncate table Accounts
+
+Drop table UserRegistration
+Drop table Accounts
+
+Drop table ApparatusList
+Truncate Table ApparatusList
+
+
+-- Drop the foreign key constraint on AdminID in Accounts
+ALTER TABLE Accounts
+DROP CONSTRAINT FK_UserRegistration_AdminID
+ALTER TABLE Accounts
+ADD CONSTRAINT FK_UserRegistration_AdminID
+FOREIGN KEY (AdminID) REFERENCES UserRegistration(AdminID);
+
+-- Drop the foreign key constraint on RoleID in Accounts
+ALTER TABLE Accounts
+DROP CONSTRAINT FK_Roles_RoleID;
+ALTER TABLE Accounts
+ADD CONSTRAINT FK_Roles_RoleID
+FOREIGN KEY (RoleID) REFERENCES Roles(RoleID);
+
+
+
+
+

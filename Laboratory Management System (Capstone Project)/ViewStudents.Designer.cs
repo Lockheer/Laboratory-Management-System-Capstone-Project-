@@ -189,6 +189,7 @@
             this.dgvStudentsInformation.Size = new System.Drawing.Size(1129, 425);
             this.dgvStudentsInformation.TabIndex = 4;
             this.dgvStudentsInformation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudentsInformation_CellClick);
+       
             // 
             // panel2
             // 
