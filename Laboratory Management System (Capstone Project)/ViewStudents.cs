@@ -19,6 +19,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
             cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
+            cbProgramFilter.SelectedIndexChanged += new EventHandler(cbProgramFilter_SelectedIndexChanged);
         }
 
         private void CbProgram_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,13 +41,14 @@ namespace Laboratory_Management_System__Capstone_Project_
                 Image searchImage = Image.FromFile("C:/Users/Kyoto/source/repos/Laboratory Management System (Capstone Project)/Images/img/search1.gif");
                 pictureBox1.Image = searchImage;
                 label1.Visible = false;
+                cbProgramFilter.SelectedIndex = -1;
 
                 // Perform the search
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM Students WHERE ID_Number LIKE @SearchText + '%' OR Student_Name LIKE @SearchText + '%' OR Email_Address LIKE @SearchText + '%' OR Contact_No LIKE @SearchText + '%' OR Program LIKE @SearchText + '%' OR Department LIKE @SearchText + '%'";
+                    cmd.CommandText = "SELECT * FROM Students WHERE ID_Number LIKE @SearchText + '%' OR Student_Name LIKE @SearchText + '%' OR Email_Address LIKE @SearchText + '%' OR Contact_No LIKE @SearchText + '%' OR Program LIKE @SearchText + '%' OR Department LIKE @SearchText + '%' OR Address LIKE @SearchText + '%'";
 
                     cmd.Parameters.AddWithValue("@SearchText", tbStudentSearch.Text);
 
@@ -146,9 +148,72 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
 
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    // Populate the ComboBox with distinct program names
+                    SqlCommand cmd = new SqlCommand("SELECT DISTINCT Program FROM Students", con);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cbProgramFilter.Items.Add(reader["Program"].ToString());
+                    }
+
+                    reader.Close();
+
+                    // Load all student data initially
+                    LoadStudentData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
+
+
         }
 
-        
+
+
+
+        private void LoadStudentData()
+        {
+            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Students", con);
+                SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                DataSet DS = new DataSet();
+
+                try
+                {
+                    con.Open();
+                    DA.Fill(DS);
+
+                    if (DS.Tables[0].Rows.Count > 0)
+                    {
+                        dgvStudentsInformation.DataSource = DS.Tables[0];
+                    }
+                    else
+                    {
+                        dgvStudentsInformation.DataSource = null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
         int ID;
         Int64 rowid;
         private void dgvStudentsInformation_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -194,6 +259,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 tbContactNum.Text = DS.Tables[0].Rows[0]["Contact_No"].ToString();
                                 cbProgram.Text = DS.Tables[0].Rows[0]["Program"].ToString();
                                 cbDept.Text = DS.Tables[0].Rows[0]["Department"].ToString();
+                                tbAddress.Text = DS.Tables[0].Rows[0]["Address"].ToString();
                             }
                         }
                         catch (Exception ex)
@@ -216,6 +282,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             Int64 contactnum;
             String program = cbProgram.Text;
             String department = cbDept.Text;
+            String address = tbAddress.Text;
 
             if (!Int64.TryParse(tbContactNum.Text, out contactnum))
             {
@@ -247,7 +314,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "UPDATE Students SET Student_Name = @StudentName, ID_Number = @IDNumber, Email_Address = @Email, Contact_No = @ContactNumber, Program = @Program, Department = @Department WHERE studID = @RowID";
+                        cmd.CommandText = "UPDATE Students SET Student_Name = @StudentName, ID_Number = @IDNumber, Email_Address = @Email, Contact_No = @ContactNumber, Program = @Program, Department = @Department, Address = @Address WHERE studID = @RowID";
 
                         cmd.Parameters.AddWithValue("@StudentName", studname);
                         cmd.Parameters.AddWithValue("@IDNumber", idnum);
@@ -255,6 +322,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         cmd.Parameters.AddWithValue("@ContactNumber", contactnum);
                         cmd.Parameters.AddWithValue("@Program", program);
                         cmd.Parameters.AddWithValue("@Department", department);
+                        cmd.Parameters.AddWithValue("@Address", address);
                         cmd.Parameters.AddWithValue("@RowID", rowid);
 
                         try
@@ -342,6 +410,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbContactNum.Clear();
             cbProgram.SelectedIndex = -1;
             cbDept.SelectedIndex = -1;
+            tbAddress.Clear();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -402,5 +471,56 @@ namespace Laboratory_Management_System__Capstone_Project_
                     break;
             }
         }
+
+        private void cbProgramFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbProgramFilter.SelectedItem != null)
+            {
+                string selectedProgram = cbProgramFilter.SelectedItem.ToString();
+                FilterStudentsByProgram(selectedProgram);
+            }
+            else
+            {
+                // If no program is selected, show all students
+                LoadStudentData();
+            }
+        }
+
+        private void FilterStudentsByProgram(string program)
+        {
+            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE Program = @Program", con);
+                cmd.Parameters.AddWithValue("@Program", program);
+
+                SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                DataSet DS = new DataSet();
+
+                try
+                {
+                    con.Open();
+                    DA.Fill(DS);
+
+                    if (DS.Tables[0].Rows.Count > 0)
+                    {
+                        dgvStudentsInformation.DataSource = DS.Tables[0];
+                    }
+                    else
+                    {
+                        dgvStudentsInformation.DataSource = null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
+
     }
 }

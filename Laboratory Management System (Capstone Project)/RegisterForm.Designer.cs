@@ -70,8 +70,10 @@
             this.lblRole = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
             this.lblCredentials = new System.Windows.Forms.Label();
+            this.pnelLogCredentials = new System.Windows.Forms.Panel();
             this.groupGender.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pnelLogCredentials.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbFirstName
@@ -106,7 +108,7 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(741, 113);
+            this.tbUsername.Location = new System.Drawing.Point(153, 80);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(152, 22);
@@ -153,7 +155,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(659, 119);
+            this.lblUsername.Location = new System.Drawing.Point(71, 86);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(73, 16);
             this.lblUsername.TabIndex = 11;
@@ -162,7 +164,7 @@
             // lblReminder
             // 
             this.lblReminder.AutoSize = true;
-            this.lblReminder.Location = new System.Drawing.Point(641, 149);
+            this.lblReminder.Location = new System.Drawing.Point(53, 116);
             this.lblReminder.Name = "lblReminder";
             this.lblReminder.Size = new System.Drawing.Size(321, 16);
             this.lblReminder.TabIndex = 12;
@@ -171,7 +173,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(668, 199);
+            this.lblPassword.Location = new System.Drawing.Point(80, 166);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(70, 16);
             this.lblPassword.TabIndex = 13;
@@ -180,7 +182,7 @@
             // lblConfirm
             // 
             this.lblConfirm.AutoSize = true;
-            this.lblConfirm.Location = new System.Drawing.Point(644, 238);
+            this.lblConfirm.Location = new System.Drawing.Point(56, 205);
             this.lblConfirm.Name = "lblConfirm";
             this.lblConfirm.Size = new System.Drawing.Size(118, 16);
             this.lblConfirm.TabIndex = 14;
@@ -188,7 +190,7 @@
             // 
             // tbPass
             // 
-            this.tbPass.Location = new System.Drawing.Point(768, 199);
+            this.tbPass.Location = new System.Drawing.Point(180, 166);
             this.tbPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(125, 22);
@@ -197,7 +199,7 @@
             // 
             // tbConfirmPass
             // 
-            this.tbConfirmPass.Location = new System.Drawing.Point(768, 234);
+            this.tbConfirmPass.Location = new System.Drawing.Point(180, 201);
             this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(125, 22);
@@ -206,7 +208,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(821, 526);
+            this.btnRegister.Location = new System.Drawing.Point(578, 575);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(141, 46);
@@ -217,7 +219,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(821, 588);
+            this.btnRefresh.Location = new System.Drawing.Point(601, 60);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(141, 44);
@@ -227,7 +229,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(821, 647);
+            this.btnBack.Location = new System.Drawing.Point(578, 635);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(141, 44);
@@ -347,7 +349,7 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(94, 613);
+            this.btnPrevious.Location = new System.Drawing.Point(63, 613);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(141, 46);
@@ -358,7 +360,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(242, 613);
+            this.btnNext.Location = new System.Drawing.Point(210, 613);
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(141, 46);
@@ -415,7 +417,7 @@
             // chkShowPass
             // 
             this.chkShowPass.AutoSize = true;
-            this.chkShowPass.Location = new System.Drawing.Point(899, 199);
+            this.chkShowPass.Location = new System.Drawing.Point(311, 166);
             this.chkShowPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkShowPass.Name = "chkShowPass";
             this.chkShowPass.Size = new System.Drawing.Size(18, 17);
@@ -426,7 +428,7 @@
             // lblShowPass
             // 
             this.lblShowPass.AutoSize = true;
-            this.lblShowPass.Location = new System.Drawing.Point(923, 199);
+            this.lblShowPass.Location = new System.Drawing.Point(335, 166);
             this.lblShowPass.Name = "lblShowPass";
             this.lblShowPass.Size = new System.Drawing.Size(103, 16);
             this.lblShowPass.TabIndex = 36;
@@ -464,23 +466,38 @@
             // 
             this.lblCredentials.AutoSize = true;
             this.lblCredentials.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCredentials.Location = new System.Drawing.Point(644, 68);
+            this.lblCredentials.Location = new System.Drawing.Point(56, 35);
             this.lblCredentials.Name = "lblCredentials";
             this.lblCredentials.Size = new System.Drawing.Size(196, 24);
             this.lblCredentials.TabIndex = 40;
             this.lblCredentials.Text = "User log credentials";
             // 
+            // pnelLogCredentials
+            // 
+            this.pnelLogCredentials.Controls.Add(this.lblCredentials);
+            this.pnelLogCredentials.Controls.Add(this.tbUsername);
+            this.pnelLogCredentials.Controls.Add(this.lblUsername);
+            this.pnelLogCredentials.Controls.Add(this.lblReminder);
+            this.pnelLogCredentials.Controls.Add(this.lblPassword);
+            this.pnelLogCredentials.Controls.Add(this.lblConfirm);
+            this.pnelLogCredentials.Controls.Add(this.lblShowPass);
+            this.pnelLogCredentials.Controls.Add(this.tbPass);
+            this.pnelLogCredentials.Controls.Add(this.chkShowPass);
+            this.pnelLogCredentials.Controls.Add(this.tbConfirmPass);
+            this.pnelLogCredentials.Location = new System.Drawing.Point(54, 68);
+            this.pnelLogCredentials.Name = "pnelLogCredentials";
+            this.pnelLogCredentials.Size = new System.Drawing.Size(497, 299);
+            this.pnelLogCredentials.TabIndex = 41;
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 712);
-            this.Controls.Add(this.lblCredentials);
+            this.ClientSize = new System.Drawing.Size(774, 712);
+            this.Controls.Add(this.pnelLogCredentials);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.cbRole);
-            this.Controls.Add(this.lblShowPass);
-            this.Controls.Add(this.chkShowPass);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
@@ -496,16 +513,9 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.tbConfirmPass);
-            this.Controls.Add(this.tbPass);
-            this.Controls.Add(this.lblConfirm);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblReminder);
-            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lbMN);
             this.Controls.Add(this.lbLN);
             this.Controls.Add(this.lbFN);
-            this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.tbMiddleName);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbFirstName);
@@ -517,6 +527,8 @@
             this.groupGender.ResumeLayout(false);
             this.groupGender.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.pnelLogCredentials.ResumeLayout(false);
+            this.pnelLogCredentials.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,5 +577,6 @@
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label lblCredentials;
+        private System.Windows.Forms.Panel pnelLogCredentials;
     }
 }

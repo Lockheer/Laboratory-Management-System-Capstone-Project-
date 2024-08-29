@@ -66,7 +66,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 cmbViewOptions.Items.Add("Borrowed Items");
                 cmbViewOptions.Items.Add("Returned Items");
                 cmbViewOptions.Items.Add("Violation Records");
-                cmbViewOptions.Items.Add("Apparatus List");
+                cmbViewOptions.Items.Add("Inventory List");
                 cmbViewOptions.Items.Add("Student List");
                 cmbViewOptions.SelectedIndex = 0; // Default selection
 

@@ -40,6 +40,8 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvStudentsInformation = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.cbDept = new System.Windows.Forms.ComboBox();
             this.cbProgram = new System.Windows.Forms.ComboBox();
             this.btnClearAll = new System.Windows.Forms.Button();
@@ -56,6 +58,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbProgramFilter = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsInformation)).BeginInit();
@@ -145,7 +149,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(261, 148);
+            this.label3.Location = new System.Drawing.Point(158, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(215, 25);
             this.label3.TabIndex = 1;
@@ -154,7 +158,7 @@
             // tbStudentSearch
             // 
             this.tbStudentSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbStudentSearch.Location = new System.Drawing.Point(483, 149);
+            this.tbStudentSearch.Location = new System.Drawing.Point(380, 148);
             this.tbStudentSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbStudentSearch.Name = "tbStudentSearch";
             this.tbStudentSearch.Size = new System.Drawing.Size(219, 27);
@@ -165,7 +169,7 @@
             // 
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(707, 146);
+            this.btnRefresh.Location = new System.Drawing.Point(976, 145);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(119, 32);
@@ -189,6 +193,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.tbAddress);
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.cbDept);
             this.panel2.Controls.Add(this.cbProgram);
             this.panel2.Controls.Add(this.btnClearAll);
@@ -208,8 +214,28 @@
             this.panel2.Location = new System.Drawing.Point(-3, 614);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1160, 305);
+            this.panel2.Size = new System.Drawing.Size(1169, 371);
             this.panel2.TabIndex = 5;
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.Location = new System.Drawing.Point(213, 176);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbAddress.Multiline = true;
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(334, 163);
+            this.tbAddress.TabIndex = 25;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(123, 176);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 20);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Address:";
             // 
             // cbDept
             // 
@@ -219,7 +245,7 @@
             "College Of Education",
             "College Of Computer Studies",
             "Senior High School Branch"});
-            this.cbDept.Location = new System.Drawing.Point(795, 129);
+            this.cbDept.Location = new System.Drawing.Point(798, 130);
             this.cbDept.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbDept.Name = "cbDept";
             this.cbDept.Size = new System.Drawing.Size(252, 24);
@@ -241,7 +267,7 @@
             "BSCpE",
             "BSCS",
             "SHS"});
-            this.cbProgram.Location = new System.Drawing.Point(795, 84);
+            this.cbProgram.Location = new System.Drawing.Point(798, 85);
             this.cbProgram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(135, 24);
@@ -251,10 +277,10 @@
             // btnClearAll
             // 
             this.btnClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearAll.Location = new System.Drawing.Point(543, 183);
+            this.btnClearAll.Location = new System.Drawing.Point(696, 283);
             this.btnClearAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(101, 25);
+            this.btnClearAll.Size = new System.Drawing.Size(129, 47);
             this.btnClearAll.TabIndex = 21;
             this.btnClearAll.Text = "CLEAR ALL";
             this.btnClearAll.UseVisualStyleBackColor = true;
@@ -263,10 +289,10 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(1119, 0);
+            this.btnBack.Location = new System.Drawing.Point(1104, 2);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(41, 41);
+            this.btnBack.Size = new System.Drawing.Size(50, 41);
             this.btnBack.TabIndex = 20;
             this.btnBack.Text = "X";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -275,7 +301,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(956, 223);
+            this.btnDelete.Location = new System.Drawing.Point(851, 225);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(135, 41);
@@ -287,7 +313,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(795, 223);
+            this.btnUpdate.Location = new System.Drawing.Point(690, 225);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(135, 41);
@@ -299,7 +325,7 @@
             // tbContactNum
             // 
             this.tbContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbContactNum.Location = new System.Drawing.Point(795, 43);
+            this.tbContactNum.Location = new System.Drawing.Point(798, 44);
             this.tbContactNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbContactNum.Name = "tbContactNum";
             this.tbContactNum.Size = new System.Drawing.Size(252, 27);
@@ -336,7 +362,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(681, 129);
+            this.label9.Location = new System.Drawing.Point(684, 130);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(107, 20);
             this.label9.TabIndex = 11;
@@ -346,7 +372,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(701, 86);
+            this.label8.Location = new System.Drawing.Point(704, 87);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 20);
             this.label8.TabIndex = 10;
@@ -356,7 +382,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(637, 43);
+            this.label7.Location = new System.Drawing.Point(640, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(151, 20);
             this.label7.TabIndex = 9;
@@ -392,13 +418,34 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Student Name:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(648, 147);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(183, 25);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Filter by Program:";
+            // 
+            // cbProgramFilter
+            // 
+            this.cbProgramFilter.FormattingEnabled = true;
+            this.cbProgramFilter.Location = new System.Drawing.Point(837, 147);
+            this.cbProgramFilter.Name = "cbProgramFilter";
+            this.cbProgramFilter.Size = new System.Drawing.Size(121, 24);
+            this.cbProgramFilter.TabIndex = 7;
+            this.cbProgramFilter.SelectedIndexChanged += new System.EventHandler(this.cbProgramFilter_SelectedIndexChanged);
+            // 
             // ViewStudentInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Coral;
-            this.ClientSize = new System.Drawing.Size(1183, 825);
+            this.ClientSize = new System.Drawing.Size(1168, 1000);
+            this.Controls.Add(this.cbProgramFilter);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvStudentsInformation);
             this.Controls.Add(this.btnRefresh);
@@ -451,5 +498,9 @@
         private System.Windows.Forms.ComboBox cbDept;
         private System.Windows.Forms.ComboBox cbProgram;
         private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbProgramFilter;
     }
 }

@@ -46,6 +46,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             btnRegister.Hide();
             btnPrevious.Hide();
             lblCredentials.Hide();
+            pnelLogCredentials.Hide();
             LoadRoles();
         }
 
@@ -281,6 +282,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             btnRegister.Visible = true;
             btnPrevious.Visible = true;
             lblCredentials.Visible = true;
+            pnelLogCredentials.Visible = true;
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -316,6 +318,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             btnRegister.Visible = false;
             btnPrevious.Visible = false;
             lblCredentials.Visible = false;
+            pnelLogCredentials.Visible = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

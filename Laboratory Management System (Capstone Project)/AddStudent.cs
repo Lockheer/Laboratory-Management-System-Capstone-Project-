@@ -43,6 +43,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbStudContact.Clear();
             cbProgram.SelectedIndex = -1;
             cbDepartment.SelectedIndex = -1;
+            tbAddress.Clear();
 
 
         }
@@ -52,7 +53,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             if (tbIDNum.Text != "" && tbStudName.Text != "" && tbStudEmail.Text != ""
                 && tbStudContact.Text != "" && cbProgram.Text != "" && cbDepartment.Text != "" && cbProgram.SelectedIndex != -1 &&
-                cbDepartment.SelectedIndex != -1)
+                cbDepartment.SelectedIndex != -1 && tbAddress.Text != "")
             {
                 String name = tbStudName.Text;
                 String idnum = tbIDNum.Text;
@@ -60,6 +61,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 Int64 contact = Int64.Parse(tbStudContact.Text);
                 String program = cbProgram.Text;
                 String department = cbDepartment.Text;
+                String address = tbAddress.Text;
 
                 // Check for duplicate email or contact number
                 using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
@@ -94,13 +96,14 @@ namespace Laboratory_Management_System__Capstone_Project_
                     else
                     {
                         // Proceed with insertion
-                        SqlCommand command = new SqlCommand("insert into Students (Student_Name, ID_Number, Email_Address, Contact_No, Program, Department) values (@Name, @IDNum, @Email, @Contact, @Program, @Department)", connect);
+                        SqlCommand command = new SqlCommand("insert into Students (Student_Name, ID_Number, Email_Address, Contact_No, Program, Department, Address) values (@Name, @IDNum, @Email, @Contact, @Program, @Department, @Address)", connect);
                         command.Parameters.AddWithValue("@Name", name);
                         command.Parameters.AddWithValue("@IDNum", idnum);
                         command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@Contact", contact);
                         command.Parameters.AddWithValue("@Program", program);
                         command.Parameters.AddWithValue("@Department", department);
+                        command.Parameters.AddWithValue("@Address", address);
 
                         command.ExecuteNonQuery();
                         MessageBox.Show("The Student's information has been saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -157,6 +160,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     string contactStr = worksheet.Cells[row, 4].Text;
                                     string program = worksheet.Cells[row, 5].Text;
                                     string department = worksheet.Cells[row, 6].Text;
+                                    string address = worksheet.Cells[row, 7].Text;
 
                                     if (Int64.TryParse(contactStr, out Int64 contact) && !string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(email))
                                     {
@@ -175,6 +179,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                             command.Parameters.AddWithValue("@Contact", contact);
                                             command.Parameters.AddWithValue("@Program", program);
                                             command.Parameters.AddWithValue("@Department", department);
+                                            command.Parameters.AddWithValue("@Address", address);
 
                                             command.ExecuteNonQuery();
                                         }
