@@ -17,6 +17,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         public Form1()
         {
             InitializeComponent();
+            tbPassword.KeyPress += new KeyPressEventHandler(tbPassword_KeyPress);
         }
 
         RegistrationAccountDataContext db = new RegistrationAccountDataContext();
@@ -210,6 +211,20 @@ namespace Laboratory_Management_System__Capstone_Project_
             RegistrationForm registrationForm = new RegistrationForm();
             registrationForm.Show();
             this.Hide();
+        }
+
+        private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                //Prevents windows beep sound or error sound
+                e.Handled = true;
+
+                btnLogin.PerformClick();
+            }
+
+
+
         }
     }
 }
