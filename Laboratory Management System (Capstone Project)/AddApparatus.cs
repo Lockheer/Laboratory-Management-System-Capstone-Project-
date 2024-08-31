@@ -16,15 +16,35 @@ namespace Laboratory_Management_System__Capstone_Project_
 {
     public partial class AddApparatus : Form
     {
+        private List<string> lifeSpanSuggestions = new List<string> { "Years", "Months", "Days" };
+        private ListBox suggestionBox;
+
         private string PlaceHolderText = "000.00";
         public AddApparatus()
         {
             InitializeComponent();
+            InitializeSuggestionBox();
             tbPrice.Enter += tbPrice_Enter;
             tbPrice.Leave += tbPrice_Leave;
+            tbLifeSpan.TextChanged += tbLifeSpan_TextChanged;
+            suggestionBox.Click += SuggestionBox_Click;
             // Set the initial placeholder text
             SetPlaceholderText();
         }
+
+        private void InitializeSuggestionBox()
+        {
+            suggestionBox = new ListBox
+            {
+                Visible = false,
+                Width = tbLifeSpan.Width
+            };
+            this.Controls.Add(suggestionBox);
+            suggestionBox.BringToFront();
+        }
+
+
+
 
         //Press/Navigate event
         private void SetPlaceholderText()
@@ -72,10 +92,10 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tbAppaName.Text != "" && tbModelNum.Text != "" && cbStatus.Text != "" && tbQuantity.Text != "")
+            if (tbAppaName.Text != ""  && cbStatus.Text != "" && tbQuantity.Text != "" || tbLifeSpan.Text != "" || tbRemarks.Text != "")
             {
                 String appa_name = tbAppaName.Text;
-                String model_num = tbModelNum.Text;
+                String model_num = tbModelNum.Text == "" ? "N/A" : tbModelNum.Text; 
                 String date_purch = dtpDatePurchased.Text;
                 Decimal price = Decimal.Parse(tbPrice.Text);
                 String brand = tbBrand.Text;
@@ -184,7 +204,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 {
                                     // Read data from Excel
                                     string appa_name = worksheet.Cells[row, 1].Text;
-                                    string model_num = worksheet.Cells[row, 2].Text;
+                                    string model_num = worksheet.Cells[row, 2].Text == "" ? "N/A" : worksheet.Cells[row, 2].Text;
                                     string date_purch = worksheet.Cells[row, 3].Text;
                                     decimal price = decimal.Parse(worksheet.Cells[row, 4].Text);
                                     string brand = worksheet.Cells[row, 5].Text;
@@ -225,9 +245,34 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void tbLifeSpan_TextChanged(object sender, EventArgs e)
         {
+            string query = tbLifeSpan.Text.ToLower();
+            var filteredSuggestions = lifeSpanSuggestions.Where(x => x.ToLower().Contains(query)).ToList();
+
+            if (filteredSuggestions.Count > 0)
+            {
+                suggestionBox.Items.Clear();
+                suggestionBox.Items.AddRange(filteredSuggestions.ToArray());
+                suggestionBox.Location = new Point(tbLifeSpan.Location.X, tbLifeSpan.Location.Y + tbLifeSpan.Height);
+                suggestionBox.Visible = true;
+            }
+            else
+            {
+                suggestionBox.Visible = false;
+            }
 
         }
+        private void SuggestionBox_Click(object sender, EventArgs e)
+        {
+            if (suggestionBox.SelectedItem != null)
+            {
+                tbLifeSpan.Text = suggestionBox.SelectedItem.ToString();
+                suggestionBox.Visible = false;
+            }
+        }
+
+
+
     }
 }

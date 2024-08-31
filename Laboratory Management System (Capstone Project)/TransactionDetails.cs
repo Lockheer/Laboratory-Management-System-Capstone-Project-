@@ -317,7 +317,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NULL";
+                    string query = "SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NULL AND Remarks IS NULL ";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -371,7 +371,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NOT NULL";
+                    string query = "SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NOT NULL AND Remarks IS NOT NULL";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 

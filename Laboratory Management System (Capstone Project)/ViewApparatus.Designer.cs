@@ -60,6 +60,8 @@
             this.tbAppName = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbStatusFilter = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApparatusList)).BeginInit();
@@ -103,7 +105,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(437, 176);
+            this.label2.Location = new System.Drawing.Point(328, 176);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 23);
             this.label2.TabIndex = 2;
@@ -112,7 +114,7 @@
             // tbAppaSearch
             // 
             this.tbAppaSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAppaSearch.Location = new System.Drawing.Point(589, 174);
+            this.tbAppaSearch.Location = new System.Drawing.Point(480, 174);
             this.tbAppaSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbAppaSearch.Name = "tbAppaSearch";
             this.tbAppaSearch.Size = new System.Drawing.Size(296, 28);
@@ -123,7 +125,7 @@
             // 
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(892, 170);
+            this.btnRefresh.Location = new System.Drawing.Point(1161, 171);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(111, 31);
@@ -200,6 +202,7 @@
             this.tbLifeSpan.Name = "tbLifeSpan";
             this.tbLifeSpan.Size = new System.Drawing.Size(134, 22);
             this.tbLifeSpan.TabIndex = 25;
+            this.tbLifeSpan.TextChanged += new System.EventHandler(this.tbLifeSpan_TextChanged);
             // 
             // label10
             // 
@@ -411,6 +414,30 @@
             this.panel3.Size = new System.Drawing.Size(1438, 42);
             this.panel3.TabIndex = 8;
             // 
+            // cbStatusFilter
+            // 
+            this.cbStatusFilter.FormattingEnabled = true;
+            this.cbStatusFilter.Items.AddRange(new object[] {
+            "Ready for Use",
+            "Not Ready for Use",
+            "Needs Maintenance",
+            "Has Missing Parts"});
+            this.cbStatusFilter.Location = new System.Drawing.Point(965, 175);
+            this.cbStatusFilter.Name = "cbStatusFilter";
+            this.cbStatusFilter.Size = new System.Drawing.Size(166, 24);
+            this.cbStatusFilter.TabIndex = 9;
+            this.cbStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cbStatusFilter_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(803, 174);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(156, 23);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Filter by Status";
+            // 
             // InventoryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -418,6 +445,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1459, 1080);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.cbStatusFilter);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvApparatusList);
@@ -476,5 +505,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbLifeSpan;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbStatusFilter;
+        private System.Windows.Forms.Label label12;
     }
 }

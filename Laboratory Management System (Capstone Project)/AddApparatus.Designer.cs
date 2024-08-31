@@ -86,7 +86,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1023, 100);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+   
             // 
             // btnMinimize
             // 
@@ -206,6 +206,7 @@
             this.tbLifeSpan.Name = "tbLifeSpan";
             this.tbLifeSpan.Size = new System.Drawing.Size(95, 22);
             this.tbLifeSpan.TabIndex = 22;
+            this.tbLifeSpan.TextChanged += new System.EventHandler(this.tbLifeSpan_TextChanged);
             // 
             // label8
             // 
