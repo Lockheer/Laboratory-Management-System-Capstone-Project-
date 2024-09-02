@@ -44,7 +44,6 @@
             this.btnPrintAll = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnDetails)).BeginInit();
@@ -233,25 +232,13 @@
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // btnImport
-            // 
-            this.btnImport.Location = new System.Drawing.Point(1276, 101);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(205, 36);
-            this.btnImport.TabIndex = 51;
-            this.btnImport.Text = "IMPORT";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
             // TransactionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1593, 1123);
-            this.Controls.Add(this.btnImport);
+            this.ClientSize = new System.Drawing.Size(1593, 1102);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPrintAll);
@@ -302,7 +289,6 @@
         private System.Windows.Forms.Button btnPrintAll;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Button btnImport;
         private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

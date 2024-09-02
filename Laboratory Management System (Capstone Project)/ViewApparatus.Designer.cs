@@ -62,6 +62,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbStatusFilter = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApparatusList)).BeginInit();
@@ -149,6 +150,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Controls.Add(this.btnExport);
             this.panel2.Controls.Add(this.tbRemarks);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.tbLifeSpan);
@@ -438,6 +440,20 @@
             this.label12.TabIndex = 10;
             this.label12.Text = "Filter by Status";
             // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(1191, 225);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(208, 48);
+            this.btnExport.TabIndex = 28;
+            this.btnExport.Text = "Export to Excel";
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // InventoryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -507,5 +523,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbStatusFilter;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnExport;
     }
 }

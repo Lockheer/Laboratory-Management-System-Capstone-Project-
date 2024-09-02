@@ -1,0 +1,77 @@
+        /*   private void tbAppaSearch_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+
+            if (tbAppaSearch.Text != "")
+            {
+                cmd.CommandText = "select * from Inventory where [Apparatus Name] LIKE @SearchText + '%' OR [Model Number] LIKE @SearchText + '%' " +
+                                  "OR [Date Purchased] LIKE @SearchText + '%' OR [Price] LIKE @SearchText + '%' OR [Brand] LIKE @SearchText + '%' " +
+                                  "OR [Status] LIKE @SearchText + '%' OR [Quantity] LIKE @SearchText + '%' OR [Life Span] LIKE @SearchText + '%' OR [Remarks] LIKE @SearchText + '%'";
+                cmd.Parameters.AddWithValue("@SearchText", tbAppaSearch.Text);
+            }
+            else
+            {
+                cmd.CommandText = "select * from Inventory";
+            }
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                dgvApparatusList.DataSource = ds.Tables[0];
+            }
+            else
+            {
+                dgvApparatusList.DataSource = null; // Clear the DataGridView
+            }
+        }
+*/
+
+
+
+
+        /*private void cbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = con;
+
+                        string selectedStatus = cbStatusFilter.SelectedItem?.ToString();
+
+                        if (!string.IsNullOrEmpty(selectedStatus))
+                        {
+                            cmd.CommandText = "select * from Inventory where [Status] = @Status";
+                            cmd.Parameters.AddWithValue("@Status", selectedStatus);
+                        }
+                        else
+                        {
+                            cmd.CommandText = "select * from Inventory"; //default
+                        }
+
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        dgvApparatusList.DataSource = ds.Tables[0];
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("A database error occurred:\n" + sqlEx.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }*/
+    

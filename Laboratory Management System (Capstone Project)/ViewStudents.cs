@@ -519,8 +519,47 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Excel Workbook|*.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (var package = new OfficeOpenXml.ExcelPackage())
+                    {
+                        var worksheet = package.Workbook.Worksheets.Add("Students");
+
+                        // Add column headers
+                        for (int i = 1; i < dgvStudentsInformation.Columns.Count + 1; i++)
+                        {
+                            worksheet.Cells[1, i].Value = dgvStudentsInformation.Columns[i - 1].HeaderText;
+                        }
+
+                        // Add rows
+                        for (int i = 0; i < dgvStudentsInformation.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgvStudentsInformation.Columns.Count; j++)
+                            {
+                                worksheet.Cells[i + 2, j + 1].Value = dgvStudentsInformation.Rows[i].Cells[j].Value?.ToString();
+                            }
+                        }
+
+                        // Save to file
+                        try
+                        {
+                            package.SaveAs(new System.IO.FileInfo(sfd.FileName));
+                            MessageBox.Show("Data exported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred while exporting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
 
 
 
+        }
     }
 }

@@ -40,6 +40,7 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvStudentsInformation = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExport = new System.Windows.Forms.Button();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbDept = new System.Windows.Forms.ComboBox();
@@ -189,11 +190,11 @@
             this.dgvStudentsInformation.Size = new System.Drawing.Size(1129, 425);
             this.dgvStudentsInformation.TabIndex = 4;
             this.dgvStudentsInformation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudentsInformation_CellClick);
-       
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.btnExport);
             this.panel2.Controls.Add(this.tbAddress);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.cbDept);
@@ -217,6 +218,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1169, 371);
             this.panel2.TabIndex = 5;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(840, 280);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(166, 50);
+            this.btnExport.TabIndex = 26;
+            this.btnExport.Text = "EXPORT TO EXCEL";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // tbAddress
             // 
@@ -503,5 +515,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbProgramFilter;
+        private System.Windows.Forms.Button btnExport;
     }
 }

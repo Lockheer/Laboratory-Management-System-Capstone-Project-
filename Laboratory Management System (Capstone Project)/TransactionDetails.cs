@@ -590,7 +590,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private void btnImport_Click(object sender, EventArgs e)
+        /*private void btnImport_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -609,9 +609,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
-        }
+        }*/
 
-        private void ImportDataFromExcel(string filePath)
+       /* private void ImportDataFromExcel(string filePath)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
@@ -634,7 +634,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
 
             MessageBox.Show("Data imported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        }*/
 
 
 
