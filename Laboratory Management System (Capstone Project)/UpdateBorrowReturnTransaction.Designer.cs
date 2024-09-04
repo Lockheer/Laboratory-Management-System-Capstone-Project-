@@ -56,6 +56,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.pnelUPDATE.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // pnelUPDATE
             // 
+            this.pnelUPDATE.Controls.Add(this.btnExportToExcel);
             this.pnelUPDATE.Controls.Add(this.cbAppaName);
             this.pnelUPDATE.Controls.Add(this.lnklblClear);
             this.pnelUPDATE.Controls.Add(this.btnDelete);
@@ -100,6 +102,7 @@
             this.pnelUPDATE.Name = "pnelUPDATE";
             this.pnelUPDATE.Size = new System.Drawing.Size(1446, 416);
             this.pnelUPDATE.TabIndex = 1;
+    
             // 
             // cbAppaName
             // 
@@ -113,17 +116,16 @@
             // 
             this.lnklblClear.AutoSize = true;
             this.lnklblClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnklblClear.Location = new System.Drawing.Point(665, 371);
+            this.lnklblClear.Location = new System.Drawing.Point(564, 357);
             this.lnklblClear.Name = "lnklblClear";
             this.lnklblClear.Size = new System.Drawing.Size(116, 22);
             this.lnklblClear.TabIndex = 22;
             this.lnklblClear.TabStop = true;
             this.lnklblClear.Text = "CLEAR ALL";
-            
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(1221, 347);
+            this.btnDelete.Location = new System.Drawing.Point(1013, 347);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(182, 46);
             this.btnDelete.TabIndex = 21;
@@ -133,7 +135,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(1221, 263);
+            this.btnUpdate.Location = new System.Drawing.Point(825, 348);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(182, 45);
             this.btnUpdate.TabIndex = 20;
@@ -143,7 +145,7 @@
             // 
             // tbRemarks
             // 
-            this.tbRemarks.Location = new System.Drawing.Point(681, 176);
+            this.tbRemarks.Location = new System.Drawing.Point(816, 171);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.Size = new System.Drawing.Size(445, 137);
@@ -168,7 +170,7 @@
             // 
             this.dtpDueDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDueDate.Location = new System.Drawing.Point(700, 73);
+            this.dtpDueDate.Location = new System.Drawing.Point(835, 68);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(211, 22);
             this.dtpDueDate.TabIndex = 15;
@@ -177,7 +179,7 @@
             // 
             this.dtpBorrowedDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpBorrowedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBorrowedDate.Location = new System.Drawing.Point(700, 24);
+            this.dtpBorrowedDate.Location = new System.Drawing.Point(835, 19);
             this.dtpBorrowedDate.Name = "dtpBorrowedDate";
             this.dtpBorrowedDate.Size = new System.Drawing.Size(211, 22);
             this.dtpBorrowedDate.TabIndex = 14;
@@ -186,7 +188,7 @@
             // 
             this.dtpDateReturned.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpDateReturned.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateReturned.Location = new System.Drawing.Point(700, 119);
+            this.dtpDateReturned.Location = new System.Drawing.Point(835, 114);
             this.dtpDateReturned.Name = "dtpDateReturned";
             this.dtpDateReturned.Size = new System.Drawing.Size(211, 22);
             this.dtpDateReturned.TabIndex = 13;
@@ -215,7 +217,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(610, 176);
+            this.label10.Location = new System.Drawing.Point(745, 171);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 16);
             this.label10.TabIndex = 10;
@@ -233,7 +235,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(597, 124);
+            this.label8.Location = new System.Drawing.Point(732, 119);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 16);
             this.label8.TabIndex = 8;
@@ -242,7 +244,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(627, 78);
+            this.label7.Location = new System.Drawing.Point(762, 73);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 7;
@@ -251,7 +253,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(610, 29);
+            this.label6.Location = new System.Drawing.Point(745, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 16);
             this.label6.TabIndex = 6;
@@ -331,6 +333,16 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnExportToExcel
+            // 
+            this.btnExportToExcel.Location = new System.Drawing.Point(1201, 348);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(182, 46);
+            this.btnExportToExcel.TabIndex = 24;
+            this.btnExportToExcel.Text = "EXPORT";
+            this.btnExportToExcel.UseVisualStyleBackColor = true;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
+            // 
             // UpdateBorrowReturnTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -384,5 +396,6 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnExportToExcel;
     }
 }

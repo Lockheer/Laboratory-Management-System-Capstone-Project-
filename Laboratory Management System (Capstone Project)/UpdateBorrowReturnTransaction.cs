@@ -9,6 +9,10 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System.IO;
+
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -237,6 +241,60 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbSearch.Clear();
         }
 
-       
+   
+
+        private void btnExportToExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM BorrowReturnTransaction", con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        using (ExcelPackage pck = new ExcelPackage())
+                        {
+                            ExcelWorksheet ws = pck.Workbook.Worksheets.Add("BorrowReturnTransaction");
+
+                            // Load the DataTable into the sheet, starting from cell A1
+                            ws.Cells["A1"].LoadFromDataTable(dt, true);
+
+                            // Format the header for columns
+                            using (ExcelRange rng = ws.Cells["A1:XFD1"])
+                            {
+                                rng.Style.Font.Bold = true;
+                                rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                rng.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(79, 129, 189));
+                                rng.Style.Font.Color.SetColor(Color.White);
+                            }
+
+                            // Auto-fit columns
+                            ws.Cells[ws.Dimension.Address].AutoFitColumns();
+
+                            // Save the file to a location
+                            string filePath = "BorrowReturnTransaction.xlsx";
+                            File.WriteAllBytes(filePath, pck.GetAsByteArray());
+
+                            MessageBox.Show($"Data has been successfully exported to {filePath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No data available to export.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while exporting data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+        }
     }
 }
