@@ -198,11 +198,11 @@
     <Compile Include="VerificationForUpdate.Designer.cs">
       <DependentUpon>VerificationForUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewApparatus.cs">
+    <Compile Include="InventoryList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewApparatus.Designer.cs">
-      <DependentUpon>ViewApparatus.cs</DependentUpon>
+    <Compile Include="InventoryList.Designer.cs">
+      <DependentUpon>InventoryList.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewStudents.cs">
       <SubType>Form</SubType>
@@ -265,8 +265,8 @@
     <EmbeddedResource Include="VerificationForUpdate.resx">
       <DependentUpon>VerificationForUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewApparatus.resx">
-      <DependentUpon>ViewApparatus.cs</DependentUpon>
+    <EmbeddedResource Include="InventoryList.resx">
+      <DependentUpon>InventoryList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewStudents.resx">
       <DependentUpon>ViewStudents.cs</DependentUpon>
