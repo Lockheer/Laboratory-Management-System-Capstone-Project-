@@ -218,7 +218,7 @@
             this.tbLifeSpan.Name = "tbLifeSpan";
             this.tbLifeSpan.Size = new System.Drawing.Size(134, 22);
             this.tbLifeSpan.TabIndex = 25;
-            this.tbLifeSpan.TextChanged += new System.EventHandler(this.tbLifeSpan_TextChanged);
+      
             // 
             // label10
             // 

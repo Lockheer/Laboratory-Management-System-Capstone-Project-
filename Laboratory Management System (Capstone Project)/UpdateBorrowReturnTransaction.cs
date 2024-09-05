@@ -241,12 +241,15 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbSearch.Clear();
         }
 
-   
+
 
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
             try
             {
+                // Set the license context for EPPlus
+                OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
                     con.Open();
@@ -275,11 +278,20 @@ namespace Laboratory_Management_System__Capstone_Project_
                             // Auto-fit columns
                             ws.Cells[ws.Dimension.Address].AutoFitColumns();
 
-                            // Save the file to a location
-                            string filePath = "BorrowReturnTransaction.xlsx";
-                            File.WriteAllBytes(filePath, pck.GetAsByteArray());
+                            // Create a SaveFileDialog to choose the location and file name
+                            using (SaveFileDialog sfd = new SaveFileDialog())
+                            {
+                                sfd.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                                sfd.Title = "Save an Excel File";
 
-                            MessageBox.Show($"Data has been successfully exported to {filePath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (sfd.ShowDialog() == DialogResult.OK)
+                                {
+                                    // Save the file to the selected location
+                                    File.WriteAllBytes(sfd.FileName, pck.GetAsByteArray());
+
+                                    MessageBox.Show($"Data has been successfully exported to {sfd.FileName}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
                         }
                     }
                     else
@@ -292,9 +304,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 MessageBox.Show($"An error occurred while exporting data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
         }
+
+
     }
 }

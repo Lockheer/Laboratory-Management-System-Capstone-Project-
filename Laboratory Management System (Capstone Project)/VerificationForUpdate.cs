@@ -84,5 +84,14 @@ namespace Laboratory_Management_System__Capstone_Project_
             cooldownStartTime = DateTime.MinValue;
             tbConfirmPass.UseSystemPasswordChar = true;
         }
+
+        private void tbConfirmPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnProceed_Click(sender, e);
+                e.Handled = true;
+            }
+        }
     }
 }

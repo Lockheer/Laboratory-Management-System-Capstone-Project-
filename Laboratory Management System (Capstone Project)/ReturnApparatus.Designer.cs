@@ -228,7 +228,7 @@
             this.btnIssueReturn.FlatAppearance.BorderSize = 2;
             this.btnIssueReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIssueReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssueReturn.Location = new System.Drawing.Point(750, 334);
+            this.btnIssueReturn.Location = new System.Drawing.Point(775, 343);
             this.btnIssueReturn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIssueReturn.Name = "btnIssueReturn";
             this.btnIssueReturn.Size = new System.Drawing.Size(219, 47);

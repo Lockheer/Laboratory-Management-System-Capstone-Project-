@@ -77,6 +77,7 @@
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(385, 22);
             this.tbConfirmPass.TabIndex = 3;
+            this.tbConfirmPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbConfirmPass_KeyPress);
             // 
             // label3
             // 

@@ -17,8 +17,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 {
     public partial class InventoryList : Form
     {
-        private List<string> lifeSpanSuggestions = new List<string> { "Years", "Months", "Days" };
-        private ListBox suggestionBox;
+  
 
         private const string PlaceholderText = "000.00";
         public InventoryList()
@@ -26,9 +25,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
             tbPrice.Enter += tbPrice_Enter;
             tbPrice.Leave += tbPrice_Leave;
-            tbLifeSpan.TextChanged += tbLifeSpan_TextChanged;
-            suggestionBox.Click += SuggestionBox_Click;
-            InitializeSuggestionBox();
             SetPlaceholderText();
         }
 
@@ -53,17 +49,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 MessageBox.Show("An error occurred while loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void InitializeSuggestionBox()
-        {
-            suggestionBox = new ListBox
-            {
-                Visible = false,
-                Width = tbLifeSpan.Width
-            };
-            this.Controls.Add(suggestionBox);
-            suggestionBox.BringToFront();
         }
 
 
@@ -228,33 +213,6 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-        }
-
-        private void tbLifeSpan_TextChanged(object sender, EventArgs e)
-        {
-            string query = tbLifeSpan.Text.ToLower();
-            var filteredSuggestions = lifeSpanSuggestions.Where(x => x.ToLower().Contains(query)).ToList();
-
-            if (filteredSuggestions.Count > 0)
-            {
-                suggestionBox.Items.Clear();
-                suggestionBox.Items.AddRange(filteredSuggestions.ToArray());
-                suggestionBox.Location = new Point(tbLifeSpan.Location.X, tbLifeSpan.Location.Y + tbLifeSpan.Height);
-                suggestionBox.Visible = true;
-            }
-            else
-            {
-                suggestionBox.Visible = false;
-            }
-
-        }
-        private void SuggestionBox_Click(object sender, EventArgs e)
-        {
-            if (suggestionBox.SelectedItem != null)
-            {
-                tbLifeSpan.Text = suggestionBox.SelectedItem.ToString();
-                suggestionBox.Visible = false;
-            }
         }
 
         //filter by status

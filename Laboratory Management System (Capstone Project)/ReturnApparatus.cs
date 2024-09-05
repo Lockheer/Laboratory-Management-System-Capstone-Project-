@@ -17,7 +17,39 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
             dtpReturnDate.MinDate = DateTime.Today;
+            tbSearchID.KeyPress += new KeyPressEventHandler(tbSearchID_KeyPress);
+
         }
+
+
+        //Loading of ID numbers
+        private void LoadIDNumbers()
+        {
+            AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            {
+                con.Open();
+                // Modified SQL query to get ID numbers of students who have conducted borrow transactions
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT DISTINCT ID_Number " +
+                    "FROM BorrowReturnTransaction " +
+                    "WHERE ID_Number IS NOT NULL", con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    autoCompleteCollection.Add(reader["ID_Number"].ToString());
+                }
+                reader.Close();
+            }
+
+            // Configure AutoComplete properties
+            tbSearchID.AutoCompleteMode = AutoCompleteMode.Suggest;
+            tbSearchID.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tbSearchID.AutoCompleteCustomSource = autoCompleteCollection;
+        }
+
+
+
 
         private string appa_name;
         private string date_borrowed;
@@ -40,6 +72,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                     dgvReturnInformation.DataSource = DS.Tables[0];
                 }
             }
+
+            LoadIDNumbers();
         }
 
         private void dgvReturnInformation_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -68,29 +102,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
-            {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM BorrowReturnTransaction WHERE ID_Number = @IDNumber AND Date_Returned IS NULL", con))
-                {
-                    cmd.Parameters.AddWithValue("@IDNumber", tbSearchID.Text);
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                    DataSet DS = new DataSet();
-                    DA.Fill(DS);
-
-                    if (DS.Tables[0].Rows.Count != 0)
-                    {
-                        dgvReturnInformation.DataSource = DS.Tables[0];
-                    }
-                    else
-                    {
-                        MessageBox.Show("ID Number is invalid OR there are no apparatus that has been issued", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
 
         private void btnIssueReturn_Click(object sender, EventArgs e)
         {
@@ -170,18 +181,69 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
 
+
+        private bool showErrorMessage = false;
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            showErrorMessage = true; // Set flag to show error message
+            SearchAndDisplayResults(tbSearchID.Text);
+        }
+
         private void tbSearchID_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearchID.Text != "")
+            if (string.IsNullOrWhiteSpace(tbSearchID.Text))
             {
                 panel2.Visible = false;
-                dgvReturnInformation.DataSource = null;
+                dgvReturnInformation.DataSource = null; // Clear the DataGridView if the text is empty
+                showErrorMessage = false; // Reset flag when clearing search
+            }
+            else
+            {
+                showErrorMessage = false; // Reset flag when typing
+                SearchAndDisplayResults(tbSearchID.Text);
             }
         }
+
+        private void SearchAndDisplayResults(string idNumber)
+        {
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM BorrowReturnTransaction WHERE ID_Number = @IDNumber AND Date_Returned IS NULL", con))
+                {
+                    cmd.Parameters.AddWithValue("@IDNumber", idNumber);
+                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    DataSet DS = new DataSet();
+                    DA.Fill(DS);
+
+                    if (DS.Tables[0].Rows.Count != 0)
+                    {
+                        dgvReturnInformation.DataSource = DS.Tables[0];
+                        panel2.Visible = true; // Show panel2 if results are found
+                    }
+                    else
+                    {
+                        dgvReturnInformation.DataSource = null; // Clear DataGridView if no results
+                        panel2.Visible = false; // Hide panel2 if no results
+
+                        if (showErrorMessage)
+                        {
+                            MessageBox.Show("ID Number is invalid OR there are no apparatus that has been issued", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+
+
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             tbSearchID.Clear();
+            panel2.Visible = false;
+            ReturnApparatus_Load(this, null);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -189,14 +251,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             panel2.Visible = false;
         }
 
-        private void tbSearchID_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnSearch_Click(sender, e);
-                e.Handled = true;
-            }
-        }
+      
 
         private void btnExitUpper_Click(object sender, EventArgs e)
         {
@@ -208,5 +263,14 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+        private void tbSearchID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(sender, e); // Trigger the search button click event
+                e.Handled = true; // Prevents the beep sound on Enter key press
+            }
+
+        }
     }
 }
