@@ -36,17 +36,23 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             panel2.Visible = false;
 
-            // SQL Connection
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "select * from Inventory";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            dgvApparatusList.DataSource = ds.Tables[0];
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Inventory", con))
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        dgvApparatusList.DataSource = ds.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InitializeSuggestionBox()
@@ -93,34 +99,40 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void dgvApparatusList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvApparatusList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                // Retrieves the PK
-                id = int.Parse(dgvApparatusList.Rows[e.RowIndex].Cells[0].Value.ToString());
-                // MessageBox.Show(dgvApparatusList.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (dgvApparatusList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    id = int.Parse(dgvApparatusList.Rows[e.RowIndex].Cells[0].Value.ToString());
+                }
+                panel2.Visible = true;
+
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Inventory WHERE ApparatusID = @ApparatusID", con))
+                    {
+                        cmd.Parameters.AddWithValue("@ApparatusID", id);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+
+                        rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
+                        tbAppName.Text = ds.Tables[0].Rows[0][1].ToString();
+                        tbModelNum.Text = ds.Tables[0].Rows[0][2].ToString();
+                        tbPurchaseDate.Text = ds.Tables[0].Rows[0][3].ToString();
+                        tbPrice.Text = ds.Tables[0].Rows[0][4].ToString();
+                        tbBrand.Text = ds.Tables[0].Rows[0][5].ToString();
+                        cbEditStatus.Text = ds.Tables[0].Rows[0][6].ToString();
+                        tbQuantity.Text = ds.Tables[0].Rows[0][7].ToString();
+                        tbLifeSpan.Text = ds.Tables[0].Rows[0][8].ToString();
+                        tbRemarks.Text = ds.Tables[0].Rows[0][9].ToString();
+                    }
+                }
             }
-            panel2.Visible = true;
-
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "select * from Inventory where ApparatusID= " + id + "";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
-
-            tbAppName.Text = ds.Tables[0].Rows[0][1].ToString();
-            tbModelNum.Text = ds.Tables[0].Rows[0][2].ToString();
-            tbPurchaseDate.Text = ds.Tables[0].Rows[0][3].ToString();
-            tbPrice.Text = ds.Tables[0].Rows[0][4].ToString();
-            tbBrand.Text = ds.Tables[0].Rows[0][5].ToString();
-            cbEditStatus.Text = ds.Tables[0].Rows[0][6].ToString();
-            tbQuantity.Text = ds.Tables[0].Rows[0][7].ToString();
-            tbLifeSpan.Text = ds.Tables[0].Rows[0][8].ToString(); // New field for Life Span
-            tbRemarks.Text = ds.Tables[0].Rows[0][9].ToString(); // New field for Remarks
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -146,51 +158,70 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("The Data will be updated\n\nPlease click on the RETURN button to update the Apparatus List. Confirm?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            try
             {
-                String appa_name = tbAppName.Text;
-                String model_num = tbModelNum.Text == "" ? "N/A" : tbModelNum.Text;
-                String date_purch = tbPurchaseDate.Text;
-                Decimal price = Decimal.Parse(tbPrice.Text);
-                String brand = tbBrand.Text;
-                String status = cbEditStatus.Text;
-                Int64 quantity = Int64.Parse(tbQuantity.Text);
-                String life_span = tbLifeSpan.Text;
+                if (MessageBox.Show("The Data will be updated\n\nPlease click on the RETURN button to update the Apparatus List. Confirm?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    string appa_name = tbAppName.Text;
+                    string model_num = string.IsNullOrEmpty(tbModelNum.Text) ? "N/A" : tbModelNum.Text;
+                    string date_purch = tbPurchaseDate.Text;
+                    decimal price = Decimal.Parse(tbPrice.Text);
+                    string brand = tbBrand.Text;
+                    string status = cbEditStatus.Text;
+                    long quantity = Int64.Parse(tbQuantity.Text);
+                    string life_span = tbLifeSpan.Text;
+                    string remarks = (quantity == 0) ? "Out of Stock" : tbRemarks.Text;
 
-                // Automatically set remarks to "Out of Stock" if quantity is 0
-                String remarks = (quantity == 0) ? "Out of Stock" : tbRemarks.Text;
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    {
+                        using (SqlCommand cmd = new SqlCommand("UPDATE Inventory SET [Apparatus Name] = @ApparatusName, [Model Number] = @ModelNum, [Date Purchased] = @DatePurchased, [Price] = @Price, [Brand] = @Brand, [Status] = @Status, [Quantity] = @Quantity, [Life Span] = @LifeSpan, [Remarks] = @Remarks WHERE ApparatusID = @ApparatusID", con))
+                        {
+                            cmd.Parameters.AddWithValue("@ApparatusName", appa_name);
+                            cmd.Parameters.AddWithValue("@ModelNum", model_num);
+                            cmd.Parameters.AddWithValue("@DatePurchased", date_purch);
+                            cmd.Parameters.AddWithValue("@Price", price);
+                            cmd.Parameters.AddWithValue("@Brand", brand);
+                            cmd.Parameters.AddWithValue("@Status", status);
+                            cmd.Parameters.AddWithValue("@Quantity", quantity);
+                            cmd.Parameters.AddWithValue("@LifeSpan", life_span);
+                            cmd.Parameters.AddWithValue("@Remarks", remarks);
+                            cmd.Parameters.AddWithValue("@ApparatusID", rowid);
 
-                // SQL Connection
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "update Inventory set [Apparatus Name] = '" + appa_name + "',  [Model Number] ='" + model_num + "', [Date Purchased] = '" + date_purch + "' ,[Price] =" + price + " ,[Brand] = '" + brand + "' ,[Status] = '" + status + "' ,[Quantity] =" + quantity + " ,[Life Span] = '" + life_span + "' ,[Remarks] = '" + remarks + "' where ApparatusID = " + rowid + "";
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-
-                // needs further debugging
-                ViewApparatus_Load(this, null);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    ViewApparatus_Load(this, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while updating data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("The Data will be deleted\n\nPlease click on the RETURN button to update the Apparatus List. Confirm?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            try
             {
-                // SQL Connection
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "delete from Inventory where ApparatusID = " + rowid + "";
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
+                if (MessageBox.Show("The Data will be deleted\n\nPlease click on the RETURN button to update the Apparatus List. Confirm?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    {
+                        using (SqlCommand cmd = new SqlCommand("DELETE FROM Inventory WHERE ApparatusID = @ApparatusID", con))
+                        {
+                            cmd.Parameters.AddWithValue("@ApparatusID", rowid);
 
-                // needs further debugging
-                ViewApparatus_Load(this, null);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    ViewApparatus_Load(this, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while deleting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
