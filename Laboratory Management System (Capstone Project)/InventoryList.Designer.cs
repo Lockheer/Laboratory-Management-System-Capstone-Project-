@@ -194,7 +194,7 @@
             // 
             // tbRemarks
             // 
-            this.tbRemarks.Location = new System.Drawing.Point(735, 225);
+            this.tbRemarks.Location = new System.Drawing.Point(755, 227);
             this.tbRemarks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
@@ -213,12 +213,11 @@
             // 
             // tbLifeSpan
             // 
-            this.tbLifeSpan.Location = new System.Drawing.Point(735, 181);
+            this.tbLifeSpan.Location = new System.Drawing.Point(755, 183);
             this.tbLifeSpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLifeSpan.Name = "tbLifeSpan";
             this.tbLifeSpan.Size = new System.Drawing.Size(134, 22);
             this.tbLifeSpan.TabIndex = 25;
-      
             // 
             // label10
             // 
@@ -238,7 +237,7 @@
             "Not Ready for Use",
             "Needs Maintenance",
             "Has Missing Parts"});
-            this.cbEditStatus.Location = new System.Drawing.Point(735, 82);
+            this.cbEditStatus.Location = new System.Drawing.Point(755, 84);
             this.cbEditStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cbEditStatus.Name = "cbEditStatus";
             this.cbEditStatus.Size = new System.Drawing.Size(160, 24);
@@ -366,7 +365,7 @@
             // 
             // tbQuantity
             // 
-            this.tbQuantity.Location = new System.Drawing.Point(735, 135);
+            this.tbQuantity.Location = new System.Drawing.Point(755, 137);
             this.tbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(105, 22);
@@ -374,7 +373,7 @@
             // 
             // tbBrand
             // 
-            this.tbBrand.Location = new System.Drawing.Point(735, 34);
+            this.tbBrand.Location = new System.Drawing.Point(755, 36);
             this.tbBrand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBrand.Name = "tbBrand";
             this.tbBrand.Size = new System.Drawing.Size(213, 22);

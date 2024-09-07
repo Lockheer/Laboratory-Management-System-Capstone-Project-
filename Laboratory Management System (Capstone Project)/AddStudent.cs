@@ -234,19 +234,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                     cbDepartment.SelectedItem = "College Of Engineering";
                     break;
 
-                case "BSIT":
-                case "BSCS":
-                case "BSCpE":
-                    cbDepartment.SelectedItem = "College Of Computer Studies";
-                    break;
-
-                case "BS-EDU (Primary)":
-                case "BS-EDU(Secondary English Major)":
-                case "BS-EDU(Secondary Mathematics Major)":
-                case "BS-EDU(Secondary Filipino Major)":
-                    cbDepartment.SelectedItem = "College Of Education";
-                    break;
-
                 case "SHS":
                     cbDepartment.SelectedItem = "Senior High School Branch";
                     break;

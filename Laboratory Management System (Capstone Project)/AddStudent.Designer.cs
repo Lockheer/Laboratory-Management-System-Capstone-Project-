@@ -36,6 +36,8 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnImport = new System.Windows.Forms.Button();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.cbProgram = new System.Windows.Forms.ComboBox();
@@ -51,8 +53,6 @@
             this.tbStudContact = new System.Windows.Forms.TextBox();
             this.tbIDNum = new System.Windows.Forms.TextBox();
             this.tbStudName = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbAddress = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -155,6 +155,24 @@
             this.panel2.Size = new System.Drawing.Size(612, 564);
             this.panel2.TabIndex = 1;
             // 
+            // tbAddress
+            // 
+            this.tbAddress.Location = new System.Drawing.Point(231, 332);
+            this.tbAddress.Multiline = true;
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(327, 134);
+            this.tbAddress.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(115, 332);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 20);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Address:";
+            // 
             // btnImport
             // 
             this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -190,13 +208,6 @@
             "BSEE",
             "BSIE",
             "BSCE",
-            "BS-EDU (Primary)",
-            "BS-EDU(Secondary English Major)",
-            "BS-EDU(Secondary Mathematics Major)",
-            "BS-EDU(Secondary Filipino Major)",
-            "BSIT",
-            "BSCpE",
-            "BSCS",
             "SHS"});
             this.cbProgram.Location = new System.Drawing.Point(231, 237);
             this.cbProgram.Name = "cbProgram";
@@ -315,24 +326,6 @@
             this.tbStudName.Name = "tbStudName";
             this.tbStudName.Size = new System.Drawing.Size(245, 22);
             this.tbStudName.TabIndex = 0;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(115, 332);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 20);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Address:";
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(231, 332);
-            this.tbAddress.Multiline = true;
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(327, 134);
-            this.tbAddress.TabIndex = 19;
             // 
             // AddStudent
             // 

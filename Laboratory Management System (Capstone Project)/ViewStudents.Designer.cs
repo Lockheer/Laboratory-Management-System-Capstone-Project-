@@ -272,13 +272,6 @@
             "BSEE",
             "BSIE",
             "BSCE",
-            "BS-EDU (Primary)",
-            "BS-EDU(Secondary English Major)",
-            "BS-EDU(Secondary Mathematics Major)",
-            "BS-EDU(Secondary Filipino Major)",
-            "BSIT",
-            "BSCpE",
-            "BSCS",
             "SHS"});
             this.cbProgram.Location = new System.Drawing.Point(798, 85);
             this.cbProgram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

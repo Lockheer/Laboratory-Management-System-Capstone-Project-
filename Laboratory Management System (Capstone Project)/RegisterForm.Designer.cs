@@ -33,17 +33,10 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbMiddleName = new System.Windows.Forms.TextBox();
-            this.tbUsername = new System.Windows.Forms.TextBox();
             this.lbFN = new System.Windows.Forms.Label();
             this.lbLN = new System.Windows.Forms.Label();
             this.lbMN = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblReminder = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblConfirm = new System.Windows.Forms.Label();
-            this.tbPass = new System.Windows.Forms.TextBox();
-            this.tbConfirmPass = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -59,21 +52,23 @@
             this.lblBirth = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
-            this.btnPrevious = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.chkShowPass = new System.Windows.Forms.CheckBox();
-            this.lblShowPass = new System.Windows.Forms.Label();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
-            this.lblCredentials = new System.Windows.Forms.Label();
-            this.pnelLogCredentials = new System.Windows.Forms.Panel();
+            this.tbConfirmPass = new System.Windows.Forms.TextBox();
+            this.chkShowPass = new System.Windows.Forms.CheckBox();
+            this.tbPass = new System.Windows.Forms.TextBox();
+            this.lblShowPass = new System.Windows.Forms.Label();
+            this.lblConfirm = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnVerify = new System.Windows.Forms.Button();
             this.groupGender.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.pnelLogCredentials.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbFirstName
@@ -105,16 +100,6 @@
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(100, 22);
             this.tbMiddleName.TabIndex = 3;
-            // 
-            // tbUsername
-            // 
-            this.tbUsername.Location = new System.Drawing.Point(153, 80);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(152, 22);
-            this.tbUsername.TabIndex = 5;
-            this.tbUsername.Enter += new System.EventHandler(this.textBox5_Enter);
-            this.tbUsername.Leave += new System.EventHandler(this.textBox5_Leave);
             // 
             // lbFN
             // 
@@ -152,63 +137,9 @@
             this.lblGender.TabIndex = 10;
             this.lblGender.Text = "Gender:";
             // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(71, 86);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(73, 16);
-            this.lblUsername.TabIndex = 11;
-            this.lblUsername.Text = "Username:";
-            // 
-            // lblReminder
-            // 
-            this.lblReminder.AutoSize = true;
-            this.lblReminder.Location = new System.Drawing.Point(53, 116);
-            this.lblReminder.Name = "lblReminder";
-            this.lblReminder.Size = new System.Drawing.Size(321, 16);
-            this.lblReminder.TabIndex = 12;
-            this.lblReminder.Text = "Take Note: Your ID Number will be your USERNAME";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(80, 166);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(70, 16);
-            this.lblPassword.TabIndex = 13;
-            this.lblPassword.Text = "Password:";
-            // 
-            // lblConfirm
-            // 
-            this.lblConfirm.AutoSize = true;
-            this.lblConfirm.Location = new System.Drawing.Point(56, 205);
-            this.lblConfirm.Name = "lblConfirm";
-            this.lblConfirm.Size = new System.Drawing.Size(118, 16);
-            this.lblConfirm.TabIndex = 14;
-            this.lblConfirm.Text = "Confirm Password:";
-            // 
-            // tbPass
-            // 
-            this.tbPass.Location = new System.Drawing.Point(180, 166);
-            this.tbPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(125, 22);
-            this.tbPass.TabIndex = 15;
-            this.tbPass.UseSystemPasswordChar = true;
-            // 
-            // tbConfirmPass
-            // 
-            this.tbConfirmPass.Location = new System.Drawing.Point(180, 201);
-            this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbConfirmPass.Name = "tbConfirmPass";
-            this.tbConfirmPass.Size = new System.Drawing.Size(125, 22);
-            this.tbConfirmPass.TabIndex = 16;
-            this.tbConfirmPass.UseSystemPasswordChar = true;
-            // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(578, 575);
+            this.btnRegister.Location = new System.Drawing.Point(400, 635);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(141, 46);
@@ -219,17 +150,18 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(601, 60);
+            this.btnRefresh.Location = new System.Drawing.Point(739, 635);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(141, 44);
             this.btnRefresh.TabIndex = 18;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(578, 635);
+            this.btnBack.Location = new System.Drawing.Point(568, 635);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(141, 44);
@@ -309,7 +241,7 @@
             this.tbID.Location = new System.Drawing.Point(203, 281);
             this.tbID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(100, 22);
+            this.tbID.Size = new System.Drawing.Size(121, 22);
             this.tbID.TabIndex = 24;
             // 
             // lbContact
@@ -346,28 +278,7 @@
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(247, 22);
             this.dtpBirthdate.TabIndex = 30;
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Location = new System.Drawing.Point(63, 613);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(141, 46);
-            this.btnPrevious.TabIndex = 31;
-            this.btnPrevious.Text = "Previous";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(210, 613);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(141, 46);
-            this.btnNext.TabIndex = 32;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.dtpBirthdate.ValueChanged += new System.EventHandler(this.dtpBirthdate_ValueChanged);
             // 
             // panel1
             // 
@@ -377,7 +288,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1087, 39);
+            this.panel1.Size = new System.Drawing.Size(1154, 39);
             this.panel1.TabIndex = 33;
             // 
             // btnMinimize
@@ -388,7 +299,7 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.Black;
-            this.btnMinimize.Location = new System.Drawing.Point(975, -1);
+            this.btnMinimize.Location = new System.Drawing.Point(1043, -2);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(51, 46);
@@ -405,7 +316,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(1033, -1);
+            this.btnExit.Location = new System.Drawing.Point(1100, -2);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(51, 46);
@@ -413,26 +324,6 @@
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // chkShowPass
-            // 
-            this.chkShowPass.AutoSize = true;
-            this.chkShowPass.Location = new System.Drawing.Point(311, 166);
-            this.chkShowPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkShowPass.Name = "chkShowPass";
-            this.chkShowPass.Size = new System.Drawing.Size(18, 17);
-            this.chkShowPass.TabIndex = 35;
-            this.chkShowPass.UseVisualStyleBackColor = true;
-            this.chkShowPass.CheckedChanged += new System.EventHandler(this.chkShowPass_CheckedChanged);
-            // 
-            // lblShowPass
-            // 
-            this.lblShowPass.AutoSize = true;
-            this.lblShowPass.Location = new System.Drawing.Point(335, 166);
-            this.lblShowPass.Name = "lblShowPass";
-            this.lblShowPass.Size = new System.Drawing.Size(103, 16);
-            this.lblShowPass.TabIndex = 36;
-            this.lblShowPass.Text = "Show Password";
             // 
             // cbRole
             // 
@@ -462,45 +353,108 @@
             this.lblInfo.TabIndex = 39;
             this.lblInfo.Text = "Personal Information";
             // 
-            // lblCredentials
+            // tbConfirmPass
             // 
-            this.lblCredentials.AutoSize = true;
-            this.lblCredentials.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCredentials.Location = new System.Drawing.Point(56, 35);
-            this.lblCredentials.Name = "lblCredentials";
-            this.lblCredentials.Size = new System.Drawing.Size(196, 24);
-            this.lblCredentials.TabIndex = 40;
-            this.lblCredentials.Text = "User log credentials";
+            this.tbConfirmPass.Location = new System.Drawing.Point(739, 243);
+            this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbConfirmPass.Name = "tbConfirmPass";
+            this.tbConfirmPass.Size = new System.Drawing.Size(125, 22);
+            this.tbConfirmPass.TabIndex = 16;
+            this.tbConfirmPass.UseSystemPasswordChar = true;
             // 
-            // pnelLogCredentials
+            // chkShowPass
             // 
-            this.pnelLogCredentials.Controls.Add(this.lblCredentials);
-            this.pnelLogCredentials.Controls.Add(this.tbUsername);
-            this.pnelLogCredentials.Controls.Add(this.lblUsername);
-            this.pnelLogCredentials.Controls.Add(this.lblReminder);
-            this.pnelLogCredentials.Controls.Add(this.lblPassword);
-            this.pnelLogCredentials.Controls.Add(this.lblConfirm);
-            this.pnelLogCredentials.Controls.Add(this.lblShowPass);
-            this.pnelLogCredentials.Controls.Add(this.tbPass);
-            this.pnelLogCredentials.Controls.Add(this.chkShowPass);
-            this.pnelLogCredentials.Controls.Add(this.tbConfirmPass);
-            this.pnelLogCredentials.Location = new System.Drawing.Point(54, 68);
-            this.pnelLogCredentials.Name = "pnelLogCredentials";
-            this.pnelLogCredentials.Size = new System.Drawing.Size(497, 299);
-            this.pnelLogCredentials.TabIndex = 41;
+            this.chkShowPass.AutoSize = true;
+            this.chkShowPass.Location = new System.Drawing.Point(870, 208);
+            this.chkShowPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkShowPass.Name = "chkShowPass";
+            this.chkShowPass.Size = new System.Drawing.Size(18, 17);
+            this.chkShowPass.TabIndex = 35;
+            this.chkShowPass.UseVisualStyleBackColor = true;
+            this.chkShowPass.CheckedChanged += new System.EventHandler(this.chkShowPass_CheckedChanged);
+            // 
+            // tbPass
+            // 
+            this.tbPass.Location = new System.Drawing.Point(739, 208);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPass.Name = "tbPass";
+            this.tbPass.Size = new System.Drawing.Size(125, 22);
+            this.tbPass.TabIndex = 15;
+            this.tbPass.UseSystemPasswordChar = true;
+            // 
+            // lblShowPass
+            // 
+            this.lblShowPass.AutoSize = true;
+            this.lblShowPass.Location = new System.Drawing.Point(894, 208);
+            this.lblShowPass.Name = "lblShowPass";
+            this.lblShowPass.Size = new System.Drawing.Size(103, 16);
+            this.lblShowPass.TabIndex = 36;
+            this.lblShowPass.Text = "Show Password";
+            // 
+            // lblConfirm
+            // 
+            this.lblConfirm.AutoSize = true;
+            this.lblConfirm.Location = new System.Drawing.Point(615, 247);
+            this.lblConfirm.Name = "lblConfirm";
+            this.lblConfirm.Size = new System.Drawing.Size(118, 16);
+            this.lblConfirm.TabIndex = 14;
+            this.lblConfirm.Text = "Confirm Password:";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(639, 208);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(70, 16);
+            this.lblPassword.TabIndex = 13;
+            this.lblPassword.Text = "Password:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(639, 160);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(288, 16);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Password must have a minimum of 8 characters";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(639, 176);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(203, 16);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "and contains letters and numbers";
+            // 
+            // btnVerify
+            // 
+            this.btnVerify.Location = new System.Drawing.Point(401, 244);
+            this.btnVerify.Name = "btnVerify";
+            this.btnVerify.Size = new System.Drawing.Size(75, 23);
+            this.btnVerify.TabIndex = 42;
+            this.btnVerify.Text = "Verify";
+            this.btnVerify.UseVisualStyleBackColor = true;
+            this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
             // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 712);
-            this.Controls.Add(this.pnelLogCredentials);
+            this.ClientSize = new System.Drawing.Size(1150, 712);
+            this.Controls.Add(this.btnVerify);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblConfirm);
+            this.Controls.Add(this.lblShowPass);
             this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.tbPass);
+            this.Controls.Add(this.chkShowPass);
             this.Controls.Add(this.lblRole);
+            this.Controls.Add(this.tbConfirmPass);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.dtpBirthdate);
             this.Controls.Add(this.lblBirth);
             this.Controls.Add(this.tbContactNumber);
@@ -527,8 +481,6 @@
             this.groupGender.ResumeLayout(false);
             this.groupGender.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.pnelLogCredentials.ResumeLayout(false);
-            this.pnelLogCredentials.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,17 +492,10 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.TextBox tbMiddleName;
-        private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label lbFN;
         private System.Windows.Forms.Label lbLN;
         private System.Windows.Forms.Label lbMN;
         private System.Windows.Forms.Label lblGender;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label lblReminder;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblConfirm;
-        private System.Windows.Forms.TextBox tbPass;
-        private System.Windows.Forms.TextBox tbConfirmPass;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnBack;
@@ -566,17 +511,20 @@
         private System.Windows.Forms.Label lblBirth;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DateTimePicker dtpBirthdate;
-        private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMinimize;
-        private System.Windows.Forms.CheckBox chkShowPass;
-        private System.Windows.Forms.Label lblShowPass;
         private System.Windows.Forms.ComboBox cbRole;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.Label lblCredentials;
-        private System.Windows.Forms.Panel pnelLogCredentials;
+        private System.Windows.Forms.TextBox tbConfirmPass;
+        private System.Windows.Forms.CheckBox chkShowPass;
+        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.Label lblShowPass;
+        private System.Windows.Forms.Label lblConfirm;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnVerify;
     }
 }

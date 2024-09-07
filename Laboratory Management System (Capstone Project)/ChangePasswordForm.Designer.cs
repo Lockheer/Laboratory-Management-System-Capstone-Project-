@@ -39,7 +39,7 @@
             // 
             // tbNewPassword
             // 
-            this.tbNewPassword.Location = new System.Drawing.Point(272, 84);
+            this.tbNewPassword.Location = new System.Drawing.Point(272, 136);
             this.tbNewPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(292, 22);
@@ -47,7 +47,7 @@
             // 
             // tbConfirmPassword
             // 
-            this.tbConfirmPassword.Location = new System.Drawing.Point(272, 126);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(272, 178);
             this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(292, 22);
@@ -57,7 +57,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(127, 81);
+            this.label2.Location = new System.Drawing.Point(127, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 4;
@@ -67,7 +67,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(97, 128);
+            this.label3.Location = new System.Drawing.Point(97, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(169, 20);
             this.label3.TabIndex = 5;
@@ -79,7 +79,7 @@
             this.btnChangePassword.FlatAppearance.BorderSize = 50;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.Location = new System.Drawing.Point(272, 198);
+            this.btnChangePassword.Location = new System.Drawing.Point(272, 243);
             this.btnChangePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(221, 47);
@@ -92,8 +92,8 @@
             // 
             this.chckSHowPass.AutoSize = true;
             this.chckSHowPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chckSHowPass.Location = new System.Drawing.Point(572, 85);
-            this.chckSHowPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chckSHowPass.Location = new System.Drawing.Point(572, 137);
+            this.chckSHowPass.Margin = new System.Windows.Forms.Padding(4);
             this.chckSHowPass.Name = "chckSHowPass";
             this.chckSHowPass.Size = new System.Drawing.Size(142, 21);
             this.chckSHowPass.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 258);
+            this.ClientSize = new System.Drawing.Size(787, 313);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chckSHowPass);
             this.Controls.Add(this.btnChangePassword);

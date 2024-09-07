@@ -18,6 +18,7 @@ namespace Laboratory_Management_System__Capstone_Project_
     public partial class RegistrationForm : Form
     {
         string gender;
+        private bool emailVerified = false;
 
         public RegistrationForm()
         {
@@ -34,20 +35,12 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
-            lblUsername.Hide();
-            tbUsername.Hide();
-            lblPassword.Hide();
-            tbPass.Hide();
-            lblConfirm.Hide();
-            tbConfirmPass.Hide();
-            lblReminder.Hide();
-            chkShowPass.Hide();
-            lblShowPass.Hide();
-            btnRegister.Hide();
-            btnPrevious.Hide();
-            lblCredentials.Hide();
-            pnelLogCredentials.Hide();
+
+            dtpBirthdate.Format = DateTimePickerFormat.Custom;
+            dtpBirthdate.CustomFormat = " ";
             LoadRoles();
+
+
         }
 
         private void LoadRoles()
@@ -109,15 +102,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             lblGender.Text = gender;
         }
 
-        private void textBox5_Enter(object sender, EventArgs e)
-        {
-            lblReminder.Show();
-        }
-
-        private void textBox5_Leave(object sender, EventArgs e)
-        {
-            lblReminder.Hide();
-        }
 
         // Registration Method and Event
         private void btnRegister_Click(object sender, EventArgs e)
@@ -174,16 +158,15 @@ namespace Laboratory_Management_System__Capstone_Project_
                 return;
             }
 
-            // Check if Username already exists
-            var usernameExists = db.Accounts.Any(a => a.Username == tbUsername.Text);
+            var usernameExists = db.Accounts.Any(a => a.Username == tbID.Text);
             if (usernameExists)
             {
-                MessageBox.Show("This username is already in use. Please choose a different username.");
+                MessageBox.Show("This username (ID Number) is already in use. Please choose a different ID number.");
                 return;
             }
 
             // Password length check
-            if (tbPass.TextLength < 8 || tbPass.TextLength > 16)
+            if (tbPass.TextLength < 8 || tbPass.TextLength > 16 || !tbPass.Text.Any(char.IsDigit))
             {
                 MessageBox.Show("Password must be between 8 and 16 characters.");
                 return;
@@ -193,13 +176,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (tbPass.Text != tbConfirmPass.Text)
             {
                 MessageBox.Show("Passwords do not match.");
-                return;
-            }
-
-            // Check if ID number matches the username
-            if (tbID.Text != tbUsername.Text)
-            {
-                MessageBox.Show("Your username must be your ID Number.");
                 return;
             }
 
@@ -226,7 +202,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (string.IsNullOrEmpty(tbFirstName.Text) ||
                 string.IsNullOrEmpty(tbLastName.Text) ||
                 string.IsNullOrEmpty(tbEmail.Text) ||
-                string.IsNullOrEmpty(tbUsername.Text) ||
                 string.IsNullOrEmpty(lblGender.Text) ||
                 string.IsNullOrEmpty(tbID.Text) ||
                 string.IsNullOrEmpty(tbContactNumber.Text) ||
@@ -237,88 +212,37 @@ namespace Laboratory_Management_System__Capstone_Project_
                 return;
             }
 
+            // Check if the DateTimePicker is empty (custom format means no date selected)
+            if (dtpBirthdate.Format == DateTimePickerFormat.Custom)
+            {
+                MessageBox.Show("Please select a valid birthdate.", "Missing Birthdate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if the user is at least 18 years old
+            if (!IsUserEighteenYearsOld())
+            {
+                MessageBox.Show("You must be at least 18 years old to register.", "Age Restriction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // Check if the email was verified
+            if (!emailVerified)
+            {
+                MessageBox.Show("Please verify your email before proceeding.", "Email Not Verified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Save the new registration
             db.SP_REGISTER(tbFirstName.Text, tbLastName.Text, tbMiddleName.Text, tbEmail.Text, lblGender.Text,
-         tbID.Text, tbContactNumber.Text, dtpBirthdate.Text, tbUsername.Text,
+         tbID.Text, tbContactNumber.Text, dtpBirthdate.Text, tbID.Text,
          hashHelper.CreateMD5Hash(hashHelper.CreateMD5Hash(tbPass.Text)), roleID);
 
-            MessageBox.Show("Successfully Registered");
+
+            // If all checks pass, proceed with the registration
+            MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Form1 form1 = new Form1();
             form1.Show();
             this.Hide();
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            lbFN.Visible = false;
-            tbFirstName.Visible = false;
-            lbLN.Visible = false;
-            tbLastName.Visible = false;
-            lbMN.Visible = false;
-            tbMiddleName.Visible = false;
-            lblEmail.Visible = false;
-            tbEmail.Visible = false;
-            lbIDnum.Visible = false;
-            tbID.Visible = false;
-            lbContact.Visible = false;
-            dtpBirthdate.Visible = false;
-            groupGender.Visible = false;
-            tbContactNumber.Visible = false;
-            lblBirth.Visible = false;
-            btnNext.Visible = false;
-            lblRole.Visible = false;
-            cbRole.Visible = false;
-            lblInfo.Visible = false;
-
-            lblUsername.Visible = true;
-            tbUsername.Visible = true;
-            lblPassword.Visible = true;
-            tbPass.Visible = true;
-            lblConfirm.Visible = true;
-            tbConfirmPass.Visible = true;
-            lblReminder.Visible = true;
-            chkShowPass.Visible = true;
-            lblShowPass.Visible = true;
-            btnRegister.Visible = true;
-            btnPrevious.Visible = true;
-            lblCredentials.Visible = true;
-            pnelLogCredentials.Visible = true;
-        }
-
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            lbFN.Visible = true;
-            tbFirstName.Visible = true;
-            lbLN.Visible = true;
-            tbLastName.Visible = true;
-            lbMN.Visible = true;
-            tbMiddleName.Visible = true;
-            lblEmail.Visible = true;
-            tbEmail.Visible = true;
-            lbIDnum.Visible = true;
-            tbID.Visible = true;
-            lbContact.Visible = true;
-            tbContactNumber.Visible = true;
-            dtpBirthdate.Visible = true;
-            groupGender.Visible = true;
-            btnNext.Visible = true;
-            lblRole.Visible = true;
-            cbRole.Visible = true;
-            lblInfo.Visible = true;
-
-            lblUsername.Visible = false;
-            tbUsername.Visible = false;
-            lblPassword.Visible = false;
-            tbPass.Visible = false;
-            lblConfirm.Visible = false;
-            tbConfirmPass.Visible = false;
-            lblReminder.Visible = false;
-            chkShowPass.Visible = false;
-            lblShowPass.Visible = false;
-            btnRegister.Visible = false;
-            btnPrevious.Visible = false;
-            lblCredentials.Visible = false;
-            pnelLogCredentials.Visible = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -365,6 +289,80 @@ namespace Laboratory_Management_System__Capstone_Project_
             Form1 login = new Form1();
             login.Show();
             this.Hide();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            tbFirstName.Clear();
+            tbLastName.Clear();
+            tbMiddleName.Clear();
+            tbEmail.Clear();
+            tbID.Clear();
+            tbContactNumber.Clear();
+            tbPass.Clear();
+            tbConfirmPass.Clear();
+            dtpBirthdate.ResetText();
+
+        }
+
+        private void dtpBirthdate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpBirthdate.Format = DateTimePickerFormat.Short;
+        }
+
+        //Validates user age
+        private bool IsUserEighteenYearsOld()
+        {
+            DateTime today = DateTime.Today;
+
+            // Ensure the DateTimePicker has a valid date selected
+            if (dtpBirthdate.Format == DateTimePickerFormat.Custom)
+            {
+                MessageBox.Show("Please select a valid birthdate.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            DateTime birthDate = dtpBirthdate.Value;
+            int age = today.Year - birthDate.Year;
+
+            // Adjust if the birthdate hasn't occurred yet this year
+            if (birthDate > today.AddYears(-age))
+                age--;
+
+            // Check if the user is 18 years or older
+            if (age < 18)
+            {
+                MessageBox.Show("You must be at least 18 years old or above to register.", "Age Restriction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private void btnVerify_Click(object sender, EventArgs e)
+        {
+            if (tbEmail.Text == "")
+            {
+                MessageBox.Show("Please enter your email address.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                EmailVerification emailVerification = new EmailVerification(tbEmail.Text);
+                emailVerification.ShowDialog();
+
+                if (emailVerification.isVerified)
+                {
+                    emailVerified = true; // Set the flag to true if verified
+                    btnVerify.Enabled = false; // Disable the button after verification
+                    btnVerify.Text = "Verified"; // Change the button text to "Verified
+                    MessageBox.Show("Email verification successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    emailVerified = false; // Reset if verification failed
+                    MessageBox.Show("Email verification failed. Please try again.", "Verification Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

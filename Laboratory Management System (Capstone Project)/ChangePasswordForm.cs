@@ -42,7 +42,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
 
                 // Ensure password complexity (e.g., minimum length, special characters)
-                if (tbNewPassword.Text.Length < 8 || !tbNewPassword.Text.Any(char.IsDigit) || !tbNewPassword.Text.Any(char.IsUpper))
+                if (tbNewPassword.Text.Length < 8 || !tbNewPassword.Text.Any(char.IsDigit) || tbNewPassword.TextLength > 16)
                 {
                     MessageBox.Show("New password must be at least 8 characters long, include a number, and an uppercase letter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
