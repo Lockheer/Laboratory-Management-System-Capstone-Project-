@@ -12,9 +12,13 @@ using System.Runtime.Remoting.Contexts;
 using OfficeOpenXml.Style;
 using OfficeOpenXml;
 using System.IO;
+using Laboratory_Management_System__Capstone_Project_;
+using System.Drawing.Drawing2D;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
+
+
     public partial class InventoryList : Form
     {
   
@@ -26,6 +30,16 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbPrice.Enter += tbPrice_Enter;
             tbPrice.Leave += tbPrice_Leave;
             SetPlaceholderText();
+
+      
+            UIHelper.SetRoundedCorners(panel2, 20);
+            UIHelper.SetRoundedCorners(dgvApparatusList, 20);
+
+            UIHelper.SetRoundedButton(btnUpdate, 40);
+            UIHelper.SetRoundedButton(btnDelete, 40);
+
+            UIHelper.SetGradientBackground(panel2, Color.FromArgb(11, 44, 149), Color.FromArgb(44, 84, 215), LinearGradientMode.Vertical);
+
         }
 
         private void ViewApparatus_Load(object sender, EventArgs e)
@@ -50,8 +64,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("An error occurred while loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
 
         // Press/Navigate event
@@ -353,6 +365,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("An error occurred while exporting data:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
        
     }
