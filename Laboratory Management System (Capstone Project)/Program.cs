@@ -22,7 +22,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Dashboard());
             //Application.Run(new Dashboard());
             
            

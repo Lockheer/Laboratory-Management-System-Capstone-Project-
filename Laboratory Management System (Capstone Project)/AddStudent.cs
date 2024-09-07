@@ -243,6 +243,5 @@ namespace Laboratory_Management_System__Capstone_Project_
                     break;
             }
         }
-
     }
 }

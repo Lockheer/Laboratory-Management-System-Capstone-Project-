@@ -192,6 +192,7 @@
     <Compile Include="TransactionDetails.Designer.cs">
       <DependentUpon>TransactionDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIHelper.cs" />
     <Compile Include="UpdateBorrowReturnTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +309,44 @@
   <ItemGroup>
     <None Include="Resources\Jill.bmp" />
     <None Include="Resources\angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909-pre.jpg" />
+    <None Include="Resources\bg.png" />
+    <None Include="Resources\toggle.png" />
+    <None Include="Resources\bcc-logo-name.png" />
+    <None Include="Resources\sidepane.png" />
+    <None Include="Resources\app_inventory.png" />
+    <None Include="Resources\student.png" />
+    <None Include="Resources\hand_up.png" />
+    <None Include="Resources\hand_up1.png" />
+    <None Include="Resources\hand_down.png" />
+    <None Include="Resources\update.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\app_inventory1.png" />
+    <None Include="Resources\app_inventory2.png" />
+    <None Include="Resources\student_icon.png" />
+    <None Include="Resources\hand_up3.png" />
+    <None Include="Resources\hand_down3.png" />
+    <None Include="Resources\update2.png" />
+    <None Include="Resources\report1.png" />
+    <None Include="Resources\warning1.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\logout1.png" />
+    <None Include="Resources\logout3.png" />
+    <None Include="Resources\bg1.png" />
+    <None Include="Resources\bg2.png" />
+    <None Include="Resources\logo_circle.png" />
+    <None Include="Resources\bg21.png" />
+    <None Include="Resources\bg11.png" />
+    <None Include="Resources\logout31.png" />
+    <None Include="Resources\logout11.png" />
+    <None Include="Resources\logout2.png" />
+    <None Include="Resources\logo_circle1.png" />
+    <None Include="Resources\sidepanel.png" />
+    <None Include="Resources\sidepanel1.jpg" />
+    <None Include="Resources\sidebar.jpg" />
+    <None Include="Resources\sidebar10.jpg" />
+    <None Include="Resources\sidebar11.jpg" />
+    <None Include="Resources\sidebarlast.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
