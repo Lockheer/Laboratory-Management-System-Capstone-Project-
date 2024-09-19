@@ -39,7 +39,6 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tbLifeSpan = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lnklblRefresh = new System.Windows.Forms.LinkLabel();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -58,6 +57,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -86,7 +86,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1023, 100);
             this.panel1.TabIndex = 1;
-   
             // 
             // btnMinimize
             // 
@@ -140,10 +139,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cbCategory);
             this.panel2.Controls.Add(this.btnImport);
             this.panel2.Controls.Add(this.tbRemarks);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.tbLifeSpan);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.lnklblRefresh);
             this.panel2.Controls.Add(this.cbStatus);
@@ -199,23 +198,14 @@
             this.label10.TabIndex = 23;
             this.label10.Text = "Item Remarks:";
             // 
-            // tbLifeSpan
-            // 
-            this.tbLifeSpan.Location = new System.Drawing.Point(157, 400);
-            this.tbLifeSpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbLifeSpan.Name = "tbLifeSpan";
-            this.tbLifeSpan.Size = new System.Drawing.Size(95, 22);
-            this.tbLifeSpan.TabIndex = 22;
-            this.tbLifeSpan.TextChanged += new System.EventHandler(this.tbLifeSpan_TextChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(74, 406);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 16);
+            this.label8.Size = new System.Drawing.Size(65, 16);
             this.label8.TabIndex = 21;
-            this.label8.Text = "Life Span:";
+            this.label8.Text = "Category:";
             // 
             // lnklblRefresh
             // 
@@ -378,6 +368,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Apparatus Name:";
             // 
+            // cbCategory
+            // 
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(157, 403);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(121, 24);
+            this.cbCategory.TabIndex = 26;
+            // 
             // AddApparatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -429,8 +427,8 @@
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.TextBox tbRemarks;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbLifeSpan;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.ComboBox cbCategory;
     }
 }

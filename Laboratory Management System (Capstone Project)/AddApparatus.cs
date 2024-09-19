@@ -16,34 +16,37 @@ namespace Laboratory_Management_System__Capstone_Project_
 {
     public partial class AddApparatus : Form
     {
-        private List<string> lifeSpanSuggestions = new List<string> { "Years", "Months", "Days" };
-        private ListBox suggestionBox;
+
+        private List<string> categoryList = new List<string>();
 
         private string PlaceHolderText = "000.00";
         public AddApparatus()
         {
             InitializeComponent();
-            InitializeSuggestionBox();
+            LoadCategories();
             tbPrice.Enter += tbPrice_Enter;
             tbPrice.Leave += tbPrice_Leave;
-            tbLifeSpan.TextChanged += tbLifeSpan_TextChanged;
-            suggestionBox.Click += SuggestionBox_Click;
             // Set the initial placeholder text
             SetPlaceholderText();
         }
 
-        private void InitializeSuggestionBox()
+
+        private void LoadCategories()
         {
-            suggestionBox = new ListBox
+            SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
+            SqlCommand command = new SqlCommand("SELECT CategoryName FROM Category", connect);
+
+            connect.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                Visible = false,
-                Width = tbLifeSpan.Width
-            };
-            this.Controls.Add(suggestionBox);
-            suggestionBox.BringToFront();
+                categoryList.Add(reader["CategoryName"].ToString());
+            }
+            connect.Close();
+
+            cbCategory.Items.Clear();
+            cbCategory.Items.AddRange(categoryList.ToArray());
         }
-
-
 
 
         //Press/Navigate event
@@ -89,29 +92,36 @@ namespace Laboratory_Management_System__Capstone_Project_
                 tbPrice.Text = value + ".00";
             }
         }
-
+        // Save button event to insert apparatus data, including the selected category
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tbAppaName.Text != ""  && cbStatus.Text != "" && tbQuantity.Text != "" || tbLifeSpan.Text != "" || tbRemarks.Text != "")
+            if (tbAppaName.Text != "" && cbStatus.Text != "" && tbQuantity.Text != "" && cbCategory.SelectedIndex != -1 || tbRemarks.Text != "")
             {
                 String appa_name = tbAppaName.Text;
-                String model_num = tbModelNum.Text == "" ? "N/A" : tbModelNum.Text; 
+                String model_num = tbModelNum.Text == "" ? "N/A" : tbModelNum.Text;
                 String date_purch = dtpDatePurchased.Text;
                 Decimal price = Decimal.Parse(tbPrice.Text);
                 String brand = tbBrand.Text;
                 String status = cbStatus.Text;
                 Int64 quantity = Int64.Parse(tbQuantity.Text);
-                String life_span = tbLifeSpan.Text;
                 String remarks = tbRemarks.Text;
+                String category_name = cbCategory.SelectedItem.ToString();
 
-                SqlConnection connect = new SqlConnection();
-                connect.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
                 SqlCommand command = new SqlCommand();
                 command.Connection = connect;
 
                 connect.Open();
-                command.CommandText = "INSERT INTO Inventory ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [Life Span], [Remarks]) " +
-                                      "VALUES (@AppaName, @ModelNum, @DatePurch, @Price, @Brand, @Status, @Quantity, @LifeSpan, @Remarks)";
+
+                // Retrieve CategoryID based on the selected CategoryName
+                command.CommandText = "SELECT CategoryID FROM Category WHERE CategoryName = @CategoryName";
+                command.Parameters.AddWithValue("@CategoryName", category_name);
+                int categoryID = (int)command.ExecuteScalar();
+
+                // Insert apparatus data with the CategoryID
+                command.CommandText = "INSERT INTO Inventory ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [CategoryID], [Remarks]) " +
+                                      "VALUES (@AppaName, @ModelNum, @DatePurch, @Price, @Brand, @Status, @Quantity, @CategoryID, @Remarks)";
+                command.Parameters.Clear();
                 command.Parameters.AddWithValue("@AppaName", appa_name);
                 command.Parameters.AddWithValue("@ModelNum", model_num);
                 command.Parameters.AddWithValue("@DatePurch", date_purch);
@@ -119,7 +129,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 command.Parameters.AddWithValue("@Brand", brand);
                 command.Parameters.AddWithValue("@Status", status);
                 command.Parameters.AddWithValue("@Quantity", quantity);
-                command.Parameters.AddWithValue("@LifeSpan", life_span);
+                command.Parameters.AddWithValue("@CategoryID", categoryID);
                 command.Parameters.AddWithValue("@Remarks", remarks);
 
                 command.ExecuteNonQuery();
@@ -134,14 +144,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                 cbStatus.ResetText();
                 tbQuantity.Clear();
                 dtpDatePurchased.Value = DateTime.Now;
-                tbLifeSpan.Clear();
+                cbCategory.ResetText();
                 tbRemarks.Clear();
             }
             else
             {
                 MessageBox.Show("Please fill up the empty fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -173,10 +182,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             cbStatus.ResetText();
             tbQuantity.Clear();
             dtpDatePurchased.Value = DateTime.Now;
-            cbStatus.ResetText();
-            tbLifeSpan.Clear();
+            cbCategory.ResetText();
             tbRemarks.Clear();
-
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -200,6 +207,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                             using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                             {
                                 connect.Open();
+
                                 for (int row = 2; row <= rowCount; row++)
                                 {
                                     // Read data from Excel
@@ -210,12 +218,24 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     string brand = worksheet.Cells[row, 5].Text;
                                     string status = worksheet.Cells[row, 6].Text;
                                     long quantity = long.Parse(worksheet.Cells[row, 7].Text);
-                                    string life_span = worksheet.Cells[row, 8].Text;
+                                    string category_name = worksheet.Cells[row, 8].Text; // CategoryName from Excel
                                     string remarks = worksheet.Cells[row, 9].Text;
 
-                                    // Insert data into the database
-                                    SqlCommand command = new SqlCommand("INSERT INTO Inventory ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [Life Span], [Remarks]) " +
-                                        "VALUES (@AppaName, @ModelNum, @DatePurch, @Price, @Brand, @Status, @Quantity, @LifeSpan, @Remarks)", connect);
+                                    // Retrieve CategoryID based on CategoryName
+                                    SqlCommand categoryCommand = new SqlCommand("SELECT CategoryID FROM Category WHERE CategoryName = @CategoryName", connect);
+                                    categoryCommand.Parameters.AddWithValue("@CategoryName", category_name);
+                                    int categoryID = (int)categoryCommand.ExecuteScalar();
+
+                                    if (categoryID == 0) // If category does not exist, handle error or insert a default value
+                                    {
+                                        MessageBox.Show($"Category '{category_name}' does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        continue; // Skip this row
+                                    }
+
+                                    // Insert data into the Inventory table with CategoryID
+                                    SqlCommand command = new SqlCommand("INSERT INTO Inventory ([Apparatus Name], [Model Number], [Date Purchased], [Price], [Brand], [Status], [Quantity], [CategoryID], [Remarks]) " +
+                                        "VALUES (@AppaName, @ModelNum, @DatePurch, @Price, @Brand, @Status, @Quantity, @CategoryID, @Remarks)", connect);
+
                                     command.Parameters.AddWithValue("@AppaName", appa_name);
                                     command.Parameters.AddWithValue("@ModelNum", model_num);
                                     command.Parameters.AddWithValue("@DatePurch", date_purch);
@@ -223,7 +243,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     command.Parameters.AddWithValue("@Brand", brand);
                                     command.Parameters.AddWithValue("@Status", status);
                                     command.Parameters.AddWithValue("@Quantity", quantity);
-                                    command.Parameters.AddWithValue("@LifeSpan", life_span);
+                                    command.Parameters.AddWithValue("@CategoryID", categoryID); // Using CategoryID instead of LifeSpan
                                     command.Parameters.AddWithValue("@Remarks", remarks);
 
                                     command.ExecuteNonQuery();
@@ -241,36 +261,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 MessageBox.Show($"An error occurred during import: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
-        private void tbLifeSpan_TextChanged(object sender, EventArgs e)
-        {
-            string query = tbLifeSpan.Text.ToLower();
-            var filteredSuggestions = lifeSpanSuggestions.Where(x => x.ToLower().Contains(query)).ToList();
 
-            if (filteredSuggestions.Count > 0)
-            {
-                suggestionBox.Items.Clear();
-                suggestionBox.Items.AddRange(filteredSuggestions.ToArray());
-                suggestionBox.Location = new Point(tbLifeSpan.Location.X, tbLifeSpan.Location.Y + tbLifeSpan.Height);
-                suggestionBox.Visible = true;
-            }
-            else
-            {
-                suggestionBox.Visible = false;
-            }
-
-        }
-        private void SuggestionBox_Click(object sender, EventArgs e)
-        {
-            if (suggestionBox.SelectedItem != null)
-            {
-                tbLifeSpan.Text = suggestionBox.SelectedItem.ToString();
-                suggestionBox.Visible = false;
-            }
-        }
 
 
 

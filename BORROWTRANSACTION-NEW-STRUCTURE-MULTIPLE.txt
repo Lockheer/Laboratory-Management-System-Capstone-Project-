@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,27 +77,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             con.Close();
 
             LoadIDNumbers();
-
-
-            nudQuantity.Minimum = 1;
-            nudQuantity.Maximum = 100; // Set the maximum quantity to 100
-            nudQuantity.Value = 1; // Set the default value to 1
-
-            nudQuantity1.Minimum = 1;
-            nudQuantity1.Maximum = 100; 
-            nudQuantity1.Value = 1; 
-
-            nudQuantity2.Minimum = 1;
-            nudQuantity2.Maximum = 100; 
-            nudQuantity2.Value = 1; 
-
-            nudQuantity3.Minimum = 1;
-            nudQuantity3.Maximum = 100; 
-            nudQuantity3.Value = 1; 
-
-            nudQuantity4.Minimum = 1;
-            nudQuantity4.Maximum = 100; 
-            nudQuantity4.Value = 1; 
         }
 
 
@@ -138,19 +117,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
 
                     // Count how many apparatuses have been borrowed by this student
-                    SqlCommand cmdCount = new SqlCommand("SELECT SUM(Quantity) FROM BorrowReturnTransaction WHERE ID_Number = @ID_Number AND Date_Returned IS NULL AND Quantity_Returned is NULL", con);
-                    cmdCount.Parameters.AddWithValue("@ID_Number", searchID);
-                    con.Open();
-                    count = (int)cmdCount.ExecuteScalar();
-                    con.Close();
-
-
-                    /* Count how many apparatuses have been borrowed by this student
                     SqlCommand cmdCount = new SqlCommand("SELECT COUNT(*) FROM BorrowReturnTransaction WHERE ID_Number = @ID_Number AND Date_Returned IS NULL", con);
                     cmdCount.Parameters.AddWithValue("@ID_Number", searchID);
                     con.Open();
                     count = (int)cmdCount.ExecuteScalar();
-                    con.Close();*/
+                    con.Close();
                 }
             }
         }
@@ -171,44 +142,41 @@ namespace Laboratory_Management_System__Capstone_Project_
             cbApparatusName3.SelectedIndex = -1;
             cbApparatusName4.SelectedIndex = -1;
 
-            nudQuantity.Value = 1;
-            nudQuantity1.Value = 1;
-            nudQuantity2.Value = 1;
-            nudQuantity3.Value = 1;
-            nudQuantity4.Value = 1;
+            cbQuantity.SelectedIndex = 0;
+            cbQuantity1.SelectedIndex = 0;
+            cbQuantity2.SelectedIndex = 0;
+            cbQuantity3.SelectedIndex = 0;
+            cbQuantity4.SelectedIndex = 0;
 
             dtpBorrowDate.Value = DateTime.Now;
             dtpDueDate.Value = DateTime.Now;
         }
 
 
-
-        // CONFIRM BUTTON TO ISSUE BORROWING
+        //CONFIRM BUTTON TO ISSUE BORROWING
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (tbStudName.Text != "")
             {
-                //up to 10 apparatuses can be borrowed
-                //count is 0 to 9
-                if (count <= 9)
+                if (count <= 4)
                 {
                     List<string> selectedApparatusNames = new List<string>
-                    {
-                        cbApparatusName.Text,
-                        cbApparatusName1.Text,
-                        cbApparatusName2.Text,
-                        cbApparatusName3.Text,
-                        cbApparatusName4.Text
-                    };
+            {
+                cbApparatusName.Text,
+                cbApparatusName1.Text,
+                cbApparatusName2.Text,
+                cbApparatusName3.Text,
+                cbApparatusName4.Text
+            };
 
                     List<int> quantities = new List<int>
-                    {
-                        (int)nudQuantity.Value,
-                        (int)nudQuantity1.Value,
-                        (int)nudQuantity2.Value,
-                        (int)nudQuantity3.Value,
-                        (int)nudQuantity4.Value
-                    };
+            {
+                int.Parse(cbQuantity.Text),
+                int.Parse(cbQuantity1.Text),
+                int.Parse(cbQuantity2.Text),
+                int.Parse(cbQuantity3.Text),
+                int.Parse(cbQuantity4.Text)
+            };
 
                     String Studname = tbStudName.Text;
                     String IDnum = tbIDnum.Text;
@@ -246,25 +214,15 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     return;
                                 }
 
-                                // Check if the quantity borrowed does not exceed the quantity available
-                                SqlCommand cmdGetQuantityAvailable = new SqlCommand("SELECT Quantity FROM Inventory WHERE ApparatusID = @ApparatusID", con);
-                                cmdGetQuantityAvailable.Parameters.AddWithValue("@ApparatusID", apparatusID);
-                                int quantityAvailable = (int)cmdGetQuantityAvailable.ExecuteScalar();
-                                if (quantity > quantityAvailable)
-                                {
-                                    MessageBox.Show($"Quantity borrowed exceeds quantity available for apparatus '{AppaName}'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
-
                                 // Insert transaction with IDs and quantities
-                                SqlCommand cmdInsertTransaction = new SqlCommand("INSERT INTO BorrowReturnTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, studID, AccountID, ApparatusID, Remarks) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, @Quantity, @Borrow_Date, @Due_Date, NULL, NULL, @StudentID, @AccountID, @ApparatusID, NULL)", con);
+                                SqlCommand cmdInsertTransaction = new SqlCommand("INSERT INTO BorrowReturnTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Borrow_Date, Due_Date, Date_Returned, studID, AccountID, ApparatusID, Remarks) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, @Quantity, @Borrow_Date, @Due_Date, NULL, @StudentID, @AccountID, @ApparatusID, NULL)", con);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Student_Name", Studname);
                                 cmdInsertTransaction.Parameters.AddWithValue("@ID_Number", IDnum);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Email_Address", Email);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Contact_Number", Contact);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Program", Program);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Apparatus_Name", AppaName);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Quantity", quantity); // Pass the total quantity
+                                cmdInsertTransaction.Parameters.AddWithValue("@Quantity", quantity);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Borrow_Date", IssueDate);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Due_Date", dueDate);
                                 cmdInsertTransaction.Parameters.AddWithValue("@StudentID", studentID);
@@ -294,6 +252,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("Please enter a valid Student ID Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {

@@ -37,6 +37,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvReturnInformation = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.numQuantityReturned = new System.Windows.Forms.NumericUpDown();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbDue = new System.Windows.Forms.TextBox();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnInformation)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantityReturned)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,13 +145,14 @@
             this.dgvReturnInformation.Name = "dgvReturnInformation";
             this.dgvReturnInformation.RowHeadersWidth = 51;
             this.dgvReturnInformation.RowTemplate.Height = 24;
-            this.dgvReturnInformation.Size = new System.Drawing.Size(1019, 419);
+            this.dgvReturnInformation.Size = new System.Drawing.Size(1019, 418);
             this.dgvReturnInformation.TabIndex = 0;
             this.dgvReturnInformation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturnInformation_CellClick);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.numQuantityReturned);
             this.panel2.Controls.Add(this.tbRemarks);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.tbDue);
@@ -165,8 +168,16 @@
             this.panel2.Location = new System.Drawing.Point(389, 514);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1030, 397);
+            this.panel2.Size = new System.Drawing.Size(1029, 398);
             this.panel2.TabIndex = 0;
+            // 
+            // numQuantityReturned
+            // 
+            this.numQuantityReturned.Location = new System.Drawing.Point(529, 46);
+            this.numQuantityReturned.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numQuantityReturned.Name = "numQuantityReturned";
+            this.numQuantityReturned.Size = new System.Drawing.Size(51, 22);
+            this.numQuantityReturned.TabIndex = 15;
             // 
             // tbRemarks
             // 
@@ -213,7 +224,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 2;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(986, 2);
+            this.btnCancel.Location = new System.Drawing.Point(987, 2);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(41, 34);
@@ -246,7 +257,7 @@
             this.dtpReturnDate.Location = new System.Drawing.Point(227, 191);
             this.dtpReturnDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpReturnDate.Name = "dtpReturnDate";
-            this.dtpReturnDate.Size = new System.Drawing.Size(222, 24);
+            this.dtpReturnDate.Size = new System.Drawing.Size(223, 24);
             this.dtpReturnDate.TabIndex = 7;
             // 
             // tbBorrowedDate
@@ -269,7 +280,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(70, 195);
+            this.label4.Location = new System.Drawing.Point(69, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 20);
             this.label4.TabIndex = 4;
@@ -300,6 +311,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel3.Controls.Add(this.btnExitUpper);
             this.panel3.Location = new System.Drawing.Point(-5, -10);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1424, 48);
             this.panel3.TabIndex = 9;
@@ -335,7 +347,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(1420, 915);
+            this.ClientSize = new System.Drawing.Size(1420, 884);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -353,6 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnInformation)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantityReturned)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -384,5 +397,6 @@
         private System.Windows.Forms.Button btnExitUpper;
         private System.Windows.Forms.TextBox tbRemarks;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numQuantityReturned;
     }
 }

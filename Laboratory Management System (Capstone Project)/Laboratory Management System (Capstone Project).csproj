@@ -109,6 +109,12 @@
     <Compile Include="AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminApproval.Designer.cs">
+      <DependentUpon>AdminApproval.cs</DependentUpon>
+    </Compile>
     <Compile Include="BorrowingApparatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminApproval.resx">
+      <DependentUpon>AdminApproval.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowingApparatus.resx">
       <DependentUpon>BorrowingApparatus.cs</DependentUpon>
@@ -347,6 +356,7 @@
     <None Include="Resources\sidebar10.jpg" />
     <None Include="Resources\sidebar11.jpg" />
     <None Include="Resources\sidebarlast.jpg" />
+    <Content Include="Resources\admin-approval-icon.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

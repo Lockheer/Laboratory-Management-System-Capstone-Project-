@@ -122,8 +122,10 @@ namespace Laboratory_Management_System__Capstone_Project_
                 string borrowedDateStr;
                 string dueDateStr;
                 string dateReturnedStr = returnDateStr; // Initialize with return date
+                int quantityBorrowed = 0; // Initialize quantity borrowed
+                int quantityReturned = 0; // Initialize quantity returned
 
-                using (SqlCommand cmd = new SqlCommand("SELECT Apparatus_Name, Borrow_Date, Due_Date FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Apparatus_Name, Borrow_Date, Due_Date, Quantity_Borrowed FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con))
                 {
                     cmd.Parameters.AddWithValue("@TransactionID", rowid);
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -133,6 +135,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                             apparatusName = reader["Apparatus_Name"].ToString();
                             borrowedDateStr = reader["Borrow_Date"].ToString();
                             dueDateStr = reader["Due_Date"].ToString();
+                            quantityBorrowed = Convert.ToInt32(reader["Quantity_Borrowed"]);
                         }
                         else
                         {
@@ -158,28 +161,49 @@ namespace Laboratory_Management_System__Capstone_Project_
                     tbRemarks.Text = "Due date format is invalid.";
                 }
 
-                // Update the BorrowReturnTransaction with return date and remarks
-                using (SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Date_Returned = @ReturnDate, Remarks = @Remarks WHERE ID_Number = @IDNumber AND transactionID = @TransactionID", con))
+                // Validate quantity returned
+                if (quantityBorrowed <= 0)
+                {
+                    MessageBox.Show("Invalid quantity borrowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Get the quantity returned from the NumericUpDown control
+                quantityReturned = (int)numQuantityReturned.Value;
+
+                // Validate quantity returned
+                if (quantityReturned < 1 || quantityReturned > quantityBorrowed)
+                {
+                    MessageBox.Show("Invalid quantity returned. Please enter a value between 1 and " + quantityBorrowed.ToString() + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Update the BorrowReturnTransaction with return date, remarks, and quantity returned
+                using (SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Date_Returned = @ReturnDate, Remarks = @Remarks, Quantity_Returned = @QuantityReturned WHERE ID_Number = @IDNumber AND transactionID = @TransactionID", con))
                 {
                     cmd.Parameters.AddWithValue("@ReturnDate", returnDateStr);
                     cmd.Parameters.AddWithValue("@Remarks", tbRemarks.Text);
                     cmd.Parameters.AddWithValue("@IDNumber", tbSearchID.Text);
                     cmd.Parameters.AddWithValue("@TransactionID", rowid);
+                    cmd.Parameters.AddWithValue("@QuantityReturned", quantityReturned);
                     cmd.ExecuteNonQuery();
                 }
 
                 // Update the quantity stock in the ApparatusList table
-                using (SqlCommand cmd = new SqlCommand("UPDATE ApparatusList SET Quantity = Quantity + 1 WHERE [Apparatus Name] = @ApparatusName", con))
+                using (SqlCommand cmd = new SqlCommand("UPDATE Inventory SET Quantity = Quantity + @QuantityReturned WHERE [Apparatus Name] = @ApparatusName", con))
                 {
                     cmd.Parameters.AddWithValue("@ApparatusName", apparatusName);
+                    cmd.Parameters.AddWithValue("@QuantityReturned", quantityReturned);
                     cmd.ExecuteNonQuery();
                 }
+
+                // Update remarks to include information about the returned quantity
+                tbRemarks.Text += "\nReturned Quantity: " + quantityReturned.ToString();
+
+                MessageBox.Show("The transaction has been completed.\nThank you for returning the Apparatus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ReturnApparatus_Load(this, null);
             }
-
-            MessageBox.Show("The transaction has been completed.\nThank you for returning the Apparatus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ReturnApparatus_Load(this, null);
         }
-
 
 
         private bool showErrorMessage = false;
@@ -235,9 +259,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
         }
-
-
-
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {

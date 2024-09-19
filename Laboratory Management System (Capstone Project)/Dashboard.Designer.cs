@@ -52,9 +52,9 @@
             this.updateTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.penaltyRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
             this.picBoxBC = new System.Windows.Forms.PictureBox();
-            this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
@@ -67,9 +67,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.label2.Location = new System.Drawing.Point(308, 42);
+            this.label2.Location = new System.Drawing.Point(411, 52);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(339, 33);
+            this.label2.Size = new System.Drawing.Size(424, 41);
             this.label2.TabIndex = 5;
             this.label2.Text = "           INVENTORY SYSTEM";
             // 
@@ -78,9 +79,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
-            this.label3.Location = new System.Drawing.Point(215, 74);
+            this.label3.Location = new System.Drawing.Point(287, 91);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 19);
+            this.label3.Size = new System.Drawing.Size(257, 24);
             this.label3.TabIndex = 5;
             this.label3.Text = "COLLEGE OF ENGINEERING";
             // 
@@ -90,9 +92,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label1.Location = new System.Drawing.Point(213, 42);
+            this.label1.Location = new System.Drawing.Point(284, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 33);
+            this.label1.Size = new System.Drawing.Size(222, 41);
             this.label1.TabIndex = 5;
             this.label1.Text = "LABORATORY";
             // 
@@ -103,10 +106,10 @@
             this.panelContainer.Controls.Add(this.label4);
             this.panelContainer.Controls.Add(this.lblFirstName);
             this.panelContainer.Controls.Add(this.lblIDNumber);
-            this.panelContainer.Location = new System.Drawing.Point(173, 0);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
+            this.panelContainer.Location = new System.Drawing.Point(231, 0);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1829, 1066);
+            this.panelContainer.Size = new System.Drawing.Size(2439, 1312);
             this.panelContainer.TabIndex = 4;
             // 
             // label4
@@ -115,9 +118,10 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label4.Location = new System.Drawing.Point(34, 141);
+            this.label4.Location = new System.Drawing.Point(45, 174);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 41);
+            this.label4.Size = new System.Drawing.Size(263, 51);
             this.label4.TabIndex = 5;
             this.label4.Text = "DASHBOARD";
             // 
@@ -127,10 +131,9 @@
             this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
             this.lblFirstName.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
             this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.lblFirstName.Location = new System.Drawing.Point(1501, 83);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFirstName.Location = new System.Drawing.Point(2001, 102);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(97, 19);
+            this.lblFirstName.Size = new System.Drawing.Size(122, 24);
             this.lblFirstName.TabIndex = 1;
             this.lblFirstName.Text = "FIRST NAME";
             // 
@@ -140,10 +143,9 @@
             this.lblIDNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblIDNumber.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
             this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblIDNumber.Location = new System.Drawing.Point(1501, 38);
-            this.lblIDNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIDNumber.Location = new System.Drawing.Point(2001, 47);
             this.lblIDNumber.Name = "lblIDNumber";
-            this.lblIDNumber.Size = new System.Drawing.Size(185, 24);
+            this.lblIDNumber.Size = new System.Drawing.Size(231, 30);
             this.lblIDNumber.TabIndex = 0;
             this.lblIDNumber.Text = "ID NUMBER + ROLE";
             // 
@@ -154,9 +156,10 @@
             this.btnToggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToggle.ForeColor = System.Drawing.Color.Transparent;
-            this.btnToggle.Location = new System.Drawing.Point(22, 38);
+            this.btnToggle.Location = new System.Drawing.Point(29, 47);
+            this.btnToggle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnToggle.Name = "btnToggle";
-            this.btnToggle.Size = new System.Drawing.Size(51, 52);
+            this.btnToggle.Size = new System.Drawing.Size(68, 64);
             this.btnToggle.TabIndex = 3;
             this.btnToggle.UseVisualStyleBackColor = false;
             this.btnToggle.Click += new System.EventHandler(this.btnToggle_Click);
@@ -169,10 +172,10 @@
             this.panel1.Controls.Add(this.menuStrip3);
             this.panel1.Controls.Add(this.lnklblLogOut);
             this.panel1.ForeColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(-7, 120);
+            this.panel1.Location = new System.Drawing.Point(-9, 148);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(321, 959);
+            this.panel1.Size = new System.Drawing.Size(428, 1180);
             this.panel1.TabIndex = 2;
             // 
             // menuStrip3
@@ -191,10 +194,10 @@
             this.penaltyRecordsToolStripMenuItem,
             this.dToolStripMenuItem});
             this.menuStrip3.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.menuStrip3.Location = new System.Drawing.Point(7, 47);
+            this.menuStrip3.Location = new System.Drawing.Point(9, 58);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip3.Size = new System.Drawing.Size(320, 707);
+            this.menuStrip3.Size = new System.Drawing.Size(363, 708);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             this.menuStrip3.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip3_ItemClicked);
@@ -212,7 +215,7 @@
             this.apparatusToolStripMenuItem.MergeIndex = 0;
             this.apparatusToolStripMenuItem.Name = "apparatusToolStripMenuItem";
             this.apparatusToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.apparatusToolStripMenuItem.Size = new System.Drawing.Size(319, 100);
+            this.apparatusToolStripMenuItem.Size = new System.Drawing.Size(362, 100);
             this.apparatusToolStripMenuItem.Text = " Apparatus Inventory";
             this.apparatusToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -220,7 +223,7 @@
             // 
             this.addANewApparatusToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addANewApparatusToolStripMenuItem.Image")));
             this.addANewApparatusToolStripMenuItem.Name = "addANewApparatusToolStripMenuItem";
-            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(339, 26);
+            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(404, 32);
             this.addANewApparatusToolStripMenuItem.Text = "Add a New Apparatus";
             this.addANewApparatusToolStripMenuItem.Click += new System.EventHandler(this.addANewApparatusToolStripMenuItem_Click);
             // 
@@ -228,7 +231,7 @@
             // 
             this.viewApparatusListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewApparatusListToolStripMenuItem.Image")));
             this.viewApparatusListToolStripMenuItem.Name = "viewApparatusListToolStripMenuItem";
-            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
+            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(404, 32);
             this.viewApparatusListToolStripMenuItem.Text = "View and Update Inventory List";
             this.viewApparatusListToolStripMenuItem.Click += new System.EventHandler(this.viewApparatusListToolStripMenuItem_Click);
             // 
@@ -244,7 +247,7 @@
             this.registeredToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.registeredToolStripMenuItem.Name = "registeredToolStripMenuItem";
             this.registeredToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.registeredToolStripMenuItem.Size = new System.Drawing.Size(319, 98);
+            this.registeredToolStripMenuItem.Size = new System.Drawing.Size(362, 98);
             this.registeredToolStripMenuItem.Text = " Students List";
             this.registeredToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -253,7 +256,7 @@
             this.addAStudentToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addAStudentToolStripMenuItem.Image")));
             this.addAStudentToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.addAStudentToolStripMenuItem.Name = "addAStudentToolStripMenuItem";
-            this.addAStudentToolStripMenuItem.Size = new System.Drawing.Size(429, 56);
+            this.addAStudentToolStripMenuItem.Size = new System.Drawing.Size(506, 56);
             this.addAStudentToolStripMenuItem.Text = "Add a Student Registration";
             this.addAStudentToolStripMenuItem.Click += new System.EventHandler(this.addAStudentToolStripMenuItem_Click);
             // 
@@ -262,7 +265,7 @@
             this.viewStudentsInformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewStudentsInformationToolStripMenuItem.Image")));
             this.viewStudentsInformationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.viewStudentsInformationToolStripMenuItem.Name = "viewStudentsInformationToolStripMenuItem";
-            this.viewStudentsInformationToolStripMenuItem.Size = new System.Drawing.Size(429, 56);
+            this.viewStudentsInformationToolStripMenuItem.Size = new System.Drawing.Size(506, 56);
             this.viewStudentsInformationToolStripMenuItem.Text = "View Registered Student\'s Information";
             this.viewStudentsInformationToolStripMenuItem.Click += new System.EventHandler(this.viewStudentsInformationToolStripMenuItem_Click);
             // 
@@ -275,7 +278,7 @@
             this.borrowTransactionToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.borrowTransactionToolStripMenuItem.Name = "borrowTransactionToolStripMenuItem";
             this.borrowTransactionToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.borrowTransactionToolStripMenuItem.Size = new System.Drawing.Size(319, 98);
+            this.borrowTransactionToolStripMenuItem.Size = new System.Drawing.Size(362, 98);
             this.borrowTransactionToolStripMenuItem.Text = "Borrow Issuing";
             this.borrowTransactionToolStripMenuItem.Click += new System.EventHandler(this.borrowTransactionToolStripMenuItem_Click);
             // 
@@ -288,7 +291,7 @@
             this.returnRecordsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.returnRecordsToolStripMenuItem.Name = "returnRecordsToolStripMenuItem";
             this.returnRecordsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.returnRecordsToolStripMenuItem.Size = new System.Drawing.Size(319, 98);
+            this.returnRecordsToolStripMenuItem.Size = new System.Drawing.Size(362, 98);
             this.returnRecordsToolStripMenuItem.Text = "Return Transaction";
             this.returnRecordsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.returnRecordsToolStripMenuItem.Click += new System.EventHandler(this.returnRecordsToolStripMenuItem_Click);
@@ -302,7 +305,7 @@
             this.updateTransactionsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.updateTransactionsToolStripMenuItem.Name = "updateTransactionsToolStripMenuItem";
             this.updateTransactionsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.updateTransactionsToolStripMenuItem.Size = new System.Drawing.Size(319, 92);
+            this.updateTransactionsToolStripMenuItem.Size = new System.Drawing.Size(362, 92);
             this.updateTransactionsToolStripMenuItem.Text = "Update Transactions";
             this.updateTransactionsToolStripMenuItem.Click += new System.EventHandler(this.updateTransactionsToolStripMenuItem_Click);
             // 
@@ -315,7 +318,7 @@
             this.comToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.comToolStripMenuItem.Name = "comToolStripMenuItem";
             this.comToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.comToolStripMenuItem.Size = new System.Drawing.Size(319, 100);
+            this.comToolStripMenuItem.Size = new System.Drawing.Size(362, 100);
             this.comToolStripMenuItem.Text = " Report Details";
             this.comToolStripMenuItem.Click += new System.EventHandler(this.comToolStripMenuItem_Click);
             // 
@@ -328,9 +331,15 @@
             this.penaltyRecordsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.penaltyRecordsToolStripMenuItem.Name = "penaltyRecordsToolStripMenuItem";
             this.penaltyRecordsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.penaltyRecordsToolStripMenuItem.Size = new System.Drawing.Size(319, 96);
+            this.penaltyRecordsToolStripMenuItem.Size = new System.Drawing.Size(362, 96);
             this.penaltyRecordsToolStripMenuItem.Text = " Penalties and Violations";
             this.penaltyRecordsToolStripMenuItem.Click += new System.EventHandler(this.penaltyRecordsToolStripMenuItem_Click);
+            // 
+            // dToolStripMenuItem
+            // 
+            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(362, 24);
+            this.dToolStripMenuItem.Text = "d";
             // 
             // lnklblLogOut
             // 
@@ -344,10 +353,9 @@
             this.lnklblLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lnklblLogOut.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.lnklblLogOut.LinkColor = System.Drawing.Color.White;
-            this.lnklblLogOut.Location = new System.Drawing.Point(94, 880);
-            this.lnklblLogOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lnklblLogOut.Location = new System.Drawing.Point(125, 1083);
             this.lnklblLogOut.Name = "lnklblLogOut";
-            this.lnklblLogOut.Size = new System.Drawing.Size(112, 22);
+            this.lnklblLogOut.Size = new System.Drawing.Size(134, 27);
             this.lnklblLogOut.TabIndex = 0;
             this.lnklblLogOut.TabStop = true;
             this.lnklblLogOut.Text = "       LOGOUT";
@@ -358,26 +366,21 @@
             this.picBoxBC.BackColor = System.Drawing.Color.Transparent;
             this.picBoxBC.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bcc_logo_name;
             this.picBoxBC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBoxBC.Location = new System.Drawing.Point(96, 25);
+            this.picBoxBC.Location = new System.Drawing.Point(128, 31);
+            this.picBoxBC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBoxBC.Name = "picBoxBC";
-            this.picBoxBC.Size = new System.Drawing.Size(97, 99);
+            this.picBoxBC.Size = new System.Drawing.Size(129, 122);
             this.picBoxBC.TabIndex = 4;
             this.picBoxBC.TabStop = false;
             this.picBoxBC.Click += new System.EventHandler(this.picBoxBC_Click);
             // 
-            // dToolStripMenuItem
-            // 
-            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
-            this.dToolStripMenuItem.Size = new System.Drawing.Size(319, 23);
-            this.dToolStripMenuItem.Text = "d";
-            // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnToggle);
@@ -386,7 +389,7 @@
             this.Controls.Add(this.picBoxBC);
             this.Controls.Add(this.panelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

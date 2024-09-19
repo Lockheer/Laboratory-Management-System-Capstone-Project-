@@ -63,6 +63,16 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap admin_approval_icon {
+            get {
+                object obj = ResourceManager.GetObject("admin-approval-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909_pre {
             get {
                 object obj = ResourceManager.GetObject("angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909-pre", resourceCulture);

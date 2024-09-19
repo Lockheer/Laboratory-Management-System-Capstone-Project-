@@ -21,25 +21,27 @@ namespace Laboratory_Management_System__Capstone_Project_
 
     public partial class InventoryList : Form
     {
-  
 
+        private List<string> categoryList = new List<string>();
         private const string PlaceholderText = "000.00";
+        // Global variable to get the primary key ID from the database towards the form
+        int id;
+        Int64 rowid;
+
         public InventoryList()
         {
             InitializeComponent();
+            LoadCategories();
             tbPrice.Enter += tbPrice_Enter;
             tbPrice.Leave += tbPrice_Leave;
             SetPlaceholderText();
 
-      
+            // UI styling
             UIHelper.SetRoundedCorners(panel2, 20);
             UIHelper.SetRoundedCorners(dgvApparatusList, 20);
-
             UIHelper.SetRoundedButton(btnUpdate, 40);
             UIHelper.SetRoundedButton(btnDelete, 40);
-
-            UIHelper.SetGradientBackground(panel2, Color.FromArgb(11, 44, 149), Color.FromArgb(44, 84, 215), LinearGradientMode.Vertical);
-
+            UIHelper.SetGradientBackground(panel2, Color.FromArgb(11, 44, 149), Color.FromArgb(44, 84, 215), System.Drawing.Drawing2D.LinearGradientMode.Vertical);
         }
 
         private void ViewApparatus_Load(object sender, EventArgs e)
@@ -48,9 +50,12 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             try
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Inventory", con))
+                    using (SqlCommand cmd = new SqlCommand(
+                        "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
+                        "FROM Inventory i " +
+                        "JOIN Category c ON i.CategoryID = c.CategoryID", con))
                     {
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
@@ -63,7 +68,54 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 MessageBox.Show("An error occurred while loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+            //Filter method initializing to search the Inventory by Category filtering
+            try
+            {
+                using (SqlConnection conn = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT CategoryID, CategoryName FROM Category", conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    Dictionary<int, string> categories = new Dictionary<int, string>();
+                    categories.Add(0, "All"); // To add an option for showing all categories
+
+                    while (reader.Read())
+                    {
+                        categories.Add((int)reader["CategoryID"], reader["CategoryName"].ToString());
+                    }
+
+                    cbCategoryFilter.DataSource = new BindingSource(categories, null);
+                    cbCategoryFilter.DisplayMember = "Value";
+                    cbCategoryFilter.ValueMember = "Key";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading categories: " + ex.Message);
+            }
         }
+
+        //Load the Categories
+        private void LoadCategories()
+        {
+            SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
+            SqlCommand command = new SqlCommand("SELECT CategoryName FROM Category", connect);
+
+            connect.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                categoryList.Add(reader["CategoryName"].ToString());
+            }
+            connect.Close();
+
+            cbCategory.Items.Clear();
+            cbCategory.Items.AddRange(categoryList.ToArray());
+        }
+
 
 
         // Press/Navigate event
@@ -90,9 +142,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             SetPlaceholderText();
         }
 
-        // Global variable to get the primary key ID from the database towards the form
-        int id;
-        Int64 rowid;
+
 
         private void dgvApparatusList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -104,9 +154,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
                 panel2.Visible = true;
 
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Inventory WHERE ApparatusID = @ApparatusID", con))
+                    using (SqlCommand cmd = new SqlCommand(
+                        "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
+                        "FROM Inventory i " +
+                        "JOIN Category c ON i.CategoryID = c.CategoryID " +
+                        "WHERE i.[ApparatusID] = @ApparatusID", con))
                     {
                         cmd.Parameters.AddWithValue("@ApparatusID", id);
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -121,8 +175,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                         tbBrand.Text = ds.Tables[0].Rows[0][5].ToString();
                         cbEditStatus.Text = ds.Tables[0].Rows[0][6].ToString();
                         tbQuantity.Text = ds.Tables[0].Rows[0][7].ToString();
-                        tbLifeSpan.Text = ds.Tables[0].Rows[0][8].ToString();
-                        tbRemarks.Text = ds.Tables[0].Rows[0][9].ToString();
+                        tbRemarks.Text = ds.Tables[0].Rows[0][8].ToString();
+                        cbCategory.Text = ds.Tables[0].Rows[0][9].ToString(); // CategoryName
                     }
                 }
             }
@@ -166,12 +220,14 @@ namespace Laboratory_Management_System__Capstone_Project_
                     string brand = tbBrand.Text;
                     string status = cbEditStatus.Text;
                     long quantity = Int64.Parse(tbQuantity.Text);
-                    string life_span = tbLifeSpan.Text;
                     string remarks = (quantity == 0) ? "Out of Stock" : tbRemarks.Text;
+                    string categoryName = cbCategory.Text;
 
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
-                        using (SqlCommand cmd = new SqlCommand("UPDATE Inventory SET [Apparatus Name] = @ApparatusName, [Model Number] = @ModelNum, [Date Purchased] = @DatePurchased, [Price] = @Price, [Brand] = @Brand, [Status] = @Status, [Quantity] = @Quantity, [Life Span] = @LifeSpan, [Remarks] = @Remarks WHERE ApparatusID = @ApparatusID", con))
+                        using (SqlCommand cmd = new SqlCommand(
+                            "UPDATE Inventory SET [Apparatus Name] = @ApparatusName, [Model Number] = @ModelNum, [Date Purchased] = @DatePurchased, [Price] = @Price, [Brand] = @Brand, [Status] = @Status, [Quantity] = @Quantity, [Remarks] = @Remarks, [CategoryID] = (SELECT CategoryID FROM Category WHERE CategoryName = @CategoryName) " +
+                            "WHERE ApparatusID = @ApparatusID", con))
                         {
                             cmd.Parameters.AddWithValue("@ApparatusName", appa_name);
                             cmd.Parameters.AddWithValue("@ModelNum", model_num);
@@ -180,8 +236,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                             cmd.Parameters.AddWithValue("@Brand", brand);
                             cmd.Parameters.AddWithValue("@Status", status);
                             cmd.Parameters.AddWithValue("@Quantity", quantity);
-                            cmd.Parameters.AddWithValue("@LifeSpan", life_span);
                             cmd.Parameters.AddWithValue("@Remarks", remarks);
+                            cmd.Parameters.AddWithValue("@CategoryName", categoryName);
                             cmd.Parameters.AddWithValue("@ApparatusID", rowid);
 
                             con.Open();
@@ -197,35 +253,33 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+
+        // Delete button
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MessageBox.Show("The Data will be deleted\n\nPlease click on the RETURN button to update the Apparatus List. Confirm?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show("Are you sure you want to delete this apparatus?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
                         using (SqlCommand cmd = new SqlCommand("DELETE FROM Inventory WHERE ApparatusID = @ApparatusID", con))
                         {
                             cmd.Parameters.AddWithValue("@ApparatusID", rowid);
-
                             con.Open();
                             cmd.ExecuteNonQuery();
                         }
                     }
-                    ViewApparatus_Load(this, null);
+                    MessageBox.Show("Apparatus deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ViewApparatus_Load(this, null); // Reload apparatus list after deletion
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while deleting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while deleting the apparatus: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
 
         //filter by status
         private void cbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -252,14 +306,16 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("An error occurred while searching: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //Method for combine or individual searching
+        // Filter method combining search and status filter
         private void FilterApparatusList()
         {
             string searchQuery = tbAppaSearch.Text.Trim();
             string statusFilter = cbStatusFilter.SelectedItem?.ToString();
 
-            StringBuilder queryBuilder = new StringBuilder("SELECT * FROM Inventory WHERE 1=1");
+            StringBuilder queryBuilder = new StringBuilder("SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
+                                                           "FROM Inventory i " +
+                                                           "JOIN Category c ON i.CategoryID = c.CategoryID " +
+                                                           "WHERE 1=1");
 
             if (!string.IsNullOrEmpty(statusFilter))
             {
@@ -270,10 +326,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 queryBuilder.Append(" AND ([Apparatus Name] LIKE @SearchText + '%' OR [Model Number] LIKE @SearchText + '%' " +
                                     "OR [Date Purchased] LIKE @SearchText + '%' OR [Price] LIKE @SearchText + '%' OR [Brand] LIKE @SearchText + '%' " +
-                                    "OR [Quantity] LIKE @SearchText + '%' OR [Life Span] LIKE @SearchText + '%' OR [Remarks] LIKE @SearchText + '%')");
+                                    "OR [Quantity] LIKE @SearchText + '%' OR [Remarks] LIKE @SearchText + '%')");
             }
 
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(queryBuilder.ToString(), con))
                 {
@@ -300,9 +356,9 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                if (dgvApparatusList.Rows.Count > 0)
+                if (dgvApparatusList.Rows.Count > 0) // Check if there are records to export
                 {
-                    using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "InventoryList.xlsx" })
+                    using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Excel Workbook|*.xlsx", FileName = "InventoryList.xlsx" })
                     {
                         if (sfd.ShowDialog() == DialogResult.OK)
                         {
@@ -311,28 +367,29 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 // Set the license context for EPPlus
                                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
-                                // Create a worksheet
+                                // Create a worksheet for the export
                                 ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Inventory List");
 
-                                // Load DataGridView data into DataTable
+                                // Load DataGridView data into a DataTable
                                 DataTable dt = new DataTable();
 
-                                // Add columns
+                                // Add columns to DataTable
                                 foreach (DataGridViewColumn column in dgvApparatusList.Columns)
                                 {
-                                    dt.Columns.Add(column.HeaderText, typeof(string));
+                                    dt.Columns.Add(column.HeaderText, typeof(string)); // Assuming all columns as string type
                                 }
 
-                                // Add rows
+                                // Add rows to DataTable
                                 foreach (DataGridViewRow row in dgvApparatusList.Rows)
                                 {
-                                    dt.Rows.Add(row.Cells.Cast<DataGridViewCell>().Select(cell => cell.Value?.ToString() ?? "").ToArray());
+                                    dt.Rows.Add(row.Cells.Cast<DataGridViewCell>()
+                                        .Select(cell => cell.Value?.ToString() ?? string.Empty).ToArray());
                                 }
 
-                                // Load data into worksheet
+                                // Load the data into the Excel worksheet starting from cell A1
                                 worksheet.Cells["A1"].LoadFromDataTable(dt, true);
 
-                                // Format the header
+                                // Format the header row
                                 using (ExcelRange headerRange = worksheet.Cells[1, 1, 1, dt.Columns.Count])
                                 {
                                     headerRange.Style.Font.Bold = true;
@@ -340,24 +397,23 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     headerRange.Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
                                     headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                                     headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                                    headerRange.AutoFitColumns();
                                 }
 
                                 // Auto-fit all columns
                                 worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
 
-                                // Save the Excel file
-                                FileInfo fi = new FileInfo(sfd.FileName);
-                                excelPackage.SaveAs(fi);
+                                // Save the file
+                                FileInfo fileInfo = new FileInfo(sfd.FileName);
+                                excelPackage.SaveAs(fileInfo);
 
-                                MessageBox.Show("Data Exported Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Data exported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No records to export.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No records available for export.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -366,10 +422,116 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+        private void cbCategoryFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedCategoryID = (int)((KeyValuePair<int, string>)cbCategoryFilter.SelectedItem).Key;
+            FilterInventoryByCategory(selectedCategoryID);
+        }
 
-       
+        private void FilterInventoryByCategory(int categoryID)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                {
+                    conn.Open();
+                    SqlCommand cmd;
+                    if (categoryID == 0) // 0 for 'All' categories
+                    {
+                        cmd = new SqlCommand("SELECT * FROM Inventory", conn);
+                    }
+                    else
+                    {
+                        cmd = new SqlCommand("SELECT * FROM Inventory WHERE CategoryID = @CategoryID", conn);
+                        cmd.Parameters.AddWithValue("@CategoryID", categoryID);
+                    }
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dgvApparatusList.DataSource = dt; // Assuming you're using a DataGridView to show results
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error filtering items: " + ex.Message);
+            }
+        }
+
     }
-
-
-
 }
+
+
+
+/*
+private void btnExport_Click(object sender, EventArgs e)
+{
+    try
+    {
+        if (dgvApparatusList.Rows.Count > 0)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "InventoryList.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (ExcelPackage excelPackage = new ExcelPackage())
+                    {
+                        // Set the license context for EPPlus
+                        ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
+                        // Create a worksheet
+                        ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Inventory List");
+
+                        // Load DataGridView data into DataTable
+                        DataTable dt = new DataTable();
+
+                        // Add columns
+                        foreach (DataGridViewColumn column in dgvApparatusList.Columns)
+                        {
+                            dt.Columns.Add(column.HeaderText, typeof(string));
+                        }
+
+                        // Add rows
+                        foreach (DataGridViewRow row in dgvApparatusList.Rows)
+                        {
+                            dt.Rows.Add(row.Cells.Cast<DataGridViewCell>().Select(cell => cell.Value?.ToString() ?? "").ToArray());
+                        }
+
+                        // Load data into worksheet
+                        worksheet.Cells["A1"].LoadFromDataTable(dt, true);
+
+                        // Format the header
+                        using (ExcelRange headerRange = worksheet.Cells[1, 1, 1, dt.Columns.Count])
+                        {
+                            headerRange.Style.Font.Bold = true;
+                            headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                            headerRange.Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
+                            headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            headerRange.AutoFitColumns();
+                        }
+
+                        // Auto-fit all columns
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                        // Save the Excel file
+                        FileInfo fi = new FileInfo(sfd.FileName);
+                        excelPackage.SaveAs(fi);
+
+                        MessageBox.Show("Data Exported Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+        else
+        {
+            MessageBox.Show("No records to export.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("An error occurred while exporting data:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+}
+*/

@@ -129,7 +129,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     int count = (int)cmd.ExecuteScalar();
                     if (count >= 10)
                     {
-                        MessageBox.Show("The Admin role can only have up to 10 registered users.");
+                        MessageBox.Show("The Admin role can only have up to 10 registered users.","Attention",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -138,7 +138,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             // Restrictions for valid email
             if (!tbEmail.Text.Contains("@") || !tbEmail.Text.Contains("."))
             {
-                MessageBox.Show("Please enter a valid email address.");
+                MessageBox.Show("Please enter a valid email address.", "Invalid Email Address",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
@@ -146,7 +146,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             var emailExists = db.UserRegistrations.Any(a => a.Email == tbEmail.Text);
             if (emailExists)
             {
-                MessageBox.Show("This email address is already in use. Please use a different email.");
+                MessageBox.Show("This email address is already in use. Please use a different email.","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -154,28 +154,28 @@ namespace Laboratory_Management_System__Capstone_Project_
             var idExists = db.UserRegistrations.Any(a => a.ID_number == tbID.Text);
             if (idExists)
             {
-                MessageBox.Show("This ID number is already in use. Please use a different ID number.");
+                MessageBox.Show("This ID number is already in use. Please use a different ID number.","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var usernameExists = db.Accounts.Any(a => a.Username == tbID.Text);
             if (usernameExists)
             {
-                MessageBox.Show("This username (ID Number) is already in use. Please choose a different ID number.");
+                MessageBox.Show("This username (ID Number) is already in use. Please choose a different ID number.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Password length check
             if (tbPass.TextLength < 8 || tbPass.TextLength > 16 || !tbPass.Text.Any(char.IsDigit))
             {
-                MessageBox.Show("Password must be between 8 and 16 characters.");
+                MessageBox.Show("Password must be between 8 and 16 characters.", "Password error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
             // Password confirmation
             if (tbPass.Text != tbConfirmPass.Text)
             {
-                MessageBox.Show("Passwords do not match.");
+                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
@@ -194,7 +194,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             // Validate ID number format
             if (tbID.TextLength != 10 || !tbID.Text.Contains("-"))
             {
-                MessageBox.Show("ID number format is incorrect or not valid.");
+                MessageBox.Show("ID number format is incorrect or not valid.","Invalid ID Number",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
@@ -230,6 +230,32 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 MessageBox.Show("Please verify your email before proceeding.", "Email Not Verified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+
+
+            // Role requires admin approval (Admin or Personnel roles)
+            if (selectedItem.Text == "Admin" || selectedItem.Text == "Personnel")
+            {
+                // Open the AdminApproval form for admin credentials
+                AdminApproval adminApprovalForm = new AdminApproval();
+
+                // Show the form and get the result when it's closed
+                DialogResult result = adminApprovalForm.ShowDialog();
+
+                // IF-ELSE based on the result of the form dialog
+                if (result == DialogResult.OK)
+                {
+                    // Admin confirmed the approval
+                    MessageBox.Show("Registration approved by Admin.", "Approval Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Proceed with registration process
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    // Admin denied or canceled the approval
+                    MessageBox.Show("Registration not approved by Admin.", "Approval Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Exit the registration process if not approved
+                }
             }
 
             // Save the new registration

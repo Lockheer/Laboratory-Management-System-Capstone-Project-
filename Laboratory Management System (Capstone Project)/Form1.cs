@@ -48,16 +48,26 @@ namespace Laboratory_Management_System__Capstone_Project_
         // LOGIN BUTTON
         private void button1_Click(object sender, EventArgs e)
         {
+            //Username Error Handler
             if (string.IsNullOrEmpty(tbUsername.Text) || tbUsername.Text == "Username")
             {
-                MessageBox.Show("Please enter your username.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+               lblUsernameHandler.Visible = true;
+                lblHint.Visible = true;
                 return;
+            }else
+            {
+                lblUsernameHandler.Visible = false;
+                lblHint.Visible = false;
             }
 
+            //Password Error Handler
             if (string.IsNullOrEmpty(tbPassword.Text) || tbPassword.Text == "Password")
             {
-                MessageBox.Show("Please enter your password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               lblPasswordHandler.Visible = true;
                 return;
+            }else
+            {
+                lblPasswordHandler.Visible = false;
             }
 
             // Check if the user enters the failed attempts cooldown 
@@ -90,7 +100,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    lblErrorHandler.Visible = true;
                 }
                 return;
             }
@@ -125,7 +135,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                 tbUsername.Text = "";
                 tbUsername.Focus();
                 tbUsername.ForeColor = Color.Black;
-                lblHint.Show();
+                
+            }else if (tbUsername.Text != "Username")
+            {
+                lblUsernameHandler.Visible = false;
+                lblHint.Visible = false;
             }
         }
 
@@ -146,6 +160,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                 tbPassword.Text = "";
                 tbPassword.ForeColor = Color.Black;
                 tbPassword.UseSystemPasswordChar = true;
+            }else if (tbPassword.Text != "Password")
+            {
+               lblPasswordHandler.Visible = false;
             }
         }
 
@@ -157,6 +174,24 @@ namespace Laboratory_Management_System__Capstone_Project_
                 tbPassword.ForeColor = Color.Silver;
                 tbPassword.UseSystemPasswordChar = false;
             }
+        }
+
+     
+
+        // Minimize button
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            failedLoginAttempts = 0;
+            cooldownStartTime = DateTime.MinValue;
+            lblErrorHandler.Visible = false;
+            lblHint.Visible = false;
+            lblUsernameHandler.Visible = false;
+            lblPasswordHandler.Visible = false;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -172,18 +207,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                     tbPassword.UseSystemPasswordChar = true;
                 }
             }
-        }
-
-        // Minimize button
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            failedLoginAttempts = 0;
-            cooldownStartTime = DateTime.MinValue;
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)

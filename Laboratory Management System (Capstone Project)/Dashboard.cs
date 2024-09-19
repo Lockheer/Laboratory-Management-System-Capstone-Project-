@@ -215,15 +215,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
-
-
-    
-
-
-
-
-
-
         private int GetCurrentAccountId()
         {
             return Form1.Session.AccountID; // Retrieve the stored user ID from the session

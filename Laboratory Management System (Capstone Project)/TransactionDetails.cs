@@ -31,10 +31,15 @@ namespace Laboratory_Management_System__Capstone_Project_
                     SqlCommand cmd = new SqlCommand { Connection = con };
 
                     // Load data into respective DataGridViews
-                    LoadData(cmd, "select * from BorrowReturnTransaction where Date_Returned is NULL AND Remarks is NULL", dgvBorrowDetails);
-                    LoadData(cmd, "select * from BorrowReturnTransaction where Date_Returned is not NULL AND Remarks is not NULL", dgvReturnDetails);
+                    LoadData(cmd, "select * from BorrowReturnTransaction where Quantity_Returned is NULL AND Date_Returned is NULL AND Remarks is NULL", dgvBorrowDetails);
+                    LoadData(cmd, "select * from BorrowReturnTransaction where Quantity_Returned is not NULL AND Date_Returned is not NULL AND Remarks is not NULL", dgvReturnDetails);
                     LoadData(cmd, "Select * from LaboratoryPenalties", dgvViolationRecords);
-                    LoadData(cmd, "Select * from Inventory", dgvInventory);
+
+                    //Load data into Inventory and Category DataGridViews
+                    LoadData(cmd,"SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
+                                 "FROM Inventory i " +
+                                 "JOIN Category c ON i.CategoryID = c.CategoryID",dgvInventory);
+
                     LoadData(cmd, "Select * from Students", dgvStudents);
 
                     // Set up ComboBox options
@@ -184,7 +189,10 @@ namespace Laboratory_Management_System__Capstone_Project_
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT [Apparatus Name], [Model Number], Brand, Status, Quantity FROM Inventory";
+                    // Updated query to include CategoryName by joining the Category table
+                    string query = "SELECT i.[Apparatus Name], i.[Model Number], i.Brand, i.Status, i.Quantity, c.[CategoryName] " +
+                                   "FROM Inventory i " +
+                                   "JOIN Category c ON i.CategoryID = c.CategoryID";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -204,30 +212,32 @@ namespace Laboratory_Management_System__Capstone_Project_
                         string brand = reader["Brand"].ToString();
                         string status = reader["Status"].ToString();
                         string quantity = reader["Quantity"].ToString();
+                        string categoryName = reader["CategoryName"].ToString(); // Get the Category Name
 
+                        // Print apparatus details
                         g.DrawString($"Apparatus Name:", contentFont, Brushes.Black, marginLeft, yPos);
                         g.DrawString(apparatusName, contentFont, Brushes.Black, marginLeft + column1Width, yPos);
-
                         yPos += lineHeight;
 
                         g.DrawString($"Model:", contentFont, Brushes.Black, marginLeft, yPos);
                         g.DrawString(model, contentFont, Brushes.Black, marginLeft + column2Width, yPos);
-
                         yPos += lineHeight;
 
                         g.DrawString($"Brand:", contentFont, Brushes.Black, marginLeft, yPos);
                         g.DrawString(brand, contentFont, Brushes.Black, marginLeft + column2Width, yPos);
-
                         yPos += lineHeight;
 
                         g.DrawString($"Status:", contentFont, Brushes.Black, marginLeft, yPos);
                         g.DrawString(status, contentFont, Brushes.Black, marginLeft + column2Width, yPos);
-
                         yPos += lineHeight;
 
                         g.DrawString($"Quantity:", contentFont, Brushes.Black, marginLeft, yPos);
                         g.DrawString(quantity, contentFont, Brushes.Black, marginLeft + column2Width, yPos);
+                        yPos += lineHeight;
 
+                        // Print Category Name
+                        g.DrawString($"Category:", contentFont, Brushes.Black, marginLeft, yPos);
+                        g.DrawString(categoryName, contentFont, Brushes.Black, marginLeft + column2Width, yPos);
                         yPos += lineHeight * 2; // Add extra space before the next record
                     }
                 }
@@ -237,6 +247,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("An error occurred while generating the inventory list report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void PrintStudentsList(Graphics g, PrintPageEventArgs e, ref float yPos, float leftMargin, float lineHeight)
         {
