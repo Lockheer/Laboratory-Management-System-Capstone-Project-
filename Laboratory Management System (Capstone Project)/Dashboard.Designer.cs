@@ -215,7 +215,7 @@
             this.apparatusToolStripMenuItem.MergeIndex = 0;
             this.apparatusToolStripMenuItem.Name = "apparatusToolStripMenuItem";
             this.apparatusToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.apparatusToolStripMenuItem.Size = new System.Drawing.Size(362, 100);
+            this.apparatusToolStripMenuItem.Size = new System.Drawing.Size(319, 100);
             this.apparatusToolStripMenuItem.Text = " Apparatus Inventory";
             this.apparatusToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -224,6 +224,7 @@
             this.addANewApparatusToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addANewApparatusToolStripMenuItem.Image")));
             this.addANewApparatusToolStripMenuItem.Name = "addANewApparatusToolStripMenuItem";
             this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(404, 32);
+            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
             this.addANewApparatusToolStripMenuItem.Text = "Add a New Apparatus";
             this.addANewApparatusToolStripMenuItem.Click += new System.EventHandler(this.addANewApparatusToolStripMenuItem_Click);
             // 
@@ -339,6 +340,12 @@
             // 
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
             this.dToolStripMenuItem.Size = new System.Drawing.Size(362, 24);
+            this.dToolStripMenuItem.Text = "d";
+            // 
+            // dToolStripMenuItem
+            // 
+            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(319, 23);
             this.dToolStripMenuItem.Text = "d";
             // 
             // lnklblLogOut
