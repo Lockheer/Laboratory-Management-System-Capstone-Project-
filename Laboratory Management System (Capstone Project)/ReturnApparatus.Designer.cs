@@ -173,8 +173,8 @@
             // 
             // numQuantityReturned
             // 
-            this.numQuantityReturned.Location = new System.Drawing.Point(529, 46);
-            this.numQuantityReturned.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numQuantityReturned.Location = new System.Drawing.Point(513, 46);
+            this.numQuantityReturned.Margin = new System.Windows.Forms.Padding(4);
             this.numQuantityReturned.Name = "numQuantityReturned";
             this.numQuantityReturned.Size = new System.Drawing.Size(51, 22);
             this.numQuantityReturned.TabIndex = 15;

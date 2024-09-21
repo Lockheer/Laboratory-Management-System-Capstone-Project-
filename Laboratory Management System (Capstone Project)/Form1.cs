@@ -52,12 +52,12 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (string.IsNullOrEmpty(tbUsername.Text) || tbUsername.Text == "Username")
             {
                lblUsernameHandler.Visible = true;
-                lblHint.Visible = true;
+              
                 return;
             }else
             {
                 lblUsernameHandler.Visible = false;
-                lblHint.Visible = false;
+               
             }
 
             //Password Error Handler
@@ -139,7 +139,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }else if (tbUsername.Text != "Username")
             {
                 lblUsernameHandler.Visible = false;
-                lblHint.Visible = false;
+           
             }
         }
 
@@ -149,7 +149,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 tbUsername.Text = "Username";
                 tbUsername.ForeColor = Color.Silver;
-                lblHint.Hide();
+              
             }
         }
 
@@ -189,7 +189,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             failedLoginAttempts = 0;
             cooldownStartTime = DateTime.MinValue;
             lblErrorHandler.Visible = false;
-            lblHint.Visible = false;
             lblUsernameHandler.Visible = false;
             lblPasswordHandler.Visible = false;
         }
