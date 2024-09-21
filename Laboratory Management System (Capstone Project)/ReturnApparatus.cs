@@ -198,7 +198,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
 
                 // Update remarks to include information about the returned quantity
-                tbRemarks.Text += "\nReturned Quantity: " + quantityReturned.ToString();
+                //tbRemarks.Text += "\nReturned Quantity: " + quantityReturned.ToString();
 
                 MessageBox.Show("The transaction has been completed.\nThank you for returning the Apparatus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ReturnApparatus_Load(this, null);
@@ -273,7 +273,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
       
-
+        
         private void btnExitUpper_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to go back to the Dashboard?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
