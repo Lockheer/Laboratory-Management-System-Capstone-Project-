@@ -41,8 +41,6 @@
             this.dgvStudentsInformation = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnExport = new System.Windows.Forms.Button();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.cbDept = new System.Windows.Forms.ComboBox();
             this.cbProgram = new System.Windows.Forms.ComboBox();
             this.btnClearAll = new System.Windows.Forms.Button();
@@ -195,8 +193,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.btnExport);
-            this.panel2.Controls.Add(this.tbAddress);
-            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.cbDept);
             this.panel2.Controls.Add(this.cbProgram);
             this.panel2.Controls.Add(this.btnClearAll);
@@ -229,26 +225,6 @@
             this.btnExport.Text = "EXPORT TO EXCEL";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAddress.Location = new System.Drawing.Point(213, 176);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbAddress.Multiline = true;
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(334, 163);
-            this.tbAddress.TabIndex = 25;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(123, 176);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 20);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "Address:";
             // 
             // cbDept
             // 
@@ -504,8 +480,6 @@
         private System.Windows.Forms.ComboBox cbDept;
         private System.Windows.Forms.ComboBox cbProgram;
         private System.Windows.Forms.Button btnMinimize;
-        private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbProgramFilter;
         private System.Windows.Forms.Button btnExport;

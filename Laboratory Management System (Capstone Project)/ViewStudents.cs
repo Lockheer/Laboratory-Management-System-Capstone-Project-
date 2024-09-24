@@ -48,7 +48,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM Students WHERE ID_Number LIKE @SearchText + '%' OR Student_Name LIKE @SearchText + '%' OR Email_Address LIKE @SearchText + '%' OR Contact_No LIKE @SearchText + '%' OR Program LIKE @SearchText + '%' OR Department LIKE @SearchText + '%' OR Address LIKE @SearchText + '%'";
+                    cmd.CommandText = "SELECT * FROM Students WHERE ID_Number LIKE @SearchText + '%' OR Student_Name LIKE @SearchText + '%' OR Email_Address LIKE @SearchText + '%' OR Contact_No LIKE @SearchText + '%' OR Program LIKE @SearchText + '%' OR Department LIKE @SearchText + '%'";
 
                     cmd.Parameters.AddWithValue("@SearchText", tbStudentSearch.Text);
 
@@ -259,7 +259,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 tbContactNum.Text = DS.Tables[0].Rows[0]["Contact_No"].ToString();
                                 cbProgram.Text = DS.Tables[0].Rows[0]["Program"].ToString();
                                 cbDept.Text = DS.Tables[0].Rows[0]["Department"].ToString();
-                                tbAddress.Text = DS.Tables[0].Rows[0]["Address"].ToString();
+                                
                             }
                         }
                         catch (Exception ex)
@@ -282,7 +282,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             Int64 contactnum;
             String program = cbProgram.Text;
             String department = cbDept.Text;
-            String address = tbAddress.Text;
+ 
 
             if (!Int64.TryParse(tbContactNum.Text, out contactnum))
             {
@@ -314,7 +314,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "UPDATE Students SET Student_Name = @StudentName, ID_Number = @IDNumber, Email_Address = @Email, Contact_No = @ContactNumber, Program = @Program, Department = @Department, Address = @Address WHERE studID = @RowID";
+                        cmd.CommandText = "UPDATE Students SET Student_Name = @StudentName, ID_Number = @IDNumber, Email_Address = @Email, Contact_No = @ContactNumber, Program = @Program, Department = @Department,  WHERE studID = @RowID";
 
                         cmd.Parameters.AddWithValue("@StudentName", studname);
                         cmd.Parameters.AddWithValue("@IDNumber", idnum);
@@ -322,7 +322,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         cmd.Parameters.AddWithValue("@ContactNumber", contactnum);
                         cmd.Parameters.AddWithValue("@Program", program);
                         cmd.Parameters.AddWithValue("@Department", department);
-                        cmd.Parameters.AddWithValue("@Address", address);
+                      
                         cmd.Parameters.AddWithValue("@RowID", rowid);
 
                         try
@@ -410,7 +410,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbContactNum.Clear();
             cbProgram.SelectedIndex = -1;
             cbDept.SelectedIndex = -1;
-            tbAddress.Clear();
+           
         }
 
         private void btnExit_Click(object sender, EventArgs e)

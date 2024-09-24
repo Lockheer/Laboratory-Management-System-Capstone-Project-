@@ -31,8 +31,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                     SqlCommand cmd = new SqlCommand { Connection = con };
 
                     // Load data into respective DataGridViews
-                    LoadData(cmd, "select * from BorrowReturnTransaction where Quantity_Returned is NULL AND Date_Returned is NULL AND Remarks is NULL", dgvBorrowDetails);
-                    LoadData(cmd, "select * from BorrowReturnTransaction where Quantity_Returned is not NULL AND Date_Returned is not NULL AND Remarks is not NULL", dgvReturnDetails);
+                    LoadData(cmd, "select * from BorrowReturnTransaction where Quantity_Returned is NULL AND Date_Returned is NULL AND Remarks is NULL AND Quantity_Returned is NULL", dgvBorrowDetails);
+                    LoadData(cmd, "select * from BorrowReturnTransaction where Quantity_Returned is not NULL AND Date_Returned is not NULL AND Remarks is not NULL AND Quantity_Returned is NOT NULL", dgvReturnDetails);
                     LoadData(cmd, "Select * from LaboratoryPenalties", dgvViolationRecords);
 
                     //Load data into Inventory and Category DataGridViews
@@ -276,7 +276,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         string contact = reader["Contact_No"].ToString();
                         string program = reader["Program"].ToString();
                         string department = reader["Department"].ToString();
-                        string address = reader["Address"].ToString();
+                      
 
                         g.DrawString($"Name:", contentFont, Brushes.Black, marginLeft, yPos);
                         g.DrawString(name, contentFont, Brushes.Black, marginLeft + column1Width, yPos);
@@ -308,9 +308,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                         yPos += lineHeight;
 
-                        g.DrawString($"Address:", contentFont, Brushes.Black, marginLeft, yPos);
-                        g.DrawString(address, contentFont, Brushes.Black, marginLeft + column1Width, yPos);
-
                         yPos += lineHeight * 2; // Add extra space before the next record
                     }
                 }
@@ -328,7 +325,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NULL AND Remarks IS NULL ";
+                    string query = "SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NULL AND Remarks IS NULL AND Quantity_Returned is NULL";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -382,7 +379,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NOT NULL AND Remarks IS NOT NULL";
+                    string query = "SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NOT NULL AND Remarks IS NOT NULL AND Quantity_Returned is NOT NULL";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -724,12 +721,12 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private DataTable GetBorrowedItems()
         {
-            return GetData("SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NULL");
+            return GetData("SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NULL AND Remarks is NULL AND Quantity_Returned is NULL");
         }
 
         private DataTable GetReturnedItems()
         {
-            return GetData("SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NOT NULL");
+            return GetData("SELECT * FROM BorrowReturnTransaction WHERE Date_Returned IS NOT NULL AND Remarks is NOT NULL AND Quantity_Returned is NOT NULL");
         }
 
         private DataTable GetViolationRecords()

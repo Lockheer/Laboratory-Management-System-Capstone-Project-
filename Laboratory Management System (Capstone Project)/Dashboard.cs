@@ -83,6 +83,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (userRole == "Personnel")
             {
                 penaltyRecordsToolStripMenuItem.Visible = false; // Hide access to PenaltiesRecords for Personnel
+                updateTransactionsToolStripMenuItem.Visible = false; // Hide access to UpdateTransactions for Personnel
             }
         }
 
@@ -212,7 +213,20 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void picBoxBC_Click(object sender, EventArgs e)
         {
+            //Clears the panelContainer controls
+            panelContainer.Controls.Clear();
 
+            //Loop structure to close all open forms
+            foreach (var form in openForms.Values)
+            {
+                if (form != null)
+                {
+                    form.Close();
+                }
+            }
+
+            //Clears the openForms dictionary to reopen and not create a exception 
+            openForms.Clear();
         }
 
         private int GetCurrentAccountId()
@@ -360,7 +374,10 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
 
         }
+
+        
     }
+
     public static class ControlExtensions
     {
         public static void DoubleBuffered(this Control control, bool enable)
