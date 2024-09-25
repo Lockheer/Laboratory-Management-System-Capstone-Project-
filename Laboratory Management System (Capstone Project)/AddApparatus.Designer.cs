@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.btnImport = new System.Windows.Forms.Button();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbModelNum = new System.Windows.Forms.TextBox();
             this.tbAppaName = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,7 +57,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbCategory = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -152,7 +151,6 @@
             this.panel2.Controls.Add(this.tbPrice);
             this.panel2.Controls.Add(this.tbModelNum);
             this.panel2.Controls.Add(this.tbAppaName);
-            this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label7);
@@ -166,6 +164,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(596, 684);
             this.panel2.TabIndex = 2;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(157, 403);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(121, 24);
+            this.cbCategory.TabIndex = 26;
             // 
             // btnImport
             // 
@@ -283,25 +289,14 @@
             this.tbAppaName.Size = new System.Drawing.Size(252, 22);
             this.tbAppaName.TabIndex = 12;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(390, 613);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(175, 46);
-            this.btnCancel.TabIndex = 11;
-            this.btnCancel.Text = "Return";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(209, 613);
+            this.btnSave.Location = new System.Drawing.Point(318, 607);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(175, 46);
             this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -368,14 +363,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Apparatus Name:";
             // 
-            // cbCategory
-            // 
-            this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(157, 403);
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(121, 24);
-            this.cbCategory.TabIndex = 26;
-            // 
             // AddApparatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -407,7 +394,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox tbAppaName;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;

@@ -37,14 +37,14 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                 if (tbNewPassword.Text != tbConfirmPassword.Text)
                 {
-                    MessageBox.Show("New password and confirmation do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("New password and confirmation password do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // Ensure password complexity (e.g., minimum length, special characters)
                 if (tbNewPassword.Text.Length < 8 || !tbNewPassword.Text.Any(char.IsDigit) || tbNewPassword.TextLength > 16)
                 {
-                    MessageBox.Show("New password must be at least 8 characters long, include a number, and an uppercase letter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("New password must be at least 8 characters long and it includes a number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -62,7 +62,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                     MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
 
                 var admin2 = db.Accounts
                                .Where(o => o.AccountID == admin.UserID )

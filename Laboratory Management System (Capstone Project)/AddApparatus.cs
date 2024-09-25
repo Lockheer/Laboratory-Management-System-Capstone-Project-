@@ -153,9 +153,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
+     
 
+        private void btnXMark_Click(object sender, EventArgs e)
+        {
             if (MessageBox.Show("This will remove any UNSAVED data\nDo you still want to cancel this task?",
                 "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
@@ -163,14 +164,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 //Sets back to 0 to prevent restriction from occuring
                 //Dashboard.formRestrict = 0;
             }
-
-
-        }
-
-        private void btnXMark_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            //Dashboard.formRestrict = 0;
         }
 
         private void lnklblRefresh_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
