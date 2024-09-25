@@ -18,6 +18,13 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
             tbPassword.KeyPress += new KeyPressEventHandler(tbPassword_KeyPress);
+
+            UIHelper.SetRoundedCorners(this, 20);
+            UIHelper.SetRoundedCorners(btnLogin, 40);
+            UIHelper.SetRoundedCorners(btnCloseForm, 30);
+            UIHelper.SetRoundedCorners(panel1, 20);
+
+            UIHelper.SetShadow(panel1);
         }
 
         RegistrationAccountDataContext db = new RegistrationAccountDataContext();
@@ -52,12 +59,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (string.IsNullOrEmpty(tbUsername.Text) || tbUsername.Text == "Username")
             {
                lblUsernameHandler.Visible = true;
-                lblHint.Visible = true;
                 return;
             }else
             {
                 lblUsernameHandler.Visible = false;
-                lblHint.Visible = false;
             }
 
             //Password Error Handler
@@ -139,7 +144,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             }else if (tbUsername.Text != "Username")
             {
                 lblUsernameHandler.Visible = false;
-                lblHint.Visible = false;
             }
         }
 
@@ -149,7 +153,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 tbUsername.Text = "Username";
                 tbUsername.ForeColor = Color.Silver;
-                lblHint.Hide();
             }
         }
 
@@ -189,7 +192,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             failedLoginAttempts = 0;
             cooldownStartTime = DateTime.MinValue;
             lblErrorHandler.Visible = false;
-            lblHint.Visible = false;
             lblUsernameHandler.Visible = false;
             lblPasswordHandler.Visible = false;
         }
@@ -245,9 +247,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                 btnLogin.PerformClick();
             }
-
-
-
         }
     }
 }

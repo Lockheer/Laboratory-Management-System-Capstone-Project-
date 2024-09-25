@@ -118,94 +118,70 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="toggle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\toggle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="warning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warning1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bg11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sidepane" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sidepane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="app_inventory2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\app_inventory2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bg2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sidebar10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sidebar10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sidepanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sidepanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bcc-logo-name" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bcc-logo-name.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_circle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_circle1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Jill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Jill.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sidebar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sidebar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hand_down3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hand_down3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sidebarlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sidebarlast.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hand_up3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hand_up3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sidebar11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sidebar11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logout1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="update2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\update2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909-pre" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909-pre.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bcc_logo_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bcc_logo_circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="student_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\student_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bg_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_main.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="change_pass_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\change_pass_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="report1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sidepanel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sidepanel1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hand_down3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hand_down3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logout31" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bg21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sidepanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sidepanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logout3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sidebarlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sidebarlast.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sidepanel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sidepanel1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="toggle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\toggle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="email_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="student_bg_final" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\student_bg_final.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bcc-logo-name" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bcc-logo-name.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="email_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="admin-approval-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin-approval-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="app_inventory2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\app_inventory2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hand_up3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hand_up3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="student_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\student_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bcc_logo_circle_blur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bcc_logo_circle_blur.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

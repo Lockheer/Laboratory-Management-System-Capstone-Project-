@@ -10,13 +10,11 @@ using System.Windows.Forms;
 namespace Laboratory_Management_System__Capstone_Project_
 {
     public static class UIHelper
-    {
-        // Method to set rounded corners on control (can be used for panels, datagridviews, etc.)
+    {   
         public static void SetRoundedCorners(Control control, int radius)
         {
             control.Paint += (sender, e) =>
             {
-                // Create a GraphicsPath for rounded corners
                 System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
                 path.StartFigure();
                 path.AddArc(new Rectangle(0, 0, radius, radius), 180, 90);
@@ -25,48 +23,53 @@ namespace Laboratory_Management_System__Capstone_Project_
                 path.AddArc(new Rectangle(0, control.Height - radius, radius, radius), 90, 90);
                 path.CloseFigure();
 
-                // Set the region for the control to the rounded rectangle
                 control.Region = new Region(path);
+
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             };
         }
 
 
-
-        public static void SetGradientBackground(Panel panel, Color color1, Color color2, LinearGradientMode gradientMode)
+        public static void SetGradientBackground(Control control, Color color1, Color color2, LinearGradientMode gradientMode)
         {
-            // Attach the paint event to draw the gradient
-            panel.Paint += (sender, e) =>
-            {
-                // Create a LinearGradientBrush with the specified colors and gradient mode
-                using (LinearGradientBrush brush = new LinearGradientBrush(panel.ClientRectangle, color1, color2, gradientMode))
+            control.Paint += (sender, e) =>
+            {            
+                using (LinearGradientBrush brush = new LinearGradientBrush(control.ClientRectangle, color1, color2, gradientMode))
                 {
-                    // Fill the panel's background with the gradient
-                    e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+                    e.Graphics.FillRectangle(brush, control.ClientRectangle);
                 }
             };
 
-            // Force the panel to repaint so the gradient is applied
-            panel.Invalidate();
+            control.Invalidate();
         }
 
-        public static void SetRoundedButton(Button button, int borderRadius)
+
+        public static void SetShadow(Control control)
         {
-            // Define the rounded button style
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(new Rectangle(0, 0, borderRadius, borderRadius), 180, 90);
-            path.AddArc(new Rectangle(button.Width - borderRadius, 0, borderRadius, borderRadius), 270, 90);
-            path.AddArc(new Rectangle(button.Width - borderRadius, button.Height - borderRadius, borderRadius, borderRadius), 0, 90);
-            path.AddArc(new Rectangle(0, button.Height - borderRadius, borderRadius, borderRadius), 90, 90);
-            path.CloseFigure();
+            Panel shadowPanel = new Panel();
 
-            // Set the region to the button (applies rounded corners)
-            button.Region = new Region(path);
+            shadowPanel.Size = new Size(control.Width, 10); 
+            shadowPanel.Location = new Point(control.Left, control.Bottom); 
+            shadowPanel.BackColor = Color.FromArgb(50, 0, 0, 0); // Semi-transparent black for shadow effect
 
-            // Ensure there is no border drawn if the user doesn't want it
-            button.Paint += (sender, e) =>
-            {
-                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            };
+
+            control.Parent.Controls.Add(shadowPanel);
+
+
+            //int shadowHeight = 10; 
+
+            //for (int i = 0; i < shadowHeight; i++)
+            //{
+            //    Panel shadowPanel = new Panel();
+            //    shadowPanel.Size = new Size(control.Width, 1); 
+            //    shadowPanel.Location = new Point(control.Left, control.Bottom + i);
+
+            //    // Gradually reduce opacity for each panel to create a soft shadow effect
+            //    int opacity = (int)(80 * (1 - (i / (float)shadowHeight)));
+            //    shadowPanel.BackColor = Color.FromArgb(opacity, 0, 0, 0); // Semi-transparent black
+
+            //    control.Parent.Controls.Add(shadowPanel);
+            //}
         }
     }
 }

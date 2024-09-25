@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D; 
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
-
     public partial class ChangePassVerification : Form
     {
         int timer = 60 * 5;
@@ -26,7 +26,14 @@ namespace Laboratory_Management_System__Capstone_Project_
         public ChangePassVerification()
         {
             InitializeComponent();
-            
+
+            UIHelper.SetRoundedCorners(pictureBox1, 40);
+            UIHelper.SetShadow(pictureBox1);
+
+            UIHelper.SetRoundedCorners(pictureBox3, 170);
+
+            UIHelper.SetRoundedCorners(btnSendPIN, 40);
+            UIHelper.SetRoundedCorners(btnConfirm, 40);
         }
 
         private void btnSendPIN_Click(object sender, EventArgs e)

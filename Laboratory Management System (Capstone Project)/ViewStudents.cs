@@ -259,7 +259,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 tbContactNum.Text = DS.Tables[0].Rows[0]["Contact_No"].ToString();
                                 cbProgram.Text = DS.Tables[0].Rows[0]["Program"].ToString();
                                 cbDept.Text = DS.Tables[0].Rows[0]["Department"].ToString();
-                                tbAddress.Text = DS.Tables[0].Rows[0]["Address"].ToString();
                             }
                         }
                         catch (Exception ex)
@@ -282,7 +281,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             Int64 contactnum;
             String program = cbProgram.Text;
             String department = cbDept.Text;
-            String address = tbAddress.Text;
 
             if (!Int64.TryParse(tbContactNum.Text, out contactnum))
             {
@@ -322,7 +320,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                         cmd.Parameters.AddWithValue("@ContactNumber", contactnum);
                         cmd.Parameters.AddWithValue("@Program", program);
                         cmd.Parameters.AddWithValue("@Department", department);
-                        cmd.Parameters.AddWithValue("@Address", address);
                         cmd.Parameters.AddWithValue("@RowID", rowid);
 
                         try
@@ -410,7 +407,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbContactNum.Clear();
             cbProgram.SelectedIndex = -1;
             cbDept.SelectedIndex = -1;
-            tbAddress.Clear();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

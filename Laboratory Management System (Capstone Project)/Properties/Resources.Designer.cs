@@ -73,9 +73,9 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909_pre {
+        internal static System.Drawing.Bitmap app_inventory2 {
             get {
-                object obj = ResourceManager.GetObject("angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909-pre", resourceCulture);
+                object obj = ResourceManager.GetObject("app_inventory2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,19 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap app_inventory2 {
+        internal static System.Drawing.Bitmap bcc_logo_circle {
             get {
-                object obj = ResourceManager.GetObject("app_inventory2", resourceCulture);
+                object obj = ResourceManager.GetObject("bcc_logo_circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bcc_logo_circle_blur {
+            get {
+                object obj = ResourceManager.GetObject("bcc_logo_circle_blur", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +113,9 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg {
+        internal static System.Drawing.Bitmap bg_main {
             get {
-                object obj = ResourceManager.GetObject("bg", resourceCulture);
+                object obj = ResourceManager.GetObject("bg_main", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +123,9 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg1 {
+        internal static System.Drawing.Bitmap change_pass_icon {
             get {
-                object obj = ResourceManager.GetObject("bg1", resourceCulture);
+                object obj = ResourceManager.GetObject("change_pass_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +133,9 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg11 {
+        internal static System.Drawing.Bitmap email_bg {
             get {
-                object obj = ResourceManager.GetObject("bg11", resourceCulture);
+                object obj = ResourceManager.GetObject("email_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,19 +143,9 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg2 {
+        internal static System.Drawing.Bitmap email_icon {
             get {
-                object obj = ResourceManager.GetObject("bg2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bg21 {
-            get {
-                object obj = ResourceManager.GetObject("bg21", resourceCulture);
+                object obj = ResourceManager.GetObject("email_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,69 +173,9 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Jill {
-            get {
-                object obj = ResourceManager.GetObject("Jill", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logo_circle {
-            get {
-                object obj = ResourceManager.GetObject("logo_circle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logo_circle1 {
-            get {
-                object obj = ResourceManager.GetObject("logo_circle1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logout {
-            get {
-                object obj = ResourceManager.GetObject("logout", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logout1 {
-            get {
-                object obj = ResourceManager.GetObject("logout1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap logout3 {
             get {
                 object obj = ResourceManager.GetObject("logout3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logout31 {
-            get {
-                object obj = ResourceManager.GetObject("logout31", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,49 +193,9 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sidebar {
-            get {
-                object obj = ResourceManager.GetObject("sidebar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sidebar10 {
-            get {
-                object obj = ResourceManager.GetObject("sidebar10", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sidebar11 {
-            get {
-                object obj = ResourceManager.GetObject("sidebar11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap sidebarlast {
             get {
                 object obj = ResourceManager.GetObject("sidebarlast", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sidepane {
-            get {
-                object obj = ResourceManager.GetObject("sidepane", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +216,26 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         internal static System.Drawing.Bitmap sidepanel1 {
             get {
                 object obj = ResourceManager.GetObject("sidepanel1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap student_bg_final {
+            get {
+                object obj = ResourceManager.GetObject("student_bg_final", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap student_big {
+            get {
+                object obj = ResourceManager.GetObject("student_big", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

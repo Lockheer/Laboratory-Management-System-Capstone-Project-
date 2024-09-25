@@ -36,8 +36,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblIDNumber = new System.Windows.Forms.Label();
             this.btnToggle = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
@@ -52,9 +50,10 @@
             this.updateTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.penaltyRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
             this.picBoxBC = new System.Windows.Forms.PictureBox();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblIDNumber = new System.Windows.Forms.Label();
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
@@ -100,11 +99,11 @@
             // 
             this.panelContainer.BackColor = System.Drawing.Color.Transparent;
             this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelContainer.Controls.Add(this.label4);
-            this.panelContainer.Controls.Add(this.lblFirstName);
             this.panelContainer.Controls.Add(this.lblIDNumber);
+            this.panelContainer.Controls.Add(this.lblFirstName);
+            this.panelContainer.Controls.Add(this.label4);
             this.panelContainer.Location = new System.Drawing.Point(173, 0);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1829, 1066);
             this.panelContainer.TabIndex = 4;
@@ -120,32 +119,6 @@
             this.label4.Size = new System.Drawing.Size(213, 41);
             this.label4.TabIndex = 5;
             this.label4.Text = "DASHBOARD";
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.lblFirstName.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
-            this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.lblFirstName.Location = new System.Drawing.Point(1501, 83);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(97, 19);
-            this.lblFirstName.TabIndex = 1;
-            this.lblFirstName.Text = "FIRST NAME";
-            // 
-            // lblIDNumber
-            // 
-            this.lblIDNumber.AutoSize = true;
-            this.lblIDNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblIDNumber.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
-            this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblIDNumber.Location = new System.Drawing.Point(1501, 38);
-            this.lblIDNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblIDNumber.Name = "lblIDNumber";
-            this.lblIDNumber.Size = new System.Drawing.Size(185, 24);
-            this.lblIDNumber.TabIndex = 0;
-            this.lblIDNumber.Text = "ID NUMBER + ROLE";
             // 
             // btnToggle
             // 
@@ -188,13 +161,12 @@
             this.returnRecordsToolStripMenuItem,
             this.updateTransactionsToolStripMenuItem,
             this.comToolStripMenuItem,
-            this.penaltyRecordsToolStripMenuItem,
-            this.dToolStripMenuItem});
+            this.penaltyRecordsToolStripMenuItem});
             this.menuStrip3.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.menuStrip3.Location = new System.Drawing.Point(7, 47);
+            this.menuStrip3.Location = new System.Drawing.Point(11, 46);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip3.Size = new System.Drawing.Size(320, 707);
+            this.menuStrip3.Size = new System.Drawing.Size(320, 684);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             this.menuStrip3.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip3_ItemClicked);
@@ -332,12 +304,6 @@
             this.penaltyRecordsToolStripMenuItem.Text = " Penalties and Violations";
             this.penaltyRecordsToolStripMenuItem.Click += new System.EventHandler(this.penaltyRecordsToolStripMenuItem_Click);
             // 
-            // dToolStripMenuItem
-            // 
-            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
-            this.dToolStripMenuItem.Size = new System.Drawing.Size(319, 23);
-            this.dToolStripMenuItem.Text = "d";
-            // 
             // lnklblLogOut
             // 
             this.lnklblLogOut.ActiveLinkColor = System.Drawing.Color.Transparent;
@@ -371,13 +337,39 @@
             this.picBoxBC.TabStop = false;
             this.picBoxBC.Click += new System.EventHandler(this.picBoxBC_Click);
             // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFirstName.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
+            this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
+            this.lblFirstName.Location = new System.Drawing.Point(1123, 79);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(97, 19);
+            this.lblFirstName.TabIndex = 6;
+            this.lblFirstName.Text = "FIRST NAME";
+            // 
+            // lblIDNumber
+            // 
+            this.lblIDNumber.AutoSize = true;
+            this.lblIDNumber.BackColor = System.Drawing.Color.Transparent;
+            this.lblIDNumber.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.lblIDNumber.Location = new System.Drawing.Point(1035, 55);
+            this.lblIDNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIDNumber.Name = "lblIDNumber";
+            this.lblIDNumber.Size = new System.Drawing.Size(185, 24);
+            this.lblIDNumber.TabIndex = 7;
+            this.lblIDNumber.Text = "ID NUMBER + ROLE";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.ClientSize = new System.Drawing.Size(1443, 1061);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnToggle);
@@ -386,7 +378,7 @@
             this.Controls.Add(this.picBoxBC);
             this.Controls.Add(this.panelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -406,8 +398,6 @@
         #endregion
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.LinkLabel lnklblLogOut;
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblIDNumber;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnToggle;
         private System.Windows.Forms.PictureBox picBoxBC;
@@ -428,6 +418,7 @@
         private System.Windows.Forms.ToolStripMenuItem updateTransactionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem penaltyRecordsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dToolStripMenuItem;
+        private System.Windows.Forms.Label lblIDNumber;
+        private System.Windows.Forms.Label lblFirstName;
     }
 }

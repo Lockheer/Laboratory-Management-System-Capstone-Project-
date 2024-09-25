@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.IO;
 using OfficeOpenXml;
 using System.Text.RegularExpressions;
+using System.Drawing.Drawing2D;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -21,6 +22,18 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
            
             cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
+
+            cbProgram.DrawMode = DrawMode.OwnerDrawFixed; // Enable custom drawing for ComboBox
+
+            UIHelper.SetRoundedCorners(this, 20);
+
+            UIHelper.SetRoundedCorners(btnExit, 30);
+            UIHelper.SetRoundedCorners(btnSave, 40);
+            UIHelper.SetRoundedCorners(btnImport, 40);
+            UIHelper.SetRoundedCorners(btnRefresh, 40);
+            UIHelper.SetRoundedCorners(panel1, 10);
+
+            UIHelper.SetGradientBackground(this, Color.FromArgb(20, 57, 175), Color.FromArgb(0, 19, 79), LinearGradientMode.Vertical);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -44,8 +57,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             cbProgram.SelectedIndex = -1;
             cbDepartment.SelectedIndex = -1;
             tbAddress.Clear();
-
-
         }
 
         //SAVE INFO BUTTON
@@ -116,9 +127,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             else
             {
                 MessageBox.Show("Please input the following empty fields or textboxes.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-          
+            }       
         }
 
       
@@ -205,14 +214,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
-
-
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
 

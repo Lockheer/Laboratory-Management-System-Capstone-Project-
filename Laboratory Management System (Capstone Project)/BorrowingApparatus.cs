@@ -18,6 +18,9 @@ namespace Laboratory_Management_System__Capstone_Project_
         public BorrowingApparatus()
         {
             InitializeComponent();
+
+            UIHelper.SetRoundedCorners(panel3, 40);
+            UIHelper.SetShadow(panel3);
         }
 
         //Loading of ID numbers
@@ -322,5 +325,9 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             WindowState = FormWindowState.Minimized;
         }
+
+       
+
+      
     }
 }
