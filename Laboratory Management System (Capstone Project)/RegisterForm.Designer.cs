@@ -73,11 +73,11 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(205, 113);
+            this.tbFirstName.Location = new System.Drawing.Point(154, 196);
             this.tbFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(189, 22);
-            this.tbFirstName.TabIndex = 0;
+            this.tbFirstName.TabIndex = 2;
             // 
             // contextMenuStrip1
             // 
@@ -87,15 +87,15 @@
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(205, 160);
+            this.tbLastName.Location = new System.Drawing.Point(154, 266);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(189, 22);
-            this.tbLastName.TabIndex = 2;
+            this.tbLastName.TabIndex = 4;
             // 
             // tbMiddleName
             // 
-            this.tbMiddleName.Location = new System.Drawing.Point(205, 206);
+            this.tbMiddleName.Location = new System.Drawing.Point(154, 231);
             this.tbMiddleName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(100, 22);
@@ -104,7 +104,7 @@
             // lbFN
             // 
             this.lbFN.AutoSize = true;
-            this.lbFN.Location = new System.Drawing.Point(107, 119);
+            this.lbFN.Location = new System.Drawing.Point(56, 202);
             this.lbFN.Name = "lbFN";
             this.lbFN.Size = new System.Drawing.Size(75, 16);
             this.lbFN.TabIndex = 7;
@@ -113,7 +113,7 @@
             // lbLN
             // 
             this.lbLN.AutoSize = true;
-            this.lbLN.Location = new System.Drawing.Point(107, 160);
+            this.lbLN.Location = new System.Drawing.Point(56, 266);
             this.lbLN.Name = "lbLN";
             this.lbLN.Size = new System.Drawing.Size(75, 16);
             this.lbLN.TabIndex = 8;
@@ -122,7 +122,7 @@
             // lbMN
             // 
             this.lbMN.AutoSize = true;
-            this.lbMN.Location = new System.Drawing.Point(107, 208);
+            this.lbMN.Location = new System.Drawing.Point(56, 233);
             this.lbMN.Name = "lbMN";
             this.lbMN.Size = new System.Drawing.Size(91, 16);
             this.lbMN.TabIndex = 9;
@@ -131,7 +131,7 @@
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(5, 96);
+            this.lblGender.Location = new System.Drawing.Point(6, 78);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(55, 16);
             this.lblGender.TabIndex = 10;
@@ -175,11 +175,11 @@
             this.groupGender.Controls.Add(this.radiobtnFemale);
             this.groupGender.Controls.Add(this.radiobtnMale);
             this.groupGender.Controls.Add(this.lblGender);
-            this.groupGender.Location = new System.Drawing.Point(94, 479);
+            this.groupGender.Location = new System.Drawing.Point(68, 349);
             this.groupGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupGender.Name = "groupGender";
             this.groupGender.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupGender.Size = new System.Drawing.Size(240, 126);
+            this.groupGender.Size = new System.Drawing.Size(240, 104);
             this.groupGender.TabIndex = 20;
             this.groupGender.TabStop = false;
             this.groupGender.Text = "Gender:";
@@ -213,7 +213,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(153, 244);
+            this.lblEmail.Location = new System.Drawing.Point(47, 489);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(44, 16);
             this.lblEmail.TabIndex = 21;
@@ -221,16 +221,16 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(203, 244);
+            this.tbEmail.Location = new System.Drawing.Point(97, 489);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(192, 22);
-            this.tbEmail.TabIndex = 22;
+            this.tbEmail.TabIndex = 6;
             // 
             // lbIDnum
             // 
             this.lbIDnum.AutoSize = true;
-            this.lbIDnum.Location = new System.Drawing.Point(123, 281);
+            this.lbIDnum.Location = new System.Drawing.Point(78, 129);
             this.lbIDnum.Name = "lbIDnum";
             this.lbIDnum.Size = new System.Drawing.Size(74, 16);
             this.lbIDnum.TabIndex = 23;
@@ -238,16 +238,16 @@
             // 
             // tbID
             // 
-            this.tbID.Location = new System.Drawing.Point(203, 281);
+            this.tbID.Location = new System.Drawing.Point(158, 129);
             this.tbID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(121, 22);
-            this.tbID.TabIndex = 24;
+            this.tbID.TabIndex = 0;
             // 
             // lbContact
             // 
             this.lbContact.AutoSize = true;
-            this.lbContact.Location = new System.Drawing.Point(91, 324);
+            this.lbContact.Location = new System.Drawing.Point(23, 530);
             this.lbContact.Name = "lbContact";
             this.lbContact.Size = new System.Drawing.Size(106, 16);
             this.lbContact.TabIndex = 25;
@@ -255,17 +255,17 @@
             // 
             // tbContactNumber
             // 
-            this.tbContactNumber.Location = new System.Drawing.Point(203, 324);
+            this.tbContactNumber.Location = new System.Drawing.Point(135, 527);
             this.tbContactNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbContactNumber.Name = "tbContactNumber";
             this.tbContactNumber.Size = new System.Drawing.Size(143, 22);
-            this.tbContactNumber.TabIndex = 26;
+            this.tbContactNumber.TabIndex = 8;
             this.tbContactNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbContactNumber_KeyPress);
             // 
             // lblBirth
             // 
             this.lblBirth.AutoSize = true;
-            this.lblBirth.Location = new System.Drawing.Point(91, 377);
+            this.lblBirth.Location = new System.Drawing.Point(65, 311);
             this.lblBirth.Name = "lblBirth";
             this.lblBirth.Size = new System.Drawing.Size(82, 16);
             this.lblBirth.TabIndex = 27;
@@ -273,11 +273,11 @@
             // 
             // dtpBirthdate
             // 
-            this.dtpBirthdate.Location = new System.Drawing.Point(203, 372);
+            this.dtpBirthdate.Location = new System.Drawing.Point(154, 311);
             this.dtpBirthdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(247, 22);
-            this.dtpBirthdate.TabIndex = 30;
+            this.dtpBirthdate.TabIndex = 5;
             this.dtpBirthdate.ValueChanged += new System.EventHandler(this.dtpBirthdate_ValueChanged);
             // 
             // panel1
@@ -328,16 +328,16 @@
             // cbRole
             // 
             this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(203, 420);
+            this.cbRole.Location = new System.Drawing.Point(420, 129);
             this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(121, 24);
-            this.cbRole.TabIndex = 37;
+            this.cbRole.TabIndex = 1;
             // 
             // lblRole
             // 
             this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(130, 424);
+            this.lblRole.Location = new System.Drawing.Point(347, 133);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(62, 16);
             this.lblRole.TabIndex = 38;
@@ -359,7 +359,7 @@
             this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(125, 22);
-            this.tbConfirmPass.TabIndex = 16;
+            this.tbConfirmPass.TabIndex = 11;
             this.tbConfirmPass.UseSystemPasswordChar = true;
             // 
             // chkShowPass
@@ -369,7 +369,7 @@
             this.chkShowPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkShowPass.Name = "chkShowPass";
             this.chkShowPass.Size = new System.Drawing.Size(18, 17);
-            this.chkShowPass.TabIndex = 35;
+            this.chkShowPass.TabIndex = 10;
             this.chkShowPass.UseVisualStyleBackColor = true;
             this.chkShowPass.CheckedChanged += new System.EventHandler(this.chkShowPass_CheckedChanged);
             // 
@@ -379,7 +379,7 @@
             this.tbPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(125, 22);
-            this.tbPass.TabIndex = 15;
+            this.tbPass.TabIndex = 9;
             this.tbPass.UseSystemPasswordChar = true;
             // 
             // lblShowPass
@@ -429,10 +429,10 @@
             // 
             // btnVerify
             // 
-            this.btnVerify.Location = new System.Drawing.Point(401, 244);
+            this.btnVerify.Location = new System.Drawing.Point(295, 489);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(75, 23);
-            this.btnVerify.TabIndex = 42;
+            this.btnVerify.TabIndex = 7;
             this.btnVerify.Text = "Verify";
             this.btnVerify.UseVisualStyleBackColor = true;
             this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);

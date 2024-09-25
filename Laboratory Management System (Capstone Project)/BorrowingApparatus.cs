@@ -215,6 +215,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     String Email = tbEmail.Text;
                     Int64 Contact = Int64.Parse(tbContact.Text);
                     String Program = tbProgram.Text;
+                    String purpose = tbPurpose.Text;
                     String IssueDate = dtpBorrowDate.Text;
                     String dueDate = dtpDueDate.Text;
 
@@ -246,6 +247,26 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     return;
                                 }
 
+                                // Get StudentID based on the student's ID number
+                                SqlCommand cmdGetStudentID = new SqlCommand("SELECT studID FROM Students WHERE ID_Number = @ID_Number", con);
+                                cmdGetStudentID.Parameters.AddWithValue("@ID_Number", IDnum);
+                                object resultStudent = cmdGetStudentID.ExecuteScalar();
+                                if (resultStudent != null)
+                                {
+                                    studentID = Convert.ToInt32(resultStudent);
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"Student with ID number '{IDnum}' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+
+                                if (tbPurpose.Text == "None" || tbPurpose.Text == "" || tbPurpose.Text == "Unknown" || tbPurpose.Text == "UNKNOWN" || tbPurpose.Text == "Unknown Purpose" || tbPurpose.Text == "UNKNOWN PURPOSE")
+                                {
+                                    MessageBox.Show("Please enter a valid purpose.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                }
+
                                 // Check if the quantity borrowed does not exceed the quantity available
                                 SqlCommand cmdGetQuantityAvailable = new SqlCommand("SELECT Quantity FROM Inventory WHERE ApparatusID = @ApparatusID", con);
                                 cmdGetQuantityAvailable.Parameters.AddWithValue("@ApparatusID", apparatusID);
@@ -257,7 +278,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 }
 
                                 // Insert transaction with IDs and quantities
-                                SqlCommand cmdInsertTransaction = new SqlCommand("INSERT INTO BorrowReturnTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, studID, AccountID, ApparatusID, Remarks) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, @Quantity, @Borrow_Date, @Due_Date, NULL, NULL, @StudentID, @AccountID, @ApparatusID, NULL)", con);
+                                SqlCommand cmdInsertTransaction = new SqlCommand("INSERT INTO BorrowReturnTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, studID, AccountID, ApparatusID, Remarks) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, @Quantity, @Purpose, @Borrow_Date, @Due_Date, NULL, NULL, @StudentID, @AccountID, @ApparatusID, NULL)", con);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Student_Name", Studname);
                                 cmdInsertTransaction.Parameters.AddWithValue("@ID_Number", IDnum);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Email_Address", Email);
@@ -265,6 +286,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 cmdInsertTransaction.Parameters.AddWithValue("@Program", Program);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Apparatus_Name", AppaName);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Quantity", quantity); // Pass the total quantity
+                                cmdInsertTransaction.Parameters.AddWithValue("@Purpose", purpose);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Borrow_Date", IssueDate);
                                 cmdInsertTransaction.Parameters.AddWithValue("@Due_Date", dueDate);
                                 cmdInsertTransaction.Parameters.AddWithValue("@StudentID", studentID);
@@ -277,6 +299,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 cmdUpdateQty.Parameters.AddWithValue("@Quantity", quantity);
                                 cmdUpdateQty.Parameters.AddWithValue("@ApparatusID", apparatusID);
                                 cmdUpdateQty.ExecuteNonQuery();
+
                             }
                         }
 

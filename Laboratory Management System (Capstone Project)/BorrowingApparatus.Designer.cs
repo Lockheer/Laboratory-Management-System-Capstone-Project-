@@ -40,6 +40,16 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.nudQuantity4 = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantity3 = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantity2 = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantity1 = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.cbApparatusName4 = new System.Windows.Forms.ComboBox();
             this.cbApparatusName3 = new System.Windows.Forms.ComboBox();
             this.cbApparatusName2 = new System.Windows.Forms.ComboBox();
@@ -65,27 +75,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
-            this.nudQuantity1 = new System.Windows.Forms.NumericUpDown();
-            this.nudQuantity2 = new System.Windows.Forms.NumericUpDown();
-            this.nudQuantity3 = new System.Windows.Forms.NumericUpDown();
-            this.nudQuantity4 = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tbPurpose = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -153,7 +155,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 150);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(404, 812);
+            this.panel2.Size = new System.Drawing.Size(404, 925);
             this.panel2.TabIndex = 2;
             // 
             // btnSearch
@@ -211,7 +213,7 @@
             this.btnRefresh.FlatAppearance.BorderSize = 2;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(224, 720);
+            this.btnRefresh.Location = new System.Drawing.Point(212, 802);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(203, 57);
@@ -225,6 +227,8 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel3.Controls.Add(this.tbPurpose);
+            this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.nudQuantity4);
             this.panel3.Controls.Add(this.nudQuantity3);
             this.panel3.Controls.Add(this.nudQuantity2);
@@ -262,8 +266,93 @@
             this.panel3.Location = new System.Drawing.Point(421, 150);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(887, 811);
+            this.panel3.Size = new System.Drawing.Size(887, 937);
             this.panel3.TabIndex = 0;
+            // 
+            // nudQuantity4
+            // 
+            this.nudQuantity4.Location = new System.Drawing.Point(724, 474);
+            this.nudQuantity4.Name = "nudQuantity4";
+            this.nudQuantity4.Size = new System.Drawing.Size(70, 22);
+            this.nudQuantity4.TabIndex = 44;
+            // 
+            // nudQuantity3
+            // 
+            this.nudQuantity3.Location = new System.Drawing.Point(724, 430);
+            this.nudQuantity3.Name = "nudQuantity3";
+            this.nudQuantity3.Size = new System.Drawing.Size(70, 22);
+            this.nudQuantity3.TabIndex = 43;
+            // 
+            // nudQuantity2
+            // 
+            this.nudQuantity2.Location = new System.Drawing.Point(723, 384);
+            this.nudQuantity2.Name = "nudQuantity2";
+            this.nudQuantity2.Size = new System.Drawing.Size(70, 22);
+            this.nudQuantity2.TabIndex = 42;
+            // 
+            // nudQuantity1
+            // 
+            this.nudQuantity1.Location = new System.Drawing.Point(724, 337);
+            this.nudQuantity1.Name = "nudQuantity1";
+            this.nudQuantity1.Size = new System.Drawing.Size(70, 22);
+            this.nudQuantity1.TabIndex = 41;
+            // 
+            // nudQuantity
+            // 
+            this.nudQuantity.Location = new System.Drawing.Point(723, 285);
+            this.nudQuantity.Name = "nudQuantity";
+            this.nudQuantity.Size = new System.Drawing.Size(70, 22);
+            this.nudQuantity.TabIndex = 40;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(617, 476);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(85, 20);
+            this.label17.TabIndex = 37;
+            this.label17.Text = "Quantity:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(617, 432);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(85, 20);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "Quantity:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(617, 386);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(85, 20);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "Quantity:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(617, 337);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(85, 20);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Quantity:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(617, 288);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(85, 20);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Quantity:";
             // 
             // cbApparatusName4
             // 
@@ -331,7 +420,7 @@
             this.dtpDueDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDueDate.Location = new System.Drawing.Point(221, 572);
+            this.dtpDueDate.Location = new System.Drawing.Point(221, 691);
             this.dtpDueDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(361, 28);
@@ -341,7 +430,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(36, 580);
+            this.label12.Location = new System.Drawing.Point(36, 699);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(95, 20);
             this.label12.TabIndex = 23;
@@ -352,7 +441,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(36, 665);
+            this.label10.Location = new System.Drawing.Point(24, 747);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(413, 17);
             this.label10.TabIndex = 21;
@@ -365,7 +454,7 @@
             this.btnConfirm.FlatAppearance.BorderSize = 2;
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(507, 721);
+            this.btnConfirm.Location = new System.Drawing.Point(495, 803);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(243, 55);
@@ -394,7 +483,7 @@
             this.dtpBorrowDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpBorrowDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBorrowDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBorrowDate.Location = new System.Drawing.Point(221, 526);
+            this.dtpBorrowDate.Location = new System.Drawing.Point(221, 645);
             this.dtpBorrowDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpBorrowDate.Name = "dtpBorrowDate";
             this.dtpBorrowDate.Size = new System.Drawing.Size(361, 28);
@@ -464,7 +553,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(36, 532);
+            this.label9.Location = new System.Drawing.Point(36, 651);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(146, 20);
             this.label9.TabIndex = 12;
@@ -558,97 +647,35 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // label13
+            // label18
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(617, 288);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(85, 20);
-            this.label13.TabIndex = 31;
-            this.label13.Text = "Quantity:";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(37, 525);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(169, 20);
+            this.label18.TabIndex = 45;
+            this.label18.Text = "Borrowing Purpose";
             // 
-            // label14
+            // tbPurpose
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(617, 337);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(85, 20);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "Quantity:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(617, 386);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 20);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "Quantity:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(617, 432);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 20);
-            this.label16.TabIndex = 36;
-            this.label16.Text = "Quantity:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(617, 476);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 20);
-            this.label17.TabIndex = 37;
-            this.label17.Text = "Quantity:";
-            // 
-            // nudQuantity
-            // 
-            this.nudQuantity.Location = new System.Drawing.Point(723, 285);
-            this.nudQuantity.Name = "nudQuantity";
-            this.nudQuantity.Size = new System.Drawing.Size(70, 22);
-            this.nudQuantity.TabIndex = 40;
-            // 
-            // nudQuantity1
-            // 
-            this.nudQuantity1.Location = new System.Drawing.Point(724, 337);
-            this.nudQuantity1.Name = "nudQuantity1";
-            this.nudQuantity1.Size = new System.Drawing.Size(70, 22);
-            this.nudQuantity1.TabIndex = 41;
-            // 
-            // nudQuantity2
-            // 
-            this.nudQuantity2.Location = new System.Drawing.Point(723, 384);
-            this.nudQuantity2.Name = "nudQuantity2";
-            this.nudQuantity2.Size = new System.Drawing.Size(70, 22);
-            this.nudQuantity2.TabIndex = 42;
-            // 
-            // nudQuantity3
-            // 
-            this.nudQuantity3.Location = new System.Drawing.Point(724, 430);
-            this.nudQuantity3.Name = "nudQuantity3";
-            this.nudQuantity3.Size = new System.Drawing.Size(70, 22);
-            this.nudQuantity3.TabIndex = 43;
-            // 
-            // nudQuantity4
-            // 
-            this.nudQuantity4.Location = new System.Drawing.Point(724, 474);
-            this.nudQuantity4.Name = "nudQuantity4";
-            this.nudQuantity4.Size = new System.Drawing.Size(70, 22);
-            this.nudQuantity4.TabIndex = 44;
+            this.tbPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPurpose.Location = new System.Drawing.Point(221, 525);
+            this.tbPurpose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPurpose.Multiline = true;
+            this.tbPurpose.Name = "tbPurpose";
+            this.tbPurpose.ReadOnly = true;
+            this.tbPurpose.Size = new System.Drawing.Size(373, 93);
+            this.tbPurpose.TabIndex = 46;
             // 
             // BorrowingApparatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(1321, 975);
+            this.ClientSize = new System.Drawing.Size(1321, 1088);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -667,12 +694,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -725,5 +752,7 @@
         private System.Windows.Forms.NumericUpDown nudQuantity2;
         private System.Windows.Forms.NumericUpDown nudQuantity1;
         private System.Windows.Forms.NumericUpDown nudQuantity;
+        private System.Windows.Forms.TextBox tbPurpose;
+        private System.Windows.Forms.Label label18;
     }
 }

@@ -1,15 +1,4 @@
-﻿using OfficeOpenXml;
-using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.IO;
-using System.Windows.Forms;
 
-namespace Laboratory_Management_System__Capstone_Project_
-{
     public partial class TransactionDetails : Form
     {
         private DataGridView currentDataGridView;
@@ -36,9 +25,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     LoadData(cmd, "Select * from LaboratoryPenalties", dgvViolationRecords);
 
                     //Load data into Inventory and Category DataGridViews
-                    LoadData(cmd, "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
+                    LoadData(cmd,"SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
                                  "FROM Inventory i " +
-                                 "JOIN Category c ON i.CategoryID = c.CategoryID", dgvInventory);
+                                 "JOIN Category c ON i.CategoryID = c.CategoryID",dgvInventory);
 
                     LoadData(cmd, "Select * from Students", dgvStudents);
 
@@ -276,7 +265,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         string contact = reader["Contact_No"].ToString();
                         string program = reader["Program"].ToString();
                         string department = reader["Department"].ToString();
-
+                      
 
                         g.DrawString($"Name:", contentFont, Brushes.Black, marginLeft, yPos);
                         g.DrawString(name, contentFont, Brushes.Black, marginLeft + column1Width, yPos);
@@ -433,7 +422,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
 
-        private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
+       private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             try
             {
@@ -542,7 +531,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-
+        
         private void btnExport_Click(object sender, EventArgs e)
         {
             if (currentDataGridView == null)
@@ -619,30 +608,30 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }*/
 
-        /* private void ImportDataFromExcel(string filePath)
-         {
-             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+       /* private void ImportDataFromExcel(string filePath)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-             using (ExcelPackage package = new ExcelPackage(new FileInfo(filePath)))
-             {
-                 ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+            using (ExcelPackage package = new ExcelPackage(new FileInfo(filePath)))
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
 
-                 for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
-                 {
-                     DataGridViewRow dataGridViewRow = new DataGridViewRow();
-                     dataGridViewRow.CreateCells(currentDataGridView);
+                for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
+                {
+                    DataGridViewRow dataGridViewRow = new DataGridViewRow();
+                    dataGridViewRow.CreateCells(currentDataGridView);
 
-                     for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
-                     {
-                         dataGridViewRow.Cells[col - 1].Value = worksheet.Cells[row, col].Value;
-                     }
+                    for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
+                    {
+                        dataGridViewRow.Cells[col - 1].Value = worksheet.Cells[row, col].Value;
+                    }
 
-                     currentDataGridView.Rows.Add(dataGridViewRow);
-                 }
-             }
+                    currentDataGridView.Rows.Add(dataGridViewRow);
+                }
+            }
 
-             MessageBox.Show("Data imported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-         }*/
+            MessageBox.Show("Data imported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }*/
 
 
 
@@ -758,5 +747,3 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
     }
-
-}   

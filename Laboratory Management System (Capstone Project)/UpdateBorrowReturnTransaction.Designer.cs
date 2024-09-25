@@ -30,6 +30,10 @@
         {
             this.dgvTransaction = new System.Windows.Forms.DataGridView();
             this.pnelUPDATE = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.nudQuantityReturned = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnExportToExcel = new System.Windows.Forms.Button();
             this.cbAppaName = new System.Windows.Forms.ComboBox();
             this.lnklblClear = new System.Windows.Forms.LinkLabel();
@@ -57,17 +61,15 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
-            this.nudQuantityReturned = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.tbPurpose = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.pnelUPDATE.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityReturned)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTransaction
@@ -83,6 +85,8 @@
             // 
             // pnelUPDATE
             // 
+            this.pnelUPDATE.Controls.Add(this.tbPurpose);
+            this.pnelUPDATE.Controls.Add(this.label15);
             this.pnelUPDATE.Controls.Add(this.label12);
             this.pnelUPDATE.Controls.Add(this.label11);
             this.pnelUPDATE.Controls.Add(this.nudQuantityReturned);
@@ -113,12 +117,44 @@
             this.pnelUPDATE.Controls.Add(this.label1);
             this.pnelUPDATE.Location = new System.Drawing.Point(0, 631);
             this.pnelUPDATE.Name = "pnelUPDATE";
-            this.pnelUPDATE.Size = new System.Drawing.Size(1446, 416);
+            this.pnelUPDATE.Size = new System.Drawing.Size(1446, 449);
             this.pnelUPDATE.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(17, 362);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 16);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Returned Quantity:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 320);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(119, 16);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Borrowed Quantity:";
+            // 
+            // nudQuantityReturned
+            // 
+            this.nudQuantityReturned.Location = new System.Drawing.Point(142, 360);
+            this.nudQuantityReturned.Name = "nudQuantityReturned";
+            this.nudQuantityReturned.Size = new System.Drawing.Size(60, 22);
+            this.nudQuantityReturned.TabIndex = 26;
+            // 
+            // nudQuantity
+            // 
+            this.nudQuantity.Location = new System.Drawing.Point(142, 314);
+            this.nudQuantity.Name = "nudQuantity";
+            this.nudQuantity.Size = new System.Drawing.Size(60, 22);
+            this.nudQuantity.TabIndex = 25;
             // 
             // btnExportToExcel
             // 
-            this.btnExportToExcel.Location = new System.Drawing.Point(1201, 348);
+            this.btnExportToExcel.Location = new System.Drawing.Point(1219, 385);
             this.btnExportToExcel.Name = "btnExportToExcel";
             this.btnExportToExcel.Size = new System.Drawing.Size(182, 46);
             this.btnExportToExcel.TabIndex = 24;
@@ -138,7 +174,7 @@
             // 
             this.lnklblClear.AutoSize = true;
             this.lnklblClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnklblClear.Location = new System.Drawing.Point(564, 357);
+            this.lnklblClear.Location = new System.Drawing.Point(612, 409);
             this.lnklblClear.Name = "lnklblClear";
             this.lnklblClear.Size = new System.Drawing.Size(116, 22);
             this.lnklblClear.TabIndex = 22;
@@ -148,7 +184,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(1013, 347);
+            this.btnDelete.Location = new System.Drawing.Point(1031, 384);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(182, 46);
             this.btnDelete.TabIndex = 21;
@@ -158,7 +194,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(825, 348);
+            this.btnUpdate.Location = new System.Drawing.Point(843, 385);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(182, 45);
             this.btnUpdate.TabIndex = 20;
@@ -168,10 +204,10 @@
             // 
             // tbRemarks
             // 
-            this.tbRemarks.Location = new System.Drawing.Point(816, 171);
+            this.tbRemarks.Location = new System.Drawing.Point(840, 268);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
-            this.tbRemarks.Size = new System.Drawing.Size(445, 117);
+            this.tbRemarks.Size = new System.Drawing.Size(346, 84);
             this.tbRemarks.TabIndex = 19;
             // 
             // cbProgram
@@ -193,7 +229,7 @@
             // 
             this.dtpDueDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDueDate.Location = new System.Drawing.Point(835, 68);
+            this.dtpDueDate.Location = new System.Drawing.Point(850, 79);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(211, 22);
             this.dtpDueDate.TabIndex = 15;
@@ -202,7 +238,7 @@
             // 
             this.dtpBorrowedDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpBorrowedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBorrowedDate.Location = new System.Drawing.Point(835, 19);
+            this.dtpBorrowedDate.Location = new System.Drawing.Point(850, 30);
             this.dtpBorrowedDate.Name = "dtpBorrowedDate";
             this.dtpBorrowedDate.Size = new System.Drawing.Size(211, 22);
             this.dtpBorrowedDate.TabIndex = 14;
@@ -211,7 +247,7 @@
             // 
             this.dtpDateReturned.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpDateReturned.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateReturned.Location = new System.Drawing.Point(835, 114);
+            this.dtpDateReturned.Location = new System.Drawing.Point(850, 125);
             this.dtpDateReturned.Name = "dtpDateReturned";
             this.dtpDateReturned.Size = new System.Drawing.Size(211, 22);
             this.dtpDateReturned.TabIndex = 13;
@@ -241,7 +277,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(745, 171);
+            this.label10.Location = new System.Drawing.Point(769, 268);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 16);
             this.label10.TabIndex = 10;
@@ -259,7 +295,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(732, 119);
+            this.label8.Location = new System.Drawing.Point(747, 130);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 16);
             this.label8.TabIndex = 8;
@@ -268,7 +304,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(762, 73);
+            this.label7.Location = new System.Drawing.Point(777, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 7;
@@ -277,7 +313,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(745, 24);
+            this.label6.Location = new System.Drawing.Point(760, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 16);
             this.label6.TabIndex = 6;
@@ -357,38 +393,6 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // nudQuantity
-            // 
-            this.nudQuantity.Location = new System.Drawing.Point(142, 314);
-            this.nudQuantity.Name = "nudQuantity";
-            this.nudQuantity.Size = new System.Drawing.Size(60, 22);
-            this.nudQuantity.TabIndex = 25;
-            // 
-            // nudQuantityReturned
-            // 
-            this.nudQuantityReturned.Location = new System.Drawing.Point(142, 360);
-            this.nudQuantityReturned.Name = "nudQuantityReturned";
-            this.nudQuantityReturned.Size = new System.Drawing.Size(60, 22);
-            this.nudQuantityReturned.TabIndex = 26;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 320);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(119, 16);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "Borrowed Quantity:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 362);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 16);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "Returned Quantity:";
-            // 
             // btnExit
             // 
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -421,12 +425,29 @@
             this.label14.TabIndex = 28;
             this.label14.Text = "LABORATORY BORROW-RETURN TRANSACTIONS";
             // 
+            // tbPurpose
+            // 
+            this.tbPurpose.Location = new System.Drawing.Point(840, 176);
+            this.tbPurpose.Multiline = true;
+            this.tbPurpose.Name = "tbPurpose";
+            this.tbPurpose.Size = new System.Drawing.Size(346, 70);
+            this.tbPurpose.TabIndex = 30;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(769, 176);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 16);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "Purpose:";
+            // 
             // UpdateBorrowReturnTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1444, 1101);
+            this.ClientSize = new System.Drawing.Size(1471, 1102);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnExit);
@@ -442,8 +463,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.pnelUPDATE.ResumeLayout(false);
             this.pnelUPDATE.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityReturned)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,5 +508,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbPurpose;
+        private System.Windows.Forms.Label label15;
     }
 }

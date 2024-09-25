@@ -38,6 +38,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             dtpBirthdate.Format = DateTimePickerFormat.Custom;
             dtpBirthdate.CustomFormat = " ";
+            lblGender.Visible = false;
             LoadRoles();
 
 
@@ -93,12 +94,14 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void radiobtnMale_CheckedChanged(object sender, EventArgs e)
         {
             gender = "Male";
+            lblGender.Visible = true;
             lblGender.Text = gender;
         }
 
         private void radiobtnFemale_CheckedChanged(object sender, EventArgs e)
         {
             gender = "Female";
+            lblGender.Visible = true;
             lblGender.Text = gender;
         }
 
@@ -185,7 +188,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("Please select a role.","Error: No Role registered.", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
 
-            }else if (lblGender.Text == "Gender")
+            }else if (lblGender.Text == "Gender:" || lblGender.Text == "Gender")
             {
                 MessageBox.Show("Please choose your gender.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
