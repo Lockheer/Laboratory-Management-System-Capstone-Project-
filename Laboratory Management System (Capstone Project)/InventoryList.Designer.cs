@@ -93,7 +93,7 @@
             this.tbAppaSearch.Name = "tbAppaSearch";
             this.tbAppaSearch.Size = new System.Drawing.Size(296, 28);
             this.tbAppaSearch.TabIndex = 3;
-            this.tbAppaSearch.TextChanged += new System.EventHandler(this.tbAppaSearch_TextChanged);
+            this.tbAppaSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAppaSearch_KeyDown);
             // 
             // btnRefresh
             // 
@@ -213,7 +213,7 @@
             "Needs Maintenance",
             "Has Missing Parts"});
             this.cbEditStatus.Location = new System.Drawing.Point(980, 78);
-            this.cbEditStatus.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbEditStatus.Margin = new System.Windows.Forms.Padding(5);
             this.cbEditStatus.Name = "cbEditStatus";
             this.cbEditStatus.Size = new System.Drawing.Size(160, 24);
             this.cbEditStatus.TabIndex = 23;
@@ -455,7 +455,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1763, 1088);
+            this.ClientSize = new System.Drawing.Size(1784, 1109);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cbCategoryFilter);
             this.Controls.Add(this.label1);

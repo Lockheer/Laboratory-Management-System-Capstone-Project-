@@ -222,79 +222,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
 
-
-        //Penalty search bar box
-        private void tbSearchPenalty_TextChanged(object sender, EventArgs e)
-        {
-            if (tbSearchPenalty.Text != "")
-            {
-                // Perform the search
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
-                {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM LaboratoryPenalties WHERE [ID Number] LIKE @SearchText + '%' OR [Student Name] LIKE @SearchText + '%' OR [Penalty Issued Date] LIKE @SearchText + '%'";
-
-                    cmd.Parameters.AddWithValue("@SearchText", tbSearchPenalty.Text);
-
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                    DataSet DS = new DataSet();
-
-                    try
-                    {
-                        con.Open();
-                        DA.Fill(DS);
-
-                        // Check if the dataset is empty
-                        if (DS.Tables[0].Rows.Count > 0)
-                        {
-                            dgvPenalties.DataSource = DS.Tables[0];
-                        }
-                        else
-                        {
-                            dgvPenalties.DataSource = null;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
-                }
-            }
-            else
-            {
-                // Load all penalty data when the search box is empty
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
-                {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM LaboratoryPenalties";
-
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                    DataSet DS = new DataSet();
-
-                    try
-                    {
-                        con.Open();
-                        DA.Fill(DS);
-
-                        // Check if the dataset is empty
-                        if (DS.Tables[0].Rows.Count > 0)
-                        {
-                            dgvPenalties.DataSource = DS.Tables[0];
-                        }
-                        else
-                        {
-                            dgvPenalties.DataSource = null;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
-                }
-            }
-        }
         private void dgvPenalties_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -480,10 +407,92 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+        private const string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
 
+        // Search bar for penalties
+        private void tbSearchPenalty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (tbSearchPenalty.Text != "")
+                {
+                    SearchPenalties(tbSearchPenalty.Text);
+                }
+                else
+                {
+                    LoadAllPenalties();
+                }
+            }
+        }
 
+        //Search method
+        private void SearchPenalties(string searchText)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM LaboratoryPenalties WHERE [ID Number] LIKE @SearchText + '%' OR [Student Name] LIKE @SearchText + '%' OR [Penalty Issued Date] LIKE @SearchText + '%'";
+                cmd.Parameters.AddWithValue("@SearchText", searchText);
 
+                SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                DataSet DS = new DataSet();
 
+                try
+                {
+                    con.Open();
+                    DA.Fill(DS);
+
+                    if (DS.Tables[0].Rows.Count > 0)
+                    {
+                        dgvPenalties.DataSource = DS.Tables[0];
+                    }
+                    else
+                    {
+                        dgvPenalties.DataSource = null;
+                        MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+        }
+
+        //Load ALL Default method
+        private void LoadAllPenalties()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM LaboratoryPenalties";
+
+                SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                DataSet DS = new DataSet();
+
+                try
+                {
+                    con.Open();
+                    DA.Fill(DS);
+
+                    if (DS.Tables[0].Rows.Count > 0)
+                    {
+                        dgvPenalties.DataSource = DS.Tables[0];
+                    }
+                    else
+                    {
+                        dgvPenalties.DataSource = null;
+                        MessageBox.Show("No penalty records found.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+        }
     }
 }
 
