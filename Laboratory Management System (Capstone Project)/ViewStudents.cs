@@ -68,6 +68,90 @@ namespace Laboratory_Management_System__Capstone_Project_
                         else
                         {
                             dgvStudentsInformation.DataSource = null;
+                            MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred during the search: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                Image defaultImage = Image.FromFile("C:/Users/Kyoto/source/repos/Laboratory Management System (Capstone Project)/Images/img/search.gif");
+                pictureBox1.Image = defaultImage;
+                label1.Visible = true;
+
+                // Load all student data when the search box is empty
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "SELECT * FROM Students";
+
+                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    DataSet DS = new DataSet();
+
+                    try
+                    {
+                        con.Open();
+                        DA.Fill(DS);
+
+                        // Check if the dataset is empty
+                        if (DS.Tables[0].Rows.Count > 0)
+                        {
+                            dgvStudentsInformation.DataSource = DS.Tables[0];
+                        }
+                        else
+                        {
+                            dgvStudentsInformation.DataSource = null;
+                            MessageBox.Show("No student records found.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred while loading student data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        /*private void tbStudentSearch_TextChanged(object sender, EventArgs e)
+        {
+            // Update the search icon and label visibility based on input
+            if (tbStudentSearch.Text != "")
+            {
+                Image searchImage = Image.FromFile("C:/Users/Kyoto/source/repos/Laboratory Management System (Capstone Project)/Images/img/search1.gif");
+                pictureBox1.Image = searchImage;
+                label1.Visible = false;
+                cbProgramFilter.SelectedIndex = -1;
+
+                // Perform the search
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "SELECT * FROM Students WHERE ID_Number LIKE @SearchText + '%' OR Student_Name LIKE @SearchText + '%' OR Email_Address LIKE @SearchText + '%' OR Contact_No LIKE @SearchText + '%' OR Program LIKE @SearchText + '%' OR Department LIKE @SearchText + '%'";
+
+                    cmd.Parameters.AddWithValue("@SearchText", tbStudentSearch.Text);
+
+                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    DataSet DS = new DataSet();
+
+                    try
+                    {
+                        con.Open();
+                        DA.Fill(DS);
+
+                        // Check if the dataset is empty
+                        if (DS.Tables[0].Rows.Count > 0)
+                        {
+                            dgvStudentsInformation.DataSource = DS.Tables[0];
+                        }
+                        else
+                        {
+                            dgvStudentsInformation.DataSource = null;
                         }
                     }
                     catch (Exception ex)
@@ -113,7 +197,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
-        }
+        }*/
+
+
 
         private void ViewStudentInformation_Load(object sender, EventArgs e)
         {

@@ -40,6 +40,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tbPurpose = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.nudQuantity4 = new System.Windows.Forms.NumericUpDown();
             this.nudQuantity3 = new System.Windows.Forms.NumericUpDown();
             this.nudQuantity2 = new System.Windows.Forms.NumericUpDown();
@@ -75,8 +77,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tbPurpose = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -268,6 +268,29 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(887, 937);
             this.panel3.TabIndex = 0;
+            // 
+            // tbPurpose
+            // 
+            this.tbPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPurpose.Location = new System.Drawing.Point(221, 525);
+            this.tbPurpose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPurpose.Multiline = true;
+            this.tbPurpose.Name = "tbPurpose";
+            this.tbPurpose.ReadOnly = true;
+            this.tbPurpose.Size = new System.Drawing.Size(373, 93);
+            this.tbPurpose.TabIndex = 46;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(37, 525);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(169, 20);
+            this.label18.TabIndex = 45;
+            this.label18.Text = "Borrowing Purpose";
             // 
             // nudQuantity4
             // 
@@ -647,33 +670,11 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(37, 525);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(169, 20);
-            this.label18.TabIndex = 45;
-            this.label18.Text = "Borrowing Purpose";
-            // 
-            // tbPurpose
-            // 
-            this.tbPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPurpose.Location = new System.Drawing.Point(221, 525);
-            this.tbPurpose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbPurpose.Multiline = true;
-            this.tbPurpose.Name = "tbPurpose";
-            this.tbPurpose.ReadOnly = true;
-            this.tbPurpose.Size = new System.Drawing.Size(373, 93);
-            this.tbPurpose.TabIndex = 46;
-            // 
             // BorrowingApparatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1321, 1088);
             this.Controls.Add(this.panel4);

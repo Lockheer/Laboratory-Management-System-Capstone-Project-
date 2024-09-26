@@ -29,7 +29,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
-            cmd.CommandText = "select * from LaboratoryPenalties";
+            cmd.CommandText = "select [ID Number], [Student Name], [Email Address], [Penalty Issued Date]a, [Violation], [Penalty Condition], [Amount to be Payed], [Amount Received], [Penalty Status], [Balance] from LaboratoryPenalties";
             SqlDataAdapter DA = new SqlDataAdapter();
             DataSet DS = new DataSet();
             DA.SelectCommand = cmd; // Set the SelectCommand for the SqlDataAdapter

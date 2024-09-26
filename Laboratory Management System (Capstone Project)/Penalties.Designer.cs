@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PanelCRUD = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.panelPayment = new System.Windows.Forms.Panel();
             this.lblRemainingBalance = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.btnSendEmail = new System.Windows.Forms.Button();
             this.btnDetails = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbViolation = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbContact = new System.Windows.Forms.TextBox();
@@ -52,7 +54,6 @@
             this.tbStudentName = new System.Windows.Forms.TextBox();
             this.tbIDnum = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnExitUpper = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.PanelCRUD.SuspendLayout();
             this.panelPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPenalties)).BeginInit();
@@ -104,6 +104,16 @@
             this.PanelCRUD.Name = "PanelCRUD";
             this.PanelCRUD.Size = new System.Drawing.Size(1307, 487);
             this.PanelCRUD.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(42, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(383, 18);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Please select an existing Laboratory Transaction first";
             // 
             // cbStatus
             // 
@@ -266,6 +276,15 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.button5_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(42, 76);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(158, 16);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Lab Transaction Number:";
+            // 
             // tbViolation
             // 
             this.tbViolation.Location = new System.Drawing.Point(210, 286);
@@ -288,6 +307,7 @@
             this.tbContact.Location = new System.Drawing.Point(213, 241);
             this.tbContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbContact.Name = "tbContact";
+            this.tbContact.ReadOnly = true;
             this.tbContact.Size = new System.Drawing.Size(321, 22);
             this.tbContact.TabIndex = 16;
             // 
@@ -296,6 +316,7 @@
             this.tbEmail.Location = new System.Drawing.Point(213, 200);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmail.Name = "tbEmail";
+            this.tbEmail.ReadOnly = true;
             this.tbEmail.Size = new System.Drawing.Size(321, 22);
             this.tbEmail.TabIndex = 15;
             // 
@@ -304,6 +325,7 @@
             this.tbStudentName.Location = new System.Drawing.Point(213, 159);
             this.tbStudentName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbStudentName.Name = "tbStudentName";
+            this.tbStudentName.ReadOnly = true;
             this.tbStudentName.Size = new System.Drawing.Size(321, 22);
             this.tbStudentName.TabIndex = 14;
             // 
@@ -312,6 +334,7 @@
             this.tbIDnum.Location = new System.Drawing.Point(213, 121);
             this.tbIDnum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbIDnum.Name = "tbIDnum";
+            this.tbIDnum.ReadOnly = true;
             this.tbIDnum.Size = new System.Drawing.Size(321, 22);
             this.tbIDnum.TabIndex = 13;
             // 
@@ -323,15 +346,6 @@
             this.label8.Size = new System.Drawing.Size(114, 16);
             this.label8.TabIndex = 12;
             this.label8.Text = "Penalty Condition:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(42, 76);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(158, 16);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Lab Transaction Number:";
             // 
             // label6
             // 
@@ -456,16 +470,6 @@
             this.btnExitUpper.Text = "X";
             this.btnExitUpper.UseVisualStyleBackColor = false;
             this.btnExitUpper.Click += new System.EventHandler(this.btnExitUpper_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(42, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(301, 18);
-            this.label9.TabIndex = 37;
-            this.label9.Text = "Select an existing Laboratory Transaction";
             // 
             // PenaltiesRecords
             // 

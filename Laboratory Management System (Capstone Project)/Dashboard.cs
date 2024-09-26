@@ -213,11 +213,11 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void picBoxBC_Click(object sender, EventArgs e)
         {
-            //Clears the panelContainer controls
-            panelContainer.Controls.Clear();
+            // Create a temporary list of forms to close
+            List<Form> formsToClose = openForms.Values.ToList();
 
-            //Loop structure to close all open forms
-            foreach (var form in openForms.Values)
+            // Close all forms
+            foreach (var form in formsToClose)
             {
                 if (form != null)
                 {
@@ -225,8 +225,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
 
-            //Clears the openForms dictionary to reopen and not create a exception 
+            // Clear the openForms dictionary
             openForms.Clear();
+
+            // Clear the panelContainer controls
+            panelContainer.Controls.Clear();
         }
 
         private int GetCurrentAccountId()

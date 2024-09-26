@@ -30,6 +30,8 @@
         {
             this.dgvTransaction = new System.Windows.Forms.DataGridView();
             this.pnelUPDATE = new System.Windows.Forms.Panel();
+            this.tbPurpose = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.nudQuantityReturned = new System.Windows.Forms.NumericUpDown();
@@ -64,8 +66,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tbPurpose = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.pnelUPDATE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityReturned)).BeginInit();
@@ -119,6 +119,23 @@
             this.pnelUPDATE.Name = "pnelUPDATE";
             this.pnelUPDATE.Size = new System.Drawing.Size(1446, 449);
             this.pnelUPDATE.TabIndex = 1;
+            // 
+            // tbPurpose
+            // 
+            this.tbPurpose.Location = new System.Drawing.Point(840, 176);
+            this.tbPurpose.Multiline = true;
+            this.tbPurpose.Name = "tbPurpose";
+            this.tbPurpose.Size = new System.Drawing.Size(346, 70);
+            this.tbPurpose.TabIndex = 30;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(769, 176);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 16);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "Purpose:";
             // 
             // label12
             // 
@@ -370,7 +387,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(324, 22);
             this.tbSearch.TabIndex = 24;
-            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             // 
             // lblSearch
             // 
@@ -424,23 +441,6 @@
             this.label14.Size = new System.Drawing.Size(532, 25);
             this.label14.TabIndex = 28;
             this.label14.Text = "LABORATORY BORROW-RETURN TRANSACTIONS";
-            // 
-            // tbPurpose
-            // 
-            this.tbPurpose.Location = new System.Drawing.Point(840, 176);
-            this.tbPurpose.Multiline = true;
-            this.tbPurpose.Name = "tbPurpose";
-            this.tbPurpose.Size = new System.Drawing.Size(346, 70);
-            this.tbPurpose.TabIndex = 30;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(769, 176);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(61, 16);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "Purpose:";
             // 
             // UpdateBorrowReturnTransaction
             // 
