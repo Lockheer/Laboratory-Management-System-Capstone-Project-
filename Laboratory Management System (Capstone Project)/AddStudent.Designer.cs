@@ -32,6 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
@@ -52,9 +55,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +64,8 @@
             // 
             this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
@@ -90,8 +93,10 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
@@ -109,6 +114,7 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
@@ -129,6 +135,42 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(434, 249);
             this.panel2.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(118, 203);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(21, 25);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "*";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(96, 170);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 25);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(109, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 25);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "*";
             // 
             // label11
             // 
@@ -156,6 +198,7 @@
             // 
             // cbDepartment
             // 
+            this.cbDepartment.Font = new System.Drawing.Font("Bahnschrift", 10.5F, System.Drawing.FontStyle.Bold);
             this.cbDepartment.FormattingEnabled = true;
             this.cbDepartment.Items.AddRange(new object[] {
             "College Of Engineering",
@@ -165,11 +208,13 @@
             this.cbDepartment.Location = new System.Drawing.Point(169, 209);
             this.cbDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cbDepartment.Name = "cbDepartment";
-            this.cbDepartment.Size = new System.Drawing.Size(185, 21);
+            this.cbDepartment.Size = new System.Drawing.Size(227, 25);
             this.cbDepartment.TabIndex = 16;
             // 
             // cbProgram
             // 
+            this.cbProgram.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbProgram.Font = new System.Drawing.Font("Bahnschrift", 10.5F, System.Drawing.FontStyle.Bold);
             this.cbProgram.ForeColor = System.Drawing.Color.Black;
             this.cbProgram.FormattingEnabled = true;
             this.cbProgram.Items.AddRange(new object[] {
@@ -181,7 +226,7 @@
             this.cbProgram.Location = new System.Drawing.Point(169, 173);
             this.cbProgram.Margin = new System.Windows.Forms.Padding(2);
             this.cbProgram.Name = "cbProgram";
-            this.cbProgram.Size = new System.Drawing.Size(83, 21);
+            this.cbProgram.Size = new System.Drawing.Size(83, 25);
             this.cbProgram.TabIndex = 15;
             this.cbProgram.SelectedIndexChanged += new System.EventHandler(this.cbProgram_SelectedIndexChanged);
             // 
@@ -259,40 +304,49 @@
             // 
             // tbStudEmail
             // 
+            this.tbStudEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbStudEmail.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.tbStudEmail.Location = new System.Drawing.Point(171, 122);
             this.tbStudEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudEmail.Name = "tbStudEmail";
-            this.tbStudEmail.Size = new System.Drawing.Size(246, 20);
+            this.tbStudEmail.Size = new System.Drawing.Size(246, 27);
             this.tbStudEmail.TabIndex = 3;
             // 
             // tbStudContact
             // 
+            this.tbStudContact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbStudContact.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.tbStudContact.Location = new System.Drawing.Point(171, 86);
             this.tbStudContact.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudContact.Name = "tbStudContact";
-            this.tbStudContact.Size = new System.Drawing.Size(185, 20);
+            this.tbStudContact.Size = new System.Drawing.Size(225, 27);
             this.tbStudContact.TabIndex = 2;
             // 
             // tbIDNum
             // 
+            this.tbIDNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbIDNum.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.tbIDNum.Location = new System.Drawing.Point(171, 50);
             this.tbIDNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbIDNum.Name = "tbIDNum";
-            this.tbIDNum.Size = new System.Drawing.Size(185, 20);
+            this.tbIDNum.Size = new System.Drawing.Size(225, 27);
             this.tbIDNum.TabIndex = 1;
             // 
             // tbStudName
             // 
+            this.tbStudName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbStudName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.tbStudName.Location = new System.Drawing.Point(171, 15);
             this.tbStudName.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudName.Name = "tbStudName";
-            this.tbStudName.Size = new System.Drawing.Size(246, 20);
+            this.tbStudName.Size = new System.Drawing.Size(246, 27);
             this.tbStudName.TabIndex = 0;
             // 
             // btnImport
             // 
             this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
             this.btnImport.FlatAppearance.BorderSize = 0;
+            this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
             this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImport.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnImport.ForeColor = System.Drawing.Color.White;
@@ -307,11 +361,13 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(151)))), ((int)(((byte)(47)))));
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(151)))), ((int)(((byte)(47)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(115, 596);
+            this.btnSave.Location = new System.Drawing.Point(115, 588);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(252, 37);
@@ -329,7 +385,7 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.Location = new System.Drawing.Point(183, 637);
+            this.btnRefresh.Location = new System.Drawing.Point(183, 634);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(101, 33);
@@ -371,41 +427,17 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // label8
+            // label14
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(109, 82);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 25);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "*";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(96, 170);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(21, 25);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "*";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(118, 203);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(21, 25);
-            this.label13.TabIndex = 20;
-            this.label13.Text = "*";
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(72, 119);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(21, 25);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "*";
             // 
             // AddStudent
             // 
@@ -466,5 +498,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

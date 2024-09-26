@@ -33,7 +33,16 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetRoundedCorners(btnRefresh, 40);
             UIHelper.SetRoundedCorners(panel1, 10);
 
-            UIHelper.SetGradientBackground(this, Color.FromArgb(20, 57, 175), Color.FromArgb(0, 19, 79), LinearGradientMode.Vertical);
+            UIHelper.SetRoundedComboBox(cbProgram, 20);
+            UIHelper.SetRoundedComboBox(cbDepartment, 20);
+
+            UIHelper.MakeRoundedTextBox(tbStudName, 25);
+            UIHelper.MakeRoundedTextBox(tbIDNum, 25);
+            UIHelper.MakeRoundedTextBox(tbStudEmail, 25);
+            UIHelper.MakeRoundedTextBox(tbStudContact, 25);
+
+            UIHelper.SetShadow(btnImport);
+            UIHelper.SetShadow(btnSave);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -43,9 +52,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 this.Close();
                 //Sets back to 0 to prevent restriction from occuring
                 Dashboard.formRestrict = 0;
-
-            }
-           
+            }    
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
