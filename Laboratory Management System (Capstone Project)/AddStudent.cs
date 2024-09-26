@@ -56,7 +56,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbStudContact.Clear();
             cbProgram.SelectedIndex = -1;
             cbDepartment.SelectedIndex = -1;
-            tbAddress.Clear();
         }
 
         //SAVE INFO BUTTON
@@ -64,7 +63,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             if (tbIDNum.Text != "" && tbStudName.Text != "" && tbStudEmail.Text != ""
                 && tbStudContact.Text != "" && cbProgram.Text != "" && cbDepartment.Text != "" && cbProgram.SelectedIndex != -1 &&
-                cbDepartment.SelectedIndex != -1 && tbAddress.Text != "")
+                cbDepartment.SelectedIndex != -1)
             {
                 String name = tbStudName.Text;
                 String idnum = tbIDNum.Text;
@@ -72,7 +71,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 Int64 contact = Int64.Parse(tbStudContact.Text);
                 String program = cbProgram.Text;
                 String department = cbDepartment.Text;
-                String address = tbAddress.Text;
 
                 // Check for duplicate email or contact number
                 using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
@@ -114,7 +112,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                         command.Parameters.AddWithValue("@Contact", contact);
                         command.Parameters.AddWithValue("@Program", program);
                         command.Parameters.AddWithValue("@Department", department);
-                        command.Parameters.AddWithValue("@Address", address);
 
                         command.ExecuteNonQuery();
                         MessageBox.Show("The Student's information has been saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
