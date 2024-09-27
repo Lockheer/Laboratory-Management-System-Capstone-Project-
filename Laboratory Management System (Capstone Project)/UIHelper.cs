@@ -130,5 +130,40 @@ namespace Laboratory_Management_System__Capstone_Project_
             path.CloseFigure();
             return path;
         }
+
+        public static void SetRoundedNumericUpDown(NumericUpDown numericUpDown, int radius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
+            path.AddArc(numericUpDown.Width - radius, 0, radius, radius, 270, 90); // Top-right corner
+            path.AddArc(numericUpDown.Width - radius, numericUpDown.Height - radius, radius, radius, 0, 90); // Bottom-right corner
+            path.AddArc(0, numericUpDown.Height - radius, radius, radius, 90, 90); // Bottom-left corner
+            path.CloseFigure();
+
+            numericUpDown.Region = new Region(path);
+
+            numericUpDown.Paint += (sender, e) =>
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                using (Pen pen = new Pen(Color.Gray, 1))
+                {
+                    e.Graphics.DrawPath(pen, path);
+                }
+            };
+
+            numericUpDown.SizeChanged += (sender, e) =>
+            {
+                path.Reset();
+                path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
+                path.AddArc(numericUpDown.Width - radius, 0, radius, radius, 270, 90); // Top-right corner
+                path.AddArc(numericUpDown.Width - radius, numericUpDown.Height - radius, radius, radius, 0, 90); // Bottom-right corner
+                path.AddArc(0, numericUpDown.Height - radius, radius, radius, 90, 90); // Bottom-left corner
+                path.CloseFigure();
+
+                numericUpDown.Region = new Region(path);
+                numericUpDown.Invalidate();
+            };
+        }
+
     }
 }

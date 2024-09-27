@@ -18,13 +18,44 @@ namespace Laboratory_Management_System__Capstone_Project_
         public BorrowingApparatus()
         {
             InitializeComponent();
+
+            UIHelper.SetRoundedCorners(this, 20);
+
+            UIHelper.SetRoundedCorners(btnConfirm, 30);
+            UIHelper.SetRoundedCorners(btnSearch, 30);
+            UIHelper.SetRoundedCorners(btnExit, 20);
+            UIHelper.SetRoundedCorners(panel3, 20);
+
+            UIHelper.SetShadow(btnConfirm);
+            UIHelper.SetShadow(btnSearch);
+
+            UIHelper.MakeRoundedTextBox(tbSearch, 25);
+            UIHelper.MakeRoundedTextBox(tbStudName, 25);
+            UIHelper.MakeRoundedTextBox(tbIDnum, 25);
+            UIHelper.MakeRoundedTextBox(tbEmail, 25);
+            UIHelper.MakeRoundedTextBox(tbContact, 25);
+            UIHelper.MakeRoundedTextBox(tbProgram, 25);
+            UIHelper.MakeRoundedTextBox(tbPurpose, 25);
+
+            UIHelper.SetRoundedComboBox(cbApparatusName, 25);
+            UIHelper.SetRoundedComboBox(cbApparatusName1,25);
+            UIHelper.SetRoundedComboBox(cbApparatusName2,25);
+            UIHelper.SetRoundedComboBox(cbApparatusName3,25); 
+            UIHelper.SetRoundedComboBox(cbApparatusName4,25);
+
+            UIHelper.SetRoundedNumericUpDown(nudQuantity, 25);
+            UIHelper.SetRoundedNumericUpDown(nudQuantity1, 25);
+            UIHelper.SetRoundedNumericUpDown(nudQuantity2, 25);
+            UIHelper.SetRoundedNumericUpDown(nudQuantity3, 25);
+            UIHelper.SetRoundedNumericUpDown(nudQuantity4, 25);
         }
 
         //Loading of ID numbers
         private void LoadIDNumbers()
         {
             AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            using (SqlConnection con = new SqlConnection("Server=192.168.192.239;Database=LabManagSys;User ID=Danny;Password=basalodan143;"))
+            //using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT ID_Number FROM Students", con);
@@ -59,7 +90,9 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void BorrowingApparatus_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
+
+            //SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
+            SqlConnection con = new SqlConnection("Server=192.168.192.239;Database=LabManagSys;User ID=Danny;Password=basalodan143;");
             SqlCommand cmd = new SqlCommand("Select [Apparatus Name] from Inventory", con);
             con.Open();
             SqlDataReader Sdr = cmd.ExecuteReader();
@@ -110,7 +143,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (tbSearch.Text != "")
             {
                 String searchID = tbSearch.Text;
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("Server=192.168.192.239;Database=LabManagSys;User ID=Danny;Password=basalodan143;"))
+                //using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE ID_Number = @ID_Number", con);
                     cmd.Parameters.AddWithValue("@ID_Number", searchID);
@@ -219,7 +253,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     String IssueDate = dtpBorrowDate.Text;
                     String dueDate = dtpDueDate.Text;
 
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+
+                    using (SqlConnection con = new SqlConnection("Server=192.168.192.239;Database=LabManagSys;User ID=Danny;Password=basalodan143;"))
+                    //using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
                         con.Open();
 

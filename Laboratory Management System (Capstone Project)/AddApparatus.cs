@@ -255,10 +255,5 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show($"An error occurred during import: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
-
-
     }
 }

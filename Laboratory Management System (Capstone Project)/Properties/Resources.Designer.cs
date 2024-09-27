@@ -73,6 +73,26 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap admin_icon {
+            get {
+                object obj = ResourceManager.GetObject("admin_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap app_inventory_big {
+            get {
+                object obj = ResourceManager.GetObject("app_inventory_big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap app_inventory2 {
             get {
                 object obj = ResourceManager.GetObject("app_inventory2", resourceCulture);
@@ -123,9 +143,29 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg_popup_main {
+        internal static System.Drawing.Bitmap bg_popup_main_apparatus {
             get {
-                object obj = ResourceManager.GetObject("bg_popup_main", resourceCulture);
+                object obj = ResourceManager.GetObject("bg_popup_main_apparatus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg_popup_main2 {
+            get {
+                object obj = ResourceManager.GetObject("bg_popup_main2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg_popup_main3 {
+            get {
+                object obj = ResourceManager.GetObject("bg_popup_main3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +226,16 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         internal static System.Drawing.Bitmap logout3 {
             get {
                 object obj = ResourceManager.GetObject("logout3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pass_lock {
+            get {
+                object obj = ResourceManager.GetObject("pass_lock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

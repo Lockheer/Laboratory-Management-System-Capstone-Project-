@@ -23,7 +23,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Dashboard());
-            Application.Run(new Form1());
+            Application.Run(new BorrowingApparatus());
 
 
         }
