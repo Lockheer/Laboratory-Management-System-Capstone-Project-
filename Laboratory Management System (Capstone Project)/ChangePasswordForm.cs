@@ -30,9 +30,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetShadow(pictureBox1);
 
             UIHelper.SetRoundedCorners(btnChangePassword, 40);
-
-
-
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -48,14 +45,14 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                 if (tbNewPassword.Text != tbConfirmPassword.Text)
                 {
-                    MessageBox.Show("New password and confirmation do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("New password and confirmation password do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // Ensure password complexity (e.g., minimum length, special characters)
                 if (tbNewPassword.Text.Length < 8 || !tbNewPassword.Text.Any(char.IsDigit) || tbNewPassword.TextLength > 16)
                 {
-                    MessageBox.Show("New password must be at least 8 characters long, include a number, and an uppercase letter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("New password must be at least 8 characters long and it includes a number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -74,9 +71,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                     return;
                 }
 
-
                 var admin2 = db.Accounts
-                               .Where(o => o.AccountID == admin.UserID )
+                               .Where(o => o.AccountID == admin.UserID)
                                 .FirstOrDefault();
 
                 if (admin2 == null)
@@ -98,7 +94,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 // Invalidate session
                 Form1.Session.AccountID = 0;
 
-               
+
                 Form1 loginForm = new Form1();
                 loginForm.Show();
 
@@ -107,9 +103,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
             catch (Exception ex)
             {
-                
+
                 MessageBox.Show("An error occurred while changing the password. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
+
             }
         }
 
@@ -131,7 +127,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void ChangePasswordForm_Load(object sender, EventArgs e)
         {
-            tbNewPassword.PasswordChar = '*'; 
+            tbNewPassword.PasswordChar = '*';
             tbConfirmPassword.PasswordChar = '*';
         }
     }
