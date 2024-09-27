@@ -46,6 +46,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void ViewApparatus_Load(object sender, EventArgs e)
         {
+            tbAppaSearch.KeyDown += tbAppaSearch_KeyDown;
             panel2.Visible = false;
 
             try
@@ -141,8 +142,6 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             SetPlaceholderText();
         }
-
-
 
         private void dgvApparatusList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -294,27 +293,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        //search textbox
-        private void tbAppaSearch_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(tbAppaSearch.Text))
-                {
-                    ViewApparatus_Load(this, null); // Reload all data when search text is cleared
-                }
-                else
-                {
-                    FilterApparatusList();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while filtering: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
 
         // Filter method combining search and status filter
         private void FilterApparatusList()
@@ -323,9 +301,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             string statusFilter = cbStatusFilter.SelectedItem?.ToString();
 
             StringBuilder queryBuilder = new StringBuilder("SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
-                                                       "FROM Inventory i " +
-                                                       "JOIN Category c ON i.CategoryID = c.CategoryID " +
-                                                       "WHERE 1=1");
+                                                     "FROM Inventory i " +
+                                                     "JOIN Category c ON i.CategoryID = c.CategoryID " +
+                                                     "WHERE 1=1");
 
             if (!string.IsNullOrEmpty(statusFilter))
             {
@@ -362,28 +340,14 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             if (dt.Rows.Count == 0 && !string.IsNullOrEmpty(searchQuery))
             {
-                // Create a custom DataTable with error message
-                DataTable errorDt = new DataTable();
-                foreach (DataColumn col in dt.Columns)
-                {
-                    errorDt.Columns.Add(col.ColumnName, typeof(string));
-                }
-
-                DataRow errorRow = errorDt.NewRow();
-                for (int i = 0; i < dt.Columns.Count; i++)
-                {
-                    errorRow[i] = "No matching records found.";
-                }
-                errorDt.Rows.Add(errorRow);
-
-                dgvApparatusList.DataSource = errorDt;
+                MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ViewApparatus_Load(this, null); // Reload all data when no records found
             }
             else
             {
                 dgvApparatusList.DataSource = dt;
             }
         }
-
         private void btnExport_Click(object sender, EventArgs e)
         {
             try
@@ -490,6 +454,34 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("Error filtering items: " + ex.Message);
             }
         }
+
+        private void tbAppaSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(tbAppaSearch.Text))
+                    {
+                        ViewApparatus_Load(this, null); // Reload all data when search text is cleared
+                    }
+                    else
+                    {
+                        FilterApparatusList();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while filtering: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+
+
+
+
 
     }
 }

@@ -165,7 +165,7 @@
             this.tbStudentSearch.Name = "tbStudentSearch";
             this.tbStudentSearch.Size = new System.Drawing.Size(165, 23);
             this.tbStudentSearch.TabIndex = 2;
-            this.tbStudentSearch.TextChanged += new System.EventHandler(this.tbStudentSearch_TextChanged);
+            this.tbStudentSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbStudentSearch_KeyDown);
             // 
             // btnRefresh
             // 
