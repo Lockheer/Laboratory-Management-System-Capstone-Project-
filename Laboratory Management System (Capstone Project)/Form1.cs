@@ -43,7 +43,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private int failedLoginAttempts = 0;
         private const int maxLoginAttempts = 3;
         private DateTime cooldownStartTime;
-        private TimeSpan cooldownPeriod = TimeSpan.FromMinutes(5);
+        private TimeSpan cooldownPeriod = TimeSpan.FromMinutes(2);
 
         // CLOSE BUTTON
         private void button3_Click(object sender, EventArgs e)
@@ -77,6 +77,13 @@ namespace Laboratory_Management_System__Capstone_Project_
             else
             {
                 lblPasswordHandler.Visible = false;
+            }
+
+            // Validate ID number format
+            if (tbUsername.TextLength != 8 || !tbUsername.Text.Contains("-"))
+            {
+                MessageBox.Show("ID number does not exist.", "Invalid ID Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             // Check if the user enters the failed attempts cooldown 

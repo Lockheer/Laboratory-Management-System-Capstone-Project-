@@ -19,10 +19,9 @@ namespace Laboratory_Management_System__Capstone_Project_
         private Timer collapseExpandTimer;
         private bool isCollapsed = true;
         private const int animationInterval = 1;
-        private const int animationStep = 20;     
-        private const int collapsedWidth = 90;  
-        private const int expandedWidth = 320;   
-
+        private const int animationStep = 20;
+        private const int collapsedWidth = 90;
+        private const int expandedWidth = 320;
         private bool isMouseInsideMenuStrip = false;
         private bool isMenuItemClicked = false;
 
@@ -33,7 +32,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             menuStrip3.RenderMode = ToolStripRenderMode.Professional;
             menuStrip3.Renderer = new CustomToolStripRenderer();
-   
+
             collapseExpandTimer = new Timer();
             collapseExpandTimer.Interval = animationInterval;
             collapseExpandTimer.Tick += CollapseExpandTimer_Tick;
@@ -52,10 +51,11 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+
             menuStrip3.Visible = true;
 
             // Apply rounded corners
-            // SetRoundedCorners(30);
+            // SetRoundedCorners(30); 
 
             int currentAccountId = GetCurrentAccountId();
             if (currentAccountId == -1)
@@ -80,6 +80,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+
         private void MenuStrip3_MouseEnter(object sender, EventArgs e)
         {
             isMouseInsideMenuStrip = true;
@@ -91,8 +92,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+
+
         private void PanelContainer_Click(object sender, EventArgs e)
-        {     
+        {
             if (!isCollapsed)
             {
                 isCollapsed = true;
@@ -103,7 +106,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         public class CustomToolStripRenderer : ToolStripProfessionalRenderer
         {
             protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
-            {         
+            {
                 Color hoverColor = ColorTranslator.FromHtml("#0E287A");
 
                 if (e.Item.Selected || e.Item.Pressed)
@@ -118,28 +121,27 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             if (collapseExpandTimer.Enabled)
                 return;
-           
             isCollapsed = !isCollapsed;
-            
             collapseExpandTimer.Start();
         }
 
         private void CollapseExpandTimer_Tick(object sender, EventArgs e)
         {
             if (isCollapsed)
-            {           
+            {
                 if (panel1.Width > collapsedWidth)
                 {
                     panel1.Width -= animationStep;
-                    menuStrip3.Width = panel1.Width; 
+                    menuStrip3.Width = panel1.Width;
 
                     panelContainer.Left = panel1.Right;
                 }
                 else
                 {
                     collapseExpandTimer.Stop();
-                    panel1.Width = collapsedWidth; 
-                    menuStrip3.Width = collapsedWidth; 
+                    panel1.Width = collapsedWidth;
+                    menuStrip3.Width = collapsedWidth;
+
 
                     panelContainer.Left = panel1.Right;
                 }
@@ -149,15 +151,15 @@ namespace Laboratory_Management_System__Capstone_Project_
                 if (panel1.Width < expandedWidth)
                 {
                     panel1.Width += animationStep;
-                    menuStrip3.Width = panel1.Width; 
+                    menuStrip3.Width = panel1.Width;
 
-                    panelContainer.Left = panel1.Right; 
+                    panelContainer.Left = panel1.Right;
                 }
                 else
                 {
                     collapseExpandTimer.Stop();
-                    panel1.Width = expandedWidth; 
-                    menuStrip3.Width = expandedWidth; 
+                    panel1.Width = expandedWidth;
+                    menuStrip3.Width = expandedWidth;
 
                     panelContainer.Left = panel1.Right;
                 }
@@ -167,11 +169,11 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void picBoxBC_Click(object sender, EventArgs e)
         {
-            //Clears the panelContainer controls
-            panelContainer.Controls.Clear();
+            // Create a temporary list of forms to close
+            List<Form> formsToClose = openForms.Values.ToList();
 
-            //Loop structure to close all open forms
-            foreach (var form in openForms.Values)
+            // Close all forms
+            foreach (var form in formsToClose)
             {
                 if (form != null)
                 {
@@ -179,8 +181,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
 
-            //Clears the openForms dictionary to reopen and not create a exception 
+            // Clear the openForms dictionary
             openForms.Clear();
+
+            // Clear the panelContainer controls
+            panelContainer.Controls.Clear();
         }
 
         private int GetCurrentAccountId()

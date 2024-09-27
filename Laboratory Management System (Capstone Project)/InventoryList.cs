@@ -299,13 +299,23 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                FilterApparatusList();
+                if (string.IsNullOrWhiteSpace(tbAppaSearch.Text))
+                {
+                    ViewApparatus_Load(this, null); // Reload all data when search text is cleared
+                }
+                else
+                {
+                    FilterApparatusList();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while searching: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while filtering: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
         // Filter method combining search and status filter
         private void FilterApparatusList()
         {
@@ -313,9 +323,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             string statusFilter = cbStatusFilter.SelectedItem?.ToString();
 
             StringBuilder queryBuilder = new StringBuilder("SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
-                                                           "FROM Inventory i " +
-                                                           "JOIN Category c ON i.CategoryID = c.CategoryID " +
-                                                           "WHERE 1=1");
+                                                       "FROM Inventory i " +
+                                                       "JOIN Category c ON i.CategoryID = c.CategoryID " +
+                                                       "WHERE 1=1");
 
             if (!string.IsNullOrEmpty(statusFilter))
             {
@@ -328,6 +338,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     "OR [Date Purchased] LIKE @SearchText + '%' OR [Price] LIKE @SearchText + '%' OR [Brand] LIKE @SearchText + '%' " +
                                     "OR [Quantity] LIKE @SearchText + '%' OR [Remarks] LIKE @SearchText + '%')");
             }
+
+            DataTable dt = new DataTable();
 
             using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
             {
@@ -344,11 +356,31 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-
-                    dgvApparatusList.DataSource = ds.Tables[0].Rows.Count > 0 ? ds.Tables[0] : null;
+                    da.Fill(dt);
                 }
+            }
+
+            if (dt.Rows.Count == 0 && !string.IsNullOrEmpty(searchQuery))
+            {
+                // Create a custom DataTable with error message
+                DataTable errorDt = new DataTable();
+                foreach (DataColumn col in dt.Columns)
+                {
+                    errorDt.Columns.Add(col.ColumnName, typeof(string));
+                }
+
+                DataRow errorRow = errorDt.NewRow();
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    errorRow[i] = "No matching records found.";
+                }
+                errorDt.Rows.Add(errorRow);
+
+                dgvApparatusList.DataSource = errorDt;
+            }
+            else
+            {
+                dgvApparatusList.DataSource = dt;
             }
         }
 

@@ -196,7 +196,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
 
             // Validate ID number format
-            if (tbID.TextLength != 10 || !tbID.Text.Contains("-"))
+            if (tbID.TextLength != 8 || !tbID.Text.Contains("-"))
             {
                 MessageBox.Show("ID number format is incorrect or not valid.", "Invalid ID Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
