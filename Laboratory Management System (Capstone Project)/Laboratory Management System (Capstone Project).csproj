@@ -333,6 +333,7 @@
     <None Include="Resources\sidepanel.png" />
     <None Include="Resources\sidepanel1.jpg" />
     <None Include="Resources\sidebarlast.jpg" />
+    <Content Include="MAJOR BACKUP %28TRANSACTIONDETAILS%29.txt" />
     <Content Include="Resources\admin-approval-icon.png" />
     <None Include="Resources\student_bg_final.jpg" />
     <None Include="Resources\student_big.png" />

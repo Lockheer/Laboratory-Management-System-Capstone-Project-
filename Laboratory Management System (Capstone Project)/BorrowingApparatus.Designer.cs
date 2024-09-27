@@ -75,6 +75,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.tbPurpose = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity4)).BeginInit();
@@ -187,6 +189,8 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel3.Controls.Add(this.label22);
+            this.panel3.Controls.Add(this.tbPurpose);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.nudQuantity4);
             this.panel3.Controls.Add(this.nudQuantity3);
@@ -665,6 +669,22 @@
             this.label18.TabIndex = 1;
             this.label18.Text = "Student List:";
             // 
+            // tbPurpose
+            // 
+            this.tbPurpose.Location = new System.Drawing.Point(406, 384);
+            this.tbPurpose.Name = "tbPurpose";
+            this.tbPurpose.Size = new System.Drawing.Size(100, 20);
+            this.tbPurpose.TabIndex = 45;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(354, 382);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(49, 13);
+            this.label22.TabIndex = 46;
+            this.label22.Text = "Purpose:";
+            // 
             // BorrowingApparatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -758,5 +778,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox tbPurpose;
     }
 }

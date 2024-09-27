@@ -32,7 +32,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
-                    SqlDataAdapter da = new SqlDataAdapter("SELECT Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction", con);
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction", con);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
                     dgvTransaction.DataSource = ds.Tables[0];
@@ -90,11 +90,12 @@ namespace Laboratory_Management_System__Capstone_Project_
                         cbProgram.Text = row[5].ToString();
                         cbAppaName.Text = row[6].ToString();
                         nudQuantity.Value = Convert.ToInt32(row[7]);
-                        dtpBorrowedDate.Text = row[8].ToString();
-                        dtpDueDate.Text = row[9].ToString();
-                        nudQuantityReturned.Value = Convert.ToInt32(row[10]);
-                        dtpDateReturned.Text = row[11].ToString();
-                        tbRemarks.Text = row[12].ToString();
+                        tbRemarks.Text = row[8].ToString();
+                        dtpBorrowedDate.Text = row[9].ToString();
+                        dtpDueDate.Text = row[10].ToString();
+                        nudQuantityReturned.Value = Convert.ToInt32(row[11]);
+                        dtpDateReturned.Text = row[12].ToString();
+                        tbRemarks.Text = row[13].ToString();
 
 
                     }
@@ -184,6 +185,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                     return;
                 }
 
+
+                if (tbPurpose.Text == "None" || tbPurpose.Text == "" || tbPurpose.Text == "Unknown" || tbPurpose.Text == "UNKNOWN" || tbPurpose.Text == "Unknown Purpose" || tbPurpose.Text == "UNKNOWN PURPOSE")
+                {
+                    MessageBox.Show("Please enter a valid purpose.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
                 // Get the ApparatusID based on the selected Apparatus Name
                 int apparatusID = GetApparatusID(cbAppaName.SelectedItem.ToString());
                 //Getting the studID during updating
@@ -194,7 +202,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     con.Open();
 
-                    SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Student_Name = @Student_Name, ID_Number = @ID_Number, Email_Address = @Email_Address, Contact_Number = @Contact_Number, Program = @Program, Apparatus_Name = @Apparatus_Name, ApparatusID = @ApparatusID, Quantity = @Quantity, Borrow_Date = @Borrow_Date, Due_Date = @Due_Date, Quantity_Returned = @Quantity_Returned, Date_Returned = @Date_Returned, Remarks = @Remarks, studID = @StudentID WHERE transactionID = @transactionID", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Student_Name = @Student_Name, ID_Number = @ID_Number, Email_Address = @Email_Address, Contact_Number = @Contact_Number, Program = @Program, Apparatus_Name = @Apparatus_Name, ApparatusID = @ApparatusID, Quantity = @Quantity, Purpose = @Purpose, Borrow_Date = @Borrow_Date, Due_Date = @Due_Date, Quantity_Returned = @Quantity_Returned, Date_Returned = @Date_Returned, Remarks = @Remarks, studID = @StudentID WHERE transactionID = @transactionID", con);
 
                     cmd.Parameters.AddWithValue("@Student_Name", tbStudentName.Text);
                     cmd.Parameters.AddWithValue("@ID_Number", tbIDNum.Text);
@@ -204,6 +212,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     cmd.Parameters.AddWithValue("@Apparatus_Name", cbAppaName.SelectedItem);
                     cmd.Parameters.AddWithValue("@ApparatusID", apparatusID);
                     cmd.Parameters.AddWithValue("@Quantity", nudQuantity.Value);
+                    cmd.Parameters.AddWithValue("@Purpose", tbPurpose.Text);
                     cmd.Parameters.AddWithValue("@Borrow_Date", dtpBorrowedDate.Value);
                     cmd.Parameters.AddWithValue("@Due_Date", dtpDueDate.Value);
                     cmd.Parameters.AddWithValue("@Quantity_Returned", nudQuantityReturned.Value);
@@ -260,7 +269,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         cmd.CommandText = "SELECT * FROM BorrowReturnTransaction WHERE [Student_Name] LIKE @SearchText + '%' OR [ID_Number] LIKE @SearchText + '%' " +
                                           "OR [Email_Address] LIKE @SearchText + '%' OR [Contact_Number] LIKE @SearchText + '%' OR [Program] LIKE @SearchText + '%' " +
                                           "OR [Apparatus_Name] LIKE @SearchText + '%' OR [Borrow_Date] LIKE @SearchText + '%' OR [Due_Date] LIKE @SearchText + '%' " +
-                                          "OR [Date_Returned] LIKE @SearchText + '%' OR [Remarks] LIKE @SearchText + '%'";
+                                          "OR [Date_Returned] LIKE @SearchText + '%' OR [Remarks] LIKE @SearchText + '%' OR Purpose LIKE @SearchText + '%'";
                         cmd.Parameters.AddWithValue("@SearchText", tbSearch.Text.Trim());
                     }
                     else
