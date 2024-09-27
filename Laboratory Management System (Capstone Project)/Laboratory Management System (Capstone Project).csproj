@@ -342,6 +342,7 @@
     <None Include="Resources\email_icon.jpg" />
     <None Include="Resources\change_pass_icon.png" />
     <None Include="Resources\bcc_logo_circle_blur.jpg" />
+    <None Include="Resources\bg_popup_main.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

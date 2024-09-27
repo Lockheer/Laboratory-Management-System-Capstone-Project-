@@ -178,7 +178,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(253, 205);
+            this.label8.Location = new System.Drawing.Point(235, 190);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(366, 19);
             this.label8.TabIndex = 9;

@@ -123,6 +123,16 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bg_popup_main {
+            get {
+                object obj = ResourceManager.GetObject("bg_popup_main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap change_pass_icon {
             get {
                 object obj = ResourceManager.GetObject("change_pass_icon", resourceCulture);

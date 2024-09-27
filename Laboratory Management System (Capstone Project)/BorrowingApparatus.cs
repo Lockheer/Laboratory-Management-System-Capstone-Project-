@@ -21,6 +21,8 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(panel3, 40);
             UIHelper.SetShadow(panel3);
+
+            UIHelper.SetRoundedCorners(this, 20);
         }
 
         //Loading of ID numbers
