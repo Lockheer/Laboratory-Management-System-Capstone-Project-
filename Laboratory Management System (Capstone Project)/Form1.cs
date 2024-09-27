@@ -33,9 +33,9 @@ namespace Laboratory_Management_System__Capstone_Project_
         public static class Session
         {
             public static int AccountID { get; set; }
-            public static string IDNumber { get; set; }  
-            public static string FirstName { get; set; }  
-            public static string Role { get; set; }  
+            public static string IDNumber { get; set; }
+            public static string FirstName { get; set; }
+            public static string Role { get; set; }
         }
 
 
@@ -43,7 +43,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private int failedLoginAttempts = 0;
         private const int maxLoginAttempts = 3;
         private DateTime cooldownStartTime;
-        private TimeSpan cooldownPeriod = TimeSpan.FromMinutes(5); 
+        private TimeSpan cooldownPeriod = TimeSpan.FromMinutes(5);
 
         // CLOSE BUTTON
         private void button3_Click(object sender, EventArgs e)
@@ -58,19 +58,23 @@ namespace Laboratory_Management_System__Capstone_Project_
             //Username Error Handler
             if (string.IsNullOrEmpty(tbUsername.Text) || tbUsername.Text == "Username")
             {
-               lblUsernameHandler.Visible = true;
+                lblUsernameHandler.Visible = true;
+
                 return;
-            }else
+            }
+            else
             {
                 lblUsernameHandler.Visible = false;
+
             }
 
             //Password Error Handler
             if (string.IsNullOrEmpty(tbPassword.Text) || tbPassword.Text == "Password")
             {
-               lblPasswordHandler.Visible = true;
+                lblPasswordHandler.Visible = true;
                 return;
-            }else
+            }
+            else
             {
                 lblPasswordHandler.Visible = false;
             }
@@ -81,7 +85,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 if (DateTime.Now < cooldownStartTime.Add(cooldownPeriod))
                 {
                     TimeSpan remainingCooldown = cooldownStartTime.Add(cooldownPeriod) - DateTime.Now;
-                    MessageBox.Show($"Too many failed login attempts. Please try again in {remainingCooldown.Minutes} minutes and {remainingCooldown.Seconds} seconds.","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show($"Too many failed login attempts. Please try again in {remainingCooldown.Minutes} minutes and {remainingCooldown.Seconds} seconds.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
@@ -110,10 +114,10 @@ namespace Laboratory_Management_System__Capstone_Project_
                 return;
             }
 
-           
+
             failedLoginAttempts = 0;
 
-           
+
 
             // Retrieve the additional information
             var userInfo = db.UserRegistrations.FirstOrDefault(u => u.UserID == admin.UserID);
@@ -130,7 +134,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
-            this.Hide(); 
+            this.Hide();
         }
 
         private void tbUsername_Enter(object sender, EventArgs e)
@@ -140,10 +144,12 @@ namespace Laboratory_Management_System__Capstone_Project_
                 tbUsername.Text = "";
                 tbUsername.Focus();
                 tbUsername.ForeColor = Color.Black;
-                
-            }else if (tbUsername.Text != "Username")
+
+            }
+            else if (tbUsername.Text != "Username")
             {
                 lblUsernameHandler.Visible = false;
+
             }
         }
 
@@ -153,6 +159,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 tbUsername.Text = "Username";
                 tbUsername.ForeColor = Color.Silver;
+
             }
         }
 
@@ -163,9 +170,10 @@ namespace Laboratory_Management_System__Capstone_Project_
                 tbPassword.Text = "";
                 tbPassword.ForeColor = Color.Black;
                 tbPassword.UseSystemPasswordChar = true;
-            }else if (tbPassword.Text != "Password")
+            }
+            else if (tbPassword.Text != "Password")
             {
-               lblPasswordHandler.Visible = false;
+                lblPasswordHandler.Visible = false;
             }
         }
 
@@ -179,7 +187,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-     
+
 
         // Minimize button
         private void button3_Click_1(object sender, EventArgs e)
@@ -213,7 +221,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
         {
-            if(CbShowPass.Checked)
+            if (CbShowPass.Checked)
             {
                 tbPassword.UseSystemPasswordChar = false;
             }
@@ -228,7 +236,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.Hide();
             ChangePassVerification changePass = new ChangePassVerification();
             changePass.ShowDialog();
-          
+
         }
 
         private void lnkLblRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -247,6 +255,9 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                 btnLogin.PerformClick();
             }
+
+
+
         }
     }
 }
