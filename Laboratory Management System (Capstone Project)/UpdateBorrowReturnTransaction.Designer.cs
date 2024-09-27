@@ -57,15 +57,21 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantityReturned = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.pnelUPDATE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantityReturned)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTransaction
             // 
             this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTransaction.Location = new System.Drawing.Point(43, 80);
-            this.dgvTransaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTransaction.Name = "dgvTransaction";
             this.dgvTransaction.RowHeadersWidth = 51;
             this.dgvTransaction.RowTemplate.Height = 24;
@@ -75,6 +81,10 @@
             // 
             // pnelUPDATE
             // 
+            this.pnelUPDATE.Controls.Add(this.label12);
+            this.pnelUPDATE.Controls.Add(this.label11);
+            this.pnelUPDATE.Controls.Add(this.nudQuantityReturned);
+            this.pnelUPDATE.Controls.Add(this.nudQuantity);
             this.pnelUPDATE.Controls.Add(this.btnExportToExcel);
             this.pnelUPDATE.Controls.Add(this.cbAppaName);
             this.pnelUPDATE.Controls.Add(this.lnklblClear);
@@ -100,7 +110,7 @@
             this.pnelUPDATE.Controls.Add(this.label2);
             this.pnelUPDATE.Controls.Add(this.label1);
             this.pnelUPDATE.Location = new System.Drawing.Point(2, 512);
-            this.pnelUPDATE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnelUPDATE.Margin = new System.Windows.Forms.Padding(2);
             this.pnelUPDATE.Name = "pnelUPDATE";
             this.pnelUPDATE.Size = new System.Drawing.Size(1084, 338);
             this.pnelUPDATE.TabIndex = 1;
@@ -108,7 +118,7 @@
             // btnExportToExcel
             // 
             this.btnExportToExcel.Location = new System.Drawing.Point(901, 283);
-            this.btnExportToExcel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportToExcel.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportToExcel.Name = "btnExportToExcel";
             this.btnExportToExcel.Size = new System.Drawing.Size(136, 37);
             this.btnExportToExcel.TabIndex = 24;
@@ -120,7 +130,7 @@
             // 
             this.cbAppaName.FormattingEnabled = true;
             this.cbAppaName.Location = new System.Drawing.Point(106, 231);
-            this.cbAppaName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbAppaName.Margin = new System.Windows.Forms.Padding(2);
             this.cbAppaName.Name = "cbAppaName";
             this.cbAppaName.Size = new System.Drawing.Size(159, 21);
             this.cbAppaName.TabIndex = 23;
@@ -141,7 +151,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(760, 282);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(136, 37);
             this.btnDelete.TabIndex = 21;
@@ -152,7 +162,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(619, 283);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(136, 37);
             this.btnUpdate.TabIndex = 20;
@@ -163,7 +173,7 @@
             // tbRemarks
             // 
             this.tbRemarks.Location = new System.Drawing.Point(612, 139);
-            this.tbRemarks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.Size = new System.Drawing.Size(335, 112);
@@ -173,7 +183,7 @@
             // 
             this.cbProgram.FormattingEnabled = true;
             this.cbProgram.Location = new System.Drawing.Point(106, 180);
-            this.cbProgram.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbProgram.Margin = new System.Windows.Forms.Padding(2);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(108, 21);
             this.cbProgram.TabIndex = 18;
@@ -181,7 +191,7 @@
             // tbContact
             // 
             this.tbContact.Location = new System.Drawing.Point(106, 143);
-            this.tbContact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbContact.Margin = new System.Windows.Forms.Padding(2);
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(159, 20);
             this.tbContact.TabIndex = 16;
@@ -191,7 +201,7 @@
             this.dtpDueDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDueDate.Location = new System.Drawing.Point(626, 55);
-            this.dtpDueDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDueDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(159, 20);
             this.dtpDueDate.TabIndex = 15;
@@ -201,7 +211,7 @@
             this.dtpBorrowedDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpBorrowedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpBorrowedDate.Location = new System.Drawing.Point(626, 15);
-            this.dtpBorrowedDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpBorrowedDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBorrowedDate.Name = "dtpBorrowedDate";
             this.dtpBorrowedDate.Size = new System.Drawing.Size(159, 20);
             this.dtpBorrowedDate.TabIndex = 14;
@@ -211,7 +221,7 @@
             this.dtpDateReturned.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dtpDateReturned.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateReturned.Location = new System.Drawing.Point(626, 93);
-            this.dtpDateReturned.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDateReturned.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDateReturned.Name = "dtpDateReturned";
             this.dtpDateReturned.Size = new System.Drawing.Size(159, 20);
             this.dtpDateReturned.TabIndex = 13;
@@ -219,7 +229,7 @@
             // tbEmailAdd
             // 
             this.tbEmailAdd.Location = new System.Drawing.Point(106, 98);
-            this.tbEmailAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEmailAdd.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmailAdd.Name = "tbEmailAdd";
             this.tbEmailAdd.Size = new System.Drawing.Size(159, 20);
             this.tbEmailAdd.TabIndex = 12;
@@ -227,7 +237,7 @@
             // tbIDNum
             // 
             this.tbIDNum.Location = new System.Drawing.Point(106, 61);
-            this.tbIDNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbIDNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbIDNum.Name = "tbIDNum";
             this.tbIDNum.Size = new System.Drawing.Size(159, 20);
             this.tbIDNum.TabIndex = 11;
@@ -235,7 +245,7 @@
             // tbStudentName
             // 
             this.tbStudentName.Location = new System.Drawing.Point(106, 19);
-            this.tbStudentName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbStudentName.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudentName.Name = "tbStudentName";
             this.tbStudentName.Size = new System.Drawing.Size(159, 20);
             this.tbStudentName.TabIndex = 2;
@@ -343,7 +353,7 @@
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(426, 465);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(244, 20);
             this.tbSearch.TabIndex = 24;
@@ -364,7 +374,7 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Location = new System.Drawing.Point(674, 457);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(124, 32);
             this.btnRefresh.TabIndex = 24;
@@ -372,25 +382,59 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // nudQuantity
+            // 
+            this.nudQuantity.Location = new System.Drawing.Point(928, 55);
+            this.nudQuantity.Name = "nudQuantity";
+            this.nudQuantity.Size = new System.Drawing.Size(120, 20);
+            this.nudQuantity.TabIndex = 25;
+            // 
+            // nudQuantityReturned
+            // 
+            this.nudQuantityReturned.Location = new System.Drawing.Point(928, 90);
+            this.nudQuantityReturned.Name = "nudQuantityReturned";
+            this.nudQuantityReturned.Size = new System.Drawing.Size(120, 20);
+            this.nudQuantityReturned.TabIndex = 26;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(834, 59);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Quantity:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(860, 92);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Quantity Returned:";
+            // 
             // UpdateBorrowReturnTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1083, 894);
+            this.ClientSize = new System.Drawing.Size(1083, 911);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.pnelUPDATE);
             this.Controls.Add(this.dgvTransaction);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UpdateBorrowReturnTransaction";
             this.Text = "Updating the Borrow-Return Transaction";
             this.Load += new System.EventHandler(this.UpdateBorrowReturnTransaction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.pnelUPDATE.ResumeLayout(false);
             this.pnelUPDATE.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantityReturned)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +471,9 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnExportToExcel;
+        private System.Windows.Forms.NumericUpDown nudQuantity;
+        private System.Windows.Forms.NumericUpDown nudQuantityReturned;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

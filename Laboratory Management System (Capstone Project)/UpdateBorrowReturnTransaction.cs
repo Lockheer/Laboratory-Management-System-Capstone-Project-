@@ -32,7 +32,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
-                    SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM BorrowReturnTransaction", con);
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction", con);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
                     dgvTransaction.DataSource = ds.Tables[0];
@@ -81,18 +81,22 @@ namespace Laboratory_Management_System__Capstone_Project_
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         DataRow row = ds.Tables[0].Rows[0];
-                        rowid = Convert.ToInt64(row[0]);
 
+                        rowid = Convert.ToInt64(row[0]);
                         tbStudentName.Text = row[1].ToString();
                         tbIDNum.Text = row[2].ToString();
                         tbEmailAdd.Text = row[3].ToString();
                         tbContact.Text = row[4].ToString();
                         cbProgram.Text = row[5].ToString();
                         cbAppaName.Text = row[6].ToString();
-                        dtpBorrowedDate.Text = row[7].ToString();
-                        dtpDueDate.Text = row[8].ToString();
-                        dtpDateReturned.Text = row[9].ToString();
-                        tbRemarks.Text = row[13].ToString();
+                        nudQuantity.Value = Convert.ToInt32(row[7]);
+                        dtpBorrowedDate.Text = row[8].ToString();
+                        dtpDueDate.Text = row[9].ToString();
+                        nudQuantityReturned.Value = Convert.ToInt32(row[10]);
+                        dtpDateReturned.Text = row[11].ToString();
+                        tbRemarks.Text = row[12].ToString();
+
+
                     }
                 }
             }
@@ -106,71 +110,112 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                if (dgvTransaction.SelectedRows.Count == 0)
+                if (string.IsNullOrWhiteSpace(tbStudentName.Text))
                 {
-                    MessageBox.Show("Please select a record to update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter the student's name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbStudentName.Focus();
                     return;
                 }
 
-                int transactionID = Convert.ToInt32(dgvTransaction.SelectedRows[0].Cells["transactionID"].Value);
-                string studentName = tbStudentName.Text;
-                string idNumber = tbIDNum.Text;
-                string emailAddress = tbEmailAdd.Text;
-                string contactNumber = tbContact.Text;
-                string program = cbProgram.Text;
-                string apparatusName = cbAppaName.Text;
-                string borrowDate = dtpBorrowedDate.Text;
-                string dueDate = dtpDueDate.Text;
-                string dateReturned = dtpDateReturned.Text;
-                string remarks = tbRemarks.Text;
+                if (string.IsNullOrWhiteSpace(tbIDNum.Text))
+                {
+                    MessageBox.Show("Please enter the student's ID number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbIDNum.Focus();
+                    return;
+                }
 
-                int studentID, apparatusID;
+                if (string.IsNullOrWhiteSpace(tbEmailAdd.Text))
+                {
+                    MessageBox.Show("Please enter the student's email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbEmailAdd.Focus();
+                    return;
+                }
 
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                if (string.IsNullOrWhiteSpace(tbContact.Text))
+                {
+                    MessageBox.Show("Please enter the student's contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbContact.Focus();
+                    return;
+                }
+
+                if (cbProgram.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select the program.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbProgram.Focus();
+                    return;
+                }
+
+                if (cbAppaName.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select the apparatus name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbAppaName.Focus();
+                    return;
+                }
+
+                //Checks if the quantity matches with the inventory quantity
+                if (nudQuantity.Value == 0)
+                {
+                    MessageBox.Show("Please enter a valid quantity.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    nudQuantity.Focus();
+                    return;
+                }
+
+                // Check if the entered quantity is not more than the available quantity in the Inventory
+                int availableQuantity = GetAvailableQuantity(cbAppaName.SelectedItem.ToString());
+                if (nudQuantity.Value > availableQuantity)
+                {
+                    MessageBox.Show($"You cannot borrow more than {availableQuantity} {cbAppaName.SelectedItem} from the Inventory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    nudQuantity.Focus();
+                    return;
+                }
+
+
+                if (nudQuantityReturned.Value == 0)
+                {
+                    MessageBox.Show("Please enter a valid quantity returned.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    nudQuantityReturned.Focus();
+                    return;
+                }
+
+                if (cbAppaName.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select the apparatus name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbAppaName.Focus();
+                    return;
+                }
+
+                // Get the ApparatusID based on the selected Apparatus Name
+                int apparatusID = GetApparatusID(cbAppaName.SelectedItem.ToString());
+                //Getting the studID during updating
+                int studentID = GetStudentID(tbStudentName.Text, tbIDNum.Text);
+
+                // Update the database with the new values
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
                     con.Open();
 
-                    SqlCommand cmdGetStudentID = new SqlCommand("SELECT studID FROM Students WHERE [Student_Name] = @Student_Name", con);
-                    cmdGetStudentID.Parameters.AddWithValue("@Student_Name", studentName);
-                    object resultStudent = cmdGetStudentID.ExecuteScalar();
-                    if (resultStudent == null)
-                    {
-                        MessageBox.Show("Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    studentID = Convert.ToInt32(resultStudent);
+                    SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Student_Name = @Student_Name, ID_Number = @ID_Number, Email_Address = @Email_Address, Contact_Number = @Contact_Number, Program = @Program, Apparatus_Name = @Apparatus_Name, ApparatusID = @ApparatusID, Quantity = @Quantity, Borrow_Date = @Borrow_Date, Due_Date = @Due_Date, Quantity_Returned = @Quantity_Returned, Date_Returned = @Date_Returned, Remarks = @Remarks, studID = @StudentID WHERE transactionID = @transactionID", con);
 
-                    SqlCommand cmdGetApparatusID = new SqlCommand("SELECT ApparatusID FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
-                    cmdGetApparatusID.Parameters.AddWithValue("@Apparatus_Name", apparatusName);
-                    object resultApparatus = cmdGetApparatusID.ExecuteScalar();
-                    if (resultApparatus == null)
-                    {
-                        MessageBox.Show("Apparatus not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    apparatusID = Convert.ToInt32(resultApparatus);
+                    cmd.Parameters.AddWithValue("@Student_Name", tbStudentName.Text);
+                    cmd.Parameters.AddWithValue("@ID_Number", tbIDNum.Text);
+                    cmd.Parameters.AddWithValue("@Email_Address", tbEmailAdd.Text);
+                    cmd.Parameters.AddWithValue("@Contact_Number", tbContact.Text);
+                    cmd.Parameters.AddWithValue("@Program", cbProgram.SelectedItem);
+                    cmd.Parameters.AddWithValue("@Apparatus_Name", cbAppaName.SelectedItem);
+                    cmd.Parameters.AddWithValue("@ApparatusID", apparatusID);
+                    cmd.Parameters.AddWithValue("@Quantity", nudQuantity.Value);
+                    cmd.Parameters.AddWithValue("@Borrow_Date", dtpBorrowedDate.Value);
+                    cmd.Parameters.AddWithValue("@Due_Date", dtpDueDate.Value);
+                    cmd.Parameters.AddWithValue("@Quantity_Returned", nudQuantityReturned.Value);
+                    cmd.Parameters.AddWithValue("@Date_Returned", dtpDateReturned.Value);
+                    cmd.Parameters.AddWithValue("@Remarks", tbRemarks.Text);
+                    cmd.Parameters.AddWithValue("@StudentID", studentID);
+                    cmd.Parameters.AddWithValue("@transactionID", id);
 
-                    SqlCommand cmdUpdate = new SqlCommand(
-                        "UPDATE BorrowReturnTransaction SET [Student_Name] = @Student_Name, [ID_Number] = @ID_Number, [Email_Address] = @Email_Address, [Contact_Number] = @Contact_Number, [Program] = @Program, [Apparatus_Name] = @Apparatus_Name, [Borrow_Date] = @Borrow_Date, [Due_Date] = @Due_Date, [Date_Returned] = @Date_Returned, [Remarks] = @Remarks, [studID] = @StudentID, [ApparatusID] = @ApparatusID WHERE transactionID = @TransactionID", con);
-                    cmdUpdate.Parameters.AddWithValue("@Student_Name", studentName);
-                    cmdUpdate.Parameters.AddWithValue("@ID_Number", idNumber);
-                    cmdUpdate.Parameters.AddWithValue("@Email_Address", emailAddress);
-                    cmdUpdate.Parameters.AddWithValue("@Contact_Number", contactNumber);
-                    cmdUpdate.Parameters.AddWithValue("@Program", program);
-                    cmdUpdate.Parameters.AddWithValue("@Apparatus_Name", apparatusName);
-                    cmdUpdate.Parameters.AddWithValue("@Borrow_Date", borrowDate);
-                    cmdUpdate.Parameters.AddWithValue("@Due_Date", dueDate);
-                    cmdUpdate.Parameters.AddWithValue("@Date_Returned", dateReturned);
-                    cmdUpdate.Parameters.AddWithValue("@Remarks", remarks);
-                    cmdUpdate.Parameters.AddWithValue("@StudentID", studentID);
-                    cmdUpdate.Parameters.AddWithValue("@ApparatusID", apparatusID);
-                    cmdUpdate.Parameters.AddWithValue("@TransactionID", transactionID);
+                    cmd.ExecuteNonQuery();
 
-                    cmdUpdate.ExecuteNonQuery();
+                    MessageBox.Show("Record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                MessageBox.Show("Record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UpdateBorrowReturnTransaction_Load(sender, e);
             }
             catch (Exception ex)
             {
@@ -242,6 +287,57 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
 
+        // Helper method to get the available quantity from the Inventory
+        private int GetAvailableQuantity(string apparatusName)
+        {
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT Quantity FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
+                cmd.Parameters.AddWithValue("@Apparatus_Name", apparatusName);
+
+                int availableQuantity = (int)cmd.ExecuteScalar();
+
+                return availableQuantity;
+            }
+        }
+
+
+        // Helper method to get the ApparatusID based on the Apparatus Name
+        private int GetApparatusID(string apparatusName)
+        {
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT ApparatusID FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
+                cmd.Parameters.AddWithValue("@Apparatus_Name", apparatusName);
+
+                int apparatusID = (int)cmd.ExecuteScalar();
+
+                return apparatusID;
+            }
+        }
+
+
+
+        // Helper method to get the StudentID based on the student's information
+        private int GetStudentID(string studentName, string idNumber)
+        {
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT studID FROM Students WHERE Student_Name = @Student_Name AND ID_Number = @ID_Number", con);
+                cmd.Parameters.AddWithValue("@Student_Name", studentName);
+                cmd.Parameters.AddWithValue("@ID_Number", idNumber);
+
+                int studentID = (int)cmd.ExecuteScalar();
+
+                return studentID;
+            }
+        }
 
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
@@ -306,6 +402,121 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+        private void tbIDNum_TextChanged(object sender, EventArgs e)
+        {
+            // Get the list of existing ID Numbers from the Students table
+            List<string> idNumbers = GetExistingIDNumbers();
 
+            // Create an AutoCompleteStringCollection from the list
+            AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
+            foreach (string idNumber in idNumbers)
+            {
+                autoCompleteCollection.Add(idNumber);
+            }
+
+            // Set up the AutoComplete feature
+            tbIDNum.AutoCompleteMode = AutoCompleteMode.Suggest;
+            tbIDNum.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tbIDNum.AutoCompleteCustomSource = autoCompleteCollection;
+        }
+
+        private List<string> GetExistingIDNumbers()
+        {
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT ID_Number FROM Students", con);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                List<string> idNumbers = new List<string>();
+
+                while (reader.Read())
+                {
+                    idNumbers.Add(reader["ID_Number"].ToString());
+                }
+
+                return idNumbers;
+            }
+        }
+
+        private void tbIDNum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Get the selected ID Number
+            string selectedIDNumber = tbIDNum.Text;
+
+            // Get the corresponding student information
+            Student student = GetStudentInfo(selectedIDNumber);
+
+            // Update the textboxes and combobox
+            tbStudentName.Text = student.StudentName;
+            tbEmailAdd.Text = student.EmailAddress;
+            tbContact.Text = student.ContactNumber;
+            cbProgram.SelectedItem = student.Program;
+        }
+
+        private Student GetStudentInfo(string idNumber)
+        {
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT Student_Name, Email_Address, Contact_No, Program FROM Student WHERE ID_Number = @ID_Number", con);
+                cmd.Parameters.AddWithValue("@ID_Number", idNumber);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                Student student = new Student();
+
+                while (reader.Read())
+                {
+                    student.StudentName = reader["Student_Name"].ToString();
+                    student.EmailAddress = reader["Email_Address"].ToString();
+                    student.ContactNumber = reader["Contact_No"].ToString();
+                    student.Program = reader["Program"].ToString();
+                }
+
+                return student;
+            }
+        }
+
+        public class Student
+        {
+            public string StudentName { get; set; }
+            public string EmailAddress { get; set; }
+            public string ContactNumber { get; set; }
+            public string Program { get; set; }
+        }
+
+        private void lnklblClear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            tbStudentName.Text = "";
+            tbIDNum.Text = "";
+            tbEmailAdd.Text = "";
+            tbContact.Text = "";
+            cbProgram.Text = "";
+            cbAppaName.Text = string.Empty;
+            nudQuantity.Value = 0;
+            dtpBorrowedDate.Text = string.Empty;
+            dtpDueDate.Text = string.Empty;
+            nudQuantityReturned.Value = 0;
+            dtpDateReturned.Text = string.Empty;
+            tbRemarks.Text = string.Empty;
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Unsaved changes will be lost\nDo you want to go back to the Dashboard?"
+               , "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                //Sets back to 0 to prevent restriction from occuring
+                Dashboard.formRestrict = 0;
+
+            }
+        }
     }
 }
