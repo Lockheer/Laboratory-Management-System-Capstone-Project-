@@ -33,6 +33,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void PenaltiesRecords_Load(object sender, EventArgs e)
         {
+            tbSearchPenalty.KeyDown += tbSearchPenalty_KeyDown;
             // Initial setup
             btnUpdate.Hide();
             panelPayment.Visible = false;
