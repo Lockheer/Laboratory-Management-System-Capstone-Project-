@@ -35,6 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.lblIDNumber = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnToggle = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,8 +54,6 @@
             this.penaltyRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
             this.picBoxBC = new System.Windows.Forms.PictureBox();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblIDNumber = new System.Windows.Forms.Label();
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
@@ -107,6 +107,32 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1829, 1066);
             this.panelContainer.TabIndex = 4;
+            // 
+            // lblIDNumber
+            // 
+            this.lblIDNumber.AutoSize = true;
+            this.lblIDNumber.BackColor = System.Drawing.Color.Transparent;
+            this.lblIDNumber.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.lblIDNumber.Location = new System.Drawing.Point(1035, 55);
+            this.lblIDNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIDNumber.Name = "lblIDNumber";
+            this.lblIDNumber.Size = new System.Drawing.Size(185, 24);
+            this.lblIDNumber.TabIndex = 7;
+            this.lblIDNumber.Text = "ID NUMBER + ROLE";
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFirstName.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
+            this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
+            this.lblFirstName.Location = new System.Drawing.Point(1123, 79);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(97, 19);
+            this.lblFirstName.TabIndex = 6;
+            this.lblFirstName.Text = "FIRST NAME";
             // 
             // label4
             // 
@@ -166,10 +192,9 @@
             this.menuStrip3.Location = new System.Drawing.Point(11, 46);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip3.Size = new System.Drawing.Size(320, 684);
+            this.menuStrip3.Size = new System.Drawing.Size(320, 703);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
-            this.menuStrip3.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip3_ItemClicked);
             // 
             // apparatusToolStripMenuItem
             // 
@@ -336,32 +361,6 @@
             this.picBoxBC.TabIndex = 4;
             this.picBoxBC.TabStop = false;
             this.picBoxBC.Click += new System.EventHandler(this.picBoxBC_Click);
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.lblFirstName.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
-            this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.lblFirstName.Location = new System.Drawing.Point(1123, 79);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(97, 19);
-            this.lblFirstName.TabIndex = 6;
-            this.lblFirstName.Text = "FIRST NAME";
-            // 
-            // lblIDNumber
-            // 
-            this.lblIDNumber.AutoSize = true;
-            this.lblIDNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblIDNumber.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
-            this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblIDNumber.Location = new System.Drawing.Point(1035, 55);
-            this.lblIDNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblIDNumber.Name = "lblIDNumber";
-            this.lblIDNumber.Size = new System.Drawing.Size(185, 24);
-            this.lblIDNumber.TabIndex = 7;
-            this.lblIDNumber.Text = "ID NUMBER + ROLE";
             // 
             // Dashboard
             // 

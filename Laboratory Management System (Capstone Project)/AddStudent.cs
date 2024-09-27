@@ -11,7 +11,6 @@ using System.Data.SqlClient;
 using System.IO;
 using OfficeOpenXml;
 using System.Text.RegularExpressions;
-using System.Drawing.Drawing2D;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -20,7 +19,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         public AddStudent()
         {
             InitializeComponent();
-           
+
             cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
 
             cbProgram.DrawMode = DrawMode.OwnerDrawFixed; // Enable custom drawing for ComboBox
@@ -47,12 +46,14 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to close the instance?", "Confirmation", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to close the instance?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
                 //Sets back to 0 to prevent restriction from occuring
                 Dashboard.formRestrict = 0;
-            }    
+
+            }
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -63,6 +64,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbStudContact.Clear();
             cbProgram.SelectedIndex = -1;
             cbDepartment.SelectedIndex = -1;
+
+
+
         }
 
         //SAVE INFO BUTTON
@@ -78,6 +82,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 Int64 contact = Int64.Parse(tbStudContact.Text);
                 String program = cbProgram.Text;
                 String department = cbDepartment.Text;
+
 
                 // Check for duplicate email or contact number
                 using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
@@ -105,20 +110,21 @@ namespace Laboratory_Management_System__Capstone_Project_
                         MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     }//email address validation using Regular expression classes 
-                    else if(!Regex.IsMatch(tbStudEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+                    else if (!Regex.IsMatch(tbStudEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
                     {
                         MessageBox.Show("Please enter a valid email address.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
                         // Proceed with insertion
-                        SqlCommand command = new SqlCommand("insert into Students (Student_Name, ID_Number, Email_Address, Contact_No, Program, Department, Address) values (@Name, @IDNum, @Email, @Contact, @Program, @Department, @Address)", connect);
+                        SqlCommand command = new SqlCommand("insert into Students (Student_Name, ID_Number, Email_Address, Contact_No, Program, Department) values (@Name, @IDNum, @Email, @Contact, @Program, @Department)", connect);
                         command.Parameters.AddWithValue("@Name", name);
                         command.Parameters.AddWithValue("@IDNum", idnum);
                         command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@Contact", contact);
                         command.Parameters.AddWithValue("@Program", program);
                         command.Parameters.AddWithValue("@Department", department);
+
 
                         command.ExecuteNonQuery();
                         MessageBox.Show("The Student's information has been saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -131,10 +137,12 @@ namespace Laboratory_Management_System__Capstone_Project_
             else
             {
                 MessageBox.Show("Please input the following empty fields or textboxes.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }       
+            }
+
+
         }
 
-      
+
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
@@ -173,7 +181,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     string contactStr = worksheet.Cells[row, 4].Text;
                                     string program = worksheet.Cells[row, 5].Text;
                                     string department = worksheet.Cells[row, 6].Text;
-                                    string address = worksheet.Cells[row, 7].Text;
+
 
                                     if (Int64.TryParse(contactStr, out Int64 contact) && !string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(email))
                                     {
@@ -192,7 +200,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                             command.Parameters.AddWithValue("@Contact", contact);
                                             command.Parameters.AddWithValue("@Program", program);
                                             command.Parameters.AddWithValue("@Department", department);
-                                            command.Parameters.AddWithValue("@Address", address);
+
 
                                             command.ExecuteNonQuery();
                                         }
@@ -218,6 +226,14 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
+
+
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
 

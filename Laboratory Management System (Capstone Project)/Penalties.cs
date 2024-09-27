@@ -105,7 +105,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                     {
-                        SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],[Transaction Reference Number]) " +
+                        SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],transactionID) " +
                                                         "VALUES (@IDNumber, @StudentName, @ContactNumber, @Email, @PenaltyDate, @Violation, @Condition, @ToBePayed, @Payed, @Balance, @Status, @RefNum)", con);
 
                         // Add parameters
@@ -147,7 +147,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     {
                         using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                         {
-                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed, [Balance] = @Balance, [Penalty Status] = @Status, [Transaction Reference Number] = @RefNum WHERE PenaltyID = @RowID", con);
+                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed, [Balance] = @Balance, [Penalty Status] = @Status, transactionID = @RefNum WHERE PenaltyID = @RowID", con);
 
                             // Add parameters
                             cmd.Parameters.AddWithValue("@IDNumber", tbIDnum.Text);
@@ -302,7 +302,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 if (e.RowIndex >= 0 && dgvPenalties.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
-            
+
                     ID = Convert.ToInt32(dgvPenalties.Rows[e.RowIndex].Cells[0].Value);
                     LoadPenaltyDetails(ID);
                     btnUpdate.Visible = true;
@@ -342,7 +342,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                             tbAmtPayed.Text = reader["Amount Received"].ToString();
                             lblRemainingBalance.Text = reader["Balance"].ToString();
                             cbStatus.Text = reader["Penalty Status"].ToString();
-                            cbTransact.Text = reader["Transaction Reference Number"].ToString();
+                            cbTransact.Text = reader["transactionID"].ToString();
                         }
                     }
                 }
@@ -429,7 +429,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 if (cbTransact.SelectedItem != null)
                 {
-                   
+
                     if (int.TryParse(cbTransact.SelectedItem.ToString(), out int selectedTransactionID))
                     {
                         LoadTransactionDetails(selectedTransactionID);
@@ -664,7 +664,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 command.Connection = connect;
 
                 connect.Open();
-                command.CommandText = "Insert into LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],[Transaction Reference Number]) values ('" + idnum + "','" + name + "', " + contact + ",'" + email + "',  '" + issueDate + "', '" + violation + "', '"+condition+"', "+ToPay+", "+Payed+ ", "+Balance+", '" + status+"', "+transactRef+")";
+                command.CommandText = "Insert into LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],transactionID) values ('" + idnum + "','" + name + "', " + contact + ",'" + email + "',  '" + issueDate + "', '" + violation + "', '"+condition+"', "+ToPay+", "+Payed+ ", "+Balance+", '" + status+"', "+transactRef+")";
                 command.ExecuteNonQuery();
                 connect.Close();
 
@@ -718,7 +718,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     cmd.Connection = con;
 
                     cmd.CommandText = "UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber,[Student Name] = @StudentName ,[Contact Number] = @ContactNumber, [Email Address] = @EmailAddress ,[Penalty Issued Date] = @PenaltyDate ,[Violation] = @Violation ,[Penalty Condition] = @Condition ," +
-                        "[Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed , [Balance] = @Balance, [Penalty Status] =@Status,[Transaction Reference Number] = @RefNum WHERE PenaltyID = @RowID";
+                        "[Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed , [Balance] = @Balance, [Penalty Status] =@Status,transactionID = @RefNum WHERE PenaltyID = @RowID";
 
                     cmd.Parameters.AddWithValue("@IDNumber", idnum);
                     cmd.Parameters.AddWithValue("@StudentName", name);
@@ -852,7 +852,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 tbAmtPayed.Text = DS.Tables[0].Rows[0]["[Amount Received]"].ToString();
                                 lblRemainingBalance.Text = DS.Tables[0].Rows[0]["[Balance]"].ToString();
                                 cbStatus.Text = DS.Tables[0].Rows[0]["[Penalty Status]"].ToString();
-                                cbTransact.Text = DS.Tables[0].Rows[0]["[Transaction Reference Number]"].ToString();
+                                cbTransact.Text = DS.Tables[0].Rows[0]["transactionID"].ToString();
                             }
                         }
                         catch (Exception ex)
