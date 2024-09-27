@@ -30,6 +30,10 @@
         {
             this.dgvTransaction = new System.Windows.Forms.DataGridView();
             this.pnelUPDATE = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.nudQuantityReturned = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnExportToExcel = new System.Windows.Forms.Button();
             this.cbAppaName = new System.Windows.Forms.ComboBox();
             this.lnklblClear = new System.Windows.Forms.LinkLabel();
@@ -57,14 +61,10 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
-            this.nudQuantityReturned = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.pnelUPDATE.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityReturned)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTransaction
@@ -114,6 +114,38 @@
             this.pnelUPDATE.Name = "pnelUPDATE";
             this.pnelUPDATE.Size = new System.Drawing.Size(1084, 338);
             this.pnelUPDATE.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(811, 90);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Quantity Returned:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(834, 59);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Quantity:";
+            // 
+            // nudQuantityReturned
+            // 
+            this.nudQuantityReturned.Location = new System.Drawing.Point(928, 90);
+            this.nudQuantityReturned.Name = "nudQuantityReturned";
+            this.nudQuantityReturned.Size = new System.Drawing.Size(120, 20);
+            this.nudQuantityReturned.TabIndex = 26;
+            // 
+            // nudQuantity
+            // 
+            this.nudQuantity.Location = new System.Drawing.Point(928, 55);
+            this.nudQuantity.Name = "nudQuantity";
+            this.nudQuantity.Size = new System.Drawing.Size(120, 20);
+            this.nudQuantity.TabIndex = 25;
             // 
             // btnExportToExcel
             // 
@@ -382,44 +414,12 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // nudQuantity
-            // 
-            this.nudQuantity.Location = new System.Drawing.Point(928, 55);
-            this.nudQuantity.Name = "nudQuantity";
-            this.nudQuantity.Size = new System.Drawing.Size(120, 20);
-            this.nudQuantity.TabIndex = 25;
-            // 
-            // nudQuantityReturned
-            // 
-            this.nudQuantityReturned.Location = new System.Drawing.Point(928, 90);
-            this.nudQuantityReturned.Name = "nudQuantityReturned";
-            this.nudQuantityReturned.Size = new System.Drawing.Size(120, 20);
-            this.nudQuantityReturned.TabIndex = 26;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(834, 59);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 13);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "Quantity:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(860, 92);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 13);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Quantity Returned:";
-            // 
             // UpdateBorrowReturnTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1083, 911);
+            this.ClientSize = new System.Drawing.Size(1083, 928);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.tbSearch);
@@ -433,8 +433,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.pnelUPDATE.ResumeLayout(false);
             this.pnelUPDATE.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityReturned)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
