@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -105,24 +106,24 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 try
                 {
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
                         SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],transactionID) " +
                                                         "VALUES (@IDNumber, @StudentName, @ContactNumber, @Email, @PenaltyDate, @Violation, @Condition, @ToBePayed, @Payed, @Balance, @Status, @RefNum)", con);
 
-                        // Add parameters
-                        cmd.Parameters.AddWithValue("@IDNumber", tbIDnum.Text);
-                        cmd.Parameters.AddWithValue("@StudentName", tbStudentName.Text);
-                        cmd.Parameters.AddWithValue("@ContactNumber", Int64.Parse(tbContact.Text));
-                        cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
-                        cmd.Parameters.AddWithValue("@PenaltyDate", dtpPenaltyDate.Text);
-                        cmd.Parameters.AddWithValue("@Violation", tbViolation.Text);
-                        cmd.Parameters.AddWithValue("@Condition", cbCondition.Text);
-                        cmd.Parameters.AddWithValue("@ToBePayed", Decimal.Parse(tbAmtToBe.Text));
-                        cmd.Parameters.AddWithValue("@Payed", Decimal.Parse(tbAmtPayed.Text));
-                        cmd.Parameters.AddWithValue("@Balance", Decimal.Parse(lblRemainingBalance.Text));
-                        cmd.Parameters.AddWithValue("@Status", cbStatus.Text);
-                        cmd.Parameters.AddWithValue("@RefNum", Int64.Parse(cbTransact.Text));
+                        // Add parameters with explicit types
+                        cmd.Parameters.Add("@IDNumber", SqlDbType.NVarChar).Value = tbIDnum.Text;
+                        cmd.Parameters.Add("@StudentName", SqlDbType.NVarChar).Value = tbStudentName.Text;
+                        cmd.Parameters.Add("@ContactNumber", SqlDbType.BigInt).Value = Int64.Parse(tbContact.Text); // Handle potential parse errors
+                        cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = tbEmail.Text;
+                        cmd.Parameters.Add("@PenaltyDate", SqlDbType.Date).Value = dtpPenaltyDate.Value; // Use DateTimePicker.Value instead of .Text
+                        cmd.Parameters.Add("@Violation", SqlDbType.NVarChar).Value = tbViolation.Text;
+                        cmd.Parameters.Add("@Condition", SqlDbType.NVarChar).Value = cbCondition.Text;
+                        cmd.Parameters.Add("@ToBePayed", SqlDbType.Decimal).Value = Decimal.Parse(tbAmtToBe.Text);
+                        cmd.Parameters.Add("@Payed", SqlDbType.Decimal).Value = Decimal.Parse(tbAmtPayed.Text);
+                        cmd.Parameters.Add("@Balance", SqlDbType.Decimal).Value = Decimal.Parse(lblRemainingBalance.Text);
+                        cmd.Parameters.Add("@Status", SqlDbType.NVarChar).Value = cbStatus.Text;
+                        cmd.Parameters.Add("@RefNum", SqlDbType.BigInt).Value = Int64.Parse(cbTransact.Text); // Handle potential parse errors
 
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -132,12 +133,76 @@ namespace Laboratory_Management_System__Capstone_Project_
                         LoadPenaltiesData();
                     }
                 }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Error: Invalid number format in contact number or transaction ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("SQL Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error saving student's information: " + ex.Message);
                 }
             }
         }
+
+        // Payment method algorithm
+        private void tbAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (Decimal.TryParse(tbAmtToBe.Text, out decimal toBePayed) && Decimal.TryParse(tbAmtPayed.Text, out decimal payed))
+            {
+                lblRemainingBalance.Text = (toBePayed - payed).ToString("F2");
+            }
+            else
+            {
+                lblRemainingBalance.Text = "0.00";
+            }
+        }
+
+        // Validate Inputs
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrEmpty(tbIDnum.Text) || string.IsNullOrEmpty(tbStudentName.Text) || string.IsNullOrEmpty(tbContact.Text) ||
+                string.IsNullOrEmpty(tbEmail.Text) || string.IsNullOrEmpty(tbViolation.Text) || string.IsNullOrEmpty(cbCondition.Text))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (tbContact.Text.Length < 10 || tbContact.Text.Length > 11 || !Int64.TryParse(tbContact.Text, out _))
+            {
+                MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            if (!IsValidEmail(tbEmail.Text))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Invalid Email Address", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (cbCondition.SelectedItem != null && cbCondition.SelectedItem.ToString().Equals("Payment", StringComparison.OrdinalIgnoreCase))
+            {
+                if (!Decimal.TryParse(tbAmtToBe.Text, out decimal toBePayed) || !Decimal.TryParse(tbAmtPayed.Text, out decimal payed))
+                {
+                    MessageBox.Show("Please enter valid payment amounts.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // Validate email with regex pattern
+        private bool IsValidEmail(string email)
+        {
+            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
+        }
+
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -188,6 +253,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
         }
+
+      
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -281,32 +348,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("Error loading penalty details: " + ex.Message);
             }
         }
-
-
-        //Payment method algorithm
-        private void tbAmount_TextChanged(object sender, EventArgs e)
-        {
-            if (Decimal.TryParse(tbAmtToBe.Text, out decimal toBePayed) && Decimal.TryParse(tbAmtPayed.Text, out decimal payed))
-            {
-                lblRemainingBalance.Text = (toBePayed - payed).ToString("F2");
-            }
-            else
-            {
-                lblRemainingBalance.Text = "0.00";
-            }
-        }
-
-        private bool ValidateInputs()
-        {
-            if (string.IsNullOrEmpty(tbIDnum.Text) || string.IsNullOrEmpty(tbStudentName.Text) || string.IsNullOrEmpty(tbContact.Text) ||
-                string.IsNullOrEmpty(tbEmail.Text) || string.IsNullOrEmpty(tbViolation.Text) || string.IsNullOrEmpty(cbCondition.Text))
-            {
-                MessageBox.Show("Please fill in all required fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            return true;
-        }
-
 
         //RETURN Button
         private void button5_Click(object sender, EventArgs e)
