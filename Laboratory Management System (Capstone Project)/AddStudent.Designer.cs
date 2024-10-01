@@ -217,7 +217,7 @@
             "College Of Education",
             "College Of Computer Studies",
             "Senior High School Branch"});
-            this.cbDepartment.Location = new System.Drawing.Point(169, 209);
+            this.cbDepartment.Location = new System.Drawing.Point(171, 209);
             this.cbDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cbDepartment.Name = "cbDepartment";
             this.cbDepartment.Size = new System.Drawing.Size(227, 25);
@@ -235,7 +235,7 @@
             "BSIE",
             "BSCE",
             "SHS"});
-            this.cbProgram.Location = new System.Drawing.Point(169, 173);
+            this.cbProgram.Location = new System.Drawing.Point(171, 173);
             this.cbProgram.Margin = new System.Windows.Forms.Padding(2);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(83, 25);

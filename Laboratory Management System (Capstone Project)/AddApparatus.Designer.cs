@@ -65,7 +65,7 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Bold);
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Location = new System.Drawing.Point(726, 29);
+            this.btnMinimize.Location = new System.Drawing.Point(716, 29);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(38, 38);
@@ -81,7 +81,7 @@
             this.btnXMark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnXMark.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnXMark.Location = new System.Drawing.Point(768, 29);
+            this.btnXMark.Location = new System.Drawing.Point(758, 29);
             this.btnXMark.Margin = new System.Windows.Forms.Padding(2);
             this.btnXMark.Name = "btnXMark";
             this.btnXMark.Size = new System.Drawing.Size(36, 37);

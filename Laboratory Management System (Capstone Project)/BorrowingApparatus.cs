@@ -28,6 +28,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetShadow(btnConfirm);
             UIHelper.SetShadow(btnSearch);
+            UIHelper.SetShadow(panel3);
 
             UIHelper.MakeRoundedTextBox(tbSearch, 25);
             UIHelper.MakeRoundedTextBox(tbStudName, 25);

@@ -27,9 +27,6 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
 
-            UIHelper.SetRoundedCorners(pictureBox1, 40);
-            UIHelper.SetShadow(pictureBox1);
-
             UIHelper.SetRoundedCorners(pictureBox3, 170);
 
             UIHelper.SetRoundedCorners(btnSendPIN, 40);

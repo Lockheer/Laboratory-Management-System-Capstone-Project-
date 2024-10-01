@@ -44,6 +44,15 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
 
+        public static void RemoveGroupBoxBorder(GroupBox groupBox)
+        {
+            groupBox.Paint += (sender, e) =>
+            {
+                e.Graphics.Clear(groupBox.BackColor);
+                TextRenderer.DrawText(e.Graphics, groupBox.Text, groupBox.Font, new Point(10, 0), groupBox.ForeColor);
+            };
+        }
+
         public static void SetShadow(Control control)
         {
             Panel shadow = new Panel
@@ -163,6 +172,18 @@ namespace Laboratory_Management_System__Capstone_Project_
                 numericUpDown.Region = new Region(path);
                 numericUpDown.Invalidate();
             };
+        }
+
+        public static void SetRoundedDateTimePicker(DateTimePicker dateTimePicker, int radius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
+            path.AddArc(dateTimePicker.Width - radius, 0, radius, radius, 270, 90); // Top-right corner
+            path.AddArc(dateTimePicker.Width - radius, dateTimePicker.Height - radius, radius, radius, 0, 90); // Bottom-right corner
+            path.AddArc(0, dateTimePicker.Height - radius, radius, radius, 90, 90); // Bottom-left corner
+            path.CloseFigure();
+
+            dateTimePicker.Region = new Region(path);
         }
 
     }

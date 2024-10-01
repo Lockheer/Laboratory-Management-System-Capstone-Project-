@@ -115,7 +115,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(1112, 32);
+            this.btnExit.Location = new System.Drawing.Point(1102, 31);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(38, 37);
@@ -255,6 +255,7 @@
             // tbPurpose
             // 
             this.tbPurpose.BackColor = System.Drawing.Color.White;
+            this.tbPurpose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPurpose.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.tbPurpose.Location = new System.Drawing.Point(324, 396);
             this.tbPurpose.Multiline = true;
@@ -415,7 +416,6 @@
             // 
             this.cbApparatusName4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbApparatusName4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbApparatusName4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName4.FormattingEnabled = true;
@@ -429,7 +429,6 @@
             // 
             this.cbApparatusName3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbApparatusName3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbApparatusName3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName3.FormattingEnabled = true;
@@ -443,7 +442,6 @@
             // 
             this.cbApparatusName2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbApparatusName2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbApparatusName2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName2.FormattingEnabled = true;
@@ -457,7 +455,6 @@
             // 
             this.cbApparatusName1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbApparatusName1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbApparatusName1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName1.FormattingEnabled = true;
@@ -551,7 +548,6 @@
             // 
             this.cbApparatusName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbApparatusName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbApparatusName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName.FormattingEnabled = true;
@@ -790,7 +786,7 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Bold);
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Location = new System.Drawing.Point(1070, 32);
+            this.btnMinimize.Location = new System.Drawing.Point(1060, 31);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(38, 37);

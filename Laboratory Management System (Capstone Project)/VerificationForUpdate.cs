@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,14 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
             this.dashboard = dashboard;
+
+            UIHelper.SetGradientBackground(this, Color.Red, Color.FromArgb(176, 16, 16), LinearGradientMode.Vertical);
+
+            UIHelper.MakeRoundedTextBox(tbConfirmPass, 20);
+            UIHelper.SetRoundedCorners(btnProceed, 20);
+
+            UIHelper.SetRoundedCorners(this, 20);
+            UIHelper.SetShadow(this);
         }
 
         private void btnProceed_Click(object sender, EventArgs e)

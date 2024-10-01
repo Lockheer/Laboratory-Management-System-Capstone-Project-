@@ -316,7 +316,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\angry_birds___poached_eggs_theme_i_background_by_yoshibowserfanatic_d6qa909-pre.jpg" />
     <None Include="Resources\toggle.png" />
     <None Include="Resources\bcc-logo-name.png" />
     <None Include="Resources\app_inventory2.png" />
@@ -328,18 +327,15 @@
     <None Include="Resources\warning1.png" />
     <None Include="Resources\logout3.png" />
     <None Include="Resources\logo_circle.png" />
-    <None Include="Resources\bg21.png" />
     <None Include="Resources\logo_circle1.png" />
     <None Include="Resources\sidepanel.png" />
     <None Include="Resources\sidepanel1.jpg" />
     <None Include="Resources\sidebarlast.jpg" />
     <Content Include="MAJOR BACKUP %28TRANSACTIONDETAILS%29.txt" />
-    <Content Include="Resources\admin-approval-icon.png" />
     <None Include="Resources\student_bg_final.jpg" />
     <None Include="Resources\student_big.png" />
     <None Include="Resources\bg_main.jpg" />
     <None Include="Resources\bcc_logo_circle.png" />
-    <None Include="Resources\email_bg.jpg" />
     <None Include="Resources\email_icon.jpg" />
     <None Include="Resources\change_pass_icon.png" />
     <None Include="Resources\bcc_logo_circle_blur.jpg" />
@@ -347,8 +343,35 @@
     <None Include="Resources\bg_popup_main3.png" />
     <None Include="Resources\app_inventory_big.png" />
     <None Include="Resources\bg_popup_main_apparatus.png" />
-    <None Include="Resources\admin_icon.png" />
     <None Include="Resources\pass_lock.png" />
+    <None Include="Resources\warning_big_1.png" />
+    <None Include="Resources\admin_approval_icon1.png" />
+    <None Include="Resources\admin_approval_icon11.png" />
+    <Content Include="Resources\admin_icon.png" />
+    <None Include="Resources\admin_icon1.png" />
+    <None Include="Resources\email_pic1.png" />
+    <None Include="Resources\bg21.png" />
+    <None Include="Resources\bcc_logo_circle_blur2.png" />
+    <None Include="Resources\pass_lock_confirm1.png" />
+    <None Include="Resources\bcc_logo_circle_blur21.png" />
+    <None Include="Resources\email_pic11.png" />
+    <None Include="Resources\email_pic.png" />
+    <None Include="Resources\warning_big_11.png" />
+    <None Include="Resources\warning_big.png" />
+    <None Include="Resources\admin_icon2.png" />
+    <None Include="Resources\bg_popup_main_apparatus1.png" />
+    <None Include="Resources\app_inventory_big1.png" />
+    <None Include="Resources\Vector.png" />
+    <None Include="Resources\bg_popup_main31.png" />
+    <None Include="Resources\bg_popup_main21.jpg" />
+    <None Include="Resources\bg_popup_main.jpg" />
+    <None Include="Resources\email_icon2.png" />
+    <None Include="Resources\app_invent_L.png" />
+    <None Include="Resources\material-symbols_list-alt-add-outline.jpg" />
+    <None Include="Resources\Vector %281%29.jpg" />
+    <None Include="Resources\bg_popup_blank.png" />
+    <None Include="Resources\bg_popup_blank1.jpg" />
+    <None Include="Resources\email_icon_no_notif.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

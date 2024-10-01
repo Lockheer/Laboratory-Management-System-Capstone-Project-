@@ -17,6 +17,13 @@ namespace Laboratory_Management_System__Capstone_Project_
         public AdminApproval()
         {
             InitializeComponent();
+
+            UIHelper.SetRoundedCorners(this, 20);
+
+            UIHelper.SetRoundedCorners(button2, 30);
+
+
+          
         }
 
         HashHelpers hashHelpers = new HashHelpers();
@@ -78,7 +85,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
-        private void tbReject_Click(object sender, EventArgs e)
+        private void btnReject_Click(object sender, EventArgs e)
         {
             // Set DialogResult to Cancel to indicate the operation was canceled
             this.DialogResult = DialogResult.Cancel;
