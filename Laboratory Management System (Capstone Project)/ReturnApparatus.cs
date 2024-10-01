@@ -102,12 +102,27 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-
+        //Issue Return Button
         private void btnIssueReturn_Click(object sender, EventArgs e)
         {
+            // Check if the return date is valid
             if (dtpReturnDate.Value < DateTime.Today)
             {
                 MessageBox.Show("The return date cannot be earlier than today.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if the quantity returned is valid
+            if (numQuantityReturned.Value <= 0)
+            {
+                MessageBox.Show("Invalid quantity returned. Please enter a value greater than 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check if the remarks field is empty
+            if (string.IsNullOrWhiteSpace(tbRemarks.Text))
+            {
+                MessageBox.Show("Please enter a remark for the return transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -152,13 +167,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                     DateTime returnDate;
                     if (DateTime.TryParse(returnDateStr, out returnDate) && returnDate > dueDate)
                     {
-                        tbRemarks.Text = "This is a late return and is subjected as a violation. \nContext: Late Item Return\nPenalty: Student cannot borrow any apparatuses for 3 days or" +
-                            "\nSubject for payment penalty ranging from 150 - 500 pesos.";
+                        tbRemarks.Text = "This is a late return and is subjected as a violation. \nContext: Late Item Return\nPenalty: Student cannot borrow any apparatuses for 1 week.";
                     }
-                }
-                else
-                {
-                    tbRemarks.Text = "Due date format is invalid.";
                 }
 
                 // Validate quantity returned
@@ -176,6 +186,20 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     MessageBox.Show("Invalid quantity returned. Please enter a value between 1 and " + quantityBorrowed.ToString() + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
+                }
+
+                // Check if the student has already returned the apparatus
+                using (SqlCommand cmdCheckReturn = new SqlCommand("SELECT * FROM BorrowReturnTransaction WHERE transactionID = @TransactionID AND Date_Returned IS NOT NULL", con))
+                {
+                    cmdCheckReturn.Parameters.AddWithValue("@TransactionID", rowid);
+                    using (SqlDataReader reader = cmdCheckReturn.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            MessageBox.Show("The apparatus has already been returned.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
                 }
 
                 // Update the BorrowReturnTransaction with return date, remarks, and quantity returned
@@ -204,7 +228,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 ReturnApparatus_Load(this, null);
             }
         }
-
 
         private bool showErrorMessage = false;
 

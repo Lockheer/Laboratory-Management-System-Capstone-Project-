@@ -39,10 +39,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.MakeRoundedTextBox(tbPurpose, 25);
 
             UIHelper.SetRoundedComboBox(cbApparatusName, 25);
-            UIHelper.SetRoundedComboBox(cbApparatusName1,25);
-            UIHelper.SetRoundedComboBox(cbApparatusName2,25);
-            UIHelper.SetRoundedComboBox(cbApparatusName3,25); 
-            UIHelper.SetRoundedComboBox(cbApparatusName4,25);
+            UIHelper.SetRoundedComboBox(cbApparatusName1, 25);
+            UIHelper.SetRoundedComboBox(cbApparatusName2, 25);
+            UIHelper.SetRoundedComboBox(cbApparatusName3, 25);
+            UIHelper.SetRoundedComboBox(cbApparatusName4, 25);
 
             UIHelper.SetRoundedNumericUpDown(nudQuantity, 25);
             UIHelper.SetRoundedNumericUpDown(nudQuantity1, 25);
@@ -55,8 +55,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void LoadIDNumbers()
         {
             AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
-            using (SqlConnection con = new SqlConnection("Server=192.168.192.239;Database=LabManagSys;User ID=Danny;Password=basalodan143;"))
-            //using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT ID_Number FROM Students", con);
@@ -91,9 +90,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void BorrowingApparatus_Load(object sender, EventArgs e)
         {
-
-            //SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
-            SqlConnection con = new SqlConnection("Server=192.168.192.239;Database=LabManagSys;User ID=Danny;Password=basalodan143;");
+            SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
             SqlCommand cmd = new SqlCommand("Select [Apparatus Name] from Inventory", con);
             con.Open();
             SqlDataReader Sdr = cmd.ExecuteReader();
@@ -144,8 +141,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (tbSearch.Text != "")
             {
                 String searchID = tbSearch.Text;
-                using (SqlConnection con = new SqlConnection("Server=192.168.192.239;Database=LabManagSys;User ID=Danny;Password=basalodan143;"))
-                //using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE ID_Number = @ID_Number", con);
                     cmd.Parameters.AddWithValue("@ID_Number", searchID);
@@ -218,7 +214,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
 
-        // CONFIRM BUTTON TO ISSUE BORROWING
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (tbStudName.Text != "")
@@ -228,22 +223,22 @@ namespace Laboratory_Management_System__Capstone_Project_
                 if (count <= 9)
                 {
                     List<string> selectedApparatusNames = new List<string>
-                    {
-                        cbApparatusName.Text,
-                        cbApparatusName1.Text,
-                        cbApparatusName2.Text,
-                        cbApparatusName3.Text,
-                        cbApparatusName4.Text
-                    };
+            {
+                cbApparatusName.Text,
+                cbApparatusName1.Text,
+                cbApparatusName2.Text,
+                cbApparatusName3.Text,
+                cbApparatusName4.Text
+            };
 
                     List<int> quantities = new List<int>
-                    {
-                        (int)nudQuantity.Value,
-                        (int)nudQuantity1.Value,
-                        (int)nudQuantity2.Value,
-                        (int)nudQuantity3.Value,
-                        (int)nudQuantity4.Value
-                    };
+            {
+                (int)nudQuantity.Value,
+                (int)nudQuantity1.Value,
+                (int)nudQuantity2.Value,
+                (int)nudQuantity3.Value,
+                (int)nudQuantity4.Value
+            };
 
                     String Studname = tbStudName.Text;
                     String IDnum = tbIDnum.Text;
@@ -254,11 +249,15 @@ namespace Laboratory_Management_System__Capstone_Project_
                     String IssueDate = dtpBorrowDate.Text;
                     String dueDate = dtpDueDate.Text;
 
-
-                    using (SqlConnection con = new SqlConnection("Server=192.168.192.239;Database=LabManagSys;User ID=Danny;Password=basalodan143;"))
-                    //using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
                         con.Open();
+
+                        if (tbPurpose.Text == "None" || tbPurpose.Text == "" || tbPurpose.Text == "Unknown" || tbPurpose.Text == "UNKNOWN" || tbPurpose.Text == "Unknown Purpose" || tbPurpose.Text == "UNKNOWN PURPOSE")
+                        {
+                            MessageBox.Show("Please enter a valid purpose.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
 
                         for (int i = 0; i < selectedApparatusNames.Count; i++)
                         {
@@ -266,9 +265,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                             {
                                 string AppaName = selectedApparatusNames[i];
                                 int quantity = quantities[i];
-                                int apparatusID = 0;
-                                int studentID = 0;
-                                int accountID = Session.AccountID;
+
+                                int apparatusID = 0; // Declare apparatusID here
 
                                 // Get ApparatusID based on the selected apparatus name
                                 SqlCommand cmdGetApparatusID = new SqlCommand("SELECT ApparatusID FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
@@ -284,26 +282,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     return;
                                 }
 
-                                // Get StudentID based on the student's ID number
-                                SqlCommand cmdGetStudentID = new SqlCommand("SELECT studID FROM Students WHERE ID_Number = @ID_Number", con);
-                                cmdGetStudentID.Parameters.AddWithValue("@ID_Number", IDnum);
-                                object resultStudent = cmdGetStudentID.ExecuteScalar();
-                                if (resultStudent != null)
-                                {
-                                    studentID = Convert.ToInt32(resultStudent);
-                                }
-                                else
-                                {
-                                    MessageBox.Show($"Student with ID number '{IDnum}' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
-
-                                if (tbPurpose.Text == "None" || tbPurpose.Text == "" || tbPurpose.Text == "Unknown" || tbPurpose.Text == "UNKNOWN" || tbPurpose.Text == "Unknown Purpose" || tbPurpose.Text == "UNKNOWN PURPOSE")
-                                {
-                                    MessageBox.Show("Please enter a valid purpose.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                                }
-
                                 // Check if the quantity borrowed does not exceed the quantity available
                                 SqlCommand cmdGetQuantityAvailable = new SqlCommand("SELECT Quantity FROM Inventory WHERE ApparatusID = @ApparatusID", con);
                                 cmdGetQuantityAvailable.Parameters.AddWithValue("@ApparatusID", apparatusID);
@@ -314,22 +292,43 @@ namespace Laboratory_Management_System__Capstone_Project_
                                     return;
                                 }
 
-                                // Insert transaction with IDs and quantities
-                                SqlCommand cmdInsertTransaction = new SqlCommand("INSERT INTO BorrowReturnTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, studID, AccountID, ApparatusID, Remarks) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, @Quantity, @Purpose, @Borrow_Date, @Due_Date, NULL, NULL, @StudentID, @AccountID, @ApparatusID, NULL)", con);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Student_Name", Studname);
-                                cmdInsertTransaction.Parameters.AddWithValue("@ID_Number", IDnum);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Email_Address", Email);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Contact_Number", Contact);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Program", Program);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Apparatus_Name", AppaName);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Quantity", quantity); // Pass the total quantity
-                                cmdInsertTransaction.Parameters.AddWithValue("@Purpose", purpose);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Borrow_Date", IssueDate);
-                                cmdInsertTransaction.Parameters.AddWithValue("@Due_Date", dueDate);
-                                cmdInsertTransaction.Parameters.AddWithValue("@StudentID", studentID);
-                                cmdInsertTransaction.Parameters.AddWithValue("@AccountID", accountID);
-                                cmdInsertTransaction.Parameters.AddWithValue("@ApparatusID", apparatusID);
-                                cmdInsertTransaction.ExecuteNonQuery();
+                                // Insert multiple rows for each apparatus
+                                for (int j = 0; j < quantity; j++)
+                                {
+                                    int studentID = 0;
+                                    int accountID = Form1.Session.AccountID; // Get the AccountID from the Session class
+
+                                    // Get StudentID based on the student's ID number
+                                    SqlCommand cmdGetStudentID = new SqlCommand("SELECT studID FROM Students WHERE ID_Number = @ID_Number", con);
+                                    cmdGetStudentID.Parameters.AddWithValue("@ID_Number", IDnum);
+                                    object resultStudent = cmdGetStudentID.ExecuteScalar();
+                                    if (resultStudent != null)
+                                    {
+                                        studentID = Convert.ToInt32(resultStudent);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($"Student with ID number '{IDnum}' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+
+                                    // Insert transaction with IDs and quantities
+                                    SqlCommand cmdInsertTransaction = new SqlCommand("INSERT INTO BorrowReturnTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, studID, AccountID, ApparatusID, Remarks) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, 1, @Purpose, @Borrow_Date, @Due_Date, NULL, NULL, @StudentID, @AccountID, @ApparatusID, NULL)", con);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@Student_Name", Studname);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@ID_Number", IDnum);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@Email_Address", Email);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@Contact_Number", Contact);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@Program", Program);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@Apparatus_Name", AppaName);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@Purpose", purpose);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@Borrow_Date", IssueDate);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@Due_Date", dueDate);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@StudentID", studentID);
+                                    cmdInsertTransaction.Parameters.AddWithValue("@AccountID", accountID); // Add the AccountID parameter
+                                    cmdInsertTransaction.Parameters.AddWithValue("@ApparatusID", apparatusID);
+                                    cmdInsertTransaction.ExecuteNonQuery();
+
+                                }
 
                                 // Update apparatus quantity
                                 SqlCommand cmdUpdateQty = new SqlCommand("UPDATE Inventory SET Quantity = Quantity - @Quantity WHERE ApparatusID = @ApparatusID", con);
@@ -342,6 +341,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                         MessageBox.Show("Apparatuses have been issued.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetForm();
+
                     }
                 }
                 else
