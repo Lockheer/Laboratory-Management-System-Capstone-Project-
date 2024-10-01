@@ -175,6 +175,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bcc_logo_circle;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(602, 22);
             this.pictureBox1.Name = "pictureBox1";
@@ -264,6 +265,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.pass_lock;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.Location = new System.Drawing.Point(66, 197);
             this.pictureBox3.Name = "pictureBox3";
@@ -273,6 +275,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.pass_lock_confirm1;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(66, 295);
             this.pictureBox2.Name = "pictureBox2";
