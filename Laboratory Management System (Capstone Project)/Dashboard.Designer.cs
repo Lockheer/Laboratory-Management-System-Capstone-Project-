@@ -114,12 +114,13 @@
             this.lblIDNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblIDNumber.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
             this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblIDNumber.Location = new System.Drawing.Point(1035, 55);
+            this.lblIDNumber.Location = new System.Drawing.Point(838, 38);
             this.lblIDNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIDNumber.Name = "lblIDNumber";
             this.lblIDNumber.Size = new System.Drawing.Size(185, 24);
             this.lblIDNumber.TabIndex = 7;
             this.lblIDNumber.Text = "ID NUMBER + ROLE";
+            this.lblIDNumber.Visible = false;
             // 
             // lblFirstName
             // 
@@ -127,12 +128,13 @@
             this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
             this.lblFirstName.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
             this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.lblFirstName.Location = new System.Drawing.Point(1123, 79);
+            this.lblFirstName.Location = new System.Drawing.Point(926, 62);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(97, 19);
             this.lblFirstName.TabIndex = 6;
             this.lblFirstName.Text = "FIRST NAME";
+            this.lblFirstName.Visible = false;
             // 
             // label4
             // 
@@ -192,7 +194,7 @@
             this.menuStrip3.Location = new System.Drawing.Point(11, 46);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip3.Size = new System.Drawing.Size(320, 703);
+            this.menuStrip3.Size = new System.Drawing.Size(320, 684);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             // 
