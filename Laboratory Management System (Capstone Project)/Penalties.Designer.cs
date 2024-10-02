@@ -65,7 +65,6 @@
             this.tbSearchPenalty = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnExitUpper = new System.Windows.Forms.Button();
             this.PanelCRUD.SuspendLayout();
             this.panelPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPenalties)).BeginInit();
@@ -456,28 +455,12 @@
             this.label13.TabIndex = 34;
             this.label13.Text = "PENALTIES AND VIOLATIONS";
             // 
-            // btnExitUpper
-            // 
-            this.btnExitUpper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnExitUpper.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExitUpper.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExitUpper.ForeColor = System.Drawing.Color.White;
-            this.btnExitUpper.Location = new System.Drawing.Point(1298, -2);
-            this.btnExitUpper.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExitUpper.Name = "btnExitUpper";
-            this.btnExitUpper.Size = new System.Drawing.Size(63, 34);
-            this.btnExitUpper.TabIndex = 37;
-            this.btnExitUpper.Text = "X";
-            this.btnExitUpper.UseVisualStyleBackColor = false;
-            this.btnExitUpper.Click += new System.EventHandler(this.btnExitUpper_Click);
-            // 
             // PenaltiesRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1361, 1102);
-            this.Controls.Add(this.btnExitUpper);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tbSearchPenalty);
@@ -537,7 +520,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblRemainingBalance;
         private System.Windows.Forms.Label lblBalance;
-        private System.Windows.Forms.Button btnExitUpper;
         private System.Windows.Forms.Label label9;
     }
 }

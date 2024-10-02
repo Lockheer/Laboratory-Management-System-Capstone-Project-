@@ -153,6 +153,7 @@
     </Compile>
     <Compile Include="GetPin.cs" />
     <Compile Include="Helpers\HashHelpers.cs" />
+    <Compile Include="IUnsavedChangesForm.cs" />
     <Compile Include="Penalties.cs">
       <SubType>Form</SubType>
     </Compile>

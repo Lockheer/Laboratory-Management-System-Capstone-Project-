@@ -85,6 +85,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                 penaltyRecordsToolStripMenuItem.Visible = false; // Hide access to PenaltiesRecords for Personnel
                 updateTransactionsToolStripMenuItem.Visible = false; // Hide access to UpdateTransactions for Personnel
             }
+
+            ShowShortcutButtons();
+
         }
 
 
@@ -230,6 +233,8 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             // Clear the panelContainer controls
             panelContainer.Controls.Clear();
+
+            ShowShortcutButtons();
         }
 
         private int GetCurrentAccountId()
@@ -274,6 +279,28 @@ namespace Laboratory_Management_System__Capstone_Project_
         // Method to display forms in the panel container
         public void ShowFormInPanel(Form form)
         {
+            if (panelContainer.Controls.Count > 0)
+            {
+                Form currentForm = panelContainer.Controls[0] as Form;
+                if (currentForm is IUnsavedChangesForm unsavedChangesForm)
+                {
+                    unsavedChangesForm.ConfirmUnsavedChanges();
+                }
+            }
+
+            // Hide the shortcut buttons
+            btnInventoryShortcut.Visible = false;
+            btnStudentListShortcut.Visible = false;
+            lblShortcut.Visible = false;
+
+            // Hide the labels
+            apparatusCountLabel.Visible = false;
+            studentCountLabel.Visible = false;
+            borrowedApparatusCountLabel.Visible = false;
+            returnedApparatusCountLabel.Visible = false;
+            lblOverview.Visible = false;
+            ShowCountPanel.Visible = false;
+
             panelContainer.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
@@ -281,6 +308,16 @@ namespace Laboratory_Management_System__Capstone_Project_
             panelContainer.Controls.Add(form);
             form.Show();
         }
+
+        /*public void ShowFormInPanel(Form form)
+        {
+            panelContainer.Controls.Clear();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(form);
+            form.Show();
+        }*/
 
         // Method to handle the Form closed event
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
@@ -378,8 +415,119 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
-        
+        private void btnInventoryShortcut_Click(object sender, EventArgs e)
+        {
+            InventoryList viewApp = new InventoryList();
+            ShowFormInPanel(viewApp);
+        }
+
+        private void btnStudentListShortcut_Click(object sender, EventArgs e)
+        {
+            ViewStudentInformation viewStudents = new ViewStudentInformation();
+            ShowFormInPanel(viewStudents);
+        }
+
+        private void ShowShortcutButtons()
+        {
+            btnInventoryShortcut.Visible = true;
+            btnStudentListShortcut.Visible = true;
+            lblShortcut.Visible = true;
+
+            apparatusCountLabel.Visible = true;
+            studentCountLabel.Visible = true;
+            borrowedApparatusCountLabel.Visible = true;
+            returnedApparatusCountLabel.Visible = true;
+            lblOverview.Visible = true;
+            ShowCountPanel.Visible = true;
+        }
+
+
+        private void ShowApparatusCount()
+        {
+            // Update the apparatus count label
+            UpdateApparatusCountLabel(apparatusCountLabel);
+
+            // Update the student count label
+            UpdateStudentCountLabel(studentCountLabel);
+
+            // Update the borrowed apparatus count label
+            UpdateBorrowedApparatusCountLabel(borrowedApparatusCountLabel);
+
+            // Update the returned apparatus count label
+            UpdateReturnedApparatusCountLabel(returnedApparatusCountLabel);
+        }
+
+
+        private void UpdateApparatusCountLabel(Label apparatusCountLabel)
+        {
+            // Connect to the database and retrieve the apparatus count
+            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string query = "SELECT COUNT(*) FROM Inventory";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                int apparatusCount = (int)command.ExecuteScalar();
+
+                // Update the apparatus count label
+                apparatusCountLabel.Text = $"Apparatus Count: {apparatusCount}";
+            }
+        }
+
+        private void UpdateStudentCountLabel(Label studentCountLabel)
+        {
+            // Connect to the database and retrieve the student count
+            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string query = "SELECT COUNT(*) FROM Students";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                int studentCount = (int)command.ExecuteScalar();
+
+                // Update the student count label
+                studentCountLabel.Text = $"Student Count: {studentCount}";
+            }
+        }
+
+        private void UpdateBorrowedApparatusCountLabel(Label borrowedApparatusCountLabel)
+        {
+            // Connect to the database and retrieve the borrowed apparatus count
+            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string query = "SELECT COUNT(*) FROM BorrowReturnTransaction WHERE Date_Returned IS NULL";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                int borrowedApparatusCount = (int)command.ExecuteScalar();
+
+                // Update the borrowed apparatus count label
+                borrowedApparatusCountLabel.Text = $"Borrowed Apparatus Count: {borrowedApparatusCount}";
+            }
+        }
+
+        private void UpdateReturnedApparatusCountLabel(Label returnedApparatusCountLabel)
+        {
+            // Connect to the database and retrieve the returned apparatus count
+            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string query = "SELECT COUNT(*) FROM BorrowReturnTransaction WHERE Date_Returned IS NOT NULL";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                int returnedApparatusCount = (int)command.ExecuteScalar();
+
+                // Update the returned apparatus count label
+                returnedApparatusCountLabel.Text = $"Returned Apparatus Count: {returnedApparatusCount}";
+            }
+        }
     }
+
+
 
     public static class ControlExtensions
     {

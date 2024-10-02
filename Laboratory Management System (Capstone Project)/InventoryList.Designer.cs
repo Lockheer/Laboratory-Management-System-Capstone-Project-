@@ -56,7 +56,6 @@
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbModelNum = new System.Windows.Forms.TextBox();
             this.tbAppName = new System.Windows.Forms.TextBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.cbStatusFilter = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -382,21 +381,6 @@
             this.tbAppName.Size = new System.Drawing.Size(213, 22);
             this.tbAppName.TabIndex = 7;
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Maroon;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1929, 148);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(83, 42);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // cbStatusFilter
             // 
             this.cbStatusFilter.FormattingEnabled = true;
@@ -455,11 +439,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1784, 1109);
+            this.ClientSize = new System.Drawing.Size(1942, 1102);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cbCategoryFilter);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cbStatusFilter);
             this.Controls.Add(this.panel2);
@@ -503,7 +486,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tbPurchaseDate;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cbEditStatus;
         private System.Windows.Forms.TextBox tbRemarks;
         private System.Windows.Forms.Label label11;

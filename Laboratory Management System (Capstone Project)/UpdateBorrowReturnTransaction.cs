@@ -16,12 +16,85 @@ using System.IO;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
-    public partial class UpdateBorrowReturnTransaction : Form
+    public partial class UpdateBorrowReturnTransaction : Form, IUnsavedChangesForm
     {
+
         public UpdateBorrowReturnTransaction()
         {
             InitializeComponent();
         }
+
+        private bool _hasUnsavedChanges = false;
+        public bool HasUnsavedChanges
+        {
+            get { return _hasUnsavedChanges; }
+        }
+
+    
+        // Call this method when the user makes changes to the form
+        private void UpdateUnsavedChanges()
+        {
+            _hasUnsavedChanges = true;
+        }
+
+
+        private void tbStudentName_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbEmailAdd_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbContact_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void cbProgram_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void cbAppaName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void nudQuantity_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void dtpBorrowedDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void dtpDueDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void nudQuantityReturned_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void dtpDateReturned_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbRemarks_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+
+
 
         Int64 rowid;
         int id;
@@ -383,6 +456,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void tbIDNum_TextChanged(object sender, EventArgs e)
         {
+            UpdateUnsavedChanges();
             // Get the list of existing ID Numbers from the Students table
             List<string> idNumbers = GetExistingIDNumbers();
 
@@ -485,7 +559,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        /*private void btnExit_Click(object sender, EventArgs e)
         {
 
             if (MessageBox.Show("Unsaved changes will be lost\nDo you want to go back to the Dashboard?"
@@ -496,7 +570,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 Dashboard.formRestrict = 0;
 
             }   
-        }
+        }*/
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
         {
@@ -554,5 +628,29 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
         }
+
+        public void ConfirmUnsavedChanges()
+        {
+            if (_hasUnsavedChanges)
+            {
+                if (MessageBox.Show("You have unsaved changes. Do you want to save them before proceeding?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    // Save changes
+                    btnUpdate_Click(null, null);
+                }
+                else if (MessageBox.Show("You have unsaved changes. Are you sure you want to discard them?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    // Discard changes
+                    _hasUnsavedChanges = false;
+                }
+                else
+                {
+                    
+                    return;
+                }
+            }
+        }
     }
+
+  
 }

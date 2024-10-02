@@ -35,6 +35,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.ShowCountPanel = new System.Windows.Forms.Panel();
+            this.lblOverview = new System.Windows.Forms.Label();
+            this.returnedApparatusCountLabel = new System.Windows.Forms.Label();
+            this.borrowedApparatusCountLabel = new System.Windows.Forms.Label();
+            this.studentCountLabel = new System.Windows.Forms.Label();
+            this.apparatusCountLabel = new System.Windows.Forms.Label();
+            this.lblShortcut = new System.Windows.Forms.Label();
+            this.btnStudentListShortcut = new System.Windows.Forms.Button();
+            this.btnInventoryShortcut = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblIDNumber = new System.Windows.Forms.Label();
@@ -56,6 +65,7 @@
             this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
             this.picBoxBC = new System.Windows.Forms.PictureBox();
             this.panelContainer.SuspendLayout();
+            this.ShowCountPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBC)).BeginInit();
@@ -103,6 +113,10 @@
             // 
             this.panelContainer.BackColor = System.Drawing.Color.Transparent;
             this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelContainer.Controls.Add(this.ShowCountPanel);
+            this.panelContainer.Controls.Add(this.lblShortcut);
+            this.panelContainer.Controls.Add(this.btnStudentListShortcut);
+            this.panelContainer.Controls.Add(this.btnInventoryShortcut);
             this.panelContainer.Controls.Add(this.label4);
             this.panelContainer.Controls.Add(this.lblFirstName);
             this.panelContainer.Controls.Add(this.lblIDNumber);
@@ -111,6 +125,117 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(2439, 1312);
             this.panelContainer.TabIndex = 4;
+            // 
+            // ShowCountPanel
+            // 
+            this.ShowCountPanel.BackColor = System.Drawing.Color.Navy;
+            this.ShowCountPanel.Controls.Add(this.lblOverview);
+            this.ShowCountPanel.Controls.Add(this.returnedApparatusCountLabel);
+            this.ShowCountPanel.Controls.Add(this.borrowedApparatusCountLabel);
+            this.ShowCountPanel.Controls.Add(this.studentCountLabel);
+            this.ShowCountPanel.Controls.Add(this.apparatusCountLabel);
+            this.ShowCountPanel.Location = new System.Drawing.Point(210, 247);
+            this.ShowCountPanel.Name = "ShowCountPanel";
+            this.ShowCountPanel.Size = new System.Drawing.Size(515, 397);
+            this.ShowCountPanel.TabIndex = 9;
+            // 
+            // lblOverview
+            // 
+            this.lblOverview.AutoSize = true;
+            this.lblOverview.BackColor = System.Drawing.Color.Transparent;
+            this.lblOverview.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblOverview.Location = new System.Drawing.Point(16, 22);
+            this.lblOverview.Name = "lblOverview";
+            this.lblOverview.Size = new System.Drawing.Size(150, 33);
+            this.lblOverview.TabIndex = 4;
+            this.lblOverview.Text = "Overview:";
+            // 
+            // returnedApparatusCountLabel
+            // 
+            this.returnedApparatusCountLabel.AutoSize = true;
+            this.returnedApparatusCountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.returnedApparatusCountLabel.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnedApparatusCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(16, 312);
+            this.returnedApparatusCountLabel.Name = "returnedApparatusCountLabel";
+            this.returnedApparatusCountLabel.Size = new System.Drawing.Size(220, 33);
+            this.returnedApparatusCountLabel.TabIndex = 3;
+            this.returnedApparatusCountLabel.Text = "Return Counter";
+            // 
+            // borrowedApparatusCountLabel
+            // 
+            this.borrowedApparatusCountLabel.AutoSize = true;
+            this.borrowedApparatusCountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.borrowedApparatusCountLabel.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowedApparatusCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(16, 237);
+            this.borrowedApparatusCountLabel.Name = "borrowedApparatusCountLabel";
+            this.borrowedApparatusCountLabel.Size = new System.Drawing.Size(228, 33);
+            this.borrowedApparatusCountLabel.TabIndex = 2;
+            this.borrowedApparatusCountLabel.Text = "Borrow Counter";
+            // 
+            // studentCountLabel
+            // 
+            this.studentCountLabel.AutoSize = true;
+            this.studentCountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.studentCountLabel.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.studentCountLabel.Location = new System.Drawing.Point(16, 160);
+            this.studentCountLabel.Name = "studentCountLabel";
+            this.studentCountLabel.Size = new System.Drawing.Size(234, 33);
+            this.studentCountLabel.TabIndex = 1;
+            this.studentCountLabel.Text = "Student Counter";
+            // 
+            // apparatusCountLabel
+            // 
+            this.apparatusCountLabel.AutoSize = true;
+            this.apparatusCountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.apparatusCountLabel.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apparatusCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.apparatusCountLabel.Location = new System.Drawing.Point(16, 94);
+            this.apparatusCountLabel.Name = "apparatusCountLabel";
+            this.apparatusCountLabel.Size = new System.Drawing.Size(267, 33);
+            this.apparatusCountLabel.TabIndex = 0;
+            this.apparatusCountLabel.Text = "Apparatus Counter";
+            // 
+            // lblShortcut
+            // 
+            this.lblShortcut.AutoSize = true;
+            this.lblShortcut.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShortcut.Location = new System.Drawing.Point(370, 721);
+            this.lblShortcut.Name = "lblShortcut";
+            this.lblShortcut.Size = new System.Drawing.Size(355, 32);
+            this.lblShortcut.TabIndex = 8;
+            this.lblShortcut.Text = "FEATURED SHORTCUTS";
+            // 
+            // btnStudentListShortcut
+            // 
+            this.btnStudentListShortcut.BackColor = System.Drawing.Color.Navy;
+            this.btnStudentListShortcut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnStudentListShortcut.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudentListShortcut.ForeColor = System.Drawing.Color.White;
+            this.btnStudentListShortcut.Location = new System.Drawing.Point(564, 782);
+            this.btnStudentListShortcut.Name = "btnStudentListShortcut";
+            this.btnStudentListShortcut.Size = new System.Drawing.Size(223, 88);
+            this.btnStudentListShortcut.TabIndex = 7;
+            this.btnStudentListShortcut.Text = "STUDENTS LIST";
+            this.btnStudentListShortcut.UseVisualStyleBackColor = false;
+            this.btnStudentListShortcut.Click += new System.EventHandler(this.btnStudentListShortcut_Click);
+            // 
+            // btnInventoryShortcut
+            // 
+            this.btnInventoryShortcut.BackColor = System.Drawing.Color.Navy;
+            this.btnInventoryShortcut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnInventoryShortcut.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventoryShortcut.ForeColor = System.Drawing.Color.White;
+            this.btnInventoryShortcut.Location = new System.Drawing.Point(270, 782);
+            this.btnInventoryShortcut.Name = "btnInventoryShortcut";
+            this.btnInventoryShortcut.Size = new System.Drawing.Size(223, 88);
+            this.btnInventoryShortcut.TabIndex = 6;
+            this.btnInventoryShortcut.Text = "INVENTORY";
+            this.btnInventoryShortcut.UseVisualStyleBackColor = false;
+            this.btnInventoryShortcut.Click += new System.EventHandler(this.btnInventoryShortcut_Click);
             // 
             // label4
             // 
@@ -157,7 +282,7 @@
             this.btnToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToggle.ForeColor = System.Drawing.Color.Transparent;
             this.btnToggle.Location = new System.Drawing.Point(29, 47);
-            this.btnToggle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnToggle.Margin = new System.Windows.Forms.Padding(4);
             this.btnToggle.Name = "btnToggle";
             this.btnToggle.Size = new System.Drawing.Size(68, 64);
             this.btnToggle.TabIndex = 3;
@@ -197,7 +322,7 @@
             this.menuStrip3.Location = new System.Drawing.Point(9, 58);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip3.Size = new System.Drawing.Size(363, 732);
+            this.menuStrip3.Size = new System.Drawing.Size(363, 688);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             this.menuStrip3.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip3_ItemClicked);
@@ -334,7 +459,11 @@
             this.penaltyRecordsToolStripMenuItem.Size = new System.Drawing.Size(362, 96);
             this.penaltyRecordsToolStripMenuItem.Text = " Penalties and Violations";
             this.penaltyRecordsToolStripMenuItem.Click += new System.EventHandler(this.penaltyRecordsToolStripMenuItem_Click);
-           
+            // 
+            // dToolStripMenuItem
+            // 
+            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(362, 4);
             // 
             // lnklblLogOut
             // 
@@ -362,7 +491,7 @@
             this.picBoxBC.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bcc_logo_name;
             this.picBoxBC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBoxBC.Location = new System.Drawing.Point(128, 31);
-            this.picBoxBC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBoxBC.Margin = new System.Windows.Forms.Padding(4);
             this.picBoxBC.Name = "picBoxBC";
             this.picBoxBC.Size = new System.Drawing.Size(129, 122);
             this.picBoxBC.TabIndex = 4;
@@ -391,6 +520,8 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panelContainer.ResumeLayout(false);
             this.panelContainer.PerformLayout();
+            this.ShowCountPanel.ResumeLayout(false);
+            this.ShowCountPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip3.ResumeLayout(false);
@@ -427,5 +558,14 @@
         private System.Windows.Forms.ToolStripMenuItem comToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem penaltyRecordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dToolStripMenuItem;
+        private System.Windows.Forms.Button btnStudentListShortcut;
+        private System.Windows.Forms.Button btnInventoryShortcut;
+        private System.Windows.Forms.Label lblShortcut;
+        private System.Windows.Forms.Panel ShowCountPanel;
+        private System.Windows.Forms.Label returnedApparatusCountLabel;
+        private System.Windows.Forms.Label borrowedApparatusCountLabel;
+        private System.Windows.Forms.Label studentCountLabel;
+        private System.Windows.Forms.Label apparatusCountLabel;
+        private System.Windows.Forms.Label lblOverview;
     }
 }
