@@ -41,7 +41,6 @@
             this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.lblStudents = new System.Windows.Forms.Label();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
-            this.btnPrintAll = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
@@ -199,17 +198,6 @@
             this.dgvStudents.Size = new System.Drawing.Size(1000, 374);
             this.dgvStudents.TabIndex = 47;
             // 
-            // btnPrintAll
-            // 
-            this.btnPrintAll.Location = new System.Drawing.Point(1276, 226);
-            this.btnPrintAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrintAll.Name = "btnPrintAll";
-            this.btnPrintAll.Size = new System.Drawing.Size(205, 46);
-            this.btnPrintAll.TabIndex = 48;
-            this.btnPrintAll.Text = "PRINT ALL RECORDS";
-            this.btnPrintAll.UseVisualStyleBackColor = true;
-            this.btnPrintAll.Click += new System.EventHandler(this.btnPrintAll_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -241,7 +229,6 @@
             this.ClientSize = new System.Drawing.Size(1593, 1102);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnPrintAll);
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.lblStudents);
             this.Controls.Add(this.dgvInventory);
@@ -286,7 +273,6 @@
         private System.Windows.Forms.DataGridView dgvInventory;
         private System.Windows.Forms.Label lblStudents;
         private System.Windows.Forms.DataGridView dgvStudents;
-        private System.Windows.Forms.Button btnPrintAll;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExport;
         private System.Drawing.Printing.PrintDocument printDocument1;

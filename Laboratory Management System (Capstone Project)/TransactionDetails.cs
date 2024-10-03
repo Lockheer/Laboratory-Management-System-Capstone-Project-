@@ -501,10 +501,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-
-
-
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
             try
@@ -655,45 +651,6 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void cmbViewOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayDataGridView();
-        }
-
-        private void btnPrintAll_Click(object sender, EventArgs e)
-        {
-            // Confirm with the user before printing all reports
-            DialogResult result = MessageBox.Show(
-                "You are about to print all records from the database tables. Are you sure you want to proceed?",
-                "Confirm Print All",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                PrintDocument printDoc = new PrintDocument();
-                printDoc.PrintPage += new PrintPageEventHandler(printAllDocuments_PrintPage);
-
-                PrintPreviewDialog previewDialog = new PrintPreviewDialog
-                {
-                    Document = printDoc
-                };
-
-                previewDialog.ShowDialog();
-            }
-        }
-
-        private void printAllDocuments_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            float yPos = e.MarginBounds.Top;
-            float leftMargin = e.MarginBounds.Left;
-            float lineHeight = new Font("Arial", 10).GetHeight(e.Graphics);
-
-            // Print each section with headers and detailed descriptions
-            PrintSection(e.Graphics, "Borrowed Items", GetBorrowedItems(), ref yPos, leftMargin, e.MarginBounds.Right, lineHeight);
-            PrintSection(e.Graphics, "Returned Items", GetReturnedItems(), ref yPos, leftMargin, e.MarginBounds.Right, lineHeight);
-            PrintSection(e.Graphics, "Violation Records", GetViolationRecords(), ref yPos, leftMargin, e.MarginBounds.Right, lineHeight);
-            PrintSection(e.Graphics, "Inventory List", GetInventoryList(), ref yPos, leftMargin, e.MarginBounds.Right, lineHeight);
-            PrintSection(e.Graphics, "Students List", GetStudentsList(), ref yPos, leftMargin, e.MarginBounds.Right, lineHeight);
-
-            e.HasMorePages = false;
         }
 
         private void PrintSection(Graphics g, string header, DataTable data, ref float yPos, float leftMargin, float rightMargin, float lineHeight)
