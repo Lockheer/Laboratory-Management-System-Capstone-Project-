@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,14 +73,14 @@
             this.btnResend.BackColor = System.Drawing.Color.Transparent;
             this.btnResend.FlatAppearance.BorderSize = 0;
             this.btnResend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResend.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.btnResend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.btnResend.Location = new System.Drawing.Point(213, 341);
+            this.btnResend.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Underline);
+            this.btnResend.ForeColor = System.Drawing.Color.Purple;
+            this.btnResend.Location = new System.Drawing.Point(368, 340);
             this.btnResend.Margin = new System.Windows.Forms.Padding(2);
             this.btnResend.Name = "btnResend";
-            this.btnResend.Size = new System.Drawing.Size(237, 40);
+            this.btnResend.Size = new System.Drawing.Size(77, 40);
             this.btnResend.TabIndex = 2;
-            this.btnResend.Text = "Re-send verification email";
+            this.btnResend.Text = "resend";
             this.btnResend.UseVisualStyleBackColor = false;
             this.btnResend.Click += new System.EventHandler(this.btnResend_Click);
             // 
@@ -105,7 +106,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label2.Location = new System.Drawing.Point(121, 204);
+            this.label2.Location = new System.Drawing.Point(137, 195);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(370, 29);
@@ -117,7 +118,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pictureBox1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.email_icon_no_notif;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(263, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(263, 49);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(111, 121);
             this.pictureBox1.TabIndex = 4;
@@ -161,6 +162,17 @@
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label5.Location = new System.Drawing.Point(203, 351);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(171, 19);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Didn\'t receive a code? ";
+            // 
             // EmailVerification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +180,7 @@
             this.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.email_pic;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(652, 409);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -203,5 +216,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label5;
     }
 }

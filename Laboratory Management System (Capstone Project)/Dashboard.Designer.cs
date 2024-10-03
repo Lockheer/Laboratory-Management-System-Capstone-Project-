@@ -166,14 +166,14 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.sidebarlast;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.menuStrip3);
             this.panel1.Controls.Add(this.lnklblLogOut);
             this.panel1.ForeColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(-7, 120);
+            this.panel1.Location = new System.Drawing.Point(-1, 127);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(321, 959);
+            this.panel1.Size = new System.Drawing.Size(319, 959);
             this.panel1.TabIndex = 2;
             // 
             // menuStrip3
@@ -191,7 +191,7 @@
             this.comToolStripMenuItem,
             this.penaltyRecordsToolStripMenuItem});
             this.menuStrip3.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.menuStrip3.Location = new System.Drawing.Point(11, 46);
+            this.menuStrip3.Location = new System.Drawing.Point(2, 46);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(0);
             this.menuStrip3.Size = new System.Drawing.Size(320, 684);
@@ -219,7 +219,7 @@
             // 
             this.addANewApparatusToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addANewApparatusToolStripMenuItem.Image")));
             this.addANewApparatusToolStripMenuItem.Name = "addANewApparatusToolStripMenuItem";
-            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
+            this.addANewApparatusToolStripMenuItem.Size = new System.Drawing.Size(339, 26);
             this.addANewApparatusToolStripMenuItem.Text = "Add a New Apparatus";
             this.addANewApparatusToolStripMenuItem.Click += new System.EventHandler(this.addANewApparatusToolStripMenuItem_Click);
             // 
@@ -227,7 +227,7 @@
             // 
             this.viewApparatusListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewApparatusListToolStripMenuItem.Image")));
             this.viewApparatusListToolStripMenuItem.Name = "viewApparatusListToolStripMenuItem";
-            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
+            this.viewApparatusListToolStripMenuItem.Size = new System.Drawing.Size(339, 26);
             this.viewApparatusListToolStripMenuItem.Text = "View and Update Inventory List";
             this.viewApparatusListToolStripMenuItem.Click += new System.EventHandler(this.viewApparatusListToolStripMenuItem_Click);
             // 
@@ -357,7 +357,7 @@
             this.picBoxBC.BackColor = System.Drawing.Color.Transparent;
             this.picBoxBC.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bcc_logo_name;
             this.picBoxBC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBoxBC.Location = new System.Drawing.Point(96, 25);
+            this.picBoxBC.Location = new System.Drawing.Point(97, 21);
             this.picBoxBC.Name = "picBoxBC";
             this.picBoxBC.Size = new System.Drawing.Size(97, 99);
             this.picBoxBC.TabIndex = 4;
@@ -378,7 +378,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.picBoxBC);
             this.Controls.Add(this.panelContainer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dashboard";
             this.Text = "Dashboard";

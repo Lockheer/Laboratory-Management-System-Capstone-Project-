@@ -550,12 +550,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
-
-
-
         }
-
-
     }
 }
 /*private void tbStudentSearch_TextChanged(object sender, EventArgs e)

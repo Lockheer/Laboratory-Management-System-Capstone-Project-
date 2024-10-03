@@ -20,8 +20,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
         }
 
-
-
         private void PenaltyEmail_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
