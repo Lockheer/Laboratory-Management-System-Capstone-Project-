@@ -409,9 +409,7 @@
             this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(244, 20);
-            this.tbSearch.TabIndex = 24;
-            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
-            // 
+            this.tbSearch.TabIndex = 24;            // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;

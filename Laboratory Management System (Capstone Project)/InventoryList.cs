@@ -66,10 +66,14 @@ namespace Laboratory_Management_System__Capstone_Project_
         public InventoryList()
         {
             InitializeComponent();
+
+
+            tbAppaSearch.TextChanged += tbAppaSearch_TextChanged;
             LoadCategories();
             tbPrice.Enter += tbPrice_Enter;
             tbPrice.Leave += tbPrice_Leave;
             SetPlaceholderText();
+
 
             // UI styling
             UIHelper.SetRoundedCorners(panel2, 20);
@@ -77,20 +81,21 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetRoundedCorners(btnUpdate, 40);
             UIHelper.SetRoundedCorners(btnDelete, 40);
             UIHelper.SetGradientBackground(panel2, Color.FromArgb(11, 44, 149), Color.FromArgb(44, 84, 215), System.Drawing.Drawing2D.LinearGradientMode.Vertical);
+
+            ViewApparatus_Load(this, null);
         }
 
         private void ViewApparatus_Load(object sender, EventArgs e)
         {
-            tbAppaSearch.KeyDown += tbAppaSearch_KeyDown;
-            panel2.Visible = false;
 
+            tbAppaSearch.TextChanged += tbAppaSearch_TextChanged;
+            panel2.Visible = false;
             try
             {
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                 {
                     using (SqlCommand cmd = new SqlCommand(
-                        "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
-                        "FROM Inventory i " +
+                        "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.CategoryName FROM Inventory i " +
                         "JOIN Category c ON i.CategoryID = c.CategoryID", con))
                     {
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -182,35 +187,39 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                if (dgvApparatusList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                if (e.RowIndex >= 0 && e.RowIndex < dgvApparatusList.Rows.Count)
                 {
                     id = int.Parse(dgvApparatusList.Rows[e.RowIndex].Cells[0].Value.ToString());
-                }
-                panel2.Visible = true;
+                    panel2.Visible = true;
 
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(
-                        "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
-                        "FROM Inventory i " +
-                        "JOIN Category c ON i.CategoryID = c.CategoryID " +
-                        "WHERE i.[ApparatusID] = @ApparatusID", con))
+                    // Retrieve the data from the database
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
-                        cmd.Parameters.AddWithValue("@ApparatusID", id);
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
+                        using (SqlCommand cmd = new SqlCommand(
+                            "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
+                            "FROM Inventory i " +
+                            "JOIN Category c ON i.CategoryID = c.CategoryID " +
+                            "WHERE i.[ApparatusID] = @ApparatusID", con))
+                        {
+                            cmd.Parameters.AddWithValue("@ApparatusID", id);
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            DataSet ds = new DataSet();
+                            da.Fill(ds);
 
-                        rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
-                        tbAppName.Text = ds.Tables[0].Rows[0][1].ToString();
-                        tbModelNum.Text = ds.Tables[0].Rows[0][2].ToString();
-                        tbPurchaseDate.Text = ds.Tables[0].Rows[0][3].ToString();
-                        tbPrice.Text = ds.Tables[0].Rows[0][4].ToString();
-                        tbBrand.Text = ds.Tables[0].Rows[0][5].ToString();
-                        cbEditStatus.Text = ds.Tables[0].Rows[0][6].ToString();
-                        tbQuantity.Text = ds.Tables[0].Rows[0][7].ToString();
-                        tbRemarks.Text = ds.Tables[0].Rows[0][8].ToString();
-                        cbCategory.Text = ds.Tables[0].Rows[0][9].ToString(); // CategoryName
+                            if (ds.Tables[0].Rows.Count > 0)
+                            {
+                                rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
+                                tbAppName.Text = ds.Tables[0].Rows[0][1].ToString();
+                                tbModelNum.Text = ds.Tables[0].Rows[0][2].ToString();
+                                tbPurchaseDate.Text = ds.Tables[0].Rows[0][3].ToString();
+                                tbPrice.Text = ds.Tables[0].Rows[0][4].ToString();
+                                tbBrand.Text = ds.Tables[0].Rows[0][5].ToString();
+                                cbEditStatus.Text = ds.Tables[0].Rows[0][6].ToString();
+                                tbQuantity.Text = ds.Tables[0].Rows[0][7].ToString();
+                                tbRemarks.Text = ds.Tables[0].Rows[0][8].ToString();
+                                cbCategory.Text = ds.Tables[0].Rows[0][9].ToString(); // CategoryName
+                            }
+                        }
                     }
                 }
             }
@@ -308,74 +317,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
 
-        //filter by status
-        private void cbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                FilterApparatusList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while filtering by status: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
-
-        // Filter method combining search and status filter
-        private void FilterApparatusList()
-        {
-            string searchQuery = tbAppaSearch.Text.Trim();
-            string statusFilter = cbStatusFilter.SelectedItem?.ToString();
-
-            StringBuilder queryBuilder = new StringBuilder("SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
-                                                     "FROM Inventory i " +
-                                                     "JOIN Category c ON i.CategoryID = c.CategoryID " +
-                                                     "WHERE 1=1");
-
-            if (!string.IsNullOrEmpty(statusFilter))
-            {
-                queryBuilder.Append(" AND [Status] = @Status");
-            }
-
-            if (!string.IsNullOrEmpty(searchQuery))
-            {
-                queryBuilder.Append(" AND ([Apparatus Name] LIKE @SearchText + '%' OR [Model Number] LIKE @SearchText + '%' " +
-                                    "OR [Date Purchased] LIKE @SearchText + '%' OR [Price] LIKE @SearchText + '%' OR [Brand] LIKE @SearchText + '%' " +
-                                    "OR [Quantity] LIKE @SearchText + '%' OR [Remarks] LIKE @SearchText + '%')");
-            }
-
-            DataTable dt = new DataTable();
-
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(queryBuilder.ToString(), con))
-                {
-                    if (!string.IsNullOrEmpty(statusFilter))
-                    {
-                        cmd.Parameters.AddWithValue("@Status", statusFilter);
-                    }
-
-                    if (!string.IsNullOrEmpty(searchQuery))
-                    {
-                        cmd.Parameters.AddWithValue("@SearchText", searchQuery);
-                    }
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
-                }
-            }
-
-            if (dt.Rows.Count == 0 && !string.IsNullOrEmpty(searchQuery))
-            {
-                MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ViewApparatus_Load(this, null); // Reload all data when no records found
-            }
-            else
-            {
-                dgvApparatusList.DataSource = dt;
-            }
-        }
         private void btnExport_Click(object sender, EventArgs e)
         {
             try
@@ -448,10 +390,17 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void cbCategoryFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedCategoryID = (int)((KeyValuePair<int, string>)cbCategoryFilter.SelectedItem).Key;
-            FilterInventoryByCategory(selectedCategoryID);
+            if (cbCategoryFilter.SelectedItem is KeyValuePair<int, string> selectedCategory)
+            {
+                int selectedCategoryID = selectedCategory.Key;
+                FilterInventoryByCategory(selectedCategoryID);
+            }
+            else
+            {
+                // Handle the case where the SelectedItem is not a KeyValuePair<int, string>
+                MessageBox.Show("Invalid selection", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private void FilterInventoryByCategory(int categoryID)
         {
             try
@@ -483,28 +432,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private void tbAppaSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                try
-                {
-                    if (string.IsNullOrWhiteSpace(tbAppaSearch.Text))
-                    {
-                        ViewApparatus_Load(this, null); // Reload all data when search text is cleared
-                    }
-                    else
-                    {
-                        FilterApparatusList();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred while filtering: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
 
-        }
 
         private void tbAppName_TextChanged(object sender, EventArgs e)
         {
@@ -548,11 +476,104 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+            FilterApparatusList();
             UpdateUnsavedChanges();
         }
 
+        private void tbAppaSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(tbAppaSearch.Text))
+                {
+                    FilterApparatusList();
+                }
+                else
+                {
+                    ViewApparatus_Load(this, null); // Reload all data when search text is cleared
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while filtering: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void cbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterApparatusList();
+        }
+        private void FilterApparatusList()
+        {
+            string searchQuery = tbAppaSearch.Text.Trim();
+            string statusFilter = cbStatusFilter.SelectedItem?.ToString();
 
+            StringBuilder queryBuilder = new StringBuilder("SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
+                                                             "FROM Inventory i " +
+                                                             "JOIN Category c ON i.CategoryID = c.CategoryID ");
+
+            List<SqlParameter> parameters = new List<SqlParameter>();
+
+            if (!string.IsNullOrEmpty(statusFilter))
+            {
+                queryBuilder.Append(" WHERE [Status] = @Status");
+                parameters.Add(new SqlParameter("@Status", statusFilter));
+            }
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                if (queryBuilder.ToString().Contains("WHERE"))
+                {
+                    queryBuilder.Append(" AND ");
+                }
+                else
+                {
+                    queryBuilder.Append(" WHERE ");
+                }
+
+                // Check if status filter is applied
+                if (!string.IsNullOrEmpty(statusFilter))
+                {
+                    queryBuilder.Append("(i.[Apparatus Name] LIKE @SearchText OR i.[Model Number] LIKE @SearchText OR i.[Date Purchased] LIKE @SearchText OR i.[Price] LIKE @SearchText OR i.[Brand] LIKE @SearchText OR i.[Quantity] LIKE @SearchText OR i.[Remarks] LIKE @SearchText) AND ([Status] = @Status)");
+                }
+                else
+                {
+                    queryBuilder.Append("(i.[Apparatus Name] LIKE @SearchText OR i.[Model Number] LIKE @SearchText OR i.[Date Purchased] LIKE @SearchText OR i.[Price] LIKE @SearchText OR i.[Brand] LIKE @SearchText OR i.[Quantity] LIKE @SearchText OR i.[Remarks] LIKE @SearchText)");
+                }
+                parameters.Add(new SqlParameter("@SearchText", "%" + searchQuery + "%"));
+            }
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(queryBuilder.ToString(), con))
+                {
+                    foreach (var param in parameters)
+                    {
+                        cmd.Parameters.Add(param);
+                    }
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+
+                    Console.WriteLine($"Filtered rows count: {dt.Rows.Count}");
+
+                    if (dt.Rows.Count == 0 && !string.IsNullOrEmpty(searchQuery) && !string.IsNullOrEmpty(statusFilter))
+                    {
+                        MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (dt.Rows.Count == 0 && !string.IsNullOrEmpty(searchQuery))
+                    {
+                        MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        dgvApparatusList.DataSource = dt;
+                    }
+                }
+            }
+        }
 
     }
 }

@@ -97,7 +97,6 @@
             this.tbAppaSearch.Name = "tbAppaSearch";
             this.tbAppaSearch.Size = new System.Drawing.Size(223, 27);
             this.tbAppaSearch.TabIndex = 3;
-            this.tbAppaSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAppaSearch_KeyDown);
             // 
             // btnRefresh
             // 

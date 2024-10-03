@@ -35,9 +35,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.btnStudentListShortcut = new System.Windows.Forms.Button();
+            this.btnInventoryShortcut = new System.Windows.Forms.Button();
+            this.lblShortcut = new System.Windows.Forms.Label();
+            this.ShowCountPanel = new System.Windows.Forms.Panel();
+            this.returnedApparatusCountLabel = new System.Windows.Forms.Label();
+            this.borrowedApparatusCountLabel = new System.Windows.Forms.Label();
+            this.studentCountLabel = new System.Windows.Forms.Label();
+            this.apparatusCountLabel = new System.Windows.Forms.Label();
+            this.lblOverview = new System.Windows.Forms.Label();
             this.lblIDNumber = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.btnToggle = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
@@ -54,20 +63,11 @@
             this.penaltyRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
             this.picBoxBC = new System.Windows.Forms.PictureBox();
-            this.ShowCountPanel = new System.Windows.Forms.Panel();
-            this.lblOverview = new System.Windows.Forms.Label();
-            this.lblShortcut = new System.Windows.Forms.Label();
-            this.btnInventoryShortcut = new System.Windows.Forms.Button();
-            this.btnStudentListShortcut = new System.Windows.Forms.Button();
-            this.apparatusCountLabel = new System.Windows.Forms.Label();
-            this.studentCountLabel = new System.Windows.Forms.Label();
-            this.borrowedApparatusCountLabel = new System.Windows.Forms.Label();
-            this.returnedApparatusCountLabel = new System.Windows.Forms.Label();
             this.panelContainer.SuspendLayout();
+            this.ShowCountPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBC)).BeginInit();
-            this.ShowCountPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -115,12 +115,97 @@
             this.panelContainer.Controls.Add(this.ShowCountPanel);
             this.panelContainer.Controls.Add(this.lblIDNumber);
             this.panelContainer.Controls.Add(this.lblFirstName);
-            this.panelContainer.Controls.Add(this.label4);
+            this.panelContainer.Controls.Add(this.lblTitle);
             this.panelContainer.Location = new System.Drawing.Point(173, 0);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1829, 1066);
             this.panelContainer.TabIndex = 4;
+            // 
+            // btnStudentListShortcut
+            // 
+            this.btnStudentListShortcut.Location = new System.Drawing.Point(444, 599);
+            this.btnStudentListShortcut.Name = "btnStudentListShortcut";
+            this.btnStudentListShortcut.Size = new System.Drawing.Size(75, 23);
+            this.btnStudentListShortcut.TabIndex = 10;
+            this.btnStudentListShortcut.Text = "student lsit";
+            this.btnStudentListShortcut.UseVisualStyleBackColor = true;
+            // 
+            // btnInventoryShortcut
+            // 
+            this.btnInventoryShortcut.Location = new System.Drawing.Point(345, 599);
+            this.btnInventoryShortcut.Name = "btnInventoryShortcut";
+            this.btnInventoryShortcut.Size = new System.Drawing.Size(75, 23);
+            this.btnInventoryShortcut.TabIndex = 10;
+            this.btnInventoryShortcut.Text = "invetory";
+            this.btnInventoryShortcut.UseVisualStyleBackColor = true;
+            // 
+            // lblShortcut
+            // 
+            this.lblShortcut.AutoSize = true;
+            this.lblShortcut.Location = new System.Drawing.Point(381, 569);
+            this.lblShortcut.Name = "lblShortcut";
+            this.lblShortcut.Size = new System.Drawing.Size(93, 13);
+            this.lblShortcut.TabIndex = 9;
+            this.lblShortcut.Text = "Featured products";
+            // 
+            // ShowCountPanel
+            // 
+            this.ShowCountPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.ShowCountPanel.Controls.Add(this.returnedApparatusCountLabel);
+            this.ShowCountPanel.Controls.Add(this.borrowedApparatusCountLabel);
+            this.ShowCountPanel.Controls.Add(this.studentCountLabel);
+            this.ShowCountPanel.Controls.Add(this.apparatusCountLabel);
+            this.ShowCountPanel.Controls.Add(this.lblOverview);
+            this.ShowCountPanel.Location = new System.Drawing.Point(287, 304);
+            this.ShowCountPanel.Name = "ShowCountPanel";
+            this.ShowCountPanel.Size = new System.Drawing.Size(264, 209);
+            this.ShowCountPanel.TabIndex = 8;
+            // 
+            // returnedApparatusCountLabel
+            // 
+            this.returnedApparatusCountLabel.AutoSize = true;
+            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(55, 174);
+            this.returnedApparatusCountLabel.Name = "returnedApparatusCountLabel";
+            this.returnedApparatusCountLabel.Size = new System.Drawing.Size(78, 13);
+            this.returnedApparatusCountLabel.TabIndex = 0;
+            this.returnedApparatusCountLabel.Text = "Return counter";
+            // 
+            // borrowedApparatusCountLabel
+            // 
+            this.borrowedApparatusCountLabel.AutoSize = true;
+            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(55, 141);
+            this.borrowedApparatusCountLabel.Name = "borrowedApparatusCountLabel";
+            this.borrowedApparatusCountLabel.Size = new System.Drawing.Size(83, 13);
+            this.borrowedApparatusCountLabel.TabIndex = 0;
+            this.borrowedApparatusCountLabel.Text = "Borrow Counter:";
+            // 
+            // studentCountLabel
+            // 
+            this.studentCountLabel.AutoSize = true;
+            this.studentCountLabel.Location = new System.Drawing.Point(55, 104);
+            this.studentCountLabel.Name = "studentCountLabel";
+            this.studentCountLabel.Size = new System.Drawing.Size(87, 13);
+            this.studentCountLabel.TabIndex = 0;
+            this.studentCountLabel.Text = "Student Counter:";
+            // 
+            // apparatusCountLabel
+            // 
+            this.apparatusCountLabel.AutoSize = true;
+            this.apparatusCountLabel.Location = new System.Drawing.Point(55, 71);
+            this.apparatusCountLabel.Name = "apparatusCountLabel";
+            this.apparatusCountLabel.Size = new System.Drawing.Size(98, 13);
+            this.apparatusCountLabel.TabIndex = 0;
+            this.apparatusCountLabel.Text = "Apparatus Counter:";
+            // 
+            // lblOverview
+            // 
+            this.lblOverview.AutoSize = true;
+            this.lblOverview.Location = new System.Drawing.Point(15, 27);
+            this.lblOverview.Name = "lblOverview";
+            this.lblOverview.Size = new System.Drawing.Size(55, 13);
+            this.lblOverview.TabIndex = 0;
+            this.lblOverview.Text = "Overview:";
             // 
             // lblIDNumber
             // 
@@ -150,17 +235,17 @@
             this.lblFirstName.Text = "FIRST NAME";
             this.lblFirstName.Visible = false;
             // 
-            // label4
+            // lblTitle
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label4.Location = new System.Drawing.Point(34, 141);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 41);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "DASHBOARD";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.lblTitle.Location = new System.Drawing.Point(34, 141);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(213, 41);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "DASHBOARD";
             // 
             // btnToggle
             // 
@@ -378,91 +463,6 @@
             this.picBoxBC.TabStop = false;
             this.picBoxBC.Click += new System.EventHandler(this.picBoxBC_Click);
             // 
-            // ShowCountPanel
-            // 
-            this.ShowCountPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ShowCountPanel.Controls.Add(this.returnedApparatusCountLabel);
-            this.ShowCountPanel.Controls.Add(this.borrowedApparatusCountLabel);
-            this.ShowCountPanel.Controls.Add(this.studentCountLabel);
-            this.ShowCountPanel.Controls.Add(this.apparatusCountLabel);
-            this.ShowCountPanel.Controls.Add(this.lblOverview);
-            this.ShowCountPanel.Location = new System.Drawing.Point(287, 304);
-            this.ShowCountPanel.Name = "ShowCountPanel";
-            this.ShowCountPanel.Size = new System.Drawing.Size(264, 209);
-            this.ShowCountPanel.TabIndex = 8;
-            // 
-            // lblOverview
-            // 
-            this.lblOverview.AutoSize = true;
-            this.lblOverview.Location = new System.Drawing.Point(15, 27);
-            this.lblOverview.Name = "lblOverview";
-            this.lblOverview.Size = new System.Drawing.Size(55, 13);
-            this.lblOverview.TabIndex = 0;
-            this.lblOverview.Text = "Overview:";
-            // 
-            // lblShortcut
-            // 
-            this.lblShortcut.AutoSize = true;
-            this.lblShortcut.Location = new System.Drawing.Point(381, 569);
-            this.lblShortcut.Name = "lblShortcut";
-            this.lblShortcut.Size = new System.Drawing.Size(93, 13);
-            this.lblShortcut.TabIndex = 9;
-            this.lblShortcut.Text = "Featured products";
-            // 
-            // btnInventoryShortcut
-            // 
-            this.btnInventoryShortcut.Location = new System.Drawing.Point(345, 599);
-            this.btnInventoryShortcut.Name = "btnInventoryShortcut";
-            this.btnInventoryShortcut.Size = new System.Drawing.Size(75, 23);
-            this.btnInventoryShortcut.TabIndex = 10;
-            this.btnInventoryShortcut.Text = "invetory";
-            this.btnInventoryShortcut.UseVisualStyleBackColor = true;
-            // 
-            // btnStudentListShortcut
-            // 
-            this.btnStudentListShortcut.Location = new System.Drawing.Point(444, 599);
-            this.btnStudentListShortcut.Name = "btnStudentListShortcut";
-            this.btnStudentListShortcut.Size = new System.Drawing.Size(75, 23);
-            this.btnStudentListShortcut.TabIndex = 10;
-            this.btnStudentListShortcut.Text = "student lsit";
-            this.btnStudentListShortcut.UseVisualStyleBackColor = true;
-            // 
-            // apparatusCountLabel
-            // 
-            this.apparatusCountLabel.AutoSize = true;
-            this.apparatusCountLabel.Location = new System.Drawing.Point(55, 71);
-            this.apparatusCountLabel.Name = "apparatusCountLabel";
-            this.apparatusCountLabel.Size = new System.Drawing.Size(98, 13);
-            this.apparatusCountLabel.TabIndex = 0;
-            this.apparatusCountLabel.Text = "Apparatus Counter:";
-            // 
-            // studentCountLabel
-            // 
-            this.studentCountLabel.AutoSize = true;
-            this.studentCountLabel.Location = new System.Drawing.Point(55, 104);
-            this.studentCountLabel.Name = "studentCountLabel";
-            this.studentCountLabel.Size = new System.Drawing.Size(87, 13);
-            this.studentCountLabel.TabIndex = 0;
-            this.studentCountLabel.Text = "Student Counter:";
-            // 
-            // borrowedApparatusCountLabel
-            // 
-            this.borrowedApparatusCountLabel.AutoSize = true;
-            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(55, 141);
-            this.borrowedApparatusCountLabel.Name = "borrowedApparatusCountLabel";
-            this.borrowedApparatusCountLabel.Size = new System.Drawing.Size(83, 13);
-            this.borrowedApparatusCountLabel.TabIndex = 0;
-            this.borrowedApparatusCountLabel.Text = "Borrow Counter:";
-            // 
-            // returnedApparatusCountLabel
-            // 
-            this.returnedApparatusCountLabel.AutoSize = true;
-            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(55, 174);
-            this.returnedApparatusCountLabel.Name = "returnedApparatusCountLabel";
-            this.returnedApparatusCountLabel.Size = new System.Drawing.Size(78, 13);
-            this.returnedApparatusCountLabel.TabIndex = 0;
-            this.returnedApparatusCountLabel.Text = "Return counter";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,13 +485,13 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panelContainer.ResumeLayout(false);
             this.panelContainer.PerformLayout();
+            this.ShowCountPanel.ResumeLayout(false);
+            this.ShowCountPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBC)).EndInit();
-            this.ShowCountPanel.ResumeLayout(false);
-            this.ShowCountPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,7 +506,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip3;
         private System.Windows.Forms.ToolStripMenuItem apparatusToolStripMenuItem;

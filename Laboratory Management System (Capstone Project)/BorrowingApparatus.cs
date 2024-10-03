@@ -77,7 +77,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         //EXIT BUTTON
         private void button3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to go back to the Dashboard?"
+            if (MessageBox.Show("Do you want to exit the instance?"
                 , "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
@@ -172,8 +172,17 @@ namespace Laboratory_Management_System__Capstone_Project_
                     SqlCommand cmdCount = new SqlCommand("SELECT SUM(Quantity) FROM BorrowReturnTransaction WHERE ID_Number = @ID_Number AND Date_Returned IS NULL AND Quantity_Returned is NULL", con);
                     cmdCount.Parameters.AddWithValue("@ID_Number", searchID);
                     con.Open();
-                    count = (int)cmdCount.ExecuteScalar();
+                    object resultCount = cmdCount.ExecuteScalar();
                     con.Close();
+
+                    if (resultCount != DBNull.Value)
+                    {
+                        count = Convert.ToInt32(resultCount);
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
 
 
                     /* Count how many apparatuses have been borrowed by this student
