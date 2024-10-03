@@ -19,8 +19,43 @@ namespace Laboratory_Management_System__Capstone_Project_
 {
 
 
-    public partial class InventoryList : Form
+    public partial class InventoryList : Form, IUnsavedChangesForm
     {
+        private bool _hasUnsavedChanges = false;
+
+        public bool HasUnsavedChanges
+        {
+            get { return _hasUnsavedChanges; }
+        }
+
+        public void ConfirmUnsavedChanges()
+        {
+            if (_hasUnsavedChanges)
+            {
+                if (MessageBox.Show("You have unsaved changes. Do you want to save them before proceeding?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    // Save changes
+                    btnUpdate_Click(null, null);
+                }
+                else if (MessageBox.Show("You have unsaved changes. Are you sure you want to discard them?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    // Discard changes
+                    _hasUnsavedChanges = false;
+                }
+                else
+                {
+                    // Cancel navigation
+                    return;
+                }
+            }
+        }
+
+        // Call this method when the user makes changes to the form
+        private void UpdateUnsavedChanges()
+        {
+            _hasUnsavedChanges = true;
+        }
+
 
         private List<string> categoryList = new List<string>();
         private const string PlaceholderText = "000.00";
@@ -188,13 +223,6 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void btnCancel_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            // Sets back to 0 to prevent restriction from occurring
-            // Dashboard.formRestrict = 0;
         }
 
 
@@ -478,7 +506,50 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
+        private void tbAppName_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
 
+        private void tbModelNum_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbPurchaseDate_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbPrice_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbBrand_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void cbEditStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbQuantity_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbRemarks_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
 
 
 

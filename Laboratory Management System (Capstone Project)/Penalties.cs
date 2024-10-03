@@ -13,8 +13,43 @@ using System.Text.RegularExpressions;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
-    public partial class PenaltiesRecords : Form
+    public partial class PenaltiesRecords : Form, IUnsavedChangesForm
     {
+        private bool _hasUnsavedChanges = false;
+
+        public bool HasUnsavedChanges
+        {
+            get { return _hasUnsavedChanges; }
+        }
+
+        public void ConfirmUnsavedChanges()
+        {
+            if (_hasUnsavedChanges)
+            {
+                if (MessageBox.Show("You have unsaved changes. Do you want to save them before proceeding?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    // Save changes
+                    btnUpdate_Click(null, null);
+                }
+                else if (MessageBox.Show("You have unsaved changes. Are you sure you want to discard them?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    // Discard changes
+                    _hasUnsavedChanges = false;
+                }
+                else
+                {
+                    // Cancel navigation
+                    return;
+                }
+            }
+        }
+
+        // Call this method when the user makes changes to the form
+        private void UpdateUnsavedChanges()
+        {
+            _hasUnsavedChanges = true;
+        }
+
         // Prevents multiple instances of TransactionDetails and PenaltyEmail forms
         public static int detailRestrict = 0;
         public static int emailFormRestrict = 0;
@@ -98,6 +133,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbAmtToBe.Visible = isPaymentCondition;
             tbAmtPayed.Visible = isPaymentCondition;
             lblRemainingBalance.Visible = isPaymentCondition;
+            UpdateUnsavedChanges();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -387,10 +423,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private void btnExitUpper_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         //Automation of the following textboxes (Student name, contact number, email address and ID number)
         private void cbTransact_SelectedIndexChanged(object sender, EventArgs e)
@@ -414,7 +447,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 MessageBox.Show("An error occurred while selecting the transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            UpdateUnsavedChanges();
         }
 
         //Automation method
@@ -536,6 +569,48 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
         }
+
+        private void tbIDnum_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbStudentName_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbContact_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbViolation_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+
+        private void tbAmtToBe_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbAmtPayed_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
     }
 }
 

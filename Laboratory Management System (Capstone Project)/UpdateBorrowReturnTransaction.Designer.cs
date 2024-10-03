@@ -443,7 +443,6 @@
             this.btnExit.TabIndex = 26;
             this.btnExit.Text = "back";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // UpdateBorrowReturnTransaction
             // 

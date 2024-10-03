@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
-    public partial class ViewStudentInformation : Form
+    public partial class ViewStudentInformation : Form, IUnsavedChangesForm
     {
         public ViewStudentInformation()
         {
@@ -22,8 +22,46 @@ namespace Laboratory_Management_System__Capstone_Project_
             cbProgramFilter.SelectedIndexChanged += new EventHandler(cbProgramFilter_SelectedIndexChanged);
         }
 
+        private bool _hasUnsavedChanges = false;
+
+        public bool HasUnsavedChanges
+        {
+            get { return _hasUnsavedChanges; }
+        }
+
+        public void ConfirmUnsavedChanges()
+        {
+            if (_hasUnsavedChanges)
+            {
+                if (MessageBox.Show("You have unsaved changes. Do you want to save them before proceeding?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    // Save changes
+                    btnUpdate_Click(null, null);
+                }
+                else if (MessageBox.Show("You have unsaved changes. Are you sure you want to discard them?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    // Discard changes
+                    _hasUnsavedChanges = false;
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+
+        // Call this method when the user makes changes to the form
+        private void UpdateUnsavedChanges()
+        {
+            _hasUnsavedChanges = true;
+        }
+
+
+
+
         private void CbProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateUnsavedChanges();
             throw new NotImplementedException();
         }
 
@@ -419,7 +457,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        /*private void btnExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Unsaved changes will be lost\nDo you want to go back to the Dashboard?"
                , "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -429,13 +467,10 @@ namespace Laboratory_Management_System__Capstone_Project_
                 Dashboard.formRestrict = 0;
 
             }
-        }
+        }*/
 
 
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+
 
         private void cbProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -550,7 +585,37 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
+
+
+
         }
+
+        private void tbStudentName_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbIDNum_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void tbContactNum_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+        private void cbDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
+
+
     }
 }
 /*private void tbStudentSearch_TextChanged(object sender, EventArgs e)

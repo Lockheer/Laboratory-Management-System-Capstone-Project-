@@ -455,7 +455,6 @@
             this.btnExitUpper.TabIndex = 37;
             this.btnExitUpper.Text = "X";
             this.btnExitUpper.UseVisualStyleBackColor = false;
-            this.btnExitUpper.Click += new System.EventHandler(this.btnExitUpper_Click);
             // 
             // label9
             // 

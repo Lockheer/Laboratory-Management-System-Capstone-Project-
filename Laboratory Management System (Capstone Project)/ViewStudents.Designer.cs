@@ -77,7 +77,6 @@
             this.btnMinimize.TabIndex = 41;
             this.btnMinimize.Text = "____";
             this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnExit
             // 
@@ -93,7 +92,6 @@
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label2
             // 
