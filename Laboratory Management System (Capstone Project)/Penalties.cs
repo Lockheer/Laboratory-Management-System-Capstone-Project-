@@ -69,8 +69,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void PenaltiesRecords_Load(object sender, EventArgs e)
         {
-
-            tbSearchPenalty.KeyDown += tbSearchPenalty_KeyDown;
             // Initial setup
             btnUpdate.Hide();
             panelPayment.Visible = false;
@@ -486,22 +484,21 @@ namespace Laboratory_Management_System__Capstone_Project_
         private const string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
 
         // Search bar for penalties
-        private void tbSearchPenalty_KeyDown(object sender, KeyEventArgs e)
+        private void tbSearchPenalty_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (!string.IsNullOrEmpty(tbSearchPenalty.Text))
             {
-                if (tbSearchPenalty.Text != "")
-                {
-                    SearchPenalties(tbSearchPenalty.Text);
-                }
-                else
-                {
-                    LoadAllPenalties();
-                }
+                SearchPenalties(tbSearchPenalty.Text);
             }
+            else
+            {
+                LoadAllPenalties();
+            }
+
         }
 
-        //Search method
+
+
         private void SearchPenalties(string searchText)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -531,12 +528,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message);
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        //Load ALL Default method
         private void LoadAllPenalties()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -565,7 +561,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message);
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -611,6 +607,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             UpdateUnsavedChanges();
         }
 
+     
     }
 }
 

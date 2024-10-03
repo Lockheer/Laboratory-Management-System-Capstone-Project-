@@ -34,7 +34,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.btnImport = new System.Windows.Forms.Button();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.cbProgram = new System.Windows.Forms.ComboBox();
@@ -50,7 +49,6 @@
             this.tbStudContact = new System.Windows.Forms.TextBox();
             this.tbIDNum = new System.Windows.Forms.TextBox();
             this.tbStudName = new System.Windows.Forms.TextBox();
-            this.tbAddress = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -109,10 +107,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.btnExit);
             this.panel2.Controls.Add(this.btnMinimize);
-            this.panel2.Controls.Add(this.tbAddress);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.btnImport);
@@ -135,16 +131,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(612, 564);
             this.panel2.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(124, 336);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 20);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Address:";
             // 
             // btnImport
             // 
@@ -309,15 +295,6 @@
             this.tbStudName.Size = new System.Drawing.Size(245, 22);
             this.tbStudName.TabIndex = 0;
             // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(231, 332);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.tbAddress.Multiline = true;
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(245, 24);
-            this.tbAddress.TabIndex = 16;
-            // 
             // AddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -358,7 +335,5 @@
         private System.Windows.Forms.ComboBox cbProgram;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnImport;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbAddress;
     }
 }

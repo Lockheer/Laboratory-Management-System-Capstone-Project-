@@ -44,7 +44,7 @@
             this.lblShortcut = new System.Windows.Forms.Label();
             this.btnStudentListShortcut = new System.Windows.Forms.Button();
             this.btnInventoryShortcut = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblIDNumber = new System.Windows.Forms.Label();
             this.btnToggle = new System.Windows.Forms.Button();
@@ -117,13 +117,13 @@
             this.panelContainer.Controls.Add(this.lblShortcut);
             this.panelContainer.Controls.Add(this.btnStudentListShortcut);
             this.panelContainer.Controls.Add(this.btnInventoryShortcut);
-            this.panelContainer.Controls.Add(this.label4);
+            this.panelContainer.Controls.Add(this.lblTitle);
             this.panelContainer.Controls.Add(this.lblFirstName);
             this.panelContainer.Controls.Add(this.lblIDNumber);
-            this.panelContainer.Location = new System.Drawing.Point(231, 0);
+            this.panelContainer.Location = new System.Drawing.Point(329, 1);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(2439, 1312);
+            this.panelContainer.Size = new System.Drawing.Size(2379, 1281);
             this.panelContainer.TabIndex = 4;
             // 
             // ShowCountPanel
@@ -237,18 +237,18 @@
             this.btnInventoryShortcut.UseVisualStyleBackColor = false;
             this.btnInventoryShortcut.Click += new System.EventHandler(this.btnInventoryShortcut_Click);
             // 
-            // label4
+            // lblTitle
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label4.Location = new System.Drawing.Point(45, 174);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(263, 51);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "DASHBOARD";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.lblTitle.Location = new System.Drawing.Point(45, 174);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(263, 51);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "DASHBOARD";
             // 
             // lblFirstName
             // 
@@ -543,7 +543,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip3;
         private System.Windows.Forms.ToolStripMenuItem apparatusToolStripMenuItem;

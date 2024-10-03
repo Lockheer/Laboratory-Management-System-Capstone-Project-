@@ -101,7 +101,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void UpdateBorrowReturnTransaction_Load(object sender, EventArgs e)
         {
-            tbSearch.KeyDown += tbSearch_KeyDown;
 
             try
             {
@@ -572,62 +571,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }   
         }*/
 
-        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                PerformSearch();
-                e.Handled = true;
-            }
-
-        }
-
-
-        private void PerformSearch()
-        {
-            {
-                try
-                {
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
-                    {
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = con;
-
-                        if (!string.IsNullOrEmpty(tbSearch.Text))
-                        {
-                            cmd.CommandText = "SELECT * FROM BorrowReturnTransaction WHERE Student_Name LIKE @SearchText + '%' OR ID_Number LIKE @SearchText + '%' " +
-                                              "OR Email_Address LIKE @SearchText + '%' OR Contact_Number LIKE @SearchText + '%' OR Program LIKE @SearchText + '%' " +
-                                              "OR Apparatus_Name LIKE @SearchText + '%' OR Borrow_Date LIKE @SearchText + '%' OR Due_Date LIKE @SearchText + '%' " +
-                                              "OR Date_Returned LIKE @SearchText + '%' OR Remarks LIKE @SearchText + '%' OR Purpose LIKE @SearchText + '%'";
-                            cmd.Parameters.AddWithValue("@SearchText", tbSearch.Text.Trim());
-                        }
-                        else
-                        {
-                            cmd.CommandText = "SELECT * FROM BorrowReturnTransaction";
-                        }
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-
-                        // Check if the dataset is empty
-                        if (ds.Tables[0].Rows.Count > 0)
-                        {
-                            dgvTransaction.DataSource = ds.Tables[0];
-                        }
-                        else
-                        {
-                            dgvTransaction.DataSource = null;
-                            MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while searching: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+      
 
         public void ConfirmUnsavedChanges()
         {
@@ -650,7 +594,59 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
         }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            PerformSearch();
+        }
+
+        private void PerformSearch()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+
+                    if (!string.IsNullOrEmpty(tbSearch.Text))
+                    {
+                        cmd.CommandText = "SELECT * FROM BorrowReturnTransaction WHERE Student_Name LIKE @SearchText + '%' OR ID_Number LIKE @SearchText + '%' " +
+                                          "OR Email_Address LIKE @SearchText + '%' OR Contact_Number LIKE @SearchText + '%' OR Program LIKE @SearchText + '%' " +
+                                          "OR Apparatus_Name LIKE @SearchText + '%' OR Borrow_Date LIKE @SearchText + '%' OR Due_Date LIKE @SearchText + '%' " +
+                                          "OR Date_Returned LIKE @SearchText + '%' OR Remarks LIKE @SearchText + '%' OR Purpose LIKE @SearchText + '%'";
+                        cmd.Parameters.AddWithValue("@SearchText", tbSearch.Text.Trim());
+                    }
+                    else
+                    {
+                        cmd.CommandText = "SELECT * FROM BorrowReturnTransaction";
+                    }
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+
+                    // Check if the dataset is empty
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        dgvTransaction.DataSource = ds.Tables[0];
+                    }
+                    else
+                    {
+                        dgvTransaction.DataSource = null;
+                        MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while searching: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
+
 
   
 }

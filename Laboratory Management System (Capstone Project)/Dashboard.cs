@@ -87,7 +87,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
 
             ShowShortcutButtons();
-
+            ShowApparatusCount();
         }
 
 
@@ -213,28 +213,27 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-
         private void picBoxBC_Click(object sender, EventArgs e)
         {
-            // Create a temporary list of forms to close
-            List<Form> formsToClose = openForms.Values.ToList();
-
-            // Close all forms
-            foreach (var form in formsToClose)
+            // Prompt the user for confirmation
+            if (MessageBox.Show("Are you sure you want to close all forms?", "Confirm Close", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (form != null)
+                // Remove any forms that are currently being shown in the panelContainer
+                foreach (Control control in panelContainer.Controls)
                 {
-                    form.Close();
+                    if (control is Form)
+                    {
+                        control.Dispose();
+                    }
                 }
+
+                // Show the Dashboard controls
+                ShowShortcutButtons();
+                ShowApparatusCount();
+
+                // Refresh the UI to ensure everything is updated
+                this.Refresh();
             }
-
-            // Clear the openForms dictionary
-            openForms.Clear();
-
-            // Clear the panelContainer controls
-            panelContainer.Controls.Clear();
-
-            ShowShortcutButtons();
         }
 
         private int GetCurrentAccountId()
@@ -276,15 +275,16 @@ namespace Laboratory_Management_System__Capstone_Project_
             return role;
         }
 
+
         // Method to display forms in the panel container
         public void ShowFormInPanel(Form form)
         {
-            if (panelContainer.Controls.Count > 0)
+            // Remove any forms that are currently being shown in the panelContainer
+            foreach (Control control in panelContainer.Controls)
             {
-                Form currentForm = panelContainer.Controls[0] as Form;
-                if (currentForm is IUnsavedChangesForm unsavedChangesForm)
+                if (control is Form)
                 {
-                    unsavedChangesForm.ConfirmUnsavedChanges();
+                    control.Dispose();
                 }
             }
 
@@ -300,8 +300,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             returnedApparatusCountLabel.Visible = false;
             lblOverview.Visible = false;
             ShowCountPanel.Visible = false;
+            lblTitle.Visible = false;
 
-            panelContainer.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
@@ -439,6 +439,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             returnedApparatusCountLabel.Visible = true;
             lblOverview.Visible = true;
             ShowCountPanel.Visible = true;
+            lblTitle.Visible = true;
         }
 
 
@@ -455,6 +456,8 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             // Update the returned apparatus count label
             UpdateReturnedApparatusCountLabel(returnedApparatusCountLabel);
+
+            ShowCountPanel.Visible = true;
         }
 
 

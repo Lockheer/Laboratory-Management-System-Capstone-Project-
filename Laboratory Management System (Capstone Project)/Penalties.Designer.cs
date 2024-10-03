@@ -434,7 +434,8 @@
             this.tbSearchPenalty.Name = "tbSearchPenalty";
             this.tbSearchPenalty.Size = new System.Drawing.Size(321, 22);
             this.tbSearchPenalty.TabIndex = 14;
-            this.tbSearchPenalty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearchPenalty_KeyDown);
+            this.tbSearchPenalty.TextChanged += new System.EventHandler(this.tbSearchPenalty_TextChanged);
+    
             // 
             // label12
             // 

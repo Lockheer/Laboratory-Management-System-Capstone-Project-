@@ -172,14 +172,16 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                                         if (count == 0)
                                         {
-                                            SqlCommand command = new SqlCommand("INSERT INTO Students (Student_Name, ID_Number, Email_Address, Contact_No, Program, Department) VALUES (@Name, @IDNum, @Email, @Contact, @Program, @Department)", connect);
+                                            SqlCommand command = new SqlCommand("INSERT INTO Students (Student_Name, ID_Number, Email_Address, Contact_No, Program, Department) VALUES (@Name, @IDNumber, @Email, @Contact, @Program, @Department)", connect);
                                             command.Parameters.AddWithValue("@Name", name);
-                                            command.Parameters.AddWithValue("@IDNum", idnum);
+                                            command.Parameters.AddWithValue("@IDNumber", idnum); // Changed from @IDNum to @IDNumber
                                             command.Parameters.AddWithValue("@Email", email);
                                             command.Parameters.AddWithValue("@Contact", contact);
                                             command.Parameters.AddWithValue("@Program", program);
                                             command.Parameters.AddWithValue("@Department", department);
-                                          
+
+
+
 
                                             command.ExecuteNonQuery();
                                         }
@@ -199,9 +201,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                             }
                         }
                     }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show($"SQL Error occurred during import: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred during import: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"An unexpected error occurred during import: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
