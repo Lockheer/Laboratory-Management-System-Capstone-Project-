@@ -204,6 +204,7 @@
             this.tbDue.Location = new System.Drawing.Point(248, 135);
             this.tbDue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDue.Name = "tbDue";
+            this.tbDue.ReadOnly = true;
             this.tbDue.Size = new System.Drawing.Size(241, 22);
             this.tbDue.TabIndex = 12;
             // 
@@ -265,6 +266,7 @@
             this.tbBorrowedDate.Location = new System.Drawing.Point(248, 96);
             this.tbBorrowedDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBorrowedDate.Name = "tbBorrowedDate";
+            this.tbBorrowedDate.ReadOnly = true;
             this.tbBorrowedDate.Size = new System.Drawing.Size(241, 22);
             this.tbBorrowedDate.TabIndex = 6;
             // 
@@ -273,6 +275,7 @@
             this.tbApparatusName.Location = new System.Drawing.Point(248, 46);
             this.tbApparatusName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbApparatusName.Name = "tbApparatusName";
+            this.tbApparatusName.ReadOnly = true;
             this.tbApparatusName.Size = new System.Drawing.Size(241, 22);
             this.tbApparatusName.TabIndex = 5;
             // 

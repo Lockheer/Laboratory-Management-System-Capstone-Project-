@@ -57,6 +57,10 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             UpdateUnsavedChanges();
         }
+        private void tbPurpose_TextChanged(object sender, EventArgs e)
+        {
+            UpdateUnsavedChanges();
+        }
 
         private void cbAppaName_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -644,7 +648,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-
+      
     }
 
 

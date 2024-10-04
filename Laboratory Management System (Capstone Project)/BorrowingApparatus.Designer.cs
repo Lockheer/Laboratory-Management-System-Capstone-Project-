@@ -278,7 +278,6 @@
             this.tbPurpose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPurpose.Multiline = true;
             this.tbPurpose.Name = "tbPurpose";
-            this.tbPurpose.ReadOnly = true;
             this.tbPurpose.Size = new System.Drawing.Size(373, 93);
             this.tbPurpose.TabIndex = 46;
             // 

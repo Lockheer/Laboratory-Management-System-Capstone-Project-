@@ -126,6 +126,7 @@
             this.tbPurpose.Name = "tbPurpose";
             this.tbPurpose.Size = new System.Drawing.Size(346, 70);
             this.tbPurpose.TabIndex = 30;
+            this.tbPurpose.TextChanged += new System.EventHandler(this.tbPurpose_TextChanged);
             // 
             // label15
             // 
@@ -225,6 +226,7 @@
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.Size = new System.Drawing.Size(346, 84);
             this.tbRemarks.TabIndex = 19;
+            this.tbRemarks.TextChanged += new System.EventHandler(this.tbRemarks_TextChanged);
             // 
             // cbProgram
             // 
@@ -240,6 +242,7 @@
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(211, 22);
             this.tbContact.TabIndex = 16;
+            this.tbContact.TextChanged += new System.EventHandler(this.tbContact_TextChanged);
             // 
             // dtpDueDate
             // 
@@ -274,6 +277,7 @@
             this.tbEmailAdd.Name = "tbEmailAdd";
             this.tbEmailAdd.Size = new System.Drawing.Size(211, 22);
             this.tbEmailAdd.TabIndex = 12;
+            this.tbEmailAdd.TextChanged += new System.EventHandler(this.tbEmailAdd_TextChanged);
             // 
             // tbIDNum
             // 
@@ -289,6 +293,7 @@
             this.tbStudentName.Name = "tbStudentName";
             this.tbStudentName.Size = new System.Drawing.Size(211, 22);
             this.tbStudentName.TabIndex = 2;
+            this.tbStudentName.TextChanged += new System.EventHandler(this.tbStudentName_TextChanged);
             // 
             // label10
             // 
