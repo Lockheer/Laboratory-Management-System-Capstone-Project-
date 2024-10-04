@@ -111,23 +111,23 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
             nudQuantity.Minimum = 1;
-            nudQuantity.Maximum = 100; // Set the maximum quantity to 100
+            nudQuantity.Maximum = 10; // Set the maximum quantity to 100
             nudQuantity.Value = 1; // Set the default value to 1
 
             nudQuantity1.Minimum = 1;
-            nudQuantity1.Maximum = 100;
+            nudQuantity1.Maximum = 10;
             nudQuantity1.Value = 1;
 
             nudQuantity2.Minimum = 1;
-            nudQuantity2.Maximum = 100;
+            nudQuantity2.Maximum = 10;
             nudQuantity2.Value = 1;
 
             nudQuantity3.Minimum = 1;
-            nudQuantity3.Maximum = 100;
+            nudQuantity3.Maximum = 10;
             nudQuantity3.Value = 1;
 
             nudQuantity4.Minimum = 1;
-            nudQuantity4.Maximum = 100;
+            nudQuantity4.Maximum = 10;
             nudQuantity4.Value = 1;
         }
 
@@ -258,109 +258,130 @@ namespace Laboratory_Management_System__Capstone_Project_
                     String IssueDate = dtpBorrowDate.Text;
                     String dueDate = dtpDueDate.Text;
 
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                    using (SqlConnection dbConnection = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
-                        con.Open();
-
-                        if (tbPurpose.Text == "None" || tbPurpose.Text == "" || tbPurpose.Text == "Unknown" || tbPurpose.Text == "UNKNOWN" || tbPurpose.Text == "Unknown Purpose" || tbPurpose.Text == "UNKNOWN PURPOSE")
+                        try
                         {
-                            MessageBox.Show("Please enter a valid purpose.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            dbConnection.Open();
 
-                        }
-
-                        for (int i = 0; i < selectedApparatusNames.Count; i++)
-                        {
-                            if (!string.IsNullOrEmpty(selectedApparatusNames[i]))
+                            if (tbPurpose.Text == "None" || tbPurpose.Text == "" || tbPurpose.Text == "Unknown" || tbPurpose.Text == "UNKNOWN" || tbPurpose.Text == "Unknown Purpose" || tbPurpose.Text == "UNKNOWN PURPOSE")
                             {
-                                string AppaName = selectedApparatusNames[i];
-                                int quantity = quantities[i];
-
-                                int apparatusID = 0; // Declare apparatusID here
-
-                                // Get ApparatusID based on the selected apparatus name
-                                SqlCommand cmdGetApparatusID = new SqlCommand("SELECT ApparatusID FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
-                                cmdGetApparatusID.Parameters.AddWithValue("@Apparatus_Name", AppaName);
-                                object resultApparatus = cmdGetApparatusID.ExecuteScalar();
-                                if (resultApparatus != null)
-                                {
-                                    apparatusID = Convert.ToInt32(resultApparatus);
-                                }
-                                else
-                                {
-                                    MessageBox.Show($"Apparatus '{AppaName}' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
-
-                                // Check if the quantity borrowed does not exceed the quantity available
-                                SqlCommand cmdGetQuantityAvailable = new SqlCommand("SELECT Quantity FROM Inventory WHERE ApparatusID = @ApparatusID", con);
-                                cmdGetQuantityAvailable.Parameters.AddWithValue("@ApparatusID", apparatusID);
-                                int quantityAvailable = (int)cmdGetQuantityAvailable.ExecuteScalar();
-                                if (quantity > quantityAvailable)
-                                {
-                                    MessageBox.Show($"Quantity borrowed exceeds quantity available for apparatus '{AppaName}'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
-
-                                // Insert multiple rows for each apparatus
-                                for (int j = 0; j < quantity; j++)
-                                {
-                                    int studentID = 0;
-                                    int accountID = Form1.Session.AccountID; // Get the AccountID from the Session class
-
-                                    // Get StudentID based on the student's ID number
-                                    SqlCommand cmdGetStudentID = new SqlCommand("SELECT studID FROM Students WHERE ID_Number = @ID_Number", con);
-                                    cmdGetStudentID.Parameters.AddWithValue("@ID_Number", IDnum);
-                                    object resultStudent = cmdGetStudentID.ExecuteScalar();
-                                    if (resultStudent != null)
-                                    {
-                                        studentID = Convert.ToInt32(resultStudent);
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show($"Student with ID number '{IDnum}' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return;
-                                    }
-
-                                    // Insert transaction with IDs and quantities
-                                    SqlCommand cmdInsertTransaction = new SqlCommand("INSERT INTO BorrowReturnTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, studID, AccountID, ApparatusID, Remarks) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, 1, @Purpose, @Borrow_Date, @Due_Date, NULL, NULL, @StudentID, @AccountID, @ApparatusID, NULL)", con);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@Student_Name", Studname);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@ID_Number", IDnum);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@Email_Address", Email);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@Contact_Number", Contact);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@Program", Program);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@Apparatus_Name", AppaName);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@Purpose", purpose);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@Borrow_Date", IssueDate);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@Due_Date", dueDate);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@StudentID", studentID);
-                                    cmdInsertTransaction.Parameters.AddWithValue("@AccountID", accountID); // Add the AccountID parameter
-                                    cmdInsertTransaction.Parameters.AddWithValue("@ApparatusID", apparatusID);
-                                    cmdInsertTransaction.ExecuteNonQuery();
-
-                                }
-
-                                // Update apparatus quantity
-                                SqlCommand cmdUpdateQty = new SqlCommand("UPDATE Inventory SET Quantity = Quantity - @Quantity WHERE ApparatusID = @ApparatusID", con);
-                                cmdUpdateQty.Parameters.AddWithValue("@Quantity", quantity);
-                                cmdUpdateQty.Parameters.AddWithValue("@ApparatusID", apparatusID);
-                                cmdUpdateQty.ExecuteNonQuery();
+                                MessageBox.Show("Please enter a valid purpose.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                             }
+
+                            for (int i = 0; i < selectedApparatusNames.Count; i++)
+                            {
+                                if (!string.IsNullOrEmpty(selectedApparatusNames[i]))
+                                {
+                                    string AppaName = selectedApparatusNames[i];
+                                    int quantity = quantities[i];
+
+                                    int apparatusID = 0; // Declare apparatusID here
+
+                                    // Get ApparatusID based on the selected apparatus name
+                                    using (SqlCommand cmdGetApparatusID = new SqlCommand("SELECT ApparatusID FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", dbConnection))
+                                    {
+                                        cmdGetApparatusID.Parameters.AddWithValue("@Apparatus_Name", AppaName);
+                                        object resultApparatus = cmdGetApparatusID.ExecuteScalar();
+                                        if (resultApparatus != null)
+                                        {
+                                            apparatusID = Convert.ToInt32(resultApparatus);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show($"Apparatus '{AppaName}' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            return;
+                                        }
+                                    }
+
+                                    // Check if the quantity borrowed does not exceed the quantity available
+                                    using (SqlCommand cmdGetQuantityAvailable = new SqlCommand("SELECT Quantity FROM Inventory WHERE ApparatusID = @ApparatusID", dbConnection))
+                                    {
+                                        cmdGetQuantityAvailable.Parameters.AddWithValue("@ApparatusID", apparatusID);
+                                        int quantityAvailable = (int)cmdGetQuantityAvailable.ExecuteScalar();
+                                        if (quantity > quantityAvailable)
+                                        {
+                                            MessageBox.Show($"Quantity borrowed exceeds quantity available for apparatus '{AppaName}'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            return;
+                                        }
+                                    }
+
+                                    // Insert multiple rows for each apparatus
+                                    for (int j = 0; j < quantity; j++)
+                                    {
+                                        int studentID = 0;
+                                        int accountID = Form1.Session.AccountID; // Get the AccountID from the Session class based on the logged user
+
+                                        // Get StudentID based on the student's ID number
+                                        using (SqlCommand cmdGetStudentID = new SqlCommand("SELECT studID FROM Students WHERE ID_Number = @ID_Number", dbConnection))
+                                        {
+                                            cmdGetStudentID.Parameters.AddWithValue("@ID_Number", IDnum);
+                                            object resultStudent = cmdGetStudentID.ExecuteScalar();
+                                            if (resultStudent != null)
+                                            {
+                                                studentID = Convert.ToInt32(resultStudent);
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show($"Student with ID number '{IDnum}' not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                return;
+                                            }
+                                        }
+
+                                        // Insert transaction with IDs and quantities
+                                        using (SqlCommand cmdInsertTransaction = new SqlCommand("INSERT INTO BorrowReturnTransaction (Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, studID, AccountID, ApparatusID, Remarks) VALUES (@Student_Name, @ID_Number, @Email_Address, @Contact_Number, @Program, @Apparatus_Name, @Quantity, @Purpose, @Borrow_Date, @Due_Date, NULL, NULL, @StudentID, @AccountID, @ApparatusID, NULL)", dbConnection))
+                                        {
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Student_Name", Studname);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@ID_Number", IDnum);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Email_Address", Email);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Contact_Number", Contact);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Program", Program);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Apparatus_Name", AppaName);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Quantity", quantity);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Purpose", purpose);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Borrow_Date", IssueDate);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@Due_Date", dueDate);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@StudentID", studentID);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@AccountID", accountID);
+                                            cmdInsertTransaction.Parameters.AddWithValue("@ApparatusID", apparatusID);
+                                            cmdInsertTransaction.ExecuteNonQuery();
+
+                                        }
+
+                                    }
+
+                                    // Update apparatus quantity
+                                    using (SqlCommand cmdUpdateQty = new SqlCommand("UPDATE Inventory SET Quantity = Quantity - @Quantity WHERE ApparatusID = @ApparatusID", dbConnection))
+                                    {
+                                        cmdUpdateQty.Parameters.AddWithValue("@Quantity", quantity);
+                                        cmdUpdateQty.Parameters.AddWithValue("@ApparatusID", apparatusID);
+                                        cmdUpdateQty.ExecuteNonQuery();
+
+                                    }
+
+                                }
+                            }
+
+                            MessageBox.Show("Apparatuses have been issued.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetForm();
+
                         }
-
-                        MessageBox.Show("Apparatuses have been issued.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ResetForm();
-
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("The student has reached the maximum borrowing limit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Student has reached the maximum number of apparatuses that can be borrowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
             else
             {
-                MessageBox.Show("Please enter a valid Student ID Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a valid student ID number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
