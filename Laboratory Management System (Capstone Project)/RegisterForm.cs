@@ -392,6 +392,16 @@ namespace Laboratory_Management_System__Capstone_Project_
                     MessageBox.Show("Email verification failed. Please try again.", "Verification Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+            if (!tbEmail.Text.Contains("@") || !tbEmail.Text.Contains("."))
+            {
+                MessageBox.Show("Please enter a valid email address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                tbEmail.Focus();
+                return;
+            }
         }
     }
 }
