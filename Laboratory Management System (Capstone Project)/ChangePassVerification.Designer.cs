@@ -55,7 +55,7 @@
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbEmail.Location = new System.Drawing.Point(190, 259);
+            this.tbEmail.Location = new System.Drawing.Point(193, 249);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(321, 27);
             this.tbEmail.TabIndex = 0;
@@ -63,7 +63,7 @@
             // tbPin
             // 
             this.tbPin.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPin.Location = new System.Drawing.Point(371, 322);
+            this.tbPin.Location = new System.Drawing.Point(374, 312);
             this.tbPin.Name = "tbPin";
             this.tbPin.Size = new System.Drawing.Size(140, 27);
             this.tbPin.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.btnSendPIN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSendPIN.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnSendPIN.ForeColor = System.Drawing.Color.White;
-            this.btnSendPIN.Location = new System.Drawing.Point(535, 252);
+            this.btnSendPIN.Location = new System.Drawing.Point(538, 242);
             this.btnSendPIN.Name = "btnSendPIN";
             this.btnSendPIN.Size = new System.Drawing.Size(155, 40);
             this.btnSendPIN.TabIndex = 2;
@@ -90,7 +90,7 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(535, 316);
+            this.btnConfirm.Location = new System.Drawing.Point(538, 306);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(155, 40);
             this.btnConfirm.TabIndex = 3;
@@ -132,7 +132,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label3.Location = new System.Drawing.Point(303, 320);
+            this.label3.Location = new System.Drawing.Point(306, 310);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 19);
             this.label3.TabIndex = 6;
@@ -154,7 +154,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label5.Location = new System.Drawing.Point(45, 261);
+            this.label5.Location = new System.Drawing.Point(48, 251);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 19);
             this.label5.TabIndex = 8;
@@ -228,7 +228,7 @@
             this.label10.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(163, 252);
+            this.label10.Location = new System.Drawing.Point(166, 242);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 25);
             this.label10.TabIndex = 29;
@@ -240,7 +240,7 @@
             this.label11.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(344, 316);
+            this.label11.Location = new System.Drawing.Point(347, 306);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(21, 25);
             this.label11.TabIndex = 29;

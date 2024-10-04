@@ -251,7 +251,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(151)))), ((int)(((byte)(47)))));
+            this.btnSave.BackColor = System.Drawing.Color.Green;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -367,6 +367,7 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Return";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Visible = false;
             // 
             // label11
             // 

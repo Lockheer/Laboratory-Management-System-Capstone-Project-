@@ -56,7 +56,7 @@
             this.dgvBorrowDetails.AllowUserToOrderColumns = true;
             this.dgvBorrowDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBorrowDetails.Location = new System.Drawing.Point(116, 226);
-            this.dgvBorrowDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvBorrowDetails.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBorrowDetails.Name = "dgvBorrowDetails";
             this.dgvBorrowDetails.RowHeadersWidth = 51;
             this.dgvBorrowDetails.RowTemplate.Height = 24;
@@ -68,7 +68,7 @@
             this.dgvReturnDetails.AllowUserToOrderColumns = true;
             this.dgvReturnDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReturnDetails.Location = new System.Drawing.Point(116, 246);
-            this.dgvReturnDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvReturnDetails.Margin = new System.Windows.Forms.Padding(2);
             this.dgvReturnDetails.Name = "dgvReturnDetails";
             this.dgvReturnDetails.RowHeadersWidth = 51;
             this.dgvReturnDetails.RowTemplate.Height = 24;
@@ -103,10 +103,10 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(1145, -2);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Location = new System.Drawing.Point(1152, 11);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(50, 37);
+            this.btnBack.Size = new System.Drawing.Size(32, 31);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "X";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -117,7 +117,7 @@
             this.dgvViolationRecords.AllowUserToOrderColumns = true;
             this.dgvViolationRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViolationRecords.Location = new System.Drawing.Point(116, 273);
-            this.dgvViolationRecords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvViolationRecords.Margin = new System.Windows.Forms.Padding(2);
             this.dgvViolationRecords.Name = "dgvViolationRecords";
             this.dgvViolationRecords.RowHeadersWidth = 51;
             this.dgvViolationRecords.RowTemplate.Height = 24;
@@ -140,7 +140,7 @@
             this.cmbViewOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbViewOptions.FormattingEnabled = true;
             this.cmbViewOptions.Location = new System.Drawing.Point(308, 173);
-            this.cmbViewOptions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbViewOptions.Margin = new System.Windows.Forms.Padding(2);
             this.cmbViewOptions.Name = "cmbViewOptions";
             this.cmbViewOptions.Size = new System.Drawing.Size(177, 28);
             this.cmbViewOptions.TabIndex = 42;
@@ -149,7 +149,7 @@
             // btnPrint
             // 
             this.btnPrint.Location = new System.Drawing.Point(957, 150);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(154, 29);
             this.btnPrint.TabIndex = 43;
@@ -173,7 +173,7 @@
             this.dgvInventory.AllowUserToOrderColumns = true;
             this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInventory.Location = new System.Drawing.Point(116, 286);
-            this.dgvInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvInventory.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInventory.Name = "dgvInventory";
             this.dgvInventory.RowHeadersWidth = 51;
             this.dgvInventory.RowTemplate.Height = 24;
@@ -196,7 +196,7 @@
             this.dgvStudents.AllowUserToOrderColumns = true;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudents.Location = new System.Drawing.Point(314, 317);
-            this.dgvStudents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvStudents.Margin = new System.Windows.Forms.Padding(2);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 24;
@@ -218,7 +218,7 @@
             // btnExport
             // 
             this.btnExport.Location = new System.Drawing.Point(957, 116);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(154, 29);
             this.btnExport.TabIndex = 50;
@@ -249,7 +249,7 @@
             this.Controls.Add(this.dgvReturnDetails);
             this.Controls.Add(this.dgvBorrowDetails);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TransactionDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Details and Report Summary of Transactions";

@@ -373,6 +373,11 @@
     <None Include="Resources\bg_popup_blank.png" />
     <None Include="Resources\bg_popup_blank1.jpg" />
     <None Include="Resources\email_icon_no_notif.png" />
+    <None Include="Resources\app_inventory_xxl.png" />
+    <None Include="Resources\student_big_xxl.png" />
+    <None Include="Resources\side_bottom.png" />
+    <None Include="Resources\hand_down_l.png" />
+    <None Include="Resources\update_l.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

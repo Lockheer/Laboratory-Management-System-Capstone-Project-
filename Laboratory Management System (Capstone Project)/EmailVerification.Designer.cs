@@ -46,7 +46,7 @@
             // tbPIN
             // 
             this.tbPIN.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPIN.Location = new System.Drawing.Point(161, 277);
+            this.tbPIN.Location = new System.Drawing.Point(164, 286);
             this.tbPIN.Margin = new System.Windows.Forms.Padding(2);
             this.tbPIN.Name = "tbPIN";
             this.tbPIN.Size = new System.Drawing.Size(288, 27);
@@ -59,7 +59,7 @@
             this.btnVerify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerify.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnVerify.ForeColor = System.Drawing.Color.White;
-            this.btnVerify.Location = new System.Drawing.Point(466, 269);
+            this.btnVerify.Location = new System.Drawing.Point(469, 278);
             this.btnVerify.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(155, 40);
@@ -73,14 +73,14 @@
             this.btnResend.BackColor = System.Drawing.Color.Transparent;
             this.btnResend.FlatAppearance.BorderSize = 0;
             this.btnResend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResend.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Underline);
+            this.btnResend.Font = new System.Drawing.Font("Bahnschrift", 10.5F, System.Drawing.FontStyle.Underline);
             this.btnResend.ForeColor = System.Drawing.Color.Purple;
-            this.btnResend.Location = new System.Drawing.Point(368, 340);
+            this.btnResend.Location = new System.Drawing.Point(330, 341);
             this.btnResend.Margin = new System.Windows.Forms.Padding(2);
             this.btnResend.Name = "btnResend";
-            this.btnResend.Size = new System.Drawing.Size(77, 40);
+            this.btnResend.Size = new System.Drawing.Size(145, 40);
             this.btnResend.TabIndex = 2;
-            this.btnResend.Text = "resend";
+            this.btnResend.Text = "Re-send a code";
             this.btnResend.UseVisualStyleBackColor = false;
             this.btnResend.Click += new System.EventHandler(this.btnResend_Click);
             // 
@@ -129,7 +129,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label3.Location = new System.Drawing.Point(73, 284);
+            this.label3.Location = new System.Drawing.Point(76, 293);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 19);
@@ -141,7 +141,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(122, 277);
+            this.label4.Location = new System.Drawing.Point(125, 286);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(16, 19);
@@ -150,11 +150,11 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ForeColor = System.Drawing.Color.Red;
             this.button2.Location = new System.Drawing.Point(608, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 31);
@@ -167,7 +167,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label5.Location = new System.Drawing.Point(203, 351);
+            this.label5.Location = new System.Drawing.Point(180, 351);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(171, 19);
             this.label5.TabIndex = 9;

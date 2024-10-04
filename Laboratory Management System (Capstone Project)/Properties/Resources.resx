@@ -130,14 +130,14 @@
   <data name="bg_popup_main2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_popup_main2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="report1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\report1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="app_inventory2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\app_inventory2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="material-symbols_list-alt-add-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\material-symbols_list-alt-add-outline.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="side_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\side_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="student_big_xxl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\student_big_xxl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="student_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\student_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +160,8 @@
   <data name="bcc_logo_circle_blur2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bcc_logo_circle_blur2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_popup_main_apparatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg_popup_main_apparatus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bcc_logo_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bcc_logo_circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hand_down3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hand_down3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,8 +175,8 @@
   <data name="bg_popup_blank" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_popup_blank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="change_pass_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\change_pass_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bcc_logo_circle_blur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bcc_logo_circle_blur.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hand_up3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hand_up3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,14 +184,14 @@
   <data name="bcc_logo_circle_blur21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bcc_logo_circle_blur21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pass_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pass_lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_popup_main_apparatus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_popup_main_apparatus1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="email_pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\email_pic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bcc_logo_circle_blur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bcc_logo_circle_blur.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="email_pic1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\email_pic1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,14 +211,20 @@
   <data name="Vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logout3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="admin_approval_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin_approval_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="change_pass_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\change_pass_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="admin_approval_icon11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin_approval_icon11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hand_down_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hand_down_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="warning_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\warning_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -228,6 +234,9 @@
   </data>
   <data name="admin_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_popup_main21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_popup_main21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vector (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vector (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,14 +250,14 @@
   <data name="app_inventory_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\app_inventory_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bcc_logo_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bcc_logo_circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bg_popup_main_apparatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_popup_main_apparatus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="update2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\update2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pass_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pass_lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="email_pic11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_pic11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="email_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\email_icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,22 +265,28 @@
   <data name="pass_lock_confirm1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pass_lock_confirm1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_popup_main21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg_popup_main21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logout3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_popup_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_popup_main.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="email_pic11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\email_pic11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="material-symbols_list-alt-add-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\material-symbols_list-alt-add-outline.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_popup_main3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_popup_main3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="email_icon_no_notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_icon_no_notif.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="admin_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin_icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="email_icon_no_notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\email_icon_no_notif.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="app_inventory_xxl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\app_inventory_xxl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

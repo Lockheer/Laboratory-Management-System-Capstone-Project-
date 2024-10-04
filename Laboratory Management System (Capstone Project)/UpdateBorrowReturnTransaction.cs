@@ -643,8 +643,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show($"An error occurred while searching: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 
 

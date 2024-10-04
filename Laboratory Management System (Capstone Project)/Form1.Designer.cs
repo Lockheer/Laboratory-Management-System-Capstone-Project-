@@ -175,13 +175,13 @@
             // 
             this.lnkLblRegister.AutoSize = true;
             this.lnkLblRegister.BackColor = System.Drawing.Color.Transparent;
-            this.lnkLblRegister.Font = new System.Drawing.Font("Bahnschrift SemiLight Condensed", 12F, System.Drawing.FontStyle.Bold);
+            this.lnkLblRegister.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lnkLblRegister.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.lnkLblRegister.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.lnkLblRegister.Location = new System.Drawing.Point(645, 811);
+            this.lnkLblRegister.LinkColor = System.Drawing.Color.White;
+            this.lnkLblRegister.Location = new System.Drawing.Point(641, 811);
             this.lnkLblRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lnkLblRegister.Name = "lnkLblRegister";
-            this.lnkLblRegister.Size = new System.Drawing.Size(60, 19);
+            this.lnkLblRegister.Size = new System.Drawing.Size(70, 19);
             this.lnkLblRegister.TabIndex = 15;
             this.lnkLblRegister.TabStop = true;
             this.lnkLblRegister.Text = "Register";
@@ -193,7 +193,7 @@
             this.lblErrorHandler.BackColor = System.Drawing.Color.Transparent;
             this.lblErrorHandler.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.lblErrorHandler.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorHandler.Location = new System.Drawing.Point(41, 148);
+            this.lblErrorHandler.Location = new System.Drawing.Point(41, 156);
             this.lblErrorHandler.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErrorHandler.Name = "lblErrorHandler";
             this.lblErrorHandler.Size = new System.Drawing.Size(366, 19);
@@ -232,7 +232,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(376, 46);
+            this.label3.Location = new System.Drawing.Point(398, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 33);
             this.label3.TabIndex = 19;
@@ -244,7 +244,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(513, 79);
+            this.label4.Location = new System.Drawing.Point(506, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(205, 19);
             this.label4.TabIndex = 20;
@@ -256,7 +256,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.label5.Location = new System.Drawing.Point(471, 46);
+            this.label5.Location = new System.Drawing.Point(493, 44);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(339, 33);
             this.label5.TabIndex = 21;
@@ -359,7 +359,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label7.Location = new System.Drawing.Point(53, 167);
+            this.label7.Location = new System.Drawing.Point(53, 156);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(352, 19);
             this.label7.TabIndex = 17;
@@ -395,7 +395,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.label6.Location = new System.Drawing.Point(456, 811);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
