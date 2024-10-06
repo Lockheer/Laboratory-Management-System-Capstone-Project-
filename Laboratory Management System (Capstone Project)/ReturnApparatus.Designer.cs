@@ -37,6 +37,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvReturnInformation = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.numQuantityReturned = new System.Windows.Forms.NumericUpDown();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -152,6 +153,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.numQuantityReturned);
             this.panel2.Controls.Add(this.tbRemarks);
             this.panel2.Controls.Add(this.label7);
@@ -171,9 +173,19 @@
             this.panel2.Size = new System.Drawing.Size(1029, 398);
             this.panel2.TabIndex = 0;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(521, 46);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Quantity:";
+            // 
             // numQuantityReturned
             // 
-            this.numQuantityReturned.Location = new System.Drawing.Point(513, 46);
+            this.numQuantityReturned.Location = new System.Drawing.Point(627, 46);
             this.numQuantityReturned.Margin = new System.Windows.Forms.Padding(4);
             this.numQuantityReturned.Name = "numQuantityReturned";
             this.numQuantityReturned.Size = new System.Drawing.Size(51, 22);
@@ -252,7 +264,7 @@
             // dtpReturnDate
             // 
             this.dtpReturnDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpReturnDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
+            this.dtpReturnDate.CustomFormat = "MM/dd/yyyy hh:mm tt";
             this.dtpReturnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpReturnDate.Location = new System.Drawing.Point(227, 191);
@@ -401,5 +413,6 @@
         private System.Windows.Forms.TextBox tbRemarks;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numQuantityReturned;
+        private System.Windows.Forms.Label label8;
     }
 }

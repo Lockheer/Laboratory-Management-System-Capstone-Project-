@@ -246,7 +246,7 @@
             // 
             // dtpDueDate
             // 
-            this.dtpDueDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
+            this.dtpDueDate.CustomFormat = "MM/dd/yyyy hh:mm tt";
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDueDate.Location = new System.Drawing.Point(850, 79);
             this.dtpDueDate.Name = "dtpDueDate";
@@ -255,7 +255,7 @@
             // 
             // dtpBorrowedDate
             // 
-            this.dtpBorrowedDate.CustomFormat = "MM/dd/yyyy HH:mm:ss";
+            this.dtpBorrowedDate.CustomFormat = "MM/dd/yyyy hh:mm tt";
             this.dtpBorrowedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpBorrowedDate.Location = new System.Drawing.Point(850, 30);
             this.dtpBorrowedDate.Name = "dtpBorrowedDate";
@@ -264,7 +264,7 @@
             // 
             // dtpDateReturned
             // 
-            this.dtpDateReturned.CustomFormat = "MM/dd/yyyy HH:mm:ss";
+            this.dtpDateReturned.CustomFormat = "MM/dd/yyyy hh:mm tt";
             this.dtpDateReturned.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateReturned.Location = new System.Drawing.Point(850, 125);
             this.dtpDateReturned.Name = "dtpDateReturned";
@@ -408,7 +408,7 @@
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Location = new System.Drawing.Point(898, 563);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 40);
+            this.btnRefresh.Size = new System.Drawing.Size(127, 40);
             this.btnRefresh.TabIndex = 24;
             this.btnRefresh.Text = "REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = true;
