@@ -21,6 +21,11 @@ Create Table Roles (
 
 )
 
+Insert into Roles (RoleName)
+VALUES 
+    ('Admin'),
+    ('Personnel')
+
 
 --rename to Account
 Create Table Accounts (
@@ -37,10 +42,26 @@ REFERENCES Roles(RoleID)
 
 )
 
-Insert into Roles (RoleName)
+
+
+
+--Category List--
+Create Table Category (
+
+CategoryID int identity (10,1) primary key,
+CategoryName nvarchar(50) not null
+
+)
+
+INSERT INTO Category (CategoryName)
 VALUES 
-    ('Admin'),
-    ('Personnel')
+('Plasticware'),
+('Glassware'),
+('Metalware'),
+('Heating Equipment'),
+('Measuring Instrument'),
+('Safety Equipment');
+
 
 
 --Apparatus List
@@ -50,16 +71,18 @@ ApparatusID int Identity (1,1) primary key,
 [Apparatus Name] varchar(250) not null,
 [Model Number] nvarchar(250)not null,
 [Date Purchased] nvarchar(250) not null,
-[Price] decimal(18, 2),
-[Brand] varchar(250),
-[Status] varchar(250) not null,	
-[Quantity] bigint not null,
-[Life Span] nvarchar(250),
-[Remarks] nvarchar(250)
+Price decimal(18, 2),
+Brand varchar(250),
+Status varchar(250) not null,	
+Quantity bigint not null,
+Remarks nvarchar(250),
+CategoryID int
+
+CONSTRAINT FK_Inventory_Category FOREIGN KEY(CategoryID)
+REFERENCES Category(CategoryID)
 
 )
 
-Select * From Inventory
 
 
 
@@ -72,43 +95,40 @@ ID_Number nvarchar(255) not null,
 Email_Address nvarchar(255) not null,
 Contact_No bigint not null,
 Program varchar(100) not null,
-Department varchar(100) not null,
-Address nvarchar(255) not null
+Department varchar(100) not null
+
 
 
 )
 
-Truncate Table Students
+
 
 --Transactions Borrow Records and Return Records
 Create Table BorrowReturnTransaction (
 
-transactionID int not null identity(100,1) primary key,
-[Student_Name] varchar(250) not null,
-[ID_Number] nvarchar(250) not null,
-[Email_Address] varchar(250) not null,
-[Contact_Number] bigint not null,
-[Program] varchar(250) not null,
-[Apparatus_Name] varchar(250) not null,
-[Borrow_Date] nvarchar(250) not null,
-[Due_Date] nvarchar(250) not null,
-[Date_Returned] nvarchar(250),
-[studID] int NOT NULL,
-[AccountID] int NOT NULL,
-[ApparatusID] int Not null,
-[Remarks] NVARCHAR(250),
+    transactionID INT IDENTITY(100,1) PRIMARY KEY,
+    Student_Name VARCHAR(250) NOT NULL,
+    ID_Number NVARCHAR(250) NOT NULL,
+    Email_Address VARCHAR(250) NOT NULL,
+    Contact_Number BIGINT NOT NULL,
+    Program VARCHAR(250) NOT NULL,
+    Apparatus_Name VARCHAR(250) NOT NULL,
+    Quantity INT NOT NULL DEFAULT 1,
+    Purpose NVARCHAR(120) NOT NULL,
+    Borrow_Date NVARCHAR(250) NOT NULL,
+    Due_Date NVARCHAR(250) NOT NULL,
+    Quantity_Returned INT NULL,
+    Date_Returned NVARCHAR(250) NULL,
+    Remarks NVARCHAR(250) NULL,
+    studID INT NOT NULL,
+    AccountID INT NOT NULL,
+    ApparatusID INT NOT NULL
 CONSTRAINT FK_BorrowReturnTransactions_Student  FOREIGN KEY (studID) REFERENCES Students(studID),
 CONSTRAINT FK_BorrowReturnTransactions_Account  FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
 CONSTRAINT FK_BorrowReturnTransactions_ApparatusList FOREIGN KEY (ApparatusID) REFERENCES ApparatusList(ApparatusID)
 );	
 
-ALTER TABLE BorrowReturnTransaction
-DROP CONSTRAINT FK_BorrowReturnTransactions_Student;
 
-ALTER TABLE BorrowReturnTransaction
-ADD CONSTRAINT FK_BorrowReturnTransactions_Student FOREIGN KEY (studID) REFERENCES Students(studID);
-
-Select * From BorrowReturnTransaction
 
 
 --Penalties and Violations
@@ -153,33 +173,3 @@ CONSTRAINT FK_Violation_Email FOREIGN KEY (penaltyID) REFERENCES LaboratoryPenal
 
 );
 GO
-
-
-truncate table UserRegistration
-truncate table Accounts
-
-Drop table UserRegistration
-Drop table Accounts
-
-Drop table ApparatusList
-Truncate Table ApparatusList
-
-
--- Drop the foreign key constraint on AdminID in Accounts
-ALTER TABLE Accounts
-DROP CONSTRAINT FK_UserRegistration_AdminID
-ALTER TABLE Accounts
-ADD CONSTRAINT FK_UserRegistration_AdminID
-FOREIGN KEY (AdminID) REFERENCES UserRegistration(AdminID);
-
--- Drop the foreign key constraint on RoleID in Accounts
-ALTER TABLE Accounts
-DROP CONSTRAINT FK_Roles_RoleID;
-ALTER TABLE Accounts
-ADD CONSTRAINT FK_Roles_RoleID
-FOREIGN KEY (RoleID) REFERENCES Roles(RoleID);
-
-
-
-
-

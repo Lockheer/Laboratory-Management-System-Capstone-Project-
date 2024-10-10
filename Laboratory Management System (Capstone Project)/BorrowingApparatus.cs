@@ -18,6 +18,8 @@ namespace Laboratory_Management_System__Capstone_Project_
         public BorrowingApparatus()
         {
             InitializeComponent();
+            //ENTER KEY for tbSearch
+            this.AcceptButton = btnSearch;
         }
 
         //Loading of ID numbers
@@ -59,6 +61,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void BorrowingApparatus_Load(object sender, EventArgs e)
         {
+            tbSearch.Focus();
             SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
             SqlCommand cmd = new SqlCommand("SELECT [Apparatus Name] FROM Inventory WHERE Status = 'Ready for Use'", con);
             con.Open();
@@ -78,6 +81,12 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             LoadIDNumbers();
 
+            //Blank strings for the comboboxes
+            cbApparatusName.Items.Add(""); 
+            cbApparatusName1.Items.Add("");
+            cbApparatusName2.Items.Add(""); 
+            cbApparatusName3.Items.Add(""); 
+            cbApparatusName4.Items.Add(""); 
 
             nudQuantity.Minimum = 1;
             nudQuantity.Maximum = 10; // Set the maximum quantity to 100
@@ -181,7 +190,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbContact.Clear();
             tbProgram.Clear();
             tbSearch.Clear();
-
+            tbPurpose.Clear();
             cbApparatusName.SelectedIndex = -1;
             cbApparatusName1.SelectedIndex = -1;
             cbApparatusName2.SelectedIndex = -1;
@@ -214,23 +223,23 @@ namespace Laboratory_Management_System__Capstone_Project_
                 //count is 0 to 9
                 if (count <= 9)
                 {
-                    List<string> selectedApparatusNames = new List<string>
-                    {
+                    List<string> selectedApparatusNames = new List<string>{
                 cbApparatusName.Text,
                 cbApparatusName1.Text,
                 cbApparatusName2.Text,
                 cbApparatusName3.Text,
                 cbApparatusName4.Text
                  };
+                    // Remove any null or empty values from the list
+                    selectedApparatusNames = selectedApparatusNames.Where(x => !string.IsNullOrEmpty(x)).ToList();
 
-                    List<int> quantities = new List<int>
-                {
-                (int)nudQuantity.Value,
+                    List<int> quantities = new List<int> {
+                 (int)nudQuantity.Value,
                 (int)nudQuantity1.Value,
                 (int)nudQuantity2.Value,
                 (int)nudQuantity3.Value,
                 (int)nudQuantity4.Value
-                };
+                    };
 
                     String Studname = tbStudName.Text;
                     String IDnum = tbIDnum.Text;
@@ -246,16 +255,38 @@ namespace Laboratory_Management_System__Capstone_Project_
                         {
                             dbConnection.Open();
 
+                            //Purpose validations
                             if (tbPurpose.Text == "None" || tbPurpose.Text == "" || tbPurpose.Text == "Unknown" || tbPurpose.Text == "UNKNOWN" || tbPurpose.Text == "Unknown Purpose" || tbPurpose.Text == "UNKNOWN PURPOSE")
                             {
                                 MessageBox.Show("Please enter a valid purpose.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
 
-                            // Check if the borrow date is the current date
-                            if (DateTime.Parse(dtpBorrowDate.Text) < DateTime.Now.Date)
-                            {
+                            /* Check if the borrow date is the current date
+                            if (DateTime.Parse(dtpBorrowDate.Text).Date < DateTime.Now.Date)
+                            {   //Needs checking
                                 MessageBox.Show("Borrow date cannot be earlier than today's date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }*/
+
+                            // Check if the borrow date and due date are the same
+                            if (DateTime.Parse(dtpBorrowDate.Text) == DateTime.Parse(dtpDueDate.Text))
+                            {
+                                MessageBox.Show("Borrow date and due date cannot be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            // Check if the due date is earlier than the borrow date
+                            if (DateTime.Parse(dtpDueDate.Text) < DateTime.Parse(dtpBorrowDate.Text))
+                            {
+                                MessageBox.Show("Due date cannot be earlier than borrow date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            // Check if the due date is too far in the future
+                            if ((DateTime.Parse(dtpDueDate.Text) - DateTime.Now.Date).Days > 3)
+                            {
+                                MessageBox.Show("Due date cannot be more than 3 days from today's date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
 
@@ -377,69 +408,147 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbSearch.Clear();
         }
 
-        //Pressing ENTER on the Search box
-        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnSearch_Click(sender, e);
-                e.Handled = true;
-            }
-        }
-
+     
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
+
+
         private void cbApparatusName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string apparatusName = cbApparatusName.SelectedItem.ToString();
-            int quantity = GetQuantity(apparatusName);
-            lblQuantity1.Text = "Available Quantity: " + quantity.ToString();
-            lblQuantity1.Visible = true; 
+            if (cbApparatusName.SelectedItem != null)
+            {
+                string apparatusName = cbApparatusName.SelectedItem.ToString();
+                int quantity = GetQuantity(apparatusName);
+                if (quantity != -1)
+                {
+                    lblQuantity1.Text = "Available Quantity: " + quantity.ToString();
+                    lblQuantity1.Visible = true;
+                }
+                else
+                {
+                    lblQuantity1.Visible = false;
+                }
+            }
+            else
+            {
+                lblQuantity1.Visible = false;
+            }
         }
 
         private void cbApparatusName1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string apparatusName = cbApparatusName1.SelectedItem.ToString();
-            int quantity = GetQuantity(apparatusName);
-            lblQuantity2.Text = "Available Quantity: " + quantity.ToString();
-            lblQuantity2.Visible = true; 
+            if (cbApparatusName1.SelectedItem != null)
+            {
+                string apparatusName = cbApparatusName1.SelectedItem.ToString();
+                int quantity = GetQuantity(apparatusName);
+                if (quantity != -1)
+                {
+                    lblQuantity2.Text = "Available Quantity: " + quantity.ToString();
+                    lblQuantity2.Visible = true;
+                }
+                else
+                {
+                    lblQuantity2.Visible = false;
+                }
+            }
+            else
+            {
+                lblQuantity2.Visible = false;
+            }
         }
 
         private void cbApparatusName2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string apparatusName = cbApparatusName2.SelectedItem.ToString();
-            int quantity = GetQuantity(apparatusName);
-            lblQuantity3.Text = "Available Quantity: " + quantity.ToString();
-            lblQuantity3.Visible = true;
+            if (cbApparatusName2.SelectedItem != null)
+            {
+                string apparatusName = cbApparatusName2.SelectedItem.ToString();
+                int quantity = GetQuantity(apparatusName);
+                if (quantity != -1)
+                {
+                    lblQuantity3.Text = "Available Quantity: " + quantity.ToString();
+                    lblQuantity3.Visible = true;
+                }
+                else
+                {
+                    lblQuantity3.Visible = false;
+                }
+            }
+            else
+            {
+                lblQuantity3.Visible = false;
+            }
         }
 
         private void cbApparatusName3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string apparatusName = cbApparatusName3.SelectedItem.ToString();
-            int quantity = GetQuantity(apparatusName);
-            lblQuantity4.Text = "Available Quantity: " + quantity.ToString();
-            lblQuantity4.Visible = true;
+            if (cbApparatusName3.SelectedItem != null)
+            {
+                string apparatusName = cbApparatusName3.SelectedItem.ToString();
+                int quantity = GetQuantity(apparatusName);
+                if (quantity != -1)
+                {
+                    lblQuantity4.Text = "Available Quantity: " + quantity.ToString();
+                    lblQuantity4.Visible = true;
+                }
+                else
+                {
+                    lblQuantity4.Visible = false;
+                }
+            }
+            else
+            {
+                lblQuantity4.Visible = false;
+            }
         }
 
         private void cbApparatusName4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string apparatusName = cbApparatusName4.SelectedItem.ToString();
-            int quantity = GetQuantity(apparatusName);
-            lblQuantity5.Text = "Available Quantity: " + quantity.ToString();
-            lblQuantity5.Visible = true;
+            if (cbApparatusName4.SelectedItem != null)
+            {
+                string apparatusName = cbApparatusName4.SelectedItem.ToString();
+                int quantity = GetQuantity(apparatusName);
+                if (quantity != -1)
+                {
+                    lblQuantity5.Text = "Available Quantity: " + quantity.ToString();
+                    lblQuantity5.Visible = true;
+                }
+                else
+                {
+                    lblQuantity5.Visible = false;
+                }
+            }
+            else
+            {
+                lblQuantity5.Visible = false;
+            }
         }
 
         private int GetQuantity(string apparatusName)
         {
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            if (string.IsNullOrEmpty(apparatusName))
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT Quantity FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
-                cmd.Parameters.AddWithValue("@Apparatus_Name", apparatusName);
-                int quantity = (int)cmd.ExecuteScalar();
-                return quantity;
+                return -1; 
+            }
+            else
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT Quantity FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);
+                    cmd.Parameters.AddWithValue("@Apparatus_Name", apparatusName);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result == null || result is DBNull)
+                    {
+                        return 0; // or some other default value
+                    }
+                    else
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                }
             }
         }
     }

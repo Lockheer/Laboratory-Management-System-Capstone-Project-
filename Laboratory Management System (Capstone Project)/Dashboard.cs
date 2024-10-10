@@ -345,6 +345,11 @@ namespace Laboratory_Management_System__Capstone_Project_
             openForms[form.GetType()] = form;
         }
 
+        private void dashboardDefaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowShortcutButtons();
+            ShowApparatusCount();
+        }
         private void addANewApparatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddApparatus addApparatus = new AddApparatus();
@@ -410,11 +415,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private void menuStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
+     
         private void btnInventoryShortcut_Click(object sender, EventArgs e)
         {
             InventoryList viewApp = new InventoryList();
@@ -527,6 +528,47 @@ namespace Laboratory_Management_System__Capstone_Project_
                 // Update the returned apparatus count label
                 returnedApparatusCountLabel.Text = $"Returned Apparatus Count: {returnedApparatusCount}";
             }
+        }
+
+       
+        public void NavigateBackToDashboard()
+        {
+            // Remove the current form from the panelContainer
+            panelContainer.Controls.Clear();
+
+            // Show the shortcut buttons
+            btnInventoryShortcut.Visible = true;
+            btnStudentListShortcut.Visible = true;
+            lblShortcut.Visible = true;
+
+            // Show the labels
+            apparatusCountLabel.Visible = true;
+            studentCountLabel.Visible = true;
+            borrowedApparatusCountLabel.Visible = true;
+            returnedApparatusCountLabel.Visible = true;
+            lblOverview.Visible = true;
+            ShowCountPanel.Visible = true;
+            lblTitle.Visible = true;
+        }
+
+
+        private void dashboardtoolStripMenu_Click(object sender, EventArgs e)
+        { // Remove any forms that are currently being shown in the panelContainer
+            foreach (Control control in panelContainer.Controls)
+            {
+                if (control is Form)
+                {
+                    control.Dispose();
+                }
+            }
+
+            // Show the Dashboard controls
+            ShowShortcutButtons();
+            ShowApparatusCount();
+
+            // Refresh the UI to ensure everything is updated
+            this.Refresh();
+
         }
     }
 
