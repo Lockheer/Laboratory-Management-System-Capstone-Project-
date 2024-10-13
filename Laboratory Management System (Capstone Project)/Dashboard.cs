@@ -292,6 +292,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             btnInventoryShortcut.Visible = false;
             btnStudentListShortcut.Visible = false;
             lblShortcut.Visible = false;
+            lblFirstName.Visible = false;
+            lblIDNumber.Visible = false;
 
             // Hide the labels
             apparatusCountLabel.Visible = false;
@@ -441,6 +443,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             lblOverview.Visible = true;
             ShowCountPanel.Visible = true;
             lblTitle.Visible = true;
+
+            lblIDNumber.Visible = true;
+            lblFirstName.Visible = true;
         }
 
 
