@@ -143,21 +143,21 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
-                        SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],transactionID) " +
+                        SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], Balance, [Penalty Status],transactionID) " +
                                                         "VALUES (@IDNumber, @StudentName, @ContactNumber, @Email, @PenaltyDate, @Violation, @Condition, @ToBePayed, @Payed, @Balance, @Status, @RefNum)", con);
 
                         // Add parameters with explicit types
                         cmd.Parameters.Add("@IDNumber", SqlDbType.NVarChar).Value = tbIDnum.Text;
-                        cmd.Parameters.Add("@StudentName", SqlDbType.NVarChar).Value = tbStudentName.Text;
+                        cmd.Parameters.Add("@StudentName", SqlDbType.VarChar).Value = tbStudentName.Text;
                         cmd.Parameters.Add("@ContactNumber", SqlDbType.BigInt).Value = Int64.Parse(tbContact.Text); // Handle potential parse errors
                         cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = tbEmail.Text;
-                        cmd.Parameters.Add("@PenaltyDate", SqlDbType.Date).Value = dtpPenaltyDate.Value; // Use DateTimePicker.Value instead of .Text
-                        cmd.Parameters.Add("@Violation", SqlDbType.NVarChar).Value = tbViolation.Text;
-                        cmd.Parameters.Add("@Condition", SqlDbType.NVarChar).Value = cbCondition.Text;
+                        cmd.Parameters.Add("@PenaltyDate", SqlDbType.NVarChar).Value = dtpPenaltyDate.Value; // Use DateTimePicker.Value instead of .Text
+                        cmd.Parameters.Add("@Violation", SqlDbType.VarChar).Value = tbViolation.Text;
+                        cmd.Parameters.Add("@Condition", SqlDbType.VarChar).Value = cbCondition.Text;
                         cmd.Parameters.Add("@ToBePayed", SqlDbType.Decimal).Value = Decimal.Parse(tbAmtToBe.Text);
                         cmd.Parameters.Add("@Payed", SqlDbType.Decimal).Value = Decimal.Parse(tbAmtPayed.Text);
                         cmd.Parameters.Add("@Balance", SqlDbType.Decimal).Value = Decimal.Parse(lblRemainingBalance.Text);
-                        cmd.Parameters.Add("@Status", SqlDbType.NVarChar).Value = cbStatus.Text;
+                        cmd.Parameters.Add("@Status", SqlDbType.VarChar).Value = cbStatus.Text;
                         cmd.Parameters.Add("@RefNum", SqlDbType.BigInt).Value = Int64.Parse(cbTransact.Text); // Handle potential parse errors
 
                         con.Open();
@@ -249,14 +249,14 @@ namespace Laboratory_Management_System__Capstone_Project_
                     {
                         using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                         {
-                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed, [Balance] = @Balance, [Penalty Status] = @Status, transactionID = @RefNum WHERE PenaltyID = @RowID", con);
+                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed, Balance = @Balance, [Penalty Status] = @Status, transactionID = @RefNum WHERE PenaltyID = @RowID", con);
 
                             // Add parameters
                             cmd.Parameters.AddWithValue("@IDNumber", tbIDnum.Text);
                             cmd.Parameters.AddWithValue("@StudentName", tbStudentName.Text);
                             cmd.Parameters.AddWithValue("@ContactNumber", Int64.Parse(tbContact.Text));
                             cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
-                            cmd.Parameters.AddWithValue("@PenaltyDate", dtpPenaltyDate.Text);
+                            cmd.Parameters.AddWithValue("@PenaltyDate", dtpPenaltyDate.Value);
                             cmd.Parameters.AddWithValue("@Violation", tbViolation.Text);
                             cmd.Parameters.AddWithValue("@Condition", cbCondition.Text);
                             cmd.Parameters.AddWithValue("@ToBePayed", Decimal.Parse(tbAmtToBe.Text));
