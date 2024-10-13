@@ -332,6 +332,7 @@
     <None Include="Resources\sidepanel.png" />
     <None Include="Resources\sidepanel1.jpg" />
     <None Include="Resources\sidebarlast.jpg" />
+    <Content Include="FULL-CAPSTONE-QUERY.txt" />
     <Content Include="MAJOR BACKUP %28TRANSACTIONDETAILS%29.txt" />
     <None Include="Resources\student_bg_final.jpg" />
     <None Include="Resources\student_big.png" />

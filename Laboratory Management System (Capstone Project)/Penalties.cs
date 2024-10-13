@@ -393,11 +393,11 @@ namespace Laboratory_Management_System__Capstone_Project_
         //Transaction Details button
         private void button1_Click(object sender, EventArgs e)
         {
-
             if (detailRestrict == 0)
             {
                 detailRestrict++;
                 TransactionDetails details = new TransactionDetails();
+                details.HideControls(); // Call the HideControls method from the TransactionDetails form
                 details.Show();
             }
             else

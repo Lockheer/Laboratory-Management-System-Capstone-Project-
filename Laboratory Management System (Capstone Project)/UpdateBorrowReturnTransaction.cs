@@ -105,16 +105,123 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void UpdateBorrowReturnTransaction_Load(object sender, EventArgs e)
         {
-
             try
             {
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
-                    SqlDataAdapter da = new SqlDataAdapter("SELECT Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction", con);
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT transactionID, Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction", con);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
+
+                    dgvTransaction.AutoGenerateColumns = false;  // Disable auto-generation since we're adding columns manually
+
+                    // Clear existing columns first if any
+                    dgvTransaction.Columns.Clear();
+
+                    // Manually add the necessary columns
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "transactionID",
+                        DataPropertyName = "transactionID",
+                        HeaderText = "Transaction ID",
+                        Visible = false  // Keep the Transaction ID hidden
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Student_Name",
+                        DataPropertyName = "Student_Name",
+                        HeaderText = "Student Name"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "ID_Number",
+                        DataPropertyName = "ID_Number",
+                        HeaderText = "ID Number"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Email_Address",
+                        DataPropertyName = "Email_Address",
+                        HeaderText = "Email Address"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Contact_Number",
+                        DataPropertyName = "Contact_Number",
+                        HeaderText = "Contact Number"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Program",
+                        DataPropertyName = "Program",
+                        HeaderText = "Program"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Apparatus_Name",
+                        DataPropertyName = "Apparatus_Name",
+                        HeaderText = "Apparatus Name"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Quantity",
+                        DataPropertyName = "Quantity",
+                        HeaderText = "Quantity"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Purpose",
+                        DataPropertyName = "Purpose",
+                        HeaderText = "Purpose"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Borrow_Date",
+                        DataPropertyName = "Borrow_Date",
+                        HeaderText = "Borrow Date"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Due_Date",
+                        DataPropertyName = "Due_Date",
+                        HeaderText = "Due Date"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Quantity_Returned",
+                        DataPropertyName = "Quantity_Returned",
+                        HeaderText = "Quantity Returned"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Date_Returned",
+                        DataPropertyName = "Date_Returned",
+                        HeaderText = "Date Returned"
+                    });
+
+                    dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "Remarks",
+                        DataPropertyName = "Remarks",
+                        HeaderText = "Remarks"
+                    });
+
+                    // Set the data source
                     dgvTransaction.DataSource = ds.Tables[0];
                 }
+
                 pnelUPDATE.Visible = false;
 
                 // Populate the Apparatus Name ComboBox
@@ -140,94 +247,89 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
+                // Ensure the click is on a valid cell (not header or out-of-bounds)
                 if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
-                if (dgvTransaction.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                // Find the column index of "transactionID" if you are using a column name
+                int transactionIDColumnIndex = dgvTransaction.Columns["transactionID"].Index;
+
+                var cellValue = dgvTransaction.Rows[e.RowIndex].Cells[transactionIDColumnIndex].Value;
+
+                // Ensure the cell contains a valid, non-null value
+                if (cellValue != null && int.TryParse(cellValue.ToString(), out id))
                 {
-                    id = int.Parse(dgvTransaction.Rows[e.RowIndex].Cells[0].Value.ToString());
-                }
+                    pnelUPDATE.Visible = true;
 
-                pnelUPDATE.Visible = true;
-
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
-                {
-                    SqlCommand cmd = new SqlCommand($"SELECT * FROM BorrowReturnTransaction WHERE transactionID= {id}", con);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-
-                    if (ds.Tables[0].Rows.Count > 0)
+                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                     {
-                        DataRow row = ds.Tables[0].Rows[0];
+                        SqlCommand cmd = new SqlCommand($"SELECT * FROM BorrowReturnTransaction WHERE transactionID= {id}", con);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
 
-                        Console.WriteLine("Row count: " + ds.Tables[0].Rows.Count);
-                        Console.WriteLine("Row values:");
-                        foreach (DataColumn col in ds.Tables[0].Columns)
+                        if (ds.Tables[0].Rows.Count > 0)
                         {
-                            Console.WriteLine($"{col.ColumnName}: {row[col.ColumnName]}");
-                        }
+                            DataRow row = ds.Tables[0].Rows[0];
 
-                        rowid = Convert.ToInt64(row["transactionID"]);
-                        tbStudentName.Text = row["Student_Name"].ToString();
-                        tbIDNum.Text = row["ID_Number"].ToString();
-                        tbEmailAdd.Text = row["Email_Address"].ToString();
-                        tbContact.Text = row["Contact_Number"].ToString();
-                        cbProgram.Text = row["Program"].ToString();
-                        cbAppaName.Text = row["Apparatus_Name"].ToString();
-                        nudQuantity.Value = Convert.ToInt32(row["Quantity"]);
-                        tbRemarks.Text = row["Purpose"].ToString();
+                            rowid = Convert.ToInt64(row["transactionID"]);
+                            tbStudentName.Text = row["Student_Name"].ToString();
+                            tbIDNum.Text = row["ID_Number"].ToString();
+                            tbEmailAdd.Text = row["Email_Address"].ToString();
+                            tbContact.Text = row["Contact_Number"].ToString();
+                            cbProgram.Text = row["Program"].ToString();
+                            cbAppaName.Text = row["Apparatus_Name"].ToString();
+                            nudQuantity.Value = Convert.ToInt32(row["Quantity"]);
+                            tbPurpose.Text = row["Purpose"].ToString();
 
-                        // Parse dates
-                        DateTime borrowDate;
-                        if (DateTime.TryParseExact(row["Borrow_Date"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out borrowDate))
-                        {
-                            dtpBorrowedDate.Value = borrowDate;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Failed to parse Borrow Date: " + row["Borrow_Date"]);
-                            MessageBox.Show("Invalid Borrow Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-
-                        DateTime dueDate;
-                        if (DateTime.TryParseExact(row["Due_Date"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out dueDate))
-                        {
-                            dtpDueDate.Value = dueDate;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Failed to parse Due Date: " + row["Due_Date"]);
-                            MessageBox.Show("Invalid Due Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-
-                        // Handle optional Date Returned
-                        if (!row.IsNull(12))
-                        {
-                            DateTime returnedDate;
-                            if (DateTime.TryParseExact(row["Date_Returned"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out returnedDate))
+                            // Parse Borrow Date
+                            if (DateTime.TryParseExact(row["Borrow_Date"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out DateTime borrowDate))
                             {
-                                dtpDateReturned.Value = returnedDate;
+                                dtpBorrowedDate.Value = borrowDate;
                             }
                             else
                             {
-                                Console.WriteLine("Failed to parse Return Date: " + row["Date_Returned"]);
-                                MessageBox.Show("Invalid Return Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Invalid Borrow Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
-                        }
-                        else
-                        {
-                            dtpDateReturned.Value = DateTime.Now; // Set to current date if null
-                        }
 
-                        nudQuantityReturned.Value = row.IsNull(11) ? 0 : Convert.ToInt32(row["Quantity_Returned"]);
-                        tbRemarks.Text = row.IsNull(13) ? "" : row["Remarks"].ToString();
+                            // Parse Due Date
+                            if (DateTime.TryParseExact(row["Due_Date"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out DateTime dueDate))
+                            {
+                                dtpDueDate.Value = dueDate;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid Due Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+
+                            // Handle optional Date Returned
+                            if (!row.IsNull("Date_Returned"))
+                            {
+                                if (DateTime.TryParseExact(row["Date_Returned"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out DateTime returnedDate))
+                                {
+                                    dtpDateReturned.Value = returnedDate;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid Return Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            else
+                            {
+                                dtpDateReturned.Value = DateTime.Now; // Set to current date if null
+                            }
+
+                            nudQuantityReturned.Value = row.IsNull("Quantity_Returned") ? 0 : Convert.ToInt32(row["Quantity_Returned"]);
+                            tbRemarks.Text = row.IsNull("Remarks") ? "" : row["Remarks"].ToString();
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid or empty Transaction ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error occurred: {ex.Message}");
-                Console.WriteLine($"Stack trace: {ex.StackTrace}");
                 MessageBox.Show($"An error occurred while retrieving the record: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -387,6 +489,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             pnelUPDATE.Visible = false;
             tbSearch.Clear();
+            UpdateBorrowReturnTransaction_Load(this, null);
         }
 
 

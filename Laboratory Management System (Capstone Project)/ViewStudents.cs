@@ -66,10 +66,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             throw new NotImplementedException();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            panel2.Hide();
-        }
 
 
 
@@ -613,6 +609,13 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
             UpdateUnsavedChanges();
         }
+
+        private void btnClosePanel_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+        }
+
+
     }
 }
 /*private void tbStudentSearch_TextChanged(object sender, EventArgs e)

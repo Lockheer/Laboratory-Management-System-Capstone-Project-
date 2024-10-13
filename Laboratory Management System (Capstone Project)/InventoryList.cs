@@ -78,8 +78,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             // UI styling
             UIHelper.SetRoundedCorners(panel2, 20);
             UIHelper.SetRoundedCorners(dgvApparatusList, 20);
-            UIHelper.SetRoundedCorners(btnUpdate, 40);
-            UIHelper.SetRoundedCorners(btnDelete, 40);
             UIHelper.SetGradientBackground(panel2, Color.FromArgb(11, 44, 149), Color.FromArgb(44, 84, 215), System.Drawing.Drawing2D.LinearGradientMode.Vertical);
 
             ViewApparatus_Load(this, null);
@@ -574,6 +572,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
         }
+
 
     }
 }

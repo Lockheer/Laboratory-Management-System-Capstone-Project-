@@ -594,60 +594,26 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        /*private void btnImport_Click(object sender, EventArgs e)
+        //For the Penalty Records
+        public void HideControls()
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            btnExport.Visible = false;
+            btnPrint.Visible = false;
+            this.MaximizeBox = false;
+            this.MinimizeBox = true;
+
+            // Remove the last three items from the combo box
+            cmbViewOptions.Items.Clear();
+            cmbViewOptions.Items.AddRange(new string[]
             {
-                openFileDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
-                openFileDialog.Title = "Open an Excel File";
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        ImportDataFromExcel(openFileDialog.FileName);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred while importing data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }*/
-
-        /* private void ImportDataFromExcel(string filePath)
-         {
-             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-             using (ExcelPackage package = new ExcelPackage(new FileInfo(filePath)))
-             {
-                 ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
-
-                 for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
-                 {
-                     DataGridViewRow dataGridViewRow = new DataGridViewRow();
-                     dataGridViewRow.CreateCells(currentDataGridView);
-
-                     for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
-                     {
-                         dataGridViewRow.Cells[col - 1].Value = worksheet.Cells[row, col].Value;
-                     }
-
-                     currentDataGridView.Rows.Add(dataGridViewRow);
-                 }
-             }
-
-             MessageBox.Show("Data imported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-         }*/
-
-
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            Close();
-            Dashboard.formRestrict = 0;
-            PenaltiesRecords.detailRestrict = 0;
+                 "Borrowed Items",
+                 "Returned Items"
+            });
+            cmbViewOptions.SelectedIndex = 0; // Default selection
         }
+
+
+
         private void cmbViewOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayDataGridView();

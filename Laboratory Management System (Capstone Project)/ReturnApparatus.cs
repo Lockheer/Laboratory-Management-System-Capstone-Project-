@@ -80,9 +80,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     panel2.Visible = true;
                     rowid = Convert.ToInt64(dgvReturnInformation.Rows[e.RowIndex].Cells[0].Value);
-                    appa_name = dgvReturnInformation.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    date_borrowed = dgvReturnInformation.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    due_date = dgvReturnInformation.Rows[e.RowIndex].Cells[9].Value.ToString();
+                    appa_name = dgvReturnInformation.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    date_borrowed = dgvReturnInformation.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    due_date = dgvReturnInformation.Rows[e.RowIndex].Cells[8].Value.ToString();
 
                     tbApparatusName.Text = appa_name;
                     tbBorrowedDate.Text = date_borrowed;
@@ -102,9 +102,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             try
             {
                 // Check if the return date is valid
-                DateTime returnDate = DateTime.Parse(dtpReturnDate.Text);
-                DateTime dueDate = DateTime.Parse(due_date);
+                DateTime returnDate = dtpReturnDate.Value;
                 DateTime borrowDate = DateTime.Parse(date_borrowed);
+                DateTime dueDate = DateTime.Parse(due_date);
 
                 if (returnDate < borrowDate)
                 {
@@ -126,17 +126,51 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
 
                 // Check if the quantity returned is valid
-                if (numQuantityReturned.Value <= 0)
-                {
-                    MessageBox.Show("Invalid quantity returned. Please enter a value greater than 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                int returnedQuantity = (int)numQuantityReturned.Value;
+                int borrowedQuantity = 0; // Initialize quantity borrowed
 
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                {
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("SELECT Quantity FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con))
+                    {
+                        cmd.Parameters.AddWithValue("@TransactionID", rowid);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                borrowedQuantity = Convert.ToInt32(reader["Quantity"]);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error retrieving apparatus information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+
+                    if (returnedQuantity < 1 || returnedQuantity > borrowedQuantity)
+                    {
+                        MessageBox.Show("Invalid quantity returned. Please enter a value between 1 and " + borrowedQuantity.ToString() + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 // Check if the remarks field is empty
                 if (string.IsNullOrWhiteSpace(tbRemarks.Text))
                 {
-                    MessageBox.Show("Please enter a remark for the return transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (MessageBox.Show("Are you sure you don't need to place the Transaction remarks?\n" + "The system will automate a generic report comment instead.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        // Proceed with the insertion without remarks
+                        tbRemarks.Text = "No remarks provided";
+                        tbRemarks.Text += "\nReturned Quantity: " + returnedQuantity.ToString();
+                    }
+                    else
+                    {
+                        // Cancel the insertion and focus on the tbRemarks field
+                        tbRemarks.Focus();
+                        return;
+                    }
                 }
 
                 string returnDateStr = dtpReturnDate.Text;
@@ -353,5 +387,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             numQuantityReturned.Value = 1;
             tbRemarks.Clear();
         }
+
+
     }
 }
