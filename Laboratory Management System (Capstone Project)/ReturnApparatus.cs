@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Laboratory_Management_System__Capstone_Project_
@@ -64,7 +58,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT transactionID, Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Borrow_Date, Due_Date, Date_Returned, Remarks FROM BorrowReturnTransaction", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT transactionID, Student_Name, ID_Number, Email_Address, Contact_Number,   Apparatus_Name,Quantity, Borrow_Date, Due_Date, Date_Returned, Remarks FROM BorrowReturnTransaction WHERE Date_Returned IS NULL AND Quantity_Returned IS NULL AND Remarks IS NULL ", con))
                 {
                     SqlDataAdapter DA = new SqlDataAdapter(cmd);
                     DataSet DS = new DataSet();
@@ -87,8 +81,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                     panel2.Visible = true;
                     rowid = Convert.ToInt64(dgvReturnInformation.Rows[e.RowIndex].Cells[0].Value);
                     appa_name = dgvReturnInformation.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    date_borrowed = dgvReturnInformation.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    due_date = dgvReturnInformation.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    date_borrowed = dgvReturnInformation.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    due_date = dgvReturnInformation.Rows[e.RowIndex].Cells[9].Value.ToString();
 
                     tbApparatusName.Text = appa_name;
                     tbBorrowedDate.Text = date_borrowed;
@@ -107,6 +101,21 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
+                // Check if the return date is valid
+                DateTime returnDate = DateTime.Parse(dtpReturnDate.Text);
+                DateTime dueDate = DateTime.Parse(due_date);
+                DateTime borrowDate = DateTime.Parse(date_borrowed);
+
+                if (returnDate < borrowDate)
+                {
+                    MessageBox.Show("The return date cannot be earlier than the borrow date.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else if (returnDate > dueDate)
+                {
+                    tbRemarks.Text = "This is a late return and is subjected as a violation. \nContext: Late Item Return\nPenalty: Student cannot borrow any apparatuses for 1 week.";
+                }
+
 
 
                 // Check if the return date is valid
@@ -130,7 +139,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     return;
                 }
 
-                string returnDateStr = dtpReturnDate.Value.ToString("MM-dd-yyyy HH:mm:ss");
+                string returnDateStr = dtpReturnDate.Text;
 
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                 {
@@ -142,9 +151,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     string dueDateStr;
                     string dateReturnedStr = returnDateStr; // Initialize with return date
                     int quantityBorrowed = 0; // Initialize quantity borrowed
-                    int quantityReturned = 0; // Initialize quantity returned
 
-                    using (SqlCommand cmd = new SqlCommand("SELECT Apparatus_Name, Borrow_Date, Due_Date, Quantity_Borrowed FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con))
+
+                    using (SqlCommand cmd = new SqlCommand("SELECT Apparatus_Name, Borrow_Date, Due_Date, Quantity FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con))
                     {
                         cmd.Parameters.AddWithValue("@TransactionID", rowid);
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -154,7 +163,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 apparatusName = reader["Apparatus_Name"].ToString();
                                 borrowedDateStr = reader["Borrow_Date"].ToString();
                                 dueDateStr = reader["Due_Date"].ToString();
-                                quantityBorrowed = Convert.ToInt32(reader["Quantity_Borrowed"]);
+                                quantityBorrowed = Convert.ToInt32(reader["Quantity"]);
                             }
                             else
                             {
@@ -164,23 +173,15 @@ namespace Laboratory_Management_System__Capstone_Project_
                         }
                     }
 
-                    // Check if the return date is later than the due date
-                    DateTime dueDate;
 
-                    if (DateTime.TryParse(dueDateStr, out dueDate))
-                    {
-                        DateTime returnDate;
 
-                        if (DateTime.TryParse(returnDateStr, out returnDate) && returnDate > dueDate)
-                        {
-                            tbRemarks.Text = "This is a late return and is subjected as a violation. \nContext: Late Item Return\nPenalty: Student cannot borrow any apparatuses for 1 week.";
-                        }
-                    }
+                    // Get the quantity returned from the NumericUpDown control
+                    int quantityReturned = (int)numQuantityReturned.Value;
 
                     // Validate quantity returned
-                    if (quantityBorrowed <= 0)
+                    if (quantityReturned < 1 || quantityReturned > quantityBorrowed)
                     {
-                        MessageBox.Show("Invalid quantity borrowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid quantity returned. Please enter a value between 1 and " + quantityBorrowed.ToString() + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -201,15 +202,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
 
 
-                    // Get the quantity returned from the NumericUpDown control
-                    quantityReturned = (int)numQuantityReturned.Value;
-
-                    // Validate quantity returned
-                    if (quantityReturned < 1 || quantityReturned > quantityBorrowed)
-                    {
-                        MessageBox.Show("Invalid quantity returned. Please enter a value between 1 and " + quantityBorrowed.ToString() + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
 
                     // Check if the student has already returned the apparatus
                     using (SqlCommand cmdCheckReturn = new SqlCommand("SELECT * FROM BorrowReturnTransaction WHERE transactionID = @TransactionID AND Date_Returned IS NOT NULL", con))
@@ -225,15 +217,17 @@ namespace Laboratory_Management_System__Capstone_Project_
                         }
                     }
 
-                    // Update the BorrowReturnTransaction with return date, remarks, and quantity returned
-                    using (SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Date_Returned = @ReturnDate, Remarks = @Remarks, Quantity_Returned = @QuantityReturned, AccountID = @AccountID WHERE ID_Number = @IDNumber AND transactionID = @TransactionID", con))
+                    // Update BorrowReturnTransaction with return date, remarks, and quantity returned
+                    using (SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Date_Returned = @ReturnDate, Remarks = @Remarks, Quantity_Returned = @QuantityReturned, AccountID = @AccountID WHERE transactionID = @TransactionID", con))
                     {
-                        cmd.Parameters.AddWithValue("@ReturnDate", returnDateStr);
+                        // Pass the correct parameters to the command
+                        cmd.Parameters.AddWithValue("@ReturnDate", dtpReturnDate.Value);
                         cmd.Parameters.AddWithValue("@Remarks", tbRemarks.Text);
-                        cmd.Parameters.AddWithValue("@IDNumber", tbSearchID.Text);
                         cmd.Parameters.AddWithValue("@TransactionID", rowid);
-                        cmd.Parameters.AddWithValue("@QuantityReturned", quantityReturned);
-                        cmd.Parameters.AddWithValue("@AccountID", Form1.Session.AccountID); // Add the AccountID foreign key
+                        cmd.Parameters.AddWithValue("@QuantityReturned", numQuantityReturned.Value);
+                        cmd.Parameters.AddWithValue("@AccountID", Form1.Session.AccountID);
+
+                        // Execute the query
                         cmd.ExecuteNonQuery();
                     }
 
@@ -250,6 +244,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                     MessageBox.Show("The transaction has been completed.\nThank you for returning the Apparatus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ReturnApparatus_Load(this, null);
+                    ResetFields();
                 }
             }
             catch (Exception ex)
@@ -286,7 +281,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM BorrowReturnTransaction WHERE ID_Number = @IDNumber AND Date_Returned IS NULL AND AccountID = @AccountID", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM BorrowReturnTransaction WHERE ID_Number = @IDNumber AND Date_Returned IS NULL AND Remarks IS NULL AND Quantity_Returned IS NULL AND AccountID = @AccountID", con))
                 {
                     cmd.Parameters.AddWithValue("@IDNumber", idNumber);
                     cmd.Parameters.AddWithValue("@AccountID", Form1.Session.AccountID);
@@ -332,8 +327,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (MessageBox.Show("Do you want to go back to the Dashboard?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
-                // Sets back to 0 to prevent restriction from occurring
-                Dashboard.formRestrict = 0;
+                Dashboard db = new Dashboard();
+                db.Show();
             }
         }
 
@@ -345,6 +340,18 @@ namespace Laboratory_Management_System__Capstone_Project_
                 e.Handled = true; // Prevents the beep sound on Enter key press
             }
 
+        }
+
+
+        private void ResetFields()
+        {
+            tbSearchID.Clear();
+            tbApparatusName.Clear();
+            tbBorrowedDate.Clear();
+            tbDue.Clear();
+            dtpReturnDate.Value = DateTime.Today;
+            numQuantityReturned.Value = 1;
+            tbRemarks.Clear();
         }
     }
 }

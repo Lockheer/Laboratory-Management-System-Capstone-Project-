@@ -160,30 +160,78 @@ namespace Laboratory_Management_System__Capstone_Project_
                     {
                         DataRow row = ds.Tables[0].Rows[0];
 
-                        rowid = Convert.ToInt64(row[0]);
-                        tbStudentName.Text = row[1].ToString();
-                        tbIDNum.Text = row[2].ToString();
-                        tbEmailAdd.Text = row[3].ToString();
-                        tbContact.Text = row[4].ToString();
-                        cbProgram.Text = row[5].ToString();
-                        cbAppaName.Text = row[6].ToString();
-                        nudQuantity.Value = Convert.ToInt32(row[7]);
-                        tbRemarks.Text = row[8].ToString();
-                        dtpBorrowedDate.Text = row[9].ToString();
-                        dtpDueDate.Text = row[10].ToString();
-                        nudQuantityReturned.Value = Convert.ToInt32(row[11]);
-                        dtpDateReturned.Text = row[12].ToString();
-                        tbRemarks.Text = row[13].ToString();
+                        Console.WriteLine("Row count: " + ds.Tables[0].Rows.Count);
+                        Console.WriteLine("Row values:");
+                        foreach (DataColumn col in ds.Tables[0].Columns)
+                        {
+                            Console.WriteLine($"{col.ColumnName}: {row[col.ColumnName]}");
+                        }
 
+                        rowid = Convert.ToInt64(row["transactionID"]);
+                        tbStudentName.Text = row["Student_Name"].ToString();
+                        tbIDNum.Text = row["ID_Number"].ToString();
+                        tbEmailAdd.Text = row["Email_Address"].ToString();
+                        tbContact.Text = row["Contact_Number"].ToString();
+                        cbProgram.Text = row["Program"].ToString();
+                        cbAppaName.Text = row["Apparatus_Name"].ToString();
+                        nudQuantity.Value = Convert.ToInt32(row["Quantity"]);
+                        tbRemarks.Text = row["Purpose"].ToString();
 
+                        // Parse dates
+                        DateTime borrowDate;
+                        if (DateTime.TryParseExact(row["Borrow_Date"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out borrowDate))
+                        {
+                            dtpBorrowedDate.Value = borrowDate;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to parse Borrow Date: " + row["Borrow_Date"]);
+                            MessageBox.Show("Invalid Borrow Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                        DateTime dueDate;
+                        if (DateTime.TryParseExact(row["Due_Date"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out dueDate))
+                        {
+                            dtpDueDate.Value = dueDate;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to parse Due Date: " + row["Due_Date"]);
+                            MessageBox.Show("Invalid Due Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                        // Handle optional Date Returned
+                        if (!row.IsNull(12))
+                        {
+                            DateTime returnedDate;
+                            if (DateTime.TryParseExact(row["Date_Returned"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out returnedDate))
+                            {
+                                dtpDateReturned.Value = returnedDate;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Failed to parse Return Date: " + row["Date_Returned"]);
+                                MessageBox.Show("Invalid Return Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        else
+                        {
+                            dtpDateReturned.Value = DateTime.Now; // Set to current date if null
+                        }
+
+                        nudQuantityReturned.Value = row.IsNull(11) ? 0 : Convert.ToInt32(row["Quantity_Returned"]);
+                        tbRemarks.Text = row.IsNull(13) ? "" : row["Remarks"].ToString();
                     }
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Error occurred: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
                 MessageBox.Show($"An error occurred while retrieving the record: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {

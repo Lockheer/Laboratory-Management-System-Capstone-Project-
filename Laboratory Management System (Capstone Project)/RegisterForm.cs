@@ -356,6 +356,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbPass.Clear();
             tbConfirmPass.Clear();
             dtpBirthdate.ResetText();
+            dtpBirthdate.Format = DateTimePickerFormat.Custom;
+            dtpBirthdate.CustomFormat = "";
 
         }
 
