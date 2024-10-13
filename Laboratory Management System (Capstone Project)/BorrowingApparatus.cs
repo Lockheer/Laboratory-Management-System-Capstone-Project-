@@ -247,8 +247,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                     Int64 Contact = Int64.Parse(tbContact.Text);
                     String Program = tbProgram.Text;
                     String purpose = tbPurpose.Text;
-                    String IssueDate = dtpBorrowDate.Text;
-                    String dueDate = dtpDueDate.Text;
+                    DateTime IssueDate = dtpBorrowDate.Value;
+                    DateTime dueDate = dtpDueDate.Value;
                     using (SqlConnection dbConnection = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
                         try
@@ -262,34 +262,33 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 return;
                             }
 
-                            /* Check if the borrow date is the current date
-                            if (DateTime.Parse(dtpBorrowDate.Text).Date < DateTime.Now.Date)
-                            {   //Needs checking
+                            // Check if the borrow date is earlier than today's date
+                            if (IssueDate.Date < DateTime.Now.Date)
+                            {
                                 MessageBox.Show("Borrow date cannot be earlier than today's date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
-                            }*/
+                            }
 
                             // Check if the borrow date and due date are the same
-                            if (DateTime.Parse(dtpBorrowDate.Text) == DateTime.Parse(dtpDueDate.Text))
+                            if (IssueDate == dueDate)
                             {
                                 MessageBox.Show("Borrow date and due date cannot be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
 
                             // Check if the due date is earlier than the borrow date
-                            if (DateTime.Parse(dtpDueDate.Text) < DateTime.Parse(dtpBorrowDate.Text))
+                            if (dueDate < IssueDate)
                             {
                                 MessageBox.Show("Due date cannot be earlier than borrow date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
 
                             // Check if the due date is too far in the future
-                            if ((DateTime.Parse(dtpDueDate.Text) - DateTime.Now.Date).Days > 3)
+                            if ((dueDate - DateTime.Now.Date).Days > 3)
                             {
                                 MessageBox.Show("Due date cannot be more than 3 days from today's date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
-
                             for (int i = 0; i < selectedApparatusNames.Count; i++)
                             {
                                 if (!string.IsNullOrEmpty(selectedApparatusNames[i]))

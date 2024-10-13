@@ -58,7 +58,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT transactionID, Student_Name, ID_Number, Email_Address, Contact_Number,   Apparatus_Name,Quantity, Borrow_Date, Due_Date, Date_Returned, Remarks FROM BorrowReturnTransaction WHERE Date_Returned IS NULL AND Quantity_Returned IS NULL AND Remarks IS NULL ", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT transactionID, Student_Name, ID_Number, Apparatus_Name,Quantity, Borrow_Date, Due_Date,  Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction", con))
                 {
                     SqlDataAdapter DA = new SqlDataAdapter(cmd);
                     DataSet DS = new DataSet();
@@ -66,6 +66,16 @@ namespace Laboratory_Management_System__Capstone_Project_
                     dgvReturnInformation.DataSource = DS.Tables[0];
                 }
             }
+            dgvReturnInformation.Columns["transactionID"].HeaderText = "Transaction ID";
+            dgvReturnInformation.Columns["Student_Name"].HeaderText = "Student Name";
+            dgvReturnInformation.Columns["ID_Number"].HeaderText = "ID Number";
+            dgvReturnInformation.Columns["Apparatus_Name"].HeaderText = "Apparatus Name";
+            dgvReturnInformation.Columns["Quantity"].HeaderText = "Quantity";
+            dgvReturnInformation.Columns["Borrow_Date"].HeaderText = "Borrow Date";
+            dgvReturnInformation.Columns["Due_Date"].HeaderText = "Due Date";
+            dgvReturnInformation.Columns["Quantity_Returned"].HeaderText = "Quantity Returned";
+            dgvReturnInformation.Columns["Date_Returned"].HeaderText = "Return Date";
+            dgvReturnInformation.Columns["Remarks"].HeaderText = "Remarks";
 
             LoadIDNumbers();
         }
@@ -80,9 +90,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     panel2.Visible = true;
                     rowid = Convert.ToInt64(dgvReturnInformation.Rows[e.RowIndex].Cells[0].Value);
-                    appa_name = dgvReturnInformation.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    date_borrowed = dgvReturnInformation.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    due_date = dgvReturnInformation.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    appa_name = dgvReturnInformation.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    date_borrowed = dgvReturnInformation.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    due_date = dgvReturnInformation.Rows[e.RowIndex].Cells[6].Value.ToString();
 
                     tbApparatusName.Text = appa_name;
                     tbBorrowedDate.Text = date_borrowed;
@@ -96,7 +106,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        //Issue Return Button
         private void btnIssueReturn_Click(object sender, EventArgs e)
         {
             try
@@ -115,8 +124,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     tbRemarks.Text = "This is a late return and is subjected as a violation. \nContext: Late Item Return\nPenalty: Student cannot borrow any apparatuses for 1 week.";
                 }
-
-
 
                 // Check if the return date is valid
                 if (dtpReturnDate.Value < DateTime.Today)
@@ -156,130 +163,72 @@ namespace Laboratory_Management_System__Capstone_Project_
                         return;
                     }
                 }
-                // Check if the remarks field is empty
-                if (string.IsNullOrWhiteSpace(tbRemarks.Text))
-                {
-                    if (MessageBox.Show("Are you sure you don't need to place the Transaction remarks?\n" + "The system will automate a generic report comment instead.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        // Proceed with the insertion without remarks
-                        tbRemarks.Text = "No remarks provided";
-                        tbRemarks.Text += "\nReturned Quantity: " + returnedQuantity.ToString();
-                    }
-                    else
-                    {
-                        // Cancel the insertion and focus on the tbRemarks field
-                        tbRemarks.Focus();
-                        return;
-                    }
-                }
 
-                string returnDateStr = dtpReturnDate.Text;
-
+              
+                // Check if the student has already returned some of the apparatuses
+                int quantityAlreadyReturned = 0;
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                 {
                     con.Open();
 
-                    // Retrieve the apparatus name and other date values
-                    string apparatusName;
-                    string borrowedDateStr;
-                    string dueDateStr;
-                    string dateReturnedStr = returnDateStr; // Initialize with return date
-                    int quantityBorrowed = 0; // Initialize quantity borrowed
-
-
-                    using (SqlCommand cmd = new SqlCommand("SELECT Apparatus_Name, Borrow_Date, Due_Date, Quantity FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT Quantity_Returned FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con))
                     {
                         cmd.Parameters.AddWithValue("@TransactionID", rowid);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                apparatusName = reader["Apparatus_Name"].ToString();
-                                borrowedDateStr = reader["Borrow_Date"].ToString();
-                                dueDateStr = reader["Due_Date"].ToString();
-                                quantityBorrowed = Convert.ToInt32(reader["Quantity"]);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error retrieving apparatus information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
+                                quantityAlreadyReturned = reader["Quantity_Returned"] as int? ?? 0;
                             }
                         }
                     }
+                }
+                // Calculate the total quantity returned
+                int totalQuantityReturned = quantityAlreadyReturned + returnedQuantity;
 
-                 
+                // Check if the total quantity returned exceeds the borrowed quantity
+                if (totalQuantityReturned > borrowedQuantity)
+                {
+                    MessageBox.Show("The total quantity returned exceeds the borrowed quantity.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    // Get the quantity returned from the NumericUpDown control
-                    int quantityReturned = (int)numQuantityReturned.Value;
+                // Update BorrowReturnTransaction with return date, remarks, and quantity returned
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                {
+                    con.Open();
 
-                    // Validate quantity returned
-                    if (quantityReturned < 1 || quantityReturned > quantityBorrowed)
-                    {
-                        MessageBox.Show("Invalid quantity returned. Please enter a value between 1 and " + quantityBorrowed.ToString() + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    if (string.IsNullOrWhiteSpace(tbRemarks.Text) || tbRemarks.Text == "")
-                    {
-                        if (MessageBox.Show("Are you sure you don't need to place the Transaction remarks?\n" + "The system will automate a generic report comment instead.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            // Proceed with the insertion without remarks
-                            tbRemarks.Text = "No remarks provided";
-                            tbRemarks.Text += "\nReturned Quantity: " + quantityReturned.ToString();
-                        }
-                        else
-                        {
-                            // Cancel the insertion and focus on the tbRemarks field
-                            tbRemarks.Focus();
-                            return;
-                        }
-                    }
-
-
-
-                    // Check if the student has already returned the apparatus
-                    using (SqlCommand cmdCheckReturn = new SqlCommand("SELECT * FROM BorrowReturnTransaction WHERE transactionID = @TransactionID AND Date_Returned IS NOT NULL", con))
-                    {
-                        cmdCheckReturn.Parameters.AddWithValue("@TransactionID", rowid);
-                        using (SqlDataReader reader = cmdCheckReturn.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                MessageBox.Show("The apparatus has already been returned.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
-                        }
-                    }
-
-                    // Update BorrowReturnTransaction with return date, remarks, and quantity returned
                     using (SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Date_Returned = @ReturnDate, Remarks = @Remarks, Quantity_Returned = @QuantityReturned, AccountID = @AccountID WHERE transactionID = @TransactionID", con))
                     {
                         // Pass the correct parameters to the command
                         cmd.Parameters.AddWithValue("@ReturnDate", dtpReturnDate.Value);
                         cmd.Parameters.AddWithValue("@Remarks", tbRemarks.Text);
                         cmd.Parameters.AddWithValue("@TransactionID", rowid);
-                        cmd.Parameters.AddWithValue("@QuantityReturned", numQuantityReturned.Value);
+                        cmd.Parameters.AddWithValue("@QuantityReturned", totalQuantityReturned);
                         cmd.Parameters.AddWithValue("@AccountID", Form1.Session.AccountID);
 
                         // Execute the query
                         cmd.ExecuteNonQuery();
                     }
+                }
 
-                    // Update the quantity stock in the ApparatusList table
+                string apparatusName = tbApparatusName.Text;
+                // Update the quantity stock in the ApparatusList table
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                {
+                    con.Open();
+
                     using (SqlCommand cmd = new SqlCommand("UPDATE Inventory SET Quantity = Quantity + @QuantityReturned WHERE [Apparatus Name] = @ApparatusName", con))
                     {
                         cmd.Parameters.AddWithValue("@ApparatusName", apparatusName);
-                        cmd.Parameters.AddWithValue("@QuantityReturned", quantityReturned);
+                        cmd.Parameters.AddWithValue("@QuantityReturned", returnedQuantity);
                         cmd.ExecuteNonQuery();
                     }
-
-                    // Update remarks to include information about the returned quantity
-                    //tbRemarks.Text += "\nReturned Quantity: " + quantityReturned.ToString();
-
-                    MessageBox.Show("The transaction has been completed.\nThank you for returning the Apparatus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ReturnApparatus_Load(this, null);
-                    ResetFields();
                 }
+
+                MessageBox.Show("The transaction has been completed.\nThank you for returning the Apparatus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ReturnApparatus_Load(this, null);
+                ResetFields();
             }
             catch (Exception ex)
             {

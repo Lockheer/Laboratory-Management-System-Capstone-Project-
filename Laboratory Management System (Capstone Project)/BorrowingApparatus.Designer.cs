@@ -106,7 +106,7 @@
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1149, 132);
+            this.panel1.Size = new System.Drawing.Size(1107, 132);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -161,7 +161,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 150);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(404, 2251);
+            this.panel2.Size = new System.Drawing.Size(404, 2788);
             this.panel2.TabIndex = 2;
             // 
             // btnSearch
@@ -275,7 +275,7 @@
             this.panel3.Location = new System.Drawing.Point(421, 150);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(804, 937);
+            this.panel3.Size = new System.Drawing.Size(801, 937);
             this.panel3.TabIndex = 0;
             // 
             // lblQuantity5
@@ -337,7 +337,7 @@
             this.tbPurpose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPurpose.Multiline = true;
             this.tbPurpose.Name = "tbPurpose";
-            this.tbPurpose.Size = new System.Drawing.Size(291, 93);
+            this.tbPurpose.Size = new System.Drawing.Size(288, 93);
             this.tbPurpose.TabIndex = 46;
             // 
             // label18
@@ -449,7 +449,7 @@
             this.cbApparatusName4.Location = new System.Drawing.Point(220, 543);
             this.cbApparatusName4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbApparatusName4.Name = "cbApparatusName4";
-            this.cbApparatusName4.Size = new System.Drawing.Size(291, 24);
+            this.cbApparatusName4.Size = new System.Drawing.Size(288, 24);
             this.cbApparatusName4.TabIndex = 29;
             this.cbApparatusName4.SelectedIndexChanged += new System.EventHandler(this.cbApparatusName4_SelectedIndexChanged);
             // 
@@ -462,7 +462,7 @@
             this.cbApparatusName3.Location = new System.Drawing.Point(221, 481);
             this.cbApparatusName3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbApparatusName3.Name = "cbApparatusName3";
-            this.cbApparatusName3.Size = new System.Drawing.Size(291, 24);
+            this.cbApparatusName3.Size = new System.Drawing.Size(288, 24);
             this.cbApparatusName3.TabIndex = 28;
             this.cbApparatusName3.SelectedIndexChanged += new System.EventHandler(this.cbApparatusName3_SelectedIndexChanged);
             // 
@@ -475,7 +475,7 @@
             this.cbApparatusName2.Location = new System.Drawing.Point(220, 423);
             this.cbApparatusName2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbApparatusName2.Name = "cbApparatusName2";
-            this.cbApparatusName2.Size = new System.Drawing.Size(291, 24);
+            this.cbApparatusName2.Size = new System.Drawing.Size(288, 24);
             this.cbApparatusName2.TabIndex = 27;
             this.cbApparatusName2.SelectedIndexChanged += new System.EventHandler(this.cbApparatusName2_SelectedIndexChanged);
             // 
@@ -488,7 +488,7 @@
             this.cbApparatusName1.Location = new System.Drawing.Point(221, 359);
             this.cbApparatusName1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbApparatusName1.Name = "cbApparatusName1";
-            this.cbApparatusName1.Size = new System.Drawing.Size(291, 24);
+            this.cbApparatusName1.Size = new System.Drawing.Size(288, 24);
             this.cbApparatusName1.TabIndex = 26;
             this.cbApparatusName1.SelectedIndexChanged += new System.EventHandler(this.cbApparatusName1_SelectedIndexChanged);
             // 
@@ -513,9 +513,9 @@
             this.dtpDueDate.Location = new System.Drawing.Point(224, 778);
             this.dtpDueDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDueDate.Name = "dtpDueDate";
-            this.dtpDueDate.Size = new System.Drawing.Size(279, 28);
+            this.dtpDueDate.Size = new System.Drawing.Size(276, 28);
             this.dtpDueDate.TabIndex = 24;
-            this.dtpDueDate.Value = new System.DateTime(2024, 10, 5, 14, 21, 41, 0);
+            this.dtpDueDate.Value = new System.DateTime(2024, 10, 12, 20, 58, 0, 0);
             // 
             // label12
             // 
@@ -545,7 +545,7 @@
             this.btnConfirm.FlatAppearance.BorderSize = 2;
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(488, 862);
+            this.btnConfirm.Location = new System.Drawing.Point(485, 862);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(243, 55);
@@ -563,7 +563,7 @@
             this.cbApparatusName.Location = new System.Drawing.Point(223, 297);
             this.cbApparatusName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbApparatusName.Name = "cbApparatusName";
-            this.cbApparatusName.Size = new System.Drawing.Size(291, 24);
+            this.cbApparatusName.Size = new System.Drawing.Size(288, 24);
             this.cbApparatusName.TabIndex = 19;
             this.cbApparatusName.SelectedIndexChanged += new System.EventHandler(this.cbApparatusName_SelectedIndexChanged);
             // 
@@ -578,7 +578,7 @@
             this.dtpBorrowDate.Location = new System.Drawing.Point(224, 733);
             this.dtpBorrowDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpBorrowDate.Name = "dtpBorrowDate";
-            this.dtpBorrowDate.Size = new System.Drawing.Size(279, 28);
+            this.dtpBorrowDate.Size = new System.Drawing.Size(276, 28);
             this.dtpBorrowDate.TabIndex = 18;
             // 
             // tbProgram
@@ -590,7 +590,7 @@
             this.tbProgram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbProgram.Name = "tbProgram";
             this.tbProgram.ReadOnly = true;
-            this.tbProgram.Size = new System.Drawing.Size(110, 27);
+            this.tbProgram.Size = new System.Drawing.Size(107, 27);
             this.tbProgram.TabIndex = 17;
             // 
             // tbEmail
@@ -602,7 +602,7 @@
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.ReadOnly = true;
-            this.tbEmail.Size = new System.Drawing.Size(291, 27);
+            this.tbEmail.Size = new System.Drawing.Size(288, 27);
             this.tbEmail.TabIndex = 16;
             // 
             // tbContact
@@ -614,7 +614,7 @@
             this.tbContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbContact.Name = "tbContact";
             this.tbContact.ReadOnly = true;
-            this.tbContact.Size = new System.Drawing.Size(291, 27);
+            this.tbContact.Size = new System.Drawing.Size(288, 27);
             this.tbContact.TabIndex = 15;
             // 
             // tbIDnum
@@ -626,7 +626,7 @@
             this.tbIDnum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbIDnum.Name = "tbIDnum";
             this.tbIDnum.ReadOnly = true;
-            this.tbIDnum.Size = new System.Drawing.Size(291, 27);
+            this.tbIDnum.Size = new System.Drawing.Size(288, 27);
             this.tbIDnum.TabIndex = 14;
             // 
             // tbStudName
@@ -638,7 +638,7 @@
             this.tbStudName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbStudName.Name = "tbStudName";
             this.tbStudName.ReadOnly = true;
-            this.tbStudName.Size = new System.Drawing.Size(291, 27);
+            this.tbStudName.Size = new System.Drawing.Size(288, 27);
             this.tbStudName.TabIndex = 13;
             // 
             // label9
@@ -745,7 +745,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(1342, 908);
+            this.ClientSize = new System.Drawing.Size(1363, 908);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

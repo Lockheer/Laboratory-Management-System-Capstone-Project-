@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.IO;
+using System.Globalization;
 
 
 namespace Laboratory_Management_System__Capstone_Project_
@@ -199,7 +200,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                     dgvTransaction.Columns.Add(new DataGridViewTextBoxColumn
                     {
-                        Name = "Quantity_Returned",
+                        Name = "Quantity_Returned", 
                         DataPropertyName = "Quantity_Returned",
                         HeaderText = "Quantity Returned"
                     });
@@ -281,41 +282,35 @@ namespace Laboratory_Management_System__Capstone_Project_
                             nudQuantity.Value = Convert.ToInt32(row["Quantity"]);
                             tbPurpose.Text = row["Purpose"].ToString();
 
-                            // Parse Borrow Date
-                            if (DateTime.TryParseExact(row["Borrow_Date"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out DateTime borrowDate))
-                            {
-                                dtpBorrowedDate.Value = borrowDate;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Invalid Borrow Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
 
-                            // Parse Due Date
-                            if (DateTime.TryParseExact(row["Due_Date"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out DateTime dueDate))
-                            {
-                                dtpDueDate.Value = dueDate;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Invalid Due Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                            // Assign Borrow Date
+                            string borrowDateStr = row["Borrow_Date"].ToString();
+                            dtpBorrowedDate.Value = DateTime.Parse(borrowDateStr);
 
-                            // Handle optional Date Returned
-                            if (!row.IsNull("Date_Returned"))
+                            // Assign Due Date
+                            string dueDateStr = row["Due_Date"].ToString();
+                            dtpDueDate.Value = DateTime.Parse(dueDateStr);
+
+
+                            // Assign Returned Date
+                            string returnedDateStr = row["Date_Returned"].ToString();
+
+                            if (!string.IsNullOrWhiteSpace(returnedDateStr))
                             {
-                                if (DateTime.TryParseExact(row["Date_Returned"].ToString(), "MM/dd/yyyy hh:mm tt", null, System.Globalization.DateTimeStyles.None, out DateTime returnedDate))
+                                try
                                 {
-                                    dtpDateReturned.Value = returnedDate;
+                                    dtpDateReturned.Value = DateTime.Parse(returnedDateStr);
                                 }
-                                else
+                                catch (FormatException ex)
                                 {
-                                    MessageBox.Show("Invalid Return Date format.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    Console.WriteLine($"Error: {ex.Message}");
+                                    dtpDateReturned.Value = DateTime.Now;
                                 }
                             }
                             else
                             {
-                                dtpDateReturned.Value = DateTime.Now; // Set to current date if null
+                               
+                                dtpDateReturned.Value = DateTime.Now;
                             }
 
                             nudQuantityReturned.Value = row.IsNull("Quantity_Returned") ? 0 : Convert.ToInt32(row["Quantity_Returned"]);
@@ -360,9 +355,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(tbContact.Text))
+                if (!long.TryParse(tbContact.Text, out long contactNumber))
                 {
-                    MessageBox.Show("Please enter the student's contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter a valid contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbContact.Focus();
                     return;
                 }
@@ -381,48 +376,31 @@ namespace Laboratory_Management_System__Capstone_Project_
                     return;
                 }
 
-                //Checks if the quantity matches with the inventory quantity
-                if (nudQuantity.Value == 0)
+                if ((int)nudQuantity.Value <= 0)
                 {
                     MessageBox.Show("Please enter a valid quantity.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     nudQuantity.Focus();
                     return;
                 }
 
-                // Check if the entered quantity is not more than the available quantity in the Inventory
-                int availableQuantity = GetAvailableQuantity(cbAppaName.SelectedItem.ToString());
-                if (nudQuantity.Value > availableQuantity)
-                {
-                    MessageBox.Show($"You cannot borrow more than {availableQuantity} {cbAppaName.SelectedItem} from the Inventory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    nudQuantity.Focus();
-                    return;
-                }
-
-
-                if (nudQuantityReturned.Value == 0)
+                if ((int)nudQuantityReturned.Value <= 0)
                 {
                     MessageBox.Show("Please enter a valid quantity returned.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     nudQuantityReturned.Focus();
                     return;
                 }
 
-                if (cbAppaName.SelectedItem == null)
-                {
-                    MessageBox.Show("Please select the apparatus name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    cbAppaName.Focus();
-                    return;
-                }
-
-
-                if (tbPurpose.Text == "None" || tbPurpose.Text == "" || tbPurpose.Text == "Unknown" || tbPurpose.Text == "UNKNOWN" || tbPurpose.Text == "Unknown Purpose" || tbPurpose.Text == "UNKNOWN PURPOSE")
+                if (tbPurpose.Text == null || tbPurpose.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter a valid purpose.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    tbPurpose.Focus();
+                    return;
                 }
 
                 // Get the ApparatusID based on the selected Apparatus Name
                 int apparatusID = GetApparatusID(cbAppaName.SelectedItem.ToString());
-                //Getting the studID during updating
+
+                // Getting the studID during updating
                 int studentID = GetStudentID(tbStudentName.Text, tbIDNum.Text);
 
                 // Update the database with the new values
@@ -430,14 +408,16 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     con.Open();
 
-                    SqlCommand cmd = new SqlCommand("UPDATE BorrowReturnTransaction SET Student_Name = @Student_Name, ID_Number = @ID_Number, Email_Address = @Email_Address, Contact_Number = @Contact_Number, Program = @Program, Apparatus_Name = @Apparatus_Name, ApparatusID = @ApparatusID, Quantity = @Quantity, Purpose = @Purpose, Borrow_Date = @Borrow_Date, Due_Date = @Due_Date, Quantity_Returned = @Quantity_Returned, Date_Returned = @Date_Returned, Remarks = @Remarks, studID = @StudentID WHERE transactionID = @transactionID", con);
+                    string sqlQuery = "UPDATE BorrowReturnTransaction SET Student_Name = @Student_Name, ID_Number = @ID_Number, Email_Address = @Email_Address, Contact_Number = @Contact_Number, Program = @Program, Apparatus_Name = @Apparatus_Name, ApparatusID = @ApparatusID, Quantity = @Quantity, Purpose = @Purpose, Borrow_Date = @Borrow_Date, Due_Date = @Due_Date, Quantity_Returned = @Quantity_Returned, Date_Returned = @Date_Returned, Remarks = @Remarks, studID = @StudentID WHERE transactionID = @transactionID";
+
+                    SqlCommand cmd = new SqlCommand(sqlQuery, con);
 
                     cmd.Parameters.AddWithValue("@Student_Name", tbStudentName.Text);
                     cmd.Parameters.AddWithValue("@ID_Number", tbIDNum.Text);
                     cmd.Parameters.AddWithValue("@Email_Address", tbEmailAdd.Text);
-                    cmd.Parameters.AddWithValue("@Contact_Number", tbContact.Text);
-                    cmd.Parameters.AddWithValue("@Program", cbProgram.SelectedItem);
-                    cmd.Parameters.AddWithValue("@Apparatus_Name", cbAppaName.SelectedItem);
+                    cmd.Parameters.AddWithValue("@Contact_Number", contactNumber);
+                    cmd.Parameters.AddWithValue("@Program", cbProgram.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@Apparatus_Name", cbAppaName.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@ApparatusID", apparatusID);
                     cmd.Parameters.AddWithValue("@Quantity", nudQuantity.Value);
                     cmd.Parameters.AddWithValue("@Purpose", tbPurpose.Text);
@@ -445,13 +425,21 @@ namespace Laboratory_Management_System__Capstone_Project_
                     cmd.Parameters.AddWithValue("@Due_Date", dtpDueDate.Value);
                     cmd.Parameters.AddWithValue("@Quantity_Returned", nudQuantityReturned.Value);
                     cmd.Parameters.AddWithValue("@Date_Returned", dtpDateReturned.Value);
-                    cmd.Parameters.AddWithValue("@Remarks", tbRemarks.Text);
+                    cmd.Parameters.AddWithValue("@Remarks", string.IsNullOrEmpty(tbRemarks.Text) ? (object)DBNull.Value : tbRemarks.Text);
                     cmd.Parameters.AddWithValue("@StudentID", studentID);
                     cmd.Parameters.AddWithValue("@transactionID", id);
 
-                    cmd.ExecuteNonQuery();
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No records were affected. Please check the transaction ID.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    UpdateBorrowReturnTransaction_Load(this, null);
                 }
             }
             catch (Exception ex)
@@ -464,7 +452,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                if (MessageBox.Show("The Data will be deleted\n\nPlease click on the RETURN button to update the Apparatus List. Confirm?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show("The following transaction information will be deleted\nConfirm?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                     {
@@ -713,20 +701,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         }
 
-        /*private void btnExit_Click(object sender, EventArgs e)
-        {
-
-            if (MessageBox.Show("Unsaved changes will be lost\nDo you want to go back to the Dashboard?"
-               , "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Close();
-                //Sets back to 0 to prevent restriction from occuring
-                Dashboard.formRestrict = 0;
-
-            }   
-        }*/
-
-      
 
         public void ConfirmUnsavedChanges()
         {
