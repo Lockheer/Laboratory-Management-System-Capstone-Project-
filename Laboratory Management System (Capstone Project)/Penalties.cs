@@ -71,6 +71,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             // Initial setup
             btnUpdate.Hide();
+            btnDelete.Hide();
             panelPayment.Visible = false;
             cbCondition.SelectedIndexChanged += cbCondition_SelectedIndexChanged;
 
@@ -336,6 +337,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     ID = Convert.ToInt32(dgvPenalties.Rows[e.RowIndex].Cells[0].Value);
                     LoadPenaltyDetails(ID);
                     btnUpdate.Visible = true;
+                    btnDelete.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -361,17 +363,45 @@ namespace Laboratory_Management_System__Capstone_Project_
                         {
                             rowid = penaltyID;
 
-                            tbIDnum.Text = reader["ID Number"].ToString();
-                            tbStudentName.Text = reader["Student Name"].ToString();
-                            tbContact.Text = reader["Contact Number"].ToString();
-                            tbEmail.Text = reader["Email Address"].ToString();
-                            dtpPenaltyDate.Text = reader["Penalty Issued Date"].ToString();
-                            tbViolation.Text = reader["Violation"].ToString();
-                            cbCondition.Text = reader["Penalty Condition"].ToString();
-                            tbAmtToBe.Text = reader["Amount to be Paid"].ToString();
-                            tbAmtPayed.Text = reader["Amount Received"].ToString();
-                            lblRemainingBalance.Text = reader["Balance"].ToString();
-                            cbStatus.Text = reader["Penalty Status"].ToString();
+                            tbIDnum.Text = reader["[ID Number]"].ToString();
+                            tbStudentName.Text = reader["[Student Name]"].ToString();
+                            tbContact.Text = reader["[Contact Number]"].ToString();
+                            tbEmail.Text = reader["[Email Address]"].ToString();
+                            dtpPenaltyDate.Text = reader["[Penalty Issued Date]"].ToString();
+                            tbViolation.Text = reader["[Violation]"].ToString();
+                            cbCondition.Text = reader["[Penalty Condition]"].ToString();
+
+                            // Handle Amount to be Paid
+                            if (reader["[Amount to be Paid]"] != DBNull.Value)
+                            {
+                                tbAmtToBe.Text = reader["[Amount to be Paid]"].ToString();
+                            }
+                            else
+                            {
+                                tbAmtToBe.Text = "0.00";
+                            }
+
+                            // Handle Amount Received
+                            if (reader["[Amount Received]"] != DBNull.Value)
+                            {
+                                tbAmtPayed.Text = reader["[Amount Received]"].ToString();
+                            }
+                            else
+                            {
+                                tbAmtPayed.Text = "0.00";
+                            }
+
+                            // Handle Balance
+                            if (reader["Balance"] != DBNull.Value)
+                            {
+                                lblRemainingBalance.Text = reader["Balance"].ToString();
+                            }
+                            else
+                            {
+                                lblRemainingBalance.Text = "0.00";
+                            }
+
+                            cbStatus.Text = reader["[Penalty Status]"].ToString();
                             cbTransact.Text = reader["transactionID"].ToString();
                         }
                     }
@@ -381,13 +411,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 MessageBox.Show("Error loading penalty details: " + ex.Message);
             }
-        }
-
-        //RETURN Button
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            //Dashboard.formRestrict = 0;
         }
 
         //Transaction Details button
