@@ -33,7 +33,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void LoadCategories()
         {
-            SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
+            SqlConnection connect = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True");
             SqlCommand command = new SqlCommand("SELECT CategoryName FROM Category", connect);
 
             connect.Open();
@@ -107,7 +107,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 String remarks = tbRemarks.Text;
                 String category_name = cbCategory.SelectedItem.ToString();
 
-                SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
+                SqlConnection connect = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True");
                 SqlCommand command = new SqlCommand();
                 command.Connection = connect;
 
@@ -197,7 +197,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                             ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
                             int rowCount = worksheet.Dimension.Rows;
 
-                            using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                            using (SqlConnection connect = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                             {
                                 connect.Open();
 

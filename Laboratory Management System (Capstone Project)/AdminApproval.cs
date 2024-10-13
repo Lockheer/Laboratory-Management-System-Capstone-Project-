@@ -40,7 +40,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             try
             {
                 // Set up the SQL connection
-                using (SqlConnection conn = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                using (SqlConnection conn = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                 {
                     conn.Open();
 

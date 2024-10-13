@@ -72,7 +72,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection conn = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("SELECT RoleID, RoleName FROM Roles", conn);
@@ -148,7 +148,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             // Check if Admin role limit is reached
             if (selectedItem.Text == "Admin")
             {
-                using (SqlConnection conn = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection conn = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Accounts WHERE RoleID = @RoleID", conn);

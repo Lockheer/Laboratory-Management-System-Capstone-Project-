@@ -26,7 +26,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void LoadIDNumbers()
         {
             AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT ID_Number FROM Students", con);
@@ -62,7 +62,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void BorrowingApparatus_Load(object sender, EventArgs e)
         {
             tbSearch.Focus();
-            SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
+            SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True");
             SqlCommand cmd = new SqlCommand("SELECT [Apparatus Name] FROM Inventory WHERE Status = 'Ready for Use'", con);
             con.Open();
             SqlDataReader Sdr = cmd.ExecuteReader();
@@ -127,7 +127,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (tbSearch.Text != "")
             {
                 String searchID = tbSearch.Text;
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE ID_Number = @ID_Number", con);
                     cmd.Parameters.AddWithValue("@ID_Number", searchID);
@@ -249,7 +249,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     String purpose = tbPurpose.Text;
                     String IssueDate = dtpBorrowDate.Text;
                     String dueDate = dtpDueDate.Text;
-                    using (SqlConnection dbConnection = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                    using (SqlConnection dbConnection = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                     {
                         try
                         {
@@ -533,7 +533,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
             else
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("SELECT Quantity FROM Inventory WHERE [Apparatus Name] = @Apparatus_Name", con);

@@ -245,7 +245,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             string role = string.Empty;
 
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
             string query = @"
             SELECT r.RoleName
             FROM Accounts a
@@ -465,7 +465,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void UpdateApparatusCountLabel(Label apparatusCountLabel)
         {
             // Connect to the database and retrieve the apparatus count
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
             string query = "SELECT COUNT(*) FROM Inventory";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -482,7 +482,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void UpdateStudentCountLabel(Label studentCountLabel)
         {
             // Connect to the database and retrieve the student count
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
             string query = "SELECT COUNT(*) FROM Students";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -499,7 +499,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void UpdateBorrowedApparatusCountLabel(Label borrowedApparatusCountLabel)
         {
             // Connect to the database and retrieve the borrowed apparatus count
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
             string query = "SELECT COUNT(*) FROM BorrowReturnTransaction WHERE Date_Returned IS NULL";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -516,7 +516,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void UpdateReturnedApparatusCountLabel(Label returnedApparatusCountLabel)
         {
             // Connect to the database and retrieve the returned apparatus count
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
             string query = "SELECT COUNT(*) FROM BorrowReturnTransaction WHERE Date_Returned IS NOT NULL";
 
             using (SqlConnection connection = new SqlConnection(connectionString))

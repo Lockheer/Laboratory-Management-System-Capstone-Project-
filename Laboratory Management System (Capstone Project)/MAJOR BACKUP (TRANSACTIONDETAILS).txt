@@ -2,7 +2,7 @@
     public partial class TransactionDetails : Form
     {
         private DataGridView currentDataGridView;
-        private string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+        private string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
 
         public TransactionDetails()
         {

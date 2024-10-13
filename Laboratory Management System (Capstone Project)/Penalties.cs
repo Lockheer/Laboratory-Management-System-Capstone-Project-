@@ -83,7 +83,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("select * from LaboratoryPenalties", con);
                     SqlDataAdapter DA = new SqlDataAdapter(cmd);
@@ -103,7 +103,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("Select transactionID from BorrowReturnTransaction", con);
                     con.Open();
@@ -140,7 +140,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 try
                 {
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                     {
                         SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],transactionID) " +
                                                         "VALUES (@IDNumber, @StudentName, @ContactNumber, @Email, @PenaltyDate, @Violation, @Condition, @ToBePayed, @Payed, @Balance, @Status, @RefNum)", con);
@@ -246,7 +246,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     try
                     {
-                        using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                        using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                         {
                             SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed, [Balance] = @Balance, [Penalty Status] = @Status, transactionID = @RefNum WHERE PenaltyID = @RowID", con);
 
@@ -296,7 +296,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 try
                 {
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                     {
                         SqlCommand cmd = new SqlCommand("DELETE FROM LaboratoryPenalties WHERE PenaltyID = @RowID", con);
                         cmd.Parameters.AddWithValue("@RowID", rowid);
@@ -349,7 +349,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("SELECT * FROM LaboratoryPenalties WHERE PenaltyID = @PenaltyID", con);
                     cmd.Parameters.AddWithValue("@PenaltyID", penaltyID);
@@ -453,7 +453,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("SELECT ID_Number, Student_Name, Email_Address, Contact_Number FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con);
                     cmd.Parameters.AddWithValue("@TransactionID", transactionID);
@@ -481,7 +481,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private const string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+        private const string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
 
         // Search bar for penalties
         private void tbSearchPenalty_TextChanged(object sender, EventArgs e)
@@ -656,7 +656,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+            con.ConnectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
@@ -668,7 +668,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             dgvPenalties.DataSource = DS.Tables[0];
             // Load the COMBO BOX with the transaction ID data source
-            using (SqlConnection combo_con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            using (SqlConnection combo_con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
             {
                 using (SqlCommand new_cmd = new SqlCommand("Select transactionID from BorrowReturnTransaction", combo_con))
                 {
@@ -783,7 +783,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 Decimal Balance = Decimal.Parse(lblRemainingBalance.Text);
 
                 SqlConnection connect = new SqlConnection();
-                connect.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                connect.ConnectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
                 SqlCommand command = new SqlCommand();
                 command.Connection = connect;
 
@@ -834,7 +834,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (MessageBox.Show("Student's Information will now be updated.\n" +
               "\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
@@ -889,7 +889,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (MessageBox.Show("The selected student's information will now be deleted.\n" +
                 "\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
@@ -940,7 +940,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     btnUpdate.Visible = true;
 
                     // Define the connection string
-                    string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                    string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
 
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
@@ -1000,7 +1000,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (tbSearchPenalty.Text != "")
             {
                 // Perform the search
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
@@ -1035,7 +1035,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             else
             {
                 // Load all penalty data when the search box is empty
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;

@@ -155,7 +155,7 @@
             this.tbSearch.Size = new System.Drawing.Size(302, 32);
             this.tbSearch.TabIndex = 2;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
-            this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
+        
             // 
             // label2
             // 

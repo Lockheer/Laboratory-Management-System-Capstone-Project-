@@ -75,7 +75,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbStudentSearch.TextChanged += new EventHandler(tbStudentSearch_TextChanged);
             panel2.Visible = false;
             // Ensure the connection string is correct and accessible
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -137,7 +137,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void LoadStudentData()
         {
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -181,7 +181,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     panel2.Visible = true;
 
                     // Define the connection string
-                    string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                    string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
 
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
@@ -258,7 +258,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (MessageBox.Show("Student's Information will now be updated.\n" +
                 "\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
@@ -315,7 +315,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             if (MessageBox.Show("The selected student's information will now be deleted.\n" +
      "\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
@@ -425,7 +425,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void FilterStudentsByProgram(string program)
         {
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+            string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -535,7 +535,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 cbProgramFilter.SelectedIndex = -1;
 
                 // Perform the search
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
@@ -576,7 +576,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 label1.Visible = true;
 
                 // Load all student data when the search box is empty
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
@@ -609,13 +609,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
             UpdateUnsavedChanges();
         }
-
-        private void btnClosePanel_Click(object sender, EventArgs e)
-        {
-            panel2.Visible = false;
-        }
-
-
     }
 }
 /*private void tbStudentSearch_TextChanged(object sender, EventArgs e)

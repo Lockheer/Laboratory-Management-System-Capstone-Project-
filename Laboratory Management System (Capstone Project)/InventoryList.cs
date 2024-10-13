@@ -90,7 +90,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             panel2.Visible = false;
             try
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                 {
                     using (SqlCommand cmd = new SqlCommand(
                         "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.CategoryName FROM Inventory i " +
@@ -112,7 +112,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             //Filter method initializing to search the Inventory by Category filtering
             try
             {
-                using (SqlConnection conn = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                using (SqlConnection conn = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("SELECT CategoryID, CategoryName FROM Category", conn);
@@ -140,7 +140,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         //Load the Categories
         private void LoadCategories()
         {
-            SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True");
+            SqlConnection connect = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True");
             SqlCommand command = new SqlCommand("SELECT CategoryName FROM Category", connect);
 
             connect.Open();
@@ -191,7 +191,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     panel2.Visible = true;
 
                     // Retrieve the data from the database
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                     {
                         using (SqlCommand cmd = new SqlCommand(
                             "SELECT i.[ApparatusID], i.[Apparatus Name], i.[Model Number], i.[Date Purchased], i.[Price], i.[Brand], i.[Status], i.[Quantity], i.[Remarks], c.[CategoryName] " +
@@ -257,7 +257,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     string remarks = (quantity == 0) ? "Out of Stock" : tbRemarks.Text;
                     string categoryName = cbCategory.Text;
 
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                     {
                         using (SqlCommand cmd = new SqlCommand(
                             "UPDATE Inventory SET [Apparatus Name] = @ApparatusName, [Model Number] = @ModelNum, [Date Purchased] = @DatePurchased, [Price] = @Price, [Brand] = @Brand, [Status] = @Status, [Quantity] = @Quantity, [Remarks] = @Remarks, [CategoryID] = (SELECT CategoryID FROM Category WHERE CategoryName = @CategoryName) " +
@@ -295,7 +295,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 if (MessageBox.Show("Are you sure you want to delete this apparatus?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                     {
                         using (SqlCommand cmd = new SqlCommand("DELETE FROM Inventory WHERE ApparatusID = @ApparatusID", con))
                         {
@@ -403,7 +403,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                using (SqlConnection conn = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                 {
                     conn.Open();
                     SqlCommand cmd;
@@ -543,7 +543,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             DataTable dt = new DataTable();
 
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(queryBuilder.ToString(), con))
                 {

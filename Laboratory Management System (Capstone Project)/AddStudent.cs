@@ -85,7 +85,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
                 // Check for duplicate email or contact number
-                using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection connect = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     connect.Open();
 
@@ -169,7 +169,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                             int rowCount = worksheet.Dimension.Rows;
                             int colCount = worksheet.Dimension.Columns;
 
-                            using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                            using (SqlConnection connect = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                             {
                                 connect.Open();
 

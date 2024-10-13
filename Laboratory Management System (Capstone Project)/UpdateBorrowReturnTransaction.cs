@@ -107,7 +107,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlDataAdapter da = new SqlDataAdapter("SELECT transactionID, Student_Name, ID_Number, Email_Address, Contact_Number, Program, Apparatus_Name, Quantity, Purpose, Borrow_Date, Due_Date, Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction", con);
                     DataSet ds = new DataSet();
@@ -225,7 +225,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 pnelUPDATE.Visible = false;
 
                 // Populate the Apparatus Name ComboBox
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("SELECT [Apparatus Name] FROM Inventory", con);
@@ -260,7 +260,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     pnelUPDATE.Visible = true;
 
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                     {
                         SqlCommand cmd = new SqlCommand($"SELECT * FROM BorrowReturnTransaction WHERE transactionID= {id}", con);
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -426,7 +426,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 int studentID = GetStudentID(tbStudentName.Text, tbIDNum.Text);
 
                 // Update the database with the new values
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     con.Open();
 
@@ -466,7 +466,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 if (MessageBox.Show("The Data will be deleted\n\nPlease click on the RETURN button to update the Apparatus List. Confirm?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                     {
                         SqlCommand cmd = new SqlCommand($"DELETE FROM BorrowReturnTransaction WHERE transactionID = {rowid}", con);
                         con.Open();
@@ -496,7 +496,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         // Helper method to get the available quantity from the Inventory
         private int GetAvailableQuantity(string apparatusName)
         {
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
             {
                 con.Open();
 
@@ -513,7 +513,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         // Helper method to get the ApparatusID based on the Apparatus Name
         private int GetApparatusID(string apparatusName)
         {
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
             {
                 con.Open();
 
@@ -531,7 +531,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         // Helper method to get the StudentID based on the student's information
         private int GetStudentID(string studentName, string idNumber)
         {
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
             {
                 con.Open();
 
@@ -552,7 +552,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 // Set the license context for EPPlus
                 OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     con.Open();
                     SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM BorrowReturnTransaction", con);
@@ -629,7 +629,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private List<string> GetExistingIDNumbers()
         {
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
             {
                 con.Open();
 
@@ -665,7 +665,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private Student GetStudentInfo(string idNumber)
         {
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
             {
                 con.Open();
 
@@ -759,7 +759,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys;integrated security=True"))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;

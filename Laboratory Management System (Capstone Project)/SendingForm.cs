@@ -103,7 +103,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private int GetPenaltyIDByEmail(string email)
         {
             int penaltyID = -1;
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"; // Replace with your actual connection string
+            string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True"; // Replace with your actual connection string
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -129,7 +129,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void StoreEmailDetails(int penaltyID, string sender, string recipient, string subject, string description)
         {
-            string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"; // Replace with your actual connection string
+            string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True"; // Replace with your actual connection string
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

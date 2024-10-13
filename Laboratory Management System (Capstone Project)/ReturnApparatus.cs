@@ -20,7 +20,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void LoadIDNumbers()
         {
             AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
                 // Modified SQL query to get ID numbers of students who have conducted borrow transactions
@@ -55,7 +55,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             panel2.Visible = false;
             tbSearchID.Clear();
 
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT transactionID, Student_Name, ID_Number, Email_Address, Contact_Number,   Apparatus_Name,Quantity, Borrow_Date, Due_Date, Date_Returned, Remarks FROM BorrowReturnTransaction WHERE Date_Returned IS NULL AND Quantity_Returned IS NULL AND Remarks IS NULL ", con))
@@ -129,7 +129,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 int returnedQuantity = (int)numQuantityReturned.Value;
                 int borrowedQuantity = 0; // Initialize quantity borrowed
 
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                 {
                     con.Open();
 
@@ -175,7 +175,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                 string returnDateStr = dtpReturnDate.Text;
 
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+                using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
                 {
                     con.Open();
 
@@ -312,7 +312,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void SearchAndDisplayResults(string idNumber)
         {
-            using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
+            using (SqlConnection con = new SqlConnection("data source = DANNY; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM BorrowReturnTransaction WHERE ID_Number = @IDNumber AND Date_Returned IS NULL AND Remarks IS NULL AND Quantity_Returned IS NULL AND AccountID = @AccountID", con))

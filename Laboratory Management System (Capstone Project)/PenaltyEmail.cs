@@ -23,7 +23,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void PenaltyEmail_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+            con.ConnectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
@@ -65,7 +65,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     ID = int.Parse(dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                    string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
+                    string connectionString = "data source = DANNY; database = LabManagSys;integrated security=True";
 
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
