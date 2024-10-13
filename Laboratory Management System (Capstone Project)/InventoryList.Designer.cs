@@ -68,6 +68,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
             this.label1.Location = new System.Drawing.Point(29, 24);
@@ -80,6 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
             this.label2.Location = new System.Drawing.Point(590, 88);
@@ -129,6 +131,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.sidepanel1;
             this.panel2.Controls.Add(this.cbCategory);
             this.panel2.Controls.Add(this.btnExport);
             this.panel2.Controls.Add(this.tbRemarks);
@@ -161,7 +164,7 @@
             // 
             this.cbCategory.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(595, 228);
+            this.cbCategory.Location = new System.Drawing.Point(518, 267);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(148, 27);
@@ -212,7 +215,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(473, 228);
+            this.label10.Location = new System.Drawing.Point(368, 267);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 19);
@@ -228,7 +231,7 @@
             "Not Ready for Use",
             "Needs Maintenance",
             "Has Missing Parts"});
-            this.cbEditStatus.Location = new System.Drawing.Point(595, 146);
+            this.cbEditStatus.Location = new System.Drawing.Point(103, 308);
             this.cbEditStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cbEditStatus.Name = "cbEditStatus";
             this.cbEditStatus.Size = new System.Drawing.Size(190, 27);
@@ -237,7 +240,7 @@
             // tbPurchaseDate
             // 
             this.tbPurchaseDate.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPurchaseDate.Location = new System.Drawing.Point(155, 196);
+            this.tbPurchaseDate.Location = new System.Drawing.Point(181, 145);
             this.tbPurchaseDate.Margin = new System.Windows.Forms.Padding(2);
             this.tbPurchaseDate.Name = "tbPurchaseDate";
             this.tbPurchaseDate.Size = new System.Drawing.Size(262, 27);
@@ -282,7 +285,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(1127, 296);
+            this.btnUpdate.Location = new System.Drawing.Point(1124, 308);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(156, 39);
@@ -297,7 +300,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(440, 189);
+            this.label9.Location = new System.Drawing.Point(363, 228);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(116, 19);
@@ -310,7 +313,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(492, 146);
+            this.label8.Location = new System.Drawing.Point(38, 308);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 19);
@@ -323,7 +326,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(495, 108);
+            this.label7.Location = new System.Drawing.Point(41, 270);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 19);
@@ -336,7 +339,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(93, 238);
+            this.label6.Location = new System.Drawing.Point(35, 230);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 19);
@@ -349,7 +352,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(32, 196);
+            this.label5.Location = new System.Drawing.Point(58, 145);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 19);
@@ -362,7 +365,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(33, 154);
+            this.label4.Location = new System.Drawing.Point(59, 103);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 19);
@@ -375,7 +378,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(21, 112);
+            this.label3.Location = new System.Drawing.Point(47, 61);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 19);
@@ -385,7 +388,7 @@
             // tbQuantity
             // 
             this.tbQuantity.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbQuantity.Location = new System.Drawing.Point(595, 189);
+            this.tbQuantity.Location = new System.Drawing.Point(518, 228);
             this.tbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(148, 27);
@@ -394,7 +397,7 @@
             // tbBrand
             // 
             this.tbBrand.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbBrand.Location = new System.Drawing.Point(595, 108);
+            this.tbBrand.Location = new System.Drawing.Point(103, 270);
             this.tbBrand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBrand.Name = "tbBrand";
             this.tbBrand.Size = new System.Drawing.Size(190, 27);
@@ -403,7 +406,7 @@
             // tbPrice
             // 
             this.tbPrice.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPrice.Location = new System.Drawing.Point(155, 236);
+            this.tbPrice.Location = new System.Drawing.Point(97, 228);
             this.tbPrice.Margin = new System.Windows.Forms.Padding(2);
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(120, 27);
@@ -414,7 +417,7 @@
             // tbModelNum
             // 
             this.tbModelNum.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbModelNum.Location = new System.Drawing.Point(158, 154);
+            this.tbModelNum.Location = new System.Drawing.Point(184, 103);
             this.tbModelNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbModelNum.Name = "tbModelNum";
             this.tbModelNum.Size = new System.Drawing.Size(262, 27);
@@ -423,7 +426,7 @@
             // tbAppName
             // 
             this.tbAppName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbAppName.Location = new System.Drawing.Point(158, 112);
+            this.tbAppName.Location = new System.Drawing.Point(184, 61);
             this.tbAppName.Margin = new System.Windows.Forms.Padding(2);
             this.tbAppName.Name = "tbAppName";
             this.tbAppName.Size = new System.Drawing.Size(262, 27);
@@ -463,6 +466,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
             this.label12.Location = new System.Drawing.Point(923, 82);
@@ -475,6 +479,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
             this.label13.Location = new System.Drawing.Point(276, 86);
@@ -508,6 +513,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_main;
             this.ClientSize = new System.Drawing.Size(1322, 884);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cbCategoryFilter);

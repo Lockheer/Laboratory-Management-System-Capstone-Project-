@@ -147,13 +147,14 @@
             this.btnInventoryShortcut.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
             this.btnInventoryShortcut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
             this.btnInventoryShortcut.Image = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.app_inventory_xxl;
-            this.btnInventoryShortcut.Location = new System.Drawing.Point(457, 266);
+            this.btnInventoryShortcut.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInventoryShortcut.Location = new System.Drawing.Point(468, 211);
             this.btnInventoryShortcut.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
             this.btnInventoryShortcut.Name = "btnInventoryShortcut";
-            this.btnInventoryShortcut.Size = new System.Drawing.Size(410, 240);
+            this.btnInventoryShortcut.Size = new System.Drawing.Size(344, 295);
             this.btnInventoryShortcut.TabIndex = 10;
             this.btnInventoryShortcut.Text = "INVENTORY";
-            this.btnInventoryShortcut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventoryShortcut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInventoryShortcut.UseVisualStyleBackColor = true;
             // 
             // lblShortcut
@@ -186,7 +187,7 @@
             this.returnedApparatusCountLabel.AutoSize = true;
             this.returnedApparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.returnedApparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(927, 105);
+            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(34, 214);
             this.returnedApparatusCountLabel.Name = "returnedApparatusCountLabel";
             this.returnedApparatusCountLabel.Size = new System.Drawing.Size(288, 48);
             this.returnedApparatusCountLabel.TabIndex = 0;
@@ -197,7 +198,7 @@
             this.borrowedApparatusCountLabel.AutoSize = true;
             this.borrowedApparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.borrowedApparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(624, 105);
+            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(25, 166);
             this.borrowedApparatusCountLabel.Name = "borrowedApparatusCountLabel";
             this.borrowedApparatusCountLabel.Size = new System.Drawing.Size(313, 48);
             this.borrowedApparatusCountLabel.TabIndex = 0;
@@ -208,7 +209,7 @@
             this.studentCountLabel.AutoSize = true;
             this.studentCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.studentCountLabel.ForeColor = System.Drawing.Color.White;
-            this.studentCountLabel.Location = new System.Drawing.Point(373, 105);
+            this.studentCountLabel.Location = new System.Drawing.Point(25, 118);
             this.studentCountLabel.Name = "studentCountLabel";
             this.studentCountLabel.Size = new System.Drawing.Size(317, 48);
             this.studentCountLabel.TabIndex = 0;
@@ -219,7 +220,7 @@
             this.apparatusCountLabel.AutoSize = true;
             this.apparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.apparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.apparatusCountLabel.Location = new System.Drawing.Point(15, 105);
+            this.apparatusCountLabel.Location = new System.Drawing.Point(25, 70);
             this.apparatusCountLabel.Name = "apparatusCountLabel";
             this.apparatusCountLabel.Size = new System.Drawing.Size(364, 48);
             this.apparatusCountLabel.TabIndex = 0;
@@ -498,7 +499,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1443, 1061);
+            this.ClientSize = new System.Drawing.Size(1443, 884);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnToggle);
