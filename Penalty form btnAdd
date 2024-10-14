@@ -1,0 +1,26 @@
+String idNumber = tbIDnum.Text; 
+String studentName = tbStudentName.Text; 
+Int64 contactNumber = Int64.Parse(tbContact.Text); 
+String emailAddress = tbEmail.Text; 
+String penaltyDate = dtpPenaltyDate.Value.ToString(); 
+String Violation = tbViolation.Text; 
+String Condition = cbCondition.Text; 
+Decimal toPay = Decimal.Parse(tbAmtToBe.Text); 
+Decimal amtPayed = Decimal.Parse(tbAmtPayed.Text); 
+Decimal balance = Decimal.Parse(lblRemainingBalance.Text); 
+String Status = cbStatus.Text; 
+Int64 transactionID = Int64.Parse(cbTransact.Text); 
+
+
+cmd.Parameters.AddWithValue("@IDNumber", idNumber);
+cmd.Parameters.AddWithValue("@StudentName", studentName);
+cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+cmd.Parameters.AddWithValue("@EmailAddress", emailAddress);
+cmd.Parameters.AddWithValue("@PenaltyDate", penaltyDate);
+cmd.Parameters.AddWithValue("@Violation", Violation);
+cmd.Parameters.AddWithValue("@Condition", Condition);
+cmd.Parameters.AddWithValue("@ToPay", toPay);
+cmd.Parameters.AddWithValue("@AmtPayed", amtPayed);
+cmd.Parameters.AddWithValue("@Balance", balance);
+cmd.Parameters.AddWithValue("@Status", Status);
+cmd.Parameters.AddWithValue("@TransactionID", transactionID);
