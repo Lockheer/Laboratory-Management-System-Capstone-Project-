@@ -25,10 +25,17 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetShadow(panel1);
             UIHelper.SetRoundedCorners(panel1, 30);
+            UIHelper.SetRoundedCorners(panelDashboard, 80);
+            UIHelper.SetRoundedCorners(panelRules, 30);
+            UIHelper.SetRoundedCorners(pictureBox1, 40);
+            UIHelper.SetRoundedCorners(btnInventoryShortcut, 30);
+            UIHelper.SetRoundedCorners(btnStudentListShortcut, 30);
+
 
             UIHelper.SetRoundedCorners(ShowCountPanel, 20);
 
             UIHelper.SetGradientBackground(panel1, Color.FromArgb(5, 21, 101), Color.FromArgb(20, 57, 175), LinearGradientMode.Horizontal);
+            UIHelper.SetGradientBackground(panelDashboard, Color.FromArgb(5, 21, 101), Color.FromArgb(20, 57, 175), LinearGradientMode.Horizontal);
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -162,6 +169,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             lblOverview.Visible = false;
             ShowCountPanel.Visible = false;
             lblTitle.Visible = false;
+            panelRules.Visible = false;
+            lblFirstName.Visible = false;
+            lblIDNumber.Visible = false;
+            panelDashboard.Visible = false;
 
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
@@ -304,6 +315,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             lblOverview.Visible = true;
             ShowCountPanel.Visible = true;
             lblTitle.Visible = true;
+            panelRules.Visible = true;
+            lblIDNumber.Visible = true;
+            lblFirstName.Visible = true;
+            panelDashboard.Visible = true;
         }
 
 

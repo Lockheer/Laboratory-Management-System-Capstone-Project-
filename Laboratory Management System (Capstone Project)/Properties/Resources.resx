@@ -124,8 +124,11 @@
   <data name="pass_lock_confirm1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pass_lock_confirm1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="warning_big_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warning_big_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Vector (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vector (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="admin_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\admin_icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bcc_logo_circle_blur21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bcc_logo_circle_blur21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -147,6 +150,9 @@
   </data>
   <data name="bcc_logo_circle_blur" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bcc_logo_circle_blur.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning_big_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning_big_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="home7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,6 +211,15 @@
   <data name="hand_down3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hand_down3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Vector (7)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vector (7)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vector (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vector (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vector (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vector (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="typcn_home-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\typcn_home-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -228,9 +243,6 @@
   </data>
   <data name="Vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="admin_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\admin_icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hand_up3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hand_up3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,14 +274,17 @@
   <data name="toggle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\toggle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Untitled design" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Untitled design.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="student_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\student_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="email_icon_no_notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\email_icon_no_notif.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bcc_logo_circle_blur2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bcc_logo_circle_blur2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Vector (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vector (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="admin_approval_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin_approval_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -304,6 +319,9 @@
   <data name="report1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="material-symbols_list-alt-add-outline1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\material-symbols_list-alt-add-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="email_pic1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\email_pic1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -328,13 +346,19 @@
   <data name="bg_popup_main_apparatus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_popup_main_apparatus1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="typcn_home-outline (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\typcn_home-outline (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_popup_main2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_popup_main2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="typcn_home-outline (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\typcn_home-outline (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bcc_logo_circle_blur2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bcc_logo_circle_blur2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vector (8)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vector (8).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

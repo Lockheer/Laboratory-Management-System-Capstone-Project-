@@ -210,12 +210,6 @@
     <Compile Include="TransactionDetails.Designer.cs">
       <DependentUpon>TransactionDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransparentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TransparentForm.Designer.cs">
-      <DependentUpon>TransparentForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UIHelper.cs" />
     <Compile Include="UpdateBorrowReturnTransaction.cs">
       <SubType>Form</SubType>
@@ -293,9 +287,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionDetails.resx">
       <DependentUpon>TransactionDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TransparentForm.resx">
-      <DependentUpon>TransparentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateBorrowReturnTransaction.resx">
       <DependentUpon>UpdateBorrowReturnTransaction.cs</DependentUpon>
@@ -419,6 +410,14 @@
     <None Include="Resources\typcn_home-outline %282%29.png" />
     <None Include="Resources\typcn_home-outline %283%29.png" />
     <None Include="Resources\typcn_home-outline %284%29.png" />
+    <None Include="Resources\Vector %284%29.png" />
+    <None Include="Resources\Vector %285%29.png" />
+    <None Include="Resources\Untitled design.gif" />
+    <None Include="Resources\Vector %286%29.png" />
+    <None Include="Resources\material-symbols_list-alt-add-outline.png" />
+    <None Include="Resources\Vector %287%29.png" />
+    <None Include="Resources\Vector %287%291.png" />
+    <None Include="Resources\Vector %288%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

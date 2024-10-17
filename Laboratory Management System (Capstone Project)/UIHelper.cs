@@ -94,43 +94,43 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
 
-        public static void SetShadowBtn(Control control)
-        {
-            // Create the shadow panel
-            Panel shadow = new Panel
-            {
-                Size = control.Size,
-                Location = new Point(control.Left, control.Top + 5), 
-                BackColor = Color.DarkGray
-            };
+        //public static void SetShadowBtn(Control control)
+        //{
+        //    // Create the shadow panel
+        //    Panel shadow = new Panel
+        //    {
+        //        Size = control.Size,
+        //        Location = new Point(control.Left, control.Top + 5), 
+        //        BackColor = Color.DarkGray
+        //    };
 
-            int radius = 10; 
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
-            path.AddArc(shadow.Width - radius, 0, radius, radius, 270, 90); // Top-right corner
-            path.AddArc(shadow.Width - radius, shadow.Height - radius, radius, radius, 0, 90); // Bottom-right corner
-            path.AddArc(0, shadow.Height - radius, radius, radius, 90, 90); // Bottom-left corner
-            path.CloseFigure();
+        //    int radius = 10; 
+        //    GraphicsPath path = new GraphicsPath();
+        //    path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
+        //    path.AddArc(shadow.Width - radius, 0, radius, radius, 270, 90); // Top-right corner
+        //    path.AddArc(shadow.Width - radius, shadow.Height - radius, radius, radius, 0, 90); // Bottom-right corner
+        //    path.AddArc(0, shadow.Height - radius, radius, radius, 90, 90); // Bottom-left corner
+        //    path.CloseFigure();
 
-            shadow.Region = new Region(path);
+        //    shadow.Region = new Region(path);
 
-            control.Parent.Controls.Add(shadow);
-            shadow.SendToBack();
+        //    control.Parent.Controls.Add(shadow);
+        //    shadow.SendToBack();
 
-            control.SizeChanged += (sender, e) =>
-            {
-                shadow.Size = control.Size;
-                shadow.Location = new Point(control.Left + 5, control.Top + 5); // Keep the offset
+        //    control.SizeChanged += (sender, e) =>
+        //    {
+        //        shadow.Size = control.Size;
+        //        shadow.Location = new Point(control.Left + 5, control.Top + 5); // Keep the offset
 
-                path.Reset();
-                path.AddArc(0, 0, radius, radius, 180, 90);
-                path.AddArc(shadow.Width - radius, 0, radius, radius, 270, 90);
-                path.AddArc(shadow.Width - radius, shadow.Height - radius, radius, radius, 0, 90);
-                path.AddArc(0, shadow.Height - radius, radius, radius, 90, 90);
-                path.CloseFigure();
-                shadow.Region = new Region(path);
-            };
-        }
+        //        path.Reset();
+        //        path.AddArc(0, 0, radius, radius, 180, 90);
+        //        path.AddArc(shadow.Width - radius, 0, radius, radius, 270, 90);
+        //        path.AddArc(shadow.Width - radius, shadow.Height - radius, radius, radius, 0, 90);
+        //        path.AddArc(0, shadow.Height - radius, radius, radius, 90, 90);
+        //        path.CloseFigure();
+        //        shadow.Region = new Region(path);
+        //    };
+        //}
 
 
         public static void SetRoundedComboBox(ComboBox comboBox, int radius)

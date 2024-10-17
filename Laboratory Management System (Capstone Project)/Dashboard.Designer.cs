@@ -34,14 +34,32 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.panelDashboard = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panelRules = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnStudentListShortcut = new System.Windows.Forms.Button();
+            this.btnInventoryShortcut = new System.Windows.Forms.Button();
             this.lblShortcut = new System.Windows.Forms.Label();
+            this.ShowCountPanel = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.returnedApparatusCountLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.borrowedApparatusCountLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.studentCountLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.apparatusCountLabel = new System.Windows.Forms.Label();
+            this.lblOverview = new System.Windows.Forms.Label();
             this.lblIDNumber = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.miniToolStrip = new System.Windows.Forms.MenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
-            this.btnToggle = new System.Windows.Forms.Button();
             this.dashboardToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.apparatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANewApparatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,24 +73,17 @@
             this.comToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.penaltyRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lnklblLogOut = new System.Windows.Forms.LinkLabel();
+            this.btnToggle = new System.Windows.Forms.Button();
             this.picBoxBC = new System.Windows.Forms.PictureBox();
-            this.btnStudentListShortcut = new System.Windows.Forms.Button();
-            this.btnInventoryShortcut = new System.Windows.Forms.Button();
-            this.ShowCountPanel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.returnedApparatusCountLabel = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.borrowedApparatusCountLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.studentCountLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.apparatusCountLabel = new System.Windows.Forms.Label();
-            this.lblOverview = new System.Windows.Forms.Label();
             this.panelContainer.SuspendLayout();
+            this.panelDashboard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelRules.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ShowCountPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBC)).BeginInit();
-            this.ShowCountPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -117,40 +128,296 @@
             // 
             this.panelContainer.BackColor = System.Drawing.Color.Transparent;
             this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelContainer.Controls.Add(this.panelDashboard);
+            this.panelContainer.Controls.Add(this.panelRules);
             this.panelContainer.Controls.Add(this.btnStudentListShortcut);
             this.panelContainer.Controls.Add(this.btnInventoryShortcut);
             this.panelContainer.Controls.Add(this.lblShortcut);
             this.panelContainer.Controls.Add(this.ShowCountPanel);
             this.panelContainer.Controls.Add(this.lblIDNumber);
             this.panelContainer.Controls.Add(this.lblFirstName);
-            this.panelContainer.Controls.Add(this.lblTitle);
             this.panelContainer.Location = new System.Drawing.Point(312, 0);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1609, 1080);
             this.panelContainer.TabIndex = 4;
             // 
+            // panelDashboard
+            // 
+            this.panelDashboard.BackColor = System.Drawing.Color.Transparent;
+            this.panelDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelDashboard.Controls.Add(this.pictureBox2);
+            this.panelDashboard.Controls.Add(this.label10);
+            this.panelDashboard.Location = new System.Drawing.Point(85, 142);
+            this.panelDashboard.Name = "panelDashboard";
+            this.panelDashboard.Size = new System.Drawing.Size(823, 97);
+            this.panelDashboard.TabIndex = 13;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.Vector__5_;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(250, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(81, 58);
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(337, 25);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(249, 48);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "DASHBOARD";
+            // 
+            // panelRules
+            // 
+            this.panelRules.BackColor = System.Drawing.Color.DarkGray;
+            this.panelRules.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main;
+            this.panelRules.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelRules.Controls.Add(this.lblTitle);
+            this.panelRules.Controls.Add(this.label9);
+            this.panelRules.Controls.Add(this.label8);
+            this.panelRules.Controls.Add(this.pictureBox1);
+            this.panelRules.Location = new System.Drawing.Point(1003, 142);
+            this.panelRules.Name = "panelRules";
+            this.panelRules.Size = new System.Drawing.Size(551, 880);
+            this.panelRules.TabIndex = 11;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(136, 11);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(10);
+            this.lblTitle.Size = new System.Drawing.Size(324, 61);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "NEW LABORATORY";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(219, 57);
+            this.label9.Name = "label9";
+            this.label9.Padding = new System.Windows.Forms.Padding(10);
+            this.label9.Size = new System.Drawing.Size(148, 53);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "POLICIES";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(194, 110);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(205, 19);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "COLLEGE OF ENGINEERING";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.Untitled_design;
+            this.pictureBox1.Location = new System.Drawing.Point(28, 144);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(499, 708);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnStudentListShortcut
+            // 
+            this.btnStudentListShortcut.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.Vector__7_1;
+            this.btnStudentListShortcut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnStudentListShortcut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStudentListShortcut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnStudentListShortcut.FlatAppearance.BorderSize = 5;
+            this.btnStudentListShortcut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnStudentListShortcut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnStudentListShortcut.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
+            this.btnStudentListShortcut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.btnStudentListShortcut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudentListShortcut.Location = new System.Drawing.Point(524, 348);
+            this.btnStudentListShortcut.Name = "btnStudentListShortcut";
+            this.btnStudentListShortcut.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.btnStudentListShortcut.Size = new System.Drawing.Size(308, 273);
+            this.btnStudentListShortcut.TabIndex = 10;
+            this.btnStudentListShortcut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnStudentListShortcut.UseVisualStyleBackColor = false;
+            this.btnStudentListShortcut.Click += new System.EventHandler(this.btnStudentListShortcut_Click);
+            // 
+            // btnInventoryShortcut
+            // 
+            this.btnInventoryShortcut.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.Vector__8_;
+            this.btnInventoryShortcut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInventoryShortcut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInventoryShortcut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnInventoryShortcut.FlatAppearance.BorderSize = 4;
+            this.btnInventoryShortcut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnInventoryShortcut.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
+            this.btnInventoryShortcut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.btnInventoryShortcut.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInventoryShortcut.Location = new System.Drawing.Point(178, 348);
+            this.btnInventoryShortcut.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
+            this.btnInventoryShortcut.Name = "btnInventoryShortcut";
+            this.btnInventoryShortcut.Size = new System.Drawing.Size(308, 273);
+            this.btnInventoryShortcut.TabIndex = 10;
+            this.btnInventoryShortcut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInventoryShortcut.UseVisualStyleBackColor = true;
+            this.btnInventoryShortcut.Click += new System.EventHandler(this.btnInventoryShortcut_Click);
+            // 
             // lblShortcut
             // 
             this.lblShortcut.AutoSize = true;
             this.lblShortcut.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.lblShortcut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.lblShortcut.Location = new System.Drawing.Point(428, 246);
+            this.lblShortcut.Location = new System.Drawing.Point(374, 275);
             this.lblShortcut.Name = "lblShortcut";
             this.lblShortcut.Size = new System.Drawing.Size(268, 48);
             this.lblShortcut.TabIndex = 9;
             this.lblShortcut.Text = "Quick Access:";
             // 
+            // ShowCountPanel
+            // 
+            this.ShowCountPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ShowCountPanel.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main;
+            this.ShowCountPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ShowCountPanel.Controls.Add(this.label7);
+            this.ShowCountPanel.Controls.Add(this.returnedApparatusCountLabel);
+            this.ShowCountPanel.Controls.Add(this.label6);
+            this.ShowCountPanel.Controls.Add(this.borrowedApparatusCountLabel);
+            this.ShowCountPanel.Controls.Add(this.label4);
+            this.ShowCountPanel.Controls.Add(this.studentCountLabel);
+            this.ShowCountPanel.Controls.Add(this.label5);
+            this.ShowCountPanel.Controls.Add(this.apparatusCountLabel);
+            this.ShowCountPanel.Controls.Add(this.lblOverview);
+            this.ShowCountPanel.Location = new System.Drawing.Point(74, 682);
+            this.ShowCountPanel.Name = "ShowCountPanel";
+            this.ShowCountPanel.Size = new System.Drawing.Size(854, 340);
+            this.ShowCountPanel.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(726, 195);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(140, 48);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Return";
+            // 
+            // returnedApparatusCountLabel
+            // 
+            this.returnedApparatusCountLabel.AutoSize = true;
+            this.returnedApparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.returnedApparatusCountLabel.ForeColor = System.Drawing.Color.White;
+            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(726, 243);
+            this.returnedApparatusCountLabel.Name = "returnedApparatusCountLabel";
+            this.returnedApparatusCountLabel.Size = new System.Drawing.Size(173, 48);
+            this.returnedApparatusCountLabel.TabIndex = 0;
+            this.returnedApparatusCountLabel.Text = "Return 0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(566, 195);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(154, 48);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Borrow";
+            // 
+            // borrowedApparatusCountLabel
+            // 
+            this.borrowedApparatusCountLabel.AutoSize = true;
+            this.borrowedApparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.borrowedApparatusCountLabel.ForeColor = System.Drawing.Color.White;
+            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(566, 243);
+            this.borrowedApparatusCountLabel.Name = "borrowedApparatusCountLabel";
+            this.borrowedApparatusCountLabel.Size = new System.Drawing.Size(187, 48);
+            this.borrowedApparatusCountLabel.TabIndex = 0;
+            this.borrowedApparatusCountLabel.Text = "Borrow 0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(327, 182);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 48);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Student";
+            // 
+            // studentCountLabel
+            // 
+            this.studentCountLabel.AutoSize = true;
+            this.studentCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.studentCountLabel.ForeColor = System.Drawing.Color.White;
+            this.studentCountLabel.Location = new System.Drawing.Point(318, 230);
+            this.studentCountLabel.Name = "studentCountLabel";
+            this.studentCountLabel.Size = new System.Drawing.Size(191, 48);
+            this.studentCountLabel.TabIndex = 0;
+            this.studentCountLabel.Text = "Student 0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(54, 182);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(205, 48);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Apparatus";
+            // 
+            // apparatusCountLabel
+            // 
+            this.apparatusCountLabel.AutoSize = true;
+            this.apparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.apparatusCountLabel.ForeColor = System.Drawing.Color.White;
+            this.apparatusCountLabel.Location = new System.Drawing.Point(54, 230);
+            this.apparatusCountLabel.Name = "apparatusCountLabel";
+            this.apparatusCountLabel.Size = new System.Drawing.Size(227, 48);
+            this.apparatusCountLabel.TabIndex = 0;
+            this.apparatusCountLabel.Text = "Apparatus0";
+            // 
+            // lblOverview
+            // 
+            this.lblOverview.AutoSize = true;
+            this.lblOverview.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
+            this.lblOverview.ForeColor = System.Drawing.Color.White;
+            this.lblOverview.Location = new System.Drawing.Point(443, 40);
+            this.lblOverview.Name = "lblOverview";
+            this.lblOverview.Size = new System.Drawing.Size(165, 41);
+            this.lblOverview.TabIndex = 0;
+            this.lblOverview.Text = "Overview:";
+            // 
             // lblIDNumber
             // 
             this.lblIDNumber.AutoSize = true;
             this.lblIDNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblIDNumber.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.lblIDNumber.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
             this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblIDNumber.Location = new System.Drawing.Point(1369, 62);
+            this.lblIDNumber.Location = new System.Drawing.Point(1214, 56);
             this.lblIDNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIDNumber.Name = "lblIDNumber";
-            this.lblIDNumber.Size = new System.Drawing.Size(185, 24);
+            this.lblIDNumber.Size = new System.Drawing.Size(249, 33);
             this.lblIDNumber.TabIndex = 7;
             this.lblIDNumber.Text = "ID NUMBER + ROLE";
             this.lblIDNumber.Visible = false;
@@ -161,26 +428,13 @@
             this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
             this.lblFirstName.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F);
             this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.lblFirstName.Location = new System.Drawing.Point(1457, 86);
+            this.lblFirstName.Location = new System.Drawing.Point(1366, 89);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(97, 19);
             this.lblFirstName.TabIndex = 6;
             this.lblFirstName.Text = "FIRST NAME";
             this.lblFirstName.Visible = false;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblTitle.Location = new System.Drawing.Point(49, 127);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(10);
-            this.lblTitle.Size = new System.Drawing.Size(269, 68);
-            this.lblTitle.TabIndex = 5;
-            this.lblTitle.Text = "DASHBOARD";
             // 
             // miniToolStrip
             // 
@@ -230,23 +484,9 @@
             this.menuStrip3.Location = new System.Drawing.Point(30, 40);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip3.Size = new System.Drawing.Size(317, 799);
+            this.menuStrip3.Size = new System.Drawing.Size(317, 780);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
-            // 
-            // btnToggle
-            // 
-            this.btnToggle.BackColor = System.Drawing.Color.Transparent;
-            this.btnToggle.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.toggle;
-            this.btnToggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToggle.ForeColor = System.Drawing.Color.Transparent;
-            this.btnToggle.Location = new System.Drawing.Point(22, 38);
-            this.btnToggle.Name = "btnToggle";
-            this.btnToggle.Size = new System.Drawing.Size(51, 52);
-            this.btnToggle.TabIndex = 3;
-            this.btnToggle.UseVisualStyleBackColor = false;
-            this.btnToggle.Visible = false;
             // 
             // dashboardToolStripMenu
             // 
@@ -430,6 +670,20 @@
             this.lnklblLogOut.Text = "       LOGOUT";
             this.lnklblLogOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblLogOut_LinkClicked);
             // 
+            // btnToggle
+            // 
+            this.btnToggle.BackColor = System.Drawing.Color.Transparent;
+            this.btnToggle.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.toggle;
+            this.btnToggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToggle.ForeColor = System.Drawing.Color.Transparent;
+            this.btnToggle.Location = new System.Drawing.Point(22, 38);
+            this.btnToggle.Name = "btnToggle";
+            this.btnToggle.Size = new System.Drawing.Size(51, 52);
+            this.btnToggle.TabIndex = 3;
+            this.btnToggle.UseVisualStyleBackColor = false;
+            this.btnToggle.Visible = false;
+            // 
             // picBoxBC
             // 
             this.picBoxBC.BackColor = System.Drawing.Color.Transparent;
@@ -441,160 +695,6 @@
             this.picBoxBC.TabIndex = 4;
             this.picBoxBC.TabStop = false;
             this.picBoxBC.Click += new System.EventHandler(this.picBoxBC_Click);
-            // 
-            // btnStudentListShortcut
-            // 
-            this.btnStudentListShortcut.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.student_big_xxxl3;
-            this.btnStudentListShortcut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnStudentListShortcut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStudentListShortcut.FlatAppearance.BorderSize = 0;
-            this.btnStudentListShortcut.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
-            this.btnStudentListShortcut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.btnStudentListShortcut.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnStudentListShortcut.Location = new System.Drawing.Point(579, 322);
-            this.btnStudentListShortcut.Name = "btnStudentListShortcut";
-            this.btnStudentListShortcut.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.btnStudentListShortcut.Size = new System.Drawing.Size(308, 273);
-            this.btnStudentListShortcut.TabIndex = 10;
-            this.btnStudentListShortcut.Text = "STUDENT LIST";
-            this.btnStudentListShortcut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnStudentListShortcut.UseVisualStyleBackColor = true;
-            // 
-            // btnInventoryShortcut
-            // 
-            this.btnInventoryShortcut.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.add_inventory_xxxl2;
-            this.btnInventoryShortcut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnInventoryShortcut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInventoryShortcut.FlatAppearance.BorderSize = 0;
-            this.btnInventoryShortcut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnInventoryShortcut.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
-            this.btnInventoryShortcut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.btnInventoryShortcut.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnInventoryShortcut.Location = new System.Drawing.Point(233, 323);
-            this.btnInventoryShortcut.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
-            this.btnInventoryShortcut.Name = "btnInventoryShortcut";
-            this.btnInventoryShortcut.Size = new System.Drawing.Size(285, 273);
-            this.btnInventoryShortcut.TabIndex = 10;
-            this.btnInventoryShortcut.Text = "INVENTORY";
-            this.btnInventoryShortcut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnInventoryShortcut.UseVisualStyleBackColor = true;
-            // 
-            // ShowCountPanel
-            // 
-            this.ShowCountPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ShowCountPanel.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_blank1;
-            this.ShowCountPanel.Controls.Add(this.label7);
-            this.ShowCountPanel.Controls.Add(this.returnedApparatusCountLabel);
-            this.ShowCountPanel.Controls.Add(this.label6);
-            this.ShowCountPanel.Controls.Add(this.borrowedApparatusCountLabel);
-            this.ShowCountPanel.Controls.Add(this.label4);
-            this.ShowCountPanel.Controls.Add(this.studentCountLabel);
-            this.ShowCountPanel.Controls.Add(this.label5);
-            this.ShowCountPanel.Controls.Add(this.apparatusCountLabel);
-            this.ShowCountPanel.Controls.Add(this.lblOverview);
-            this.ShowCountPanel.Location = new System.Drawing.Point(144, 658);
-            this.ShowCountPanel.Name = "ShowCountPanel";
-            this.ShowCountPanel.Size = new System.Drawing.Size(869, 340);
-            this.ShowCountPanel.TabIndex = 8;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(726, 195);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 48);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Return";
-            // 
-            // returnedApparatusCountLabel
-            // 
-            this.returnedApparatusCountLabel.AutoSize = true;
-            this.returnedApparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.returnedApparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(726, 243);
-            this.returnedApparatusCountLabel.Name = "returnedApparatusCountLabel";
-            this.returnedApparatusCountLabel.Size = new System.Drawing.Size(173, 48);
-            this.returnedApparatusCountLabel.TabIndex = 0;
-            this.returnedApparatusCountLabel.Text = "Return 0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(566, 195);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 48);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Borrow";
-            // 
-            // borrowedApparatusCountLabel
-            // 
-            this.borrowedApparatusCountLabel.AutoSize = true;
-            this.borrowedApparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.borrowedApparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(566, 243);
-            this.borrowedApparatusCountLabel.Name = "borrowedApparatusCountLabel";
-            this.borrowedApparatusCountLabel.Size = new System.Drawing.Size(187, 48);
-            this.borrowedApparatusCountLabel.TabIndex = 0;
-            this.borrowedApparatusCountLabel.Text = "Borrow 0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(327, 182);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(158, 48);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Student";
-            // 
-            // studentCountLabel
-            // 
-            this.studentCountLabel.AutoSize = true;
-            this.studentCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.studentCountLabel.ForeColor = System.Drawing.Color.White;
-            this.studentCountLabel.Location = new System.Drawing.Point(318, 230);
-            this.studentCountLabel.Name = "studentCountLabel";
-            this.studentCountLabel.Size = new System.Drawing.Size(191, 48);
-            this.studentCountLabel.TabIndex = 0;
-            this.studentCountLabel.Text = "Student 0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(54, 182);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(205, 48);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Apparatus";
-            // 
-            // apparatusCountLabel
-            // 
-            this.apparatusCountLabel.AutoSize = true;
-            this.apparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.apparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.apparatusCountLabel.Location = new System.Drawing.Point(54, 230);
-            this.apparatusCountLabel.Name = "apparatusCountLabel";
-            this.apparatusCountLabel.Size = new System.Drawing.Size(227, 48);
-            this.apparatusCountLabel.TabIndex = 0;
-            this.apparatusCountLabel.Text = "Apparatus0";
-            // 
-            // lblOverview
-            // 
-            this.lblOverview.AutoSize = true;
-            this.lblOverview.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
-            this.lblOverview.ForeColor = System.Drawing.Color.White;
-            this.lblOverview.Location = new System.Drawing.Point(443, 40);
-            this.lblOverview.Name = "lblOverview";
-            this.lblOverview.Size = new System.Drawing.Size(165, 41);
-            this.lblOverview.TabIndex = 0;
-            this.lblOverview.Text = "Overview:";
             // 
             // Dashboard
             // 
@@ -619,13 +719,19 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panelContainer.ResumeLayout(false);
             this.panelContainer.PerformLayout();
+            this.panelDashboard.ResumeLayout(false);
+            this.panelDashboard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelRules.ResumeLayout(false);
+            this.panelRules.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ShowCountPanel.ResumeLayout(false);
+            this.ShowCountPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBC)).EndInit();
-            this.ShowCountPanel.ResumeLayout(false);
-            this.ShowCountPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -671,5 +777,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel panelRules;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panelDashboard;
     }
 }
