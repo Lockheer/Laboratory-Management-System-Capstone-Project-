@@ -292,8 +292,7 @@
             // 
             // ShowCountPanel
             // 
-            this.ShowCountPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ShowCountPanel.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main;
+            this.ShowCountPanel.BackColor = System.Drawing.Color.DimGray;
             this.ShowCountPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ShowCountPanel.Controls.Add(this.label7);
             this.ShowCountPanel.Controls.Add(this.returnedApparatusCountLabel);
@@ -314,7 +313,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(726, 195);
+            this.label7.Location = new System.Drawing.Point(678, 217);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(140, 48);
             this.label7.TabIndex = 0;
@@ -325,7 +324,7 @@
             this.returnedApparatusCountLabel.AutoSize = true;
             this.returnedApparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.returnedApparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(726, 243);
+            this.returnedApparatusCountLabel.Location = new System.Drawing.Point(693, 101);
             this.returnedApparatusCountLabel.Name = "returnedApparatusCountLabel";
             this.returnedApparatusCountLabel.Size = new System.Drawing.Size(173, 48);
             this.returnedApparatusCountLabel.TabIndex = 0;
@@ -336,7 +335,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(566, 195);
+            this.label6.Location = new System.Drawing.Point(482, 217);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(154, 48);
             this.label6.TabIndex = 0;
@@ -347,7 +346,7 @@
             this.borrowedApparatusCountLabel.AutoSize = true;
             this.borrowedApparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.borrowedApparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(566, 243);
+            this.borrowedApparatusCountLabel.Location = new System.Drawing.Point(524, 101);
             this.borrowedApparatusCountLabel.Name = "borrowedApparatusCountLabel";
             this.borrowedApparatusCountLabel.Size = new System.Drawing.Size(187, 48);
             this.borrowedApparatusCountLabel.TabIndex = 0;
@@ -358,7 +357,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(327, 182);
+            this.label4.Location = new System.Drawing.Point(277, 217);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(158, 48);
             this.label4.TabIndex = 0;
@@ -369,7 +368,7 @@
             this.studentCountLabel.AutoSize = true;
             this.studentCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.studentCountLabel.ForeColor = System.Drawing.Color.White;
-            this.studentCountLabel.Location = new System.Drawing.Point(318, 230);
+            this.studentCountLabel.Location = new System.Drawing.Point(300, 101);
             this.studentCountLabel.Name = "studentCountLabel";
             this.studentCountLabel.Size = new System.Drawing.Size(191, 48);
             this.studentCountLabel.TabIndex = 0;
@@ -380,7 +379,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(54, 182);
+            this.label5.Location = new System.Drawing.Point(34, 217);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(205, 48);
             this.label5.TabIndex = 0;
@@ -389,11 +388,11 @@
             // apparatusCountLabel
             // 
             this.apparatusCountLabel.AutoSize = true;
-            this.apparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.apparatusCountLabel.Font = new System.Drawing.Font("Bahnschrift", 50F, System.Drawing.FontStyle.Bold);
             this.apparatusCountLabel.ForeColor = System.Drawing.Color.White;
-            this.apparatusCountLabel.Location = new System.Drawing.Point(54, 230);
+            this.apparatusCountLabel.Location = new System.Drawing.Point(-27, 101);
             this.apparatusCountLabel.Name = "apparatusCountLabel";
-            this.apparatusCountLabel.Size = new System.Drawing.Size(227, 48);
+            this.apparatusCountLabel.Size = new System.Drawing.Size(382, 81);
             this.apparatusCountLabel.TabIndex = 0;
             this.apparatusCountLabel.Text = "Apparatus0";
             // 
