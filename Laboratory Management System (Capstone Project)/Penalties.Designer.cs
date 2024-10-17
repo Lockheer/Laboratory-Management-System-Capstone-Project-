@@ -1,4 +1,6 @@
-﻿namespace Laboratory_Management_System__Capstone_Project_
+﻿using System.Windows.Forms;
+
+namespace Laboratory_Management_System__Capstone_Project_
 {
     partial class PenaltiesRecords
     {
@@ -97,7 +99,7 @@
             this.PanelCRUD.Controls.Add(this.btnUpdate);
             this.PanelCRUD.Controls.Add(this.btnAdd);
             this.PanelCRUD.Location = new System.Drawing.Point(21, 498);
-            this.PanelCRUD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelCRUD.Margin = new System.Windows.Forms.Padding(2);
             this.PanelCRUD.Name = "PanelCRUD";
             this.PanelCRUD.Size = new System.Drawing.Size(980, 396);
             this.PanelCRUD.TabIndex = 0;
@@ -117,10 +119,10 @@
             // 
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
-            "Ongoing Penalty",
-            "Cleared"});
+            "ACTIVE",
+            "CLEARED"});
             this.cbStatus.Location = new System.Drawing.Point(155, 296);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(114, 21);
             this.cbStatus.TabIndex = 36;
@@ -134,7 +136,7 @@
             this.panelPayment.Controls.Add(this.tbAmtToBe);
             this.panelPayment.Controls.Add(this.lblAmntPayed);
             this.panelPayment.Location = new System.Drawing.Point(686, 93);
-            this.panelPayment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPayment.Margin = new System.Windows.Forms.Padding(2);
             this.panelPayment.Name = "panelPayment";
             this.panelPayment.Size = new System.Drawing.Size(270, 161);
             this.panelPayment.TabIndex = 35;
@@ -145,9 +147,9 @@
             this.lblRemainingBalance.Location = new System.Drawing.Point(116, 100);
             this.lblRemainingBalance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRemainingBalance.Name = "lblRemainingBalance";
-            this.lblRemainingBalance.Size = new System.Drawing.Size(16, 13);
+            this.lblRemainingBalance.Size = new System.Drawing.Size(28, 13);
             this.lblRemainingBalance.TabIndex = 32;
-            this.lblRemainingBalance.Text = "...";
+            this.lblRemainingBalance.Text = "0.00";
             // 
             // lblBalance
             // 
@@ -162,7 +164,7 @@
             // tbAmtPayed
             // 
             this.tbAmtPayed.Location = new System.Drawing.Point(115, 67);
-            this.tbAmtPayed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAmtPayed.Margin = new System.Windows.Forms.Padding(2);
             this.tbAmtPayed.Name = "tbAmtPayed";
             this.tbAmtPayed.Size = new System.Drawing.Size(141, 20);
             this.tbAmtPayed.TabIndex = 30;
@@ -180,7 +182,7 @@
             // tbAmtToBe
             // 
             this.tbAmtToBe.Location = new System.Drawing.Point(115, 36);
-            this.tbAmtToBe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAmtToBe.Margin = new System.Windows.Forms.Padding(2);
             this.tbAmtToBe.Name = "tbAmtToBe";
             this.tbAmtToBe.Size = new System.Drawing.Size(141, 20);
             this.tbAmtToBe.TabIndex = 28;
@@ -199,11 +201,10 @@
             // 
             this.cbCondition.FormattingEnabled = true;
             this.cbCondition.Items.AddRange(new object[] {
-            "Payment",
-            "Item Replacement",
-            "Borrowing Restriction"});
+            "PAYMENT",
+            "ITEM REPLACEMENT"});
             this.cbCondition.Location = new System.Drawing.Point(155, 266);
-            this.cbCondition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCondition.Margin = new System.Windows.Forms.Padding(2);
             this.cbCondition.Name = "cbCondition";
             this.cbCondition.Size = new System.Drawing.Size(133, 21);
             this.cbCondition.TabIndex = 34;
@@ -213,7 +214,7 @@
             // 
             this.cbTransact.FormattingEnabled = true;
             this.cbTransact.Location = new System.Drawing.Point(158, 60);
-            this.cbTransact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTransact.Margin = new System.Windows.Forms.Padding(2);
             this.cbTransact.Name = "cbTransact";
             this.cbTransact.Size = new System.Drawing.Size(114, 21);
             this.cbTransact.TabIndex = 33;
@@ -232,7 +233,7 @@
             // dtpPenaltyDate
             // 
             this.dtpPenaltyDate.Location = new System.Drawing.Point(577, 27);
-            this.dtpPenaltyDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpPenaltyDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpPenaltyDate.Name = "dtpPenaltyDate";
             this.dtpPenaltyDate.Size = new System.Drawing.Size(192, 20);
             this.dtpPenaltyDate.TabIndex = 26;
@@ -250,7 +251,7 @@
             // btnSendEmail
             // 
             this.btnSendEmail.Location = new System.Drawing.Point(746, 296);
-            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(2);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(152, 32);
             this.btnSendEmail.TabIndex = 24;
@@ -261,7 +262,7 @@
             // btnDetails
             // 
             this.btnDetails.Location = new System.Drawing.Point(290, 53);
-            this.btnDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDetails.Margin = new System.Windows.Forms.Padding(2);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(131, 32);
             this.btnDetails.TabIndex = 23;
@@ -282,7 +283,7 @@
             // tbViolation
             // 
             this.tbViolation.Location = new System.Drawing.Point(158, 232);
-            this.tbViolation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbViolation.Margin = new System.Windows.Forms.Padding(2);
             this.tbViolation.Name = "tbViolation";
             this.tbViolation.Size = new System.Drawing.Size(244, 20);
             this.tbViolation.TabIndex = 22;
@@ -300,7 +301,7 @@
             // tbContact
             // 
             this.tbContact.Location = new System.Drawing.Point(160, 196);
-            this.tbContact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbContact.Margin = new System.Windows.Forms.Padding(2);
             this.tbContact.Name = "tbContact";
             this.tbContact.ReadOnly = true;
             this.tbContact.Size = new System.Drawing.Size(242, 20);
@@ -309,7 +310,7 @@
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(160, 162);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.ReadOnly = true;
             this.tbEmail.Size = new System.Drawing.Size(242, 20);
@@ -318,7 +319,7 @@
             // tbStudentName
             // 
             this.tbStudentName.Location = new System.Drawing.Point(160, 129);
-            this.tbStudentName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbStudentName.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudentName.Name = "tbStudentName";
             this.tbStudentName.ReadOnly = true;
             this.tbStudentName.Size = new System.Drawing.Size(242, 20);
@@ -327,7 +328,7 @@
             // tbIDnum
             // 
             this.tbIDnum.Location = new System.Drawing.Point(160, 98);
-            this.tbIDnum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbIDnum.Margin = new System.Windows.Forms.Padding(2);
             this.tbIDnum.Name = "tbIDnum";
             this.tbIDnum.ReadOnly = true;
             this.tbIDnum.Size = new System.Drawing.Size(242, 20);
@@ -386,7 +387,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(139, 336);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 32);
             this.btnDelete.TabIndex = 3;
@@ -397,7 +398,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(248, 336);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(104, 32);
             this.btnUpdate.TabIndex = 2;
@@ -408,7 +409,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(23, 336);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(104, 32);
             this.btnAdd.TabIndex = 1;
@@ -420,7 +421,7 @@
             // 
             this.dgvPenalties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPenalties.Location = new System.Drawing.Point(59, 136);
-            this.dgvPenalties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPenalties.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPenalties.Name = "dgvPenalties";
             this.dgvPenalties.RowHeadersWidth = 51;
             this.dgvPenalties.RowTemplate.Height = 24;
@@ -431,7 +432,7 @@
             // tbSearchPenalty
             // 
             this.tbSearchPenalty.Location = new System.Drawing.Point(418, 99);
-            this.tbSearchPenalty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearchPenalty.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearchPenalty.Name = "tbSearchPenalty";
             this.tbSearchPenalty.Size = new System.Drawing.Size(242, 20);
             this.tbSearchPenalty.TabIndex = 14;
@@ -470,7 +471,7 @@
             this.Controls.Add(this.dgvPenalties);
             this.Controls.Add(this.PanelCRUD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PenaltiesRecords";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Violations and Penalties";

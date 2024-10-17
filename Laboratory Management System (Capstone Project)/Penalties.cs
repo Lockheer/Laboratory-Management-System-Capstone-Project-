@@ -141,24 +141,100 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 try
                 {
+                    String idNumber = tbIDnum.Text;
+                    String studentName = tbStudentName.Text;
+                    if (!Int64.TryParse(tbContact.Text, out Int64 contactNumber))
+                    {
+                        MessageBox.Show("Error: Invalid contact number format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    String emailAddress = tbEmail.Text;
+
+                    // Convert DateTimePicker value to string format "dddd, dd MMMM yyyy" for display
+                    String penaltyDate = dtpPenaltyDate.Value.ToString("dddd, dd MMMM yyyy");
+
+                    String violation = tbViolation.Text;
+                    String condition = cbCondition.Text;
+                    Decimal? toPay = null;
+                    Decimal? amtPayed = null;
+                    Decimal? balance = null;
+
+                    if (!string.IsNullOrEmpty(tbAmtToBe.Text))
+                    {
+                        if (Decimal.TryParse(tbAmtToBe.Text, out Decimal parsedToPay))
+                        {
+                            toPay = parsedToPay;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Invalid amount to be paid format.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(tbAmtPayed.Text))
+                    {
+                        if (Decimal.TryParse(tbAmtPayed.Text, out Decimal parsedAmtPayed))
+                        {
+                            amtPayed = parsedAmtPayed;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Invalid amount payed format.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(lblRemainingBalance.Text))
+                    {
+                        // Remove any commas or unwanted characters
+                        string sanitizedBalanceText = lblRemainingBalance.Text.Replace("...", "");
+
+                        if (Decimal.TryParse(sanitizedBalanceText, out Decimal parsedBalance))
+                        {
+                            balance = parsedBalance;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Invalid balance format.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    String status = cbStatus.Text;
+                    if (!int.TryParse(cbTransact.Text, out int transactionID))
+                    {
+                        MessageBox.Show("Error: Invalid transaction ID format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+                    // Add debugging log to show the values of the inputs
+                    MessageBox.Show($"IDNumber: {idNumber}, StudentName: {studentName}, ContactNumber: {contactNumber}, " +
+                                    $"EmailAddress: {emailAddress}, PenaltyDate: {penaltyDate}, Violation: {violation}, Condition: {condition}, " +
+                                    $"ToPay: {toPay}, AmtPayed: {amtPayed}, Balance: {balance}, Status: {status}, TransactionID: {transactionID}",
+                                    "Debugging Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
                         SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], Balance, [Penalty Status],transactionID) " +
-                                                        "VALUES (@IDNumber, @StudentName, @ContactNumber, @Email, @PenaltyDate, @Violation, @Condition, @ToBePayed, @Payed, @Balance, @Status, @RefNum)", con);
+                                                        "VALUES (@IDNumber, @StudentName, @ContactNumber, @EmailAddress, @PenaltyDate, @Violation, @Condition, @ToPay, @AmtPayed, @Balance, @Status, @TransactionID)", con);
 
-                        // Add parameters with explicit types
-                        cmd.Parameters.Add("@IDNumber", SqlDbType.NVarChar).Value = tbIDnum.Text;
-                        cmd.Parameters.Add("@StudentName", SqlDbType.VarChar).Value = tbStudentName.Text;
-                        cmd.Parameters.Add("@ContactNumber", SqlDbType.BigInt).Value = Int64.Parse(tbContact.Text); // Handle potential parse errors
-                        cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = tbEmail.Text;
-                        cmd.Parameters.Add("@PenaltyDate", SqlDbType.NVarChar).Value = dtpPenaltyDate.Value; // Use DateTimePicker.Value instead of .Text
-                        cmd.Parameters.Add("@Violation", SqlDbType.VarChar).Value = tbViolation.Text;
-                        cmd.Parameters.Add("@Condition", SqlDbType.VarChar).Value = cbCondition.Text;
-                        cmd.Parameters.Add("@ToBePayed", SqlDbType.Decimal).Value = Decimal.Parse(tbAmtToBe.Text);
-                        cmd.Parameters.Add("@Payed", SqlDbType.Decimal).Value = Decimal.Parse(tbAmtPayed.Text);
-                        cmd.Parameters.Add("@Balance", SqlDbType.Decimal).Value = Decimal.Parse(lblRemainingBalance.Text);
-                        cmd.Parameters.Add("@Status", SqlDbType.VarChar).Value = cbStatus.Text;
-                        cmd.Parameters.Add("@RefNum", SqlDbType.BigInt).Value = Int64.Parse(cbTransact.Text); // Handle potential parse errors
+                        // Add parameters with AddWithValue
+                        cmd.Parameters.AddWithValue("@IDNumber", idNumber);
+                        cmd.Parameters.AddWithValue("@StudentName", studentName);
+                        cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+                        cmd.Parameters.AddWithValue("@EmailAddress", emailAddress);
+                        cmd.Parameters.AddWithValue("@PenaltyDate", penaltyDate); // Use the formatted date string
+                        cmd.Parameters.AddWithValue("@Violation", violation);
+                        cmd.Parameters.AddWithValue("@Condition", condition);
+
+                        // Check if toPay has a value; if not, use DBNull
+                        cmd.Parameters.AddWithValue("@ToPay", toPay.HasValue ? (object)toPay.Value : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@AmtPayed", amtPayed.HasValue ? (object)amtPayed.Value : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Balance", balance.HasValue ? (object)balance.Value : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Status", status);
+                        cmd.Parameters.AddWithValue("@TransactionID", transactionID);
 
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -168,17 +244,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                         LoadPenaltiesData();
                     }
                 }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Error: Invalid number format in contact number or transaction ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
                 catch (SqlException ex)
                 {
                     MessageBox.Show("SQL Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error saving student's information: " + ex.Message);
+                    MessageBox.Show("Error saving student's information: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -206,13 +278,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                 return false;
             }
 
-            if (tbContact.Text.Length < 10 || tbContact.Text.Length > 11 || !Int64.TryParse(tbContact.Text, out _))
+            if (tbContact.Text.Length < 10 || tbContact.Text.Length > 11)
             {
                 MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
 
-            if (!IsValidEmail(tbEmail.Text))
+            if (!tbEmail.Text.Contains("@") && tbEmail.Text.Contains(".") )
             {
                 MessageBox.Show("Please enter a valid email address.", "Invalid Email Address", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -230,13 +302,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             return true;
         }
 
-        // Validate email with regex pattern
-        private bool IsValidEmail(string email)
-        {
-            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(email, emailPattern);
-        }
-
 
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -247,23 +312,61 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     try
                     {
+                        Decimal? toPay = null;
+                        Decimal? amtPayed = null;
+                        Decimal? balance = null;
+
+                        // Validate and parse amounts
+                        if (!string.IsNullOrEmpty(tbAmtToBe.Text) && Decimal.TryParse(tbAmtToBe.Text, out Decimal parsedToPay))
+                        {
+                            toPay = parsedToPay;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Invalid amount to be paid format.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        if (!string.IsNullOrEmpty(tbAmtPayed.Text) && Decimal.TryParse(tbAmtPayed.Text, out Decimal parsedAmtPayed))
+                        {
+                            amtPayed = parsedAmtPayed;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Invalid amount paid format.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Validate and parse balance
+                        if (!string.IsNullOrEmpty(lblRemainingBalance.Text) && Decimal.TryParse(lblRemainingBalance.Text.Replace("...", ""), out Decimal parsedBalance))
+                        {
+                            balance = parsedBalance;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Invalid balance format.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                         {
-                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed, Balance = @Balance, [Penalty Status] = @Status, transactionID = @RefNum WHERE PenaltyID = @RowID", con);
+                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToPay, [Amount Received] = @AmtPayed, Balance = @Balance, [Penalty Status] = @Status, transactionID = @TransactionID WHERE PenaltyID = @RowID", con);
 
-                            // Add parameters
+                            // Add parameters with appropriate checks for null values
                             cmd.Parameters.AddWithValue("@IDNumber", tbIDnum.Text);
                             cmd.Parameters.AddWithValue("@StudentName", tbStudentName.Text);
-                            cmd.Parameters.AddWithValue("@ContactNumber", Int64.Parse(tbContact.Text));
+                            cmd.Parameters.AddWithValue("@ContactNumber", Int64.Parse(tbContact.Text)); // Ensure this is validated
                             cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
-                            cmd.Parameters.AddWithValue("@PenaltyDate", dtpPenaltyDate.Value);
+                            cmd.Parameters.AddWithValue("@PenaltyDate", dtpPenaltyDate.Value.ToString("dddd, dd MMMM yyyy")); // Consistent date format
                             cmd.Parameters.AddWithValue("@Violation", tbViolation.Text);
                             cmd.Parameters.AddWithValue("@Condition", cbCondition.Text);
-                            cmd.Parameters.AddWithValue("@ToBePayed", Decimal.Parse(tbAmtToBe.Text));
-                            cmd.Parameters.AddWithValue("@Payed", Decimal.Parse(tbAmtPayed.Text));
-                            cmd.Parameters.AddWithValue("@Balance", Decimal.Parse(lblRemainingBalance.Text));
+
+                            // Check if toPay has a value; if not, use DBNull
+                            cmd.Parameters.AddWithValue("@ToPay", toPay.HasValue ? (object)toPay.Value : DBNull.Value);
+                            cmd.Parameters.AddWithValue("@AmtPayed", amtPayed.HasValue ? (object)amtPayed.Value : DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Balance", balance.HasValue ? (object)balance.Value : DBNull.Value);
                             cmd.Parameters.AddWithValue("@Status", cbStatus.Text);
-                            cmd.Parameters.AddWithValue("@RefNum", Int64.Parse(cbTransact.Text));
+                            cmd.Parameters.AddWithValue("@TransactionID", int.Parse(cbTransact.Text)); // Ensure this is validated
                             cmd.Parameters.AddWithValue("@RowID", rowid);
 
                             con.Open();
@@ -281,15 +384,22 @@ namespace Laboratory_Management_System__Capstone_Project_
                             }
                         }
                     }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Error: Invalid number format in contact number or transaction ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("SQL Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error updating penalty information: " + ex.Message);
+                        MessageBox.Show("Error updating penalty information: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
 
-      
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -328,17 +438,19 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void dgvPenalties_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             try
             {
                 if (e.RowIndex >= 0 && dgvPenalties.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
-            
                     ID = Convert.ToInt32(dgvPenalties.Rows[e.RowIndex].Cells[0].Value);
                     LoadPenaltyDetails(ID);
                     btnUpdate.Visible = true;
                     btnDelete.Visible = true;
                 }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Error: Invalid ID format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -363,18 +475,19 @@ namespace Laboratory_Management_System__Capstone_Project_
                         {
                             rowid = penaltyID;
 
-                            tbIDnum.Text = reader["[ID Number]"].ToString();
-                            tbStudentName.Text = reader["[Student Name]"].ToString();
-                            tbContact.Text = reader["[Contact Number]"].ToString();
-                            tbEmail.Text = reader["[Email Address]"].ToString();
-                            dtpPenaltyDate.Text = reader["[Penalty Issued Date]"].ToString();
-                            tbViolation.Text = reader["[Violation]"].ToString();
-                            cbCondition.Text = reader["[Penalty Condition]"].ToString();
+                            tbIDnum.Text = reader["ID Number"].ToString();
+                            tbStudentName.Text = reader["Student Name"].ToString();
+                            tbContact.Text = reader["Contact Number"].ToString();
+                            tbEmail.Text = reader["Email Address"].ToString();
+                            string penaltyDateStr = reader["Penalty Issued Date"].ToString();
+                            dtpPenaltyDate.Value = DateTime.Parse(penaltyDateStr);
+                            tbViolation.Text = reader["Violation"].ToString();
+                            cbCondition.Text = reader["Penalty Condition"].ToString();
 
                             // Handle Amount to be Paid
-                            if (reader["[Amount to be Paid]"] != DBNull.Value)
+                            if (reader["Amount to be Paid"] != DBNull.Value)
                             {
-                                tbAmtToBe.Text = reader["[Amount to be Paid]"].ToString();
+                                tbAmtToBe.Text = reader["Amount to be Paid"].ToString();
                             }
                             else
                             {
@@ -382,9 +495,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                             }
 
                             // Handle Amount Received
-                            if (reader["[Amount Received]"] != DBNull.Value)
+                            if (reader["Amount Received"] != DBNull.Value)
                             {
-                                tbAmtPayed.Text = reader["[Amount Received]"].ToString();
+                                tbAmtPayed.Text = reader["Amount Received"].ToString();
                             }
                             else
                             {
@@ -401,16 +514,21 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 lblRemainingBalance.Text = "0.00";
                             }
 
-                            cbStatus.Text = reader["[Penalty Status]"].ToString();
+                            cbStatus.Text = reader["Penalty Status"].ToString();
                             cbTransact.Text = reader["transactionID"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No penalty found with the specified ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Error loading penalty details: " + ex.Message);
+                MessageBox.Show("SQL Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         //Transaction Details button
@@ -421,6 +539,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 detailRestrict++;
                 TransactionDetails details = new TransactionDetails();
                 details.HideControls(); // Call the HideControls method from the TransactionDetails form
+                details.FormClosed += (s, args) => { detailRestrict = 0; }; // Reset the restriction when the form is closed
                 details.Show();
             }
             else
@@ -436,6 +555,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 emailFormRestrict++;
                 PenaltyEmail penaltyEmail = new PenaltyEmail();
+                penaltyEmail.FormClosed += (s, args) => { emailFormRestrict = 0; };
                 penaltyEmail.Show();
             }
             else
@@ -637,498 +757,3 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
 
-
-/*using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Runtime.InteropServices;
-
-namespace Laboratory_Management_System__Capstone_Project_
-{
-    public partial class PenaltiesRecords : Form
-    {
-       
-        public PenaltiesRecords()
-        {
-            InitializeComponent();
-
-            tbAmtToBe.TextChanged += tbAmount_TextChanged;
-            tbAmtPayed.TextChanged += tbAmount_TextChanged;
-
-        }
-        //prevents the transaction detail form from appearing multiple times to save memory
-        public static int detailRestrict = 0;
-        public static int emailFormRestrict = 0;
-
-
-        int ID;
-        Int64 rowid;
-
-        private void PenaltiesRecords_Load(object sender, EventArgs e)
-        {
-            btnUpdate.Hide();
-            panelPayment.Visible = false;
-            cbCondition.SelectedIndexChanged += new EventHandler(cbCondition_SelectedIndexChanged);
-
-
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-
-            cmd.CommandText = "select * from LaboratoryPenalties";
-            SqlDataAdapter DA = new SqlDataAdapter();
-            DataSet DS = new DataSet();
-            DA.SelectCommand = cmd; // Set the SelectCommand for the SqlDataAdapter
-            DA.Fill(DS);
-
-            dgvPenalties.DataSource = DS.Tables[0];
-            // Load the COMBO BOX with the transaction ID data source
-            using (SqlConnection combo_con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
-            {
-                using (SqlCommand new_cmd = new SqlCommand("Select transactionID from BorrowReturnTransaction", combo_con))
-                {
-                    try
-                    {
-                        combo_con.Open();
-                        using (SqlDataReader reader = new_cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                // Read the integer transaction ID and add it to the ComboBox
-                                cbTransact.Items.Add(reader.GetInt32(0));
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handle the exception (e.g., log it or show a message to the user)
-                        MessageBox.Show("An error occurred while loading transaction IDs: " + ex.Message);
-                    }
-                }
-            }
-
-
-
-
-        }
-
-
-
-
-        private void cbCondition_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbCondition.SelectedItem != null && cbCondition.SelectedItem.ToString() == "Payment" || cbCondition.SelectedIndex.ToString() == "PAYMENT")
-            {
-                panelPayment.Visible = true;
-                tbAmtToBe.Visible = true;
-                tbAmtPayed.Visible = true;
-                lblRemainingBalance.Visible = true;
-
-            }
-            else
-            {
-                panelPayment.Visible = false;
-                tbAmtToBe.Visible = false;
-                tbAmtPayed.Visible = false;
-                lblRemainingBalance.Visible = false;
-            }
-
-        }
-
-
-        //RETURN Button
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            //Dashboard.formRestrict = 0;
-        }
-
-        //Transaction Details button
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-            
-            if (detailRestrict == 0)
-            {
-                detailRestrict++;
-                TransactionDetails details = new TransactionDetails();
-                details.Show();
-            }else
-            {
-                MessageBox.Show("The details form has already been opened.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        //Opens the SMTP Email sending form
-        private void btnSendEmail_Click(object sender, EventArgs e)
-        {
-            if (emailFormRestrict == 0)
-            {
-                emailFormRestrict++;
-                PenaltyEmail penaltyEmail = new PenaltyEmail();
-                penaltyEmail.Show();
-            }else
-            {
-                MessageBox.Show("The instance has already been opened.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-
-
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            //Rework and match LabPenalties table
-            if (tbIDnum.Text != "" && tbStudentName.Text != "" && tbEmail.Text != ""
-              && tbContact.Text != "" && tbViolation.Text != "" && cbCondition.Text != "" && cbTransact.Text != "" && cbStatus.Text != "")
-            {
-
-               
-                String idnum = tbIDnum.Text;
-                String name = tbStudentName.Text;
-                String email = tbEmail.Text;
-                Int64 contact = Int64.Parse(tbContact.Text);
-                String violation = tbViolation.Text;
-                String condition = cbCondition.Text;
-                Int64 transactRef = Int64.Parse(cbTransact.Text);
-                String status = cbStatus.Text;
-                String issueDate = dtpPenaltyDate.Text;
-                Decimal ToPay = Decimal.Parse(tbAmtToBe.Text);
-                Decimal Payed = Decimal.Parse(tbAmtPayed.Text);
-                Decimal Balance = Decimal.Parse(lblRemainingBalance.Text);
-
-                SqlConnection connect = new SqlConnection();
-                connect.ConnectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-                SqlCommand command = new SqlCommand();
-                command.Connection = connect;
-
-                connect.Open();
-                command.CommandText = "Insert into LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Balance], [Penalty Status],transactionID) values ('" + idnum + "','" + name + "', " + contact + ",'" + email + "',  '" + issueDate + "', '" + violation + "', '"+condition+"', "+ToPay+", "+Payed+ ", "+Balance+", '" + status+"', "+transactRef+")";
-                command.ExecuteNonQuery();
-                connect.Close();
-
-                MessageBox.Show("The Student's information has been saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-            }
-            else
-            {
-
-                MessageBox.Show("Please fill in the following empty fields or textboxes.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-
-
-            if (tbContact.TextLength < 10 || tbContact.TextLength > 11)
-            {
-                MessageBox.Show("Please enter a valid contact number.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            String idnum = tbIDnum.Text;
-            String name = tbStudentName.Text;
-            String email = tbEmail.Text;
-            Int64 contact;
-            if (!Int64.TryParse(tbContact.Text, out contact))
-            {
-                MessageBox.Show("Invalid contact number.");
-                return;
-            }
-            String violation = tbViolation.Text;
-            String condition = cbCondition.Text;
-            Int64 transactRef = Int64.Parse(cbTransact.Text);
-            String status = cbStatus.Text;
-            String issueDate = dtpPenaltyDate.Text;
-            Decimal ToPay = Decimal.Parse(tbAmtToBe.Text);
-            Decimal Payed = Decimal.Parse(tbAmtPayed.Text);
-            Decimal Balance = Decimal.Parse(lblRemainingBalance.Text);
-
-            if (MessageBox.Show("Student's Information will now be updated.\n" +
-              "\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-
-                    cmd.CommandText = "UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber,[Student Name] = @StudentName ,[Contact Number] = @ContactNumber, [Email Address] = @EmailAddress ,[Penalty Issued Date] = @PenaltyDate ,[Violation] = @Violation ,[Penalty Condition] = @Condition ," +
-                        "[Amount to be Paid] = @ToBePayed, [Amount Received] = @Payed , [Balance] = @Balance, [Penalty Status] =@Status,transactionID = @RefNum WHERE PenaltyID = @RowID";
-
-                    cmd.Parameters.AddWithValue("@IDNumber", idnum);
-                    cmd.Parameters.AddWithValue("@StudentName", name);
-                    cmd.Parameters.AddWithValue("@ContactNumber", contact);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@PenaltyDate", issueDate);
-                    cmd.Parameters.AddWithValue("@Violation", violation);
-                    cmd.Parameters.AddWithValue("@Condition", condition);
-                    cmd.Parameters.AddWithValue("@ToBePayed", ToPay);
-                    cmd.Parameters.AddWithValue("@Payed", Payed);
-                    cmd.Parameters.AddWithValue("@Balance", Balance);
-                    cmd.Parameters.AddWithValue("@Status", status);
-                    cmd.Parameters.AddWithValue("@RefNum", transactRef);
-                    cmd.Parameters.AddWithValue("@RowID", rowid);
-
-                    try
-                    {
-                        con.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("The Penalty information has been updated successfully.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("No existing Penalty found with the specified ID.");
-                        }
-
-                        // Refresh the data grid view with the updated data
-                        PenaltiesRecords_Load(this, null);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
-                }
-            }
-
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("The selected student's information will now be deleted.\n" +
-                "\nDo you wish to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-
-                    cmd.CommandText = "DELETE FROM LaboratoryPenalties WHERE PenaltyID = @RowID";
-                    cmd.Parameters.AddWithValue("@RowID", rowid);
-
-                    try
-                    {
-                        con.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("The Penalty record has now been removed.","Success",MessageBoxButtons.OK,MessageBoxIcon.None);
-                        }
-                        else
-                        {
-                            MessageBox.Show("No penalty record found with the specified ID.");
-                        }
-
-                        // Refresh the data grid view with the updated data
-                        PenaltiesRecords_Load(this, null);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
-                }
-            }
-        }
-
-
-        //dgv Click Event 
-        private void dgvPenalties_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Ensure the clicked cell and row are within the valid range
-            if (e.RowIndex >= 0)
-            {
-                // Check if the cell value is not null or empty
-                if (dgvPenalties.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null &&
-                    !string.IsNullOrWhiteSpace(dgvPenalties.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
-                {
-                    // Acquire the data that will match the Primary Key of the table
-                    ID = int.Parse(dgvPenalties.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-                    btnUpdate.Visible = true;
-
-                    // Define the connection string
-                    string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-
-                    using (SqlConnection con = new SqlConnection(connectionString))
-                    {
-                        // Define the SQL command
-                        SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE studID = @ID", con);
-                        cmd.Parameters.AddWithValue("@ID", ID);
-
-                        // Set up the data adapter with the command
-                        SqlDataAdapter DA = new SqlDataAdapter(cmd);
-
-                        // To hold the data
-                        DataSet DS = new DataSet();
-
-                        try
-                        {
-                            con.Open();
-                            // Fill the DataSet with data from the database
-                            DA.Fill(DS);
-
-                            // Check if the query returned any results
-                            if (DS.Tables[0].Rows.Count > 0)
-                            {
-                                // Extract data from the first row
-                                rowid = Int64.Parse(DS.Tables[0].Rows[0]["PenaltyID"].ToString());
-                                tbIDnum.Text = DS.Tables[0].Rows[0]["[ID Number]"].ToString();
-                                tbStudentName.Text = DS.Tables[0].Rows[0]["[Student Name]"].ToString();
-                                tbContact.Text = DS.Tables[0].Rows[0]["[Contact Number]"].ToString();
-                                tbEmail.Text = DS.Tables[0].Rows[0]["[Email Address]"].ToString();
-                                dtpPenaltyDate.Text = DS.Tables[0].Rows[0]["[Penalty Issued Date]"].ToString();
-                                tbViolation.Text = DS.Tables[0].Rows[0]["[Violation]"].ToString();
-                                cbCondition.Text = DS.Tables[0].Rows[0]["[Penalty Condition]"].ToString();
-                                tbAmtToBe.Text = DS.Tables[0].Rows[0]["[Amount to be Paid]"].ToString();
-                                tbAmtPayed.Text = DS.Tables[0].Rows[0]["[Amount Received]"].ToString();
-                                lblRemainingBalance.Text = DS.Tables[0].Rows[0]["[Balance]"].ToString();
-                                cbStatus.Text = DS.Tables[0].Rows[0]["[Penalty Status]"].ToString();
-                                cbTransact.Text = DS.Tables[0].Rows[0]["transactionID"].ToString();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("An error occurred: " + ex.Message);
-                        }
-                    }
-                }
-                else
-                {
-                    // Display an error message if the cell is empty or null
-                    MessageBox.Show("The selected cell is empty. Please select a valid cell.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
-
-
-        //Penalty search bar box
-        private void tbSearchPenalty_TextChanged(object sender, EventArgs e)
-        {
-            if (tbSearchPenalty.Text != "")
-            {
-                // Perform the search
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
-                {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM LaboratoryPenalties WHERE [ID Number] LIKE @SearchText + '%' OR [Student Name] LIKE @SearchText + '%' OR [Penalty Issued Date] LIKE @SearchText + '%'";
-
-                    cmd.Parameters.AddWithValue("@SearchText", tbSearchPenalty.Text);
-
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                    DataSet DS = new DataSet();
-
-                    try
-                    {
-                        con.Open();
-                        DA.Fill(DS);
-
-                        // Check if the dataset is empty
-                        if (DS.Tables[0].Rows.Count > 0)
-                        {
-                            dgvPenalties.DataSource = DS.Tables[0];
-                        }
-                        else
-                        {
-                            dgvPenalties.DataSource = null;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
-                }
-            }
-            else
-            {
-                // Load all penalty data when the search box is empty
-                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
-                {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM LaboratoryPenalties";
-
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                    DataSet DS = new DataSet();
-
-                    try
-                    {
-                        con.Open();
-                        DA.Fill(DS);
-
-                        // Check if the dataset is empty
-                        if (DS.Tables[0].Rows.Count > 0)
-                        {
-                            dgvPenalties.DataSource = DS.Tables[0];
-                        }
-                        else
-                        {
-                            dgvPenalties.DataSource = null;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
-                }
-            }
-        }
-
-        private void tbAmount_TextChanged(object sender, EventArgs e)
-        {
-            // Calculate the remaining balance whenever the amount to be paid or paid changes
-            CalculateRemainingBalance();
-        }
-
-        private void CalculateRemainingBalance()
-        {
-            decimal toPay = 0;
-            decimal payed = 0;
-
-            // Try to parse the values from the textboxes; default to 0 if parsing fails
-            decimal.TryParse(tbAmtToBe.Text, out toPay);
-            decimal.TryParse(tbAmtPayed.Text, out payed);
-
-            // Calculate the remaining balance
-            decimal remainingBalance = toPay - payed;
-
-            // Display the remaining balance in the label
-            lblRemainingBalance.Text = remainingBalance.ToString("F2");
-        }
-
-
-       
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnExitUpper_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void dgvPenalties_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-    }
-}
-*/

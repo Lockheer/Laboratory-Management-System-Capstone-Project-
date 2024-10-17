@@ -466,7 +466,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             ShowCountPanel.Visible = true;
         }
 
-
+         
         private void UpdateApparatusCountLabel(Label apparatusCountLabel)
         {
             // Connect to the database and retrieve the apparatus count
@@ -480,7 +480,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 int apparatusCount = (int)command.ExecuteScalar();
 
                 // Update the apparatus count label
-                apparatusCountLabel.Text = $"Apparatus Count: {apparatusCount}";
+                apparatusCountLabel.Text = $"{apparatusCount}";
             }
         }
 
@@ -497,7 +497,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 int studentCount = (int)command.ExecuteScalar();
 
                 // Update the student count label
-                studentCountLabel.Text = $"Student Count: {studentCount}";
+                studentCountLabel.Text = $"{studentCount}";
             }
         }
 
@@ -514,7 +514,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 int borrowedApparatusCount = (int)command.ExecuteScalar();
 
                 // Update the borrowed apparatus count label
-                borrowedApparatusCountLabel.Text = $"Borrowed Apparatus Count: {borrowedApparatusCount}";
+                borrowedApparatusCountLabel.Text = $"{borrowedApparatusCount}";
             }
         }
 
@@ -531,7 +531,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 int returnedApparatusCount = (int)command.ExecuteScalar();
 
                 // Update the returned apparatus count label
-                returnedApparatusCountLabel.Text = $"Returned Apparatus Count: {returnedApparatusCount}";
+                returnedApparatusCountLabel.Text = $"{returnedApparatusCount}";
             }
         }
 

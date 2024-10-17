@@ -70,7 +70,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, -2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(892, 106);
             this.panel1.TabIndex = 0;
@@ -105,7 +105,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(363, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(120, 103);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -127,7 +127,7 @@
             // 
             this.tbStudentSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbStudentSearch.Location = new System.Drawing.Point(285, 120);
-            this.tbStudentSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbStudentSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudentSearch.Name = "tbStudentSearch";
             this.tbStudentSearch.Size = new System.Drawing.Size(165, 23);
             this.tbStudentSearch.TabIndex = 2;
@@ -138,7 +138,7 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Location = new System.Drawing.Point(732, 118);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(89, 26);
             this.btnRefresh.TabIndex = 3;
@@ -150,7 +150,7 @@
             // 
             this.dgvStudentsInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudentsInformation.Location = new System.Drawing.Point(9, 149);
-            this.dgvStudentsInformation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvStudentsInformation.Margin = new System.Windows.Forms.Padding(2);
             this.dgvStudentsInformation.Name = "dgvStudentsInformation";
             this.dgvStudentsInformation.RowHeadersWidth = 51;
             this.dgvStudentsInformation.RowTemplate.Height = 24;
@@ -179,7 +179,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(-2, 499);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(877, 301);
             this.panel2.TabIndex = 5;
@@ -188,7 +188,7 @@
             // 
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.Location = new System.Drawing.Point(630, 228);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(124, 41);
             this.btnExport.TabIndex = 26;
@@ -205,7 +205,7 @@
             "College Of Computer Studies",
             "Senior High School Branch"});
             this.cbDept.Location = new System.Drawing.Point(598, 106);
-            this.cbDept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbDept.Margin = new System.Windows.Forms.Padding(2);
             this.cbDept.Name = "cbDept";
             this.cbDept.Size = new System.Drawing.Size(190, 21);
             this.cbDept.TabIndex = 23;
@@ -220,7 +220,7 @@
             "BSCE",
             "SHS"});
             this.cbProgram.Location = new System.Drawing.Point(598, 69);
-            this.cbProgram.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbProgram.Margin = new System.Windows.Forms.Padding(2);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(102, 21);
             this.cbProgram.TabIndex = 22;
@@ -230,7 +230,7 @@
             // 
             this.btnClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearAll.Location = new System.Drawing.Point(522, 230);
-            this.btnClearAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClearAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(97, 38);
             this.btnClearAll.TabIndex = 21;
@@ -242,7 +242,7 @@
             // 
             this.btnClosePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClosePanel.Location = new System.Drawing.Point(828, 2);
-            this.btnClosePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClosePanel.Margin = new System.Windows.Forms.Padding(2);
             this.btnClosePanel.Name = "btnClosePanel";
             this.btnClosePanel.Size = new System.Drawing.Size(38, 33);
             this.btnClosePanel.TabIndex = 20;
@@ -254,7 +254,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(638, 183);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(101, 33);
             this.btnDelete.TabIndex = 19;
@@ -266,7 +266,7 @@
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(518, 183);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(101, 33);
             this.btnUpdate.TabIndex = 18;
@@ -278,7 +278,7 @@
             // 
             this.tbContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbContactNum.Location = new System.Drawing.Point(598, 36);
-            this.tbContactNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbContactNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbContactNum.Name = "tbContactNum";
             this.tbContactNum.Size = new System.Drawing.Size(190, 23);
             this.tbContactNum.TabIndex = 15;
@@ -287,7 +287,7 @@
             // 
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.Location = new System.Drawing.Point(160, 105);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(190, 23);
             this.tbEmail.TabIndex = 14;
@@ -296,7 +296,7 @@
             // 
             this.tbIDNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIDNum.Location = new System.Drawing.Point(160, 70);
-            this.tbIDNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbIDNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbIDNum.Name = "tbIDNum";
             this.tbIDNum.Size = new System.Drawing.Size(190, 23);
             this.tbIDNum.TabIndex = 13;
@@ -305,7 +305,7 @@
             // 
             this.tbStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbStudentName.Location = new System.Drawing.Point(160, 34);
-            this.tbStudentName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbStudentName.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudentName.Name = "tbStudentName";
             this.tbStudentName.Size = new System.Drawing.Size(190, 23);
             this.tbStudentName.TabIndex = 12;
@@ -391,7 +391,7 @@
             // 
             this.cbProgramFilter.FormattingEnabled = true;
             this.cbProgramFilter.Location = new System.Drawing.Point(628, 119);
-            this.cbProgramFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbProgramFilter.Margin = new System.Windows.Forms.Padding(2);
             this.cbProgramFilter.Name = "cbProgramFilter";
             this.cbProgramFilter.Size = new System.Drawing.Size(92, 21);
             this.cbProgramFilter.TabIndex = 7;
@@ -403,7 +403,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Coral;
-            this.ClientSize = new System.Drawing.Size(876, 812);
+            this.ClientSize = new System.Drawing.Size(886, 812);
             this.Controls.Add(this.cbProgramFilter);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.panel2);
@@ -413,7 +413,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewStudentInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Students Information";

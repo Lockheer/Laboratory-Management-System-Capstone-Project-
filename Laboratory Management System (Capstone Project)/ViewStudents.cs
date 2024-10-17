@@ -303,13 +303,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-    
-
-
-
-
-    
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("The selected student's information will now be deleted.\n" +
@@ -366,21 +359,7 @@ namespace Laboratory_Management_System__Capstone_Project_
            
         }
 
-        /*private void btnExit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Unsaved changes will be lost\nDo you want to go back to the Dashboard?"
-               , "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Close();
-                //Sets back to 0 to prevent restriction from occuring
-                Dashboard.formRestrict = 0;
-
-            }
-        }*/
-
-
      
-
         private void cbProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Ensure controls are not null

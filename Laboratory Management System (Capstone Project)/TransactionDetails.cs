@@ -599,15 +599,21 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             btnExport.Visible = false;
             btnPrint.Visible = false;
-            this.MaximizeBox = false;
-            this.MinimizeBox = true;
+            this.ControlBox = true;        
+            this.MaximizeBox = false;      
+            this.MinimizeBox = true;       
+            // Ensure form is resizable (standard window with borders)
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+
+            // Adjust form size
+            this.Size = new Size(1080, 720);
 
             // Remove the last three items from the combo box
             cmbViewOptions.Items.Clear();
             cmbViewOptions.Items.AddRange(new string[]
             {
-                 "Borrowed Items",
-                 "Returned Items"
+                "Borrowed Items",
+                "Returned Items"
             });
             cmbViewOptions.SelectedIndex = 0; // Default selection
         }
