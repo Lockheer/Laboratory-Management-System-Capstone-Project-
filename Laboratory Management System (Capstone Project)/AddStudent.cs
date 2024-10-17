@@ -22,26 +22,23 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
 
-            cbProgram.DrawMode = DrawMode.OwnerDrawFixed; // Enable custom drawing for ComboBox
-
-            UIHelper.SetRoundedCorners(this, 20);
+            UIHelper.SetShadow(panel3);
 
             UIHelper.SetRoundedCorners(btnExit, 30);
-            UIHelper.SetRoundedCorners(btnSave, 40);
-            UIHelper.SetRoundedCorners(btnImport, 40);
+            UIHelper.SetRoundedCorners(btnSave, 10);
             UIHelper.SetRoundedCorners(btnRefresh, 40);
-            UIHelper.SetRoundedCorners(panel1, 10);
-
+            UIHelper.SetRoundedCorners(panel3, 50);
+            UIHelper.SetRoundedCorners(top, 10);
+  
             UIHelper.SetRoundedComboBox(cbProgram, 20);
             UIHelper.SetRoundedComboBox(cbDepartment, 20);
 
-            UIHelper.MakeRoundedTextBox(tbStudName, 25);
-            UIHelper.MakeRoundedTextBox(tbIDNum, 25);
-            UIHelper.MakeRoundedTextBox(tbStudEmail, 25);
-            UIHelper.MakeRoundedTextBox(tbStudContact, 25);
+            UIHelper.MakeRoundedTextBox(tbStudName, 10);
+            UIHelper.MakeRoundedTextBox(tbIDNum, 10);
+            UIHelper.MakeRoundedTextBox(tbStudContact, 10);
+            UIHelper.MakeRoundedTextBox(tbStudEmail, 10);
 
-            UIHelper.SetShadow(btnImport);
-            UIHelper.SetShadow(btnSave);
+            UIHelper.SetFormStartLocation(this, 330, 127);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -29,27 +29,104 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tbPIN = new System.Windows.Forms.TextBox();
             this.btnVerify = new System.Windows.Forms.Button();
             this.btnResend = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(613, 396);
+            this.panel2.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.email_pic11;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.tbPIN);
+            this.panel1.Controls.Add(this.btnVerify);
+            this.panel1.Controls.Add(this.btnResend);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(611, 392);
+            this.panel1.TabIndex = 10;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.ForeColor = System.Drawing.Color.Red;
+            this.btnCancel.Location = new System.Drawing.Point(568, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(40, 41);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "X";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.email_icon_no_notif;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(261, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(111, 121);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label5.Location = new System.Drawing.Point(189, 347);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(171, 19);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Didn\'t receive a code? ";
+            // 
             // tbPIN
             // 
-            this.tbPIN.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPIN.Location = new System.Drawing.Point(164, 286);
+            this.tbPIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPIN.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.tbPIN.Location = new System.Drawing.Point(180, 284);
             this.tbPIN.Margin = new System.Windows.Forms.Padding(2);
             this.tbPIN.Name = "tbPIN";
-            this.tbPIN.Size = new System.Drawing.Size(288, 27);
+            this.tbPIN.Size = new System.Drawing.Size(153, 32);
             this.tbPIN.TabIndex = 0;
             // 
             // btnVerify
@@ -59,10 +136,10 @@
             this.btnVerify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerify.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnVerify.ForeColor = System.Drawing.Color.White;
-            this.btnVerify.Location = new System.Drawing.Point(469, 278);
+            this.btnVerify.Location = new System.Drawing.Point(347, 282);
             this.btnVerify.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerify.Name = "btnVerify";
-            this.btnVerify.Size = new System.Drawing.Size(155, 40);
+            this.btnVerify.Size = new System.Drawing.Size(155, 35);
             this.btnVerify.TabIndex = 1;
             this.btnVerify.Text = "Verify";
             this.btnVerify.UseVisualStyleBackColor = false;
@@ -72,124 +149,81 @@
             // 
             this.btnResend.BackColor = System.Drawing.Color.Transparent;
             this.btnResend.FlatAppearance.BorderSize = 0;
+            this.btnResend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnResend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnResend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResend.Font = new System.Drawing.Font("Bahnschrift", 10.5F, System.Drawing.FontStyle.Underline);
-            this.btnResend.ForeColor = System.Drawing.Color.Purple;
-            this.btnResend.Location = new System.Drawing.Point(330, 341);
+            this.btnResend.Font = new System.Drawing.Font("Bahnschrift", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.btnResend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
+            this.btnResend.Location = new System.Drawing.Point(363, 342);
             this.btnResend.Margin = new System.Windows.Forms.Padding(2);
             this.btnResend.Name = "btnResend";
-            this.btnResend.Size = new System.Drawing.Size(145, 40);
+            this.btnResend.Size = new System.Drawing.Size(101, 28);
             this.btnResend.TabIndex = 2;
-            this.btnResend.Text = "Re-send a code";
+            this.btnResend.Text = "Re-send";
+            this.btnResend.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnResend.UseVisualStyleBackColor = false;
             this.btnResend.Click += new System.EventHandler(this.btnResend_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label1.Location = new System.Drawing.Point(236, 233);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Please enter your email";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label2.Location = new System.Drawing.Point(137, 195);
+            this.label2.Location = new System.Drawing.Point(132, 196);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(370, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "CONFIRM YOUR EMAIL ADDRESS";
             // 
-            // pictureBox1
+            // label1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.email_icon_no_notif;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(263, 49);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(111, 121);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label3.Location = new System.Drawing.Point(76, 293);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 19);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Email:";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label1.Location = new System.Drawing.Point(231, 234);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(184, 19);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Please enter your email";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(125, 286);
+            this.label4.Location = new System.Drawing.Point(164, 288);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(16, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "*";
             // 
-            // button2
+            // label3
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(608, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(32, 31);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label5.Location = new System.Drawing.Point(180, 351);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(171, 19);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Didn\'t receive a code? ";
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label3.Location = new System.Drawing.Point(131, 290);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 19);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "PIN:";
             // 
             // EmailVerification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.email_pic;
+            this.BackColor = System.Drawing.Color.Silver;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(652, 409);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnResend);
-            this.Controls.Add(this.btnVerify);
-            this.Controls.Add(this.tbPIN);
+            this.ClientSize = new System.Drawing.Size(611, 391);
+            this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -198,9 +232,11 @@
             this.Name = "EmailVerification";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Email Verification";
+            this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -215,7 +251,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

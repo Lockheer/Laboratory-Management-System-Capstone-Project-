@@ -13,12 +13,18 @@ namespace Laboratory_Management_System__Capstone_Project_
     public partial class TransactionDetails : Form
     {
         private DataGridView currentDataGridView;
-        private string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True";
+        private string connectionString = "data source = DANNY; database = LabManagSys; integrated security=True";
 
         public TransactionDetails()
         {
             InitializeComponent();
             printDocument1.PrintPage += PrintDocument1_PrintPage;
+
+            UIHelper.SetRoundedCorners(btnBack, 30);
+            UIHelper.SetRoundedCorners(btnExport, 20);
+            UIHelper.SetRoundedCorners(btnPrint, 20);
+
+            UIHelper.SetRoundedComboBox(cmbViewOptions, 10);
         }
 
         private void TransactionDetails_Load(object sender, EventArgs e)

@@ -18,12 +18,12 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
 
-            UIHelper.SetRoundedCorners(this, 20);
+            UIHelper.SetRoundedCorners(this, 40);
 
-            UIHelper.SetRoundedCorners(button2, 30);
+            UIHelper.SetRoundedCorners(btnConfirm, 20);
+            UIHelper.SetRoundedCorners(btnReject, 20);
 
 
-          
         }
 
         HashHelpers hashHelpers = new HashHelpers();

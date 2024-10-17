@@ -58,6 +58,7 @@
             this.lblInfo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -192,6 +193,7 @@
             this.panel2.Controls.Add(this.lblInfo);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.label16);
@@ -258,18 +260,18 @@
             this.panel1.Controls.Add(this.lblShowPass);
             this.panel1.Controls.Add(this.chkShowPass);
             this.panel1.Controls.Add(this.btnRegister);
-            this.panel1.Location = new System.Drawing.Point(708, 65);
+            this.panel1.Location = new System.Drawing.Point(737, 90);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(421, 483);
+            this.panel1.Size = new System.Drawing.Size(386, 458);
             this.panel1.TabIndex = 43;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.pass_lock;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(66, 197);
+            this.pictureBox3.Location = new System.Drawing.Point(56, 193);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 34);
+            this.pictureBox3.Size = new System.Drawing.Size(31, 32);
             this.pictureBox3.TabIndex = 41;
             this.pictureBox3.TabStop = false;
             // 
@@ -277,9 +279,9 @@
             // 
             this.pictureBox2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.pass_lock_confirm1;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(66, 295);
+            this.pictureBox2.Location = new System.Drawing.Point(56, 278);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 34);
+            this.pictureBox2.Size = new System.Drawing.Size(31, 32);
             this.pictureBox2.TabIndex = 41;
             this.pictureBox2.TabStop = false;
             // 
@@ -289,7 +291,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 10.5F);
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(119, 127);
+            this.label5.Location = new System.Drawing.Point(105, 119);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(205, 17);
@@ -302,7 +304,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 10.5F);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(84, 110);
+            this.label1.Location = new System.Drawing.Point(70, 102);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(265, 17);
@@ -313,15 +315,17 @@
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
             this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.btnRefresh.Location = new System.Drawing.Point(172, 443);
+            this.btnRefresh.Location = new System.Drawing.Point(145, 410);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(106, 36);
             this.btnRefresh.TabIndex = 18;
-            this.btnRefresh.Text = "CLEAR ALL";
+            this.btnRefresh.Text = "Clear all";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -330,7 +334,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label4.Location = new System.Drawing.Point(100, 57);
+            this.label4.Location = new System.Drawing.Point(86, 49);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(249, 41);
@@ -342,7 +346,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(202, 266);
+            this.label10.Location = new System.Drawing.Point(197, 249);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(16, 19);
@@ -354,7 +358,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(145, 167);
+            this.label9.Location = new System.Drawing.Point(135, 162);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 19);
@@ -366,7 +370,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblPassword.Location = new System.Drawing.Point(62, 167);
+            this.lblPassword.Location = new System.Drawing.Point(52, 162);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(85, 19);
@@ -378,7 +382,7 @@
             this.lblConfirm.AutoSize = true;
             this.lblConfirm.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.lblConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblConfirm.Location = new System.Drawing.Point(60, 269);
+            this.lblConfirm.Location = new System.Drawing.Point(55, 252);
             this.lblConfirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConfirm.Name = "lblConfirm";
             this.lblConfirm.Size = new System.Drawing.Size(147, 19);
@@ -388,22 +392,22 @@
             // tbConfirmPass
             // 
             this.tbConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbConfirmPass.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbConfirmPass.Location = new System.Drawing.Point(121, 302);
+            this.tbConfirmPass.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.tbConfirmPass.Location = new System.Drawing.Point(100, 278);
             this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(2);
             this.tbConfirmPass.Name = "tbConfirmPass";
-            this.tbConfirmPass.Size = new System.Drawing.Size(242, 27);
+            this.tbConfirmPass.Size = new System.Drawing.Size(235, 32);
             this.tbConfirmPass.TabIndex = 16;
             this.tbConfirmPass.UseSystemPasswordChar = true;
             // 
             // tbPass
             // 
             this.tbPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPass.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPass.Location = new System.Drawing.Point(121, 204);
+            this.tbPass.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.tbPass.Location = new System.Drawing.Point(100, 193);
             this.tbPass.Margin = new System.Windows.Forms.Padding(2);
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(241, 27);
+            this.tbPass.Size = new System.Drawing.Size(235, 32);
             this.tbPass.TabIndex = 15;
             this.tbPass.UseSystemPasswordChar = true;
             // 
@@ -412,7 +416,7 @@
             this.lblShowPass.AutoSize = true;
             this.lblShowPass.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.lblShowPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.lblShowPass.Location = new System.Drawing.Point(83, 356);
+            this.lblShowPass.Location = new System.Drawing.Point(75, 326);
             this.lblShowPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblShowPass.Name = "lblShowPass";
             this.lblShowPass.Size = new System.Drawing.Size(125, 19);
@@ -422,7 +426,7 @@
             // chkShowPass
             // 
             this.chkShowPass.AutoSize = true;
-            this.chkShowPass.Location = new System.Drawing.Point(64, 361);
+            this.chkShowPass.Location = new System.Drawing.Point(56, 331);
             this.chkShowPass.Margin = new System.Windows.Forms.Padding(2);
             this.chkShowPass.Name = "chkShowPass";
             this.chkShowPass.Size = new System.Drawing.Size(15, 14);
@@ -437,10 +441,10 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(149, 398);
+            this.btnRegister.Location = new System.Drawing.Point(93, 372);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(146, 34);
+            this.btnRegister.Size = new System.Drawing.Size(206, 34);
             this.btnRegister.TabIndex = 17;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -452,7 +456,7 @@
             this.lblInfo.BackColor = System.Drawing.Color.Transparent;
             this.lblInfo.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.lblInfo.ForeColor = System.Drawing.Color.White;
-            this.lblInfo.Location = new System.Drawing.Point(130, 72);
+            this.lblInfo.Location = new System.Drawing.Point(194, 71);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(342, 19);
@@ -465,7 +469,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(176, 31);
+            this.label3.Location = new System.Drawing.Point(240, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(243, 41);
@@ -484,6 +488,19 @@
             this.label19.Size = new System.Drawing.Size(16, 19);
             this.label19.TabIndex = 23;
             this.label19.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(170, 478);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(16, 19);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "*";
             // 
             // label18
             // 
@@ -593,7 +610,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 10.5F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 10.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(137, 156);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -622,7 +639,7 @@
             this.btnVerify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerify.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnVerify.ForeColor = System.Drawing.Color.White;
-            this.btnVerify.Location = new System.Drawing.Point(536, 516);
+            this.btnVerify.Location = new System.Drawing.Point(536, 517);
             this.btnVerify.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(107, 28);
@@ -644,10 +661,12 @@
             // 
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
             this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(855, 564);
+            this.btnBack.Location = new System.Drawing.Point(845, 564);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(177, 36);
@@ -889,7 +908,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RegistrationForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
             this.Load += new System.EventHandler(this.RegistrationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -968,5 +987,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }

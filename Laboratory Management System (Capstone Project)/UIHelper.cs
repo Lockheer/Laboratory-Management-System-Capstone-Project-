@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using OfficeOpenXml.FormulaParsing;
+using System.IO.Ports;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -58,11 +61,11 @@ namespace Laboratory_Management_System__Capstone_Project_
             Panel shadow = new Panel
             {
                 Size = control.Size,
-                Location = new Point(control.Left, control.Top + 6),
-                BackColor = Color.FromArgb(50, 0, 0, 0)
+                Location = new Point(control.Left + 5, control.Top + 5), // Slight offset to give shadow effect  Location = new Point(control.Left, control.Top + 6),(control.Left + 5, control.Top + 5)
+                BackColor = Color.DimGray // Solid gray shadow, no transparency Color.FromArgb(50, 0, 0, 0)
             };
 
-            int radius = 30;
+            int radius = 50; // Smaller radius for a simpler look
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
             path.AddArc(shadow.Width - radius, 0, radius, radius, 270, 90); // Top-right corner
@@ -78,7 +81,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             control.SizeChanged += (sender, e) =>
             {
                 shadow.Size = control.Size;
-                shadow.Location = new Point(control.Left + 5, control.Top + 5);
+                shadow.Location = new Point(control.Left + 5, control.Top + 5); // Keep the offset
 
                 path.Reset();
                 path.AddArc(0, 0, radius, radius, 180, 90);
@@ -89,6 +92,46 @@ namespace Laboratory_Management_System__Capstone_Project_
                 shadow.Region = new Region(path);
             };
         }
+
+
+        public static void SetShadowBtn(Control control)
+        {
+            // Create the shadow panel
+            Panel shadow = new Panel
+            {
+                Size = control.Size,
+                Location = new Point(control.Left, control.Top + 5), 
+                BackColor = Color.DarkGray
+            };
+
+            int radius = 10; 
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
+            path.AddArc(shadow.Width - radius, 0, radius, radius, 270, 90); // Top-right corner
+            path.AddArc(shadow.Width - radius, shadow.Height - radius, radius, radius, 0, 90); // Bottom-right corner
+            path.AddArc(0, shadow.Height - radius, radius, radius, 90, 90); // Bottom-left corner
+            path.CloseFigure();
+
+            shadow.Region = new Region(path);
+
+            control.Parent.Controls.Add(shadow);
+            shadow.SendToBack();
+
+            control.SizeChanged += (sender, e) =>
+            {
+                shadow.Size = control.Size;
+                shadow.Location = new Point(control.Left + 5, control.Top + 5); // Keep the offset
+
+                path.Reset();
+                path.AddArc(0, 0, radius, radius, 180, 90);
+                path.AddArc(shadow.Width - radius, 0, radius, radius, 270, 90);
+                path.AddArc(shadow.Width - radius, shadow.Height - radius, radius, radius, 0, 90);
+                path.AddArc(0, shadow.Height - radius, radius, radius, 90, 90);
+                path.CloseFigure();
+                shadow.Region = new Region(path);
+            };
+        }
+
 
         public static void SetRoundedComboBox(ComboBox comboBox, int radius)
         {
@@ -105,39 +148,16 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         public static void MakeRoundedTextBox(TextBox textBox, int borderRadius)
         {
-            int numSpaces = 2;
-            string leadingSpaces = new string(' ', numSpaces);
-            textBox.Text = leadingSpaces + textBox.Text.TrimStart();
-
-            textBox.TextChanged += (sender, e) =>
-            {
-                if (!textBox.Text.StartsWith(leadingSpaces))
-                {
-                    textBox.Text = leadingSpaces + textBox.Text.TrimStart(); 
-                    textBox.SelectionStart = textBox.Text.Length;
-                }
-            };
-
-            textBox.GotFocus += (sender, e) =>
-            {
-                if (textBox.SelectionStart < leadingSpaces.Length)
-                {
-                    textBox.SelectionStart = leadingSpaces.Length;
-                }
-            };
-
-            textBox.Region = new Region(MakeRectangleRounded(new Rectangle(0, 0, textBox.Width, textBox.Height), borderRadius));
-        }
-
-        private static GraphicsPath MakeRectangleRounded(Rectangle rect, int radius)
-        {
             GraphicsPath path = new GraphicsPath();
-            path.AddArc(rect.X, rect.Y, radius, radius, 180, 90); // Top-left corner
-            path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90); // Top-right corner
-            path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90); // Bottom-right corner
-            path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90); // Bottom-left corner
+            int diameter = borderRadius * 2;
+            path.AddArc(0, 0, diameter, diameter, 180, 90); // Top-left corner
+            path.AddArc(textBox.Width - diameter, 0, diameter, diameter, 270, 90); // Top-right corner
+            path.AddArc(textBox.Width - diameter, textBox.Height - diameter, diameter, diameter, 0, 90); // Bottom-right corner
+            path.AddArc(0, textBox.Height - diameter, diameter, diameter, 90, 90); // Bottom-left corner
             path.CloseFigure();
-            return path;
+
+            textBox.Region = new Region(path);
+            textBox.SizeChanged += (sender, e) => textBox.Invalidate();
         }
 
         public static void SetRoundedNumericUpDown(NumericUpDown numericUpDown, int radius)
@@ -185,6 +205,45 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             dateTimePicker.Region = new Region(path);
         }
+        public static void ApplyHoverEffectToMenuStrip(MenuStrip menuStrip)
+        {
+            // Apply hover effect to main menu items and their sub-items recursively
+            foreach (ToolStripMenuItem menuItem in menuStrip.Items)
+            {
+                ApplyHoverEffectToMenuItem(menuItem);
+            }
+        }
 
+        private static void ApplyHoverEffectToMenuItem(ToolStripMenuItem menuItem)
+        {
+            // Apply hover effect to the main menu item
+            menuItem.MouseEnter += (sender, e) =>
+            {
+                ToolStripMenuItem item = sender as ToolStripMenuItem;
+                item.Font = new Font(item.Font.FontFamily, item.Font.Size + 2, FontStyle.Bold);
+            };
+
+            menuItem.MouseLeave += (sender, e) =>
+            {
+                ToolStripMenuItem item = sender as ToolStripMenuItem;
+                item.Font = new Font(item.Font.FontFamily, item.Font.Size - 2, FontStyle.Regular);
+            };
+
+            // Apply the same hover effect to sub-items recursively
+            foreach (ToolStripItem subItem in menuItem.DropDownItems)
+            {
+                if (subItem is ToolStripMenuItem dropDownItem)
+                {
+                    ApplyHoverEffectToMenuItem(dropDownItem);  // Recursive call
+                }
+            }
+        }
+
+
+        public static void SetFormStartLocation(Form form, int x, int y)
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(x, y);
+        }
     }
 }

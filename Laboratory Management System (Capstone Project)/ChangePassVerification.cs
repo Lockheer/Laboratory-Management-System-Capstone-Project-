@@ -31,6 +31,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(btnSendPIN, 40);
             UIHelper.SetRoundedCorners(btnConfirm, 40);
+            UIHelper.SetRoundedCorners(panel1, 30);
         }
 
         private void btnSendPIN_Click(object sender, EventArgs e)

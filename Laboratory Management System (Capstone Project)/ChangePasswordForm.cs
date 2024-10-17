@@ -25,11 +25,10 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(this, 20);
             UIHelper.SetRoundedCorners(pictureBox1, 170);
-
-            UIHelper.SetRoundedCorners(pictureBox1, 20);
             UIHelper.SetShadow(pictureBox1);
 
             UIHelper.SetRoundedCorners(btnChangePassword, 40);
+            UIHelper.SetRoundedCorners(panel1, 30);
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)

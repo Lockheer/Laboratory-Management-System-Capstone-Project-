@@ -20,8 +20,34 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
             //ENTER KEY for tbSearch
             this.AcceptButton = btnSearch;
+
+            UIHelper.SetRoundedCorners(btnSearch, 20);
+            UIHelper.SetRoundedCorners(btnConfirm, 20);
+            UIHelper.SetRoundedCorners(btnExit, 30);
+            UIHelper.SetRoundedCorners(panel3, 30);
+
+            UIHelper.MakeRoundedTextBox(tbSearch, 10);
+            UIHelper.MakeRoundedTextBox(tbStudName, 10);
+            UIHelper.MakeRoundedTextBox(tbIDnum, 10);
+            UIHelper.MakeRoundedTextBox(tbEmail, 10);
+            UIHelper.MakeRoundedTextBox(tbContact, 10);
+            UIHelper.MakeRoundedTextBox(tbProgram, 10);
+
+            UIHelper.SetRoundedCorners(panel1, 50);
+            UIHelper.SetFormStartLocation(this, 330, 127);
+            UIHelper.SetShadow(panel1);
+
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x80; // WS_EX_TOOLWINDOW style
+                return cp;
+            }
+        }
         //Loading of ID numbers
         private void LoadIDNumbers()
         {
@@ -54,9 +80,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 this.Close();
                 //Sets back to 0 to prevent restriction from occuring
                 Dashboard.formRestrict = 0;
-
             }
-
         }
 
         private void BorrowingApparatus_Load(object sender, EventArgs e)

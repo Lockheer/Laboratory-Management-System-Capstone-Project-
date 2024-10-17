@@ -43,15 +43,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.change_pass_icon;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(445, 164);
+            this.pictureBox1.Location = new System.Drawing.Point(460, 154);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(169, 169);
             this.pictureBox1.TabIndex = 27;
@@ -98,7 +102,7 @@
             this.chckSHowPass.AutoSize = true;
             this.chckSHowPass.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.chckSHowPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.chckSHowPass.Location = new System.Drawing.Point(64, 348);
+            this.chckSHowPass.Location = new System.Drawing.Point(82, 348);
             this.chckSHowPass.Name = "chckSHowPass";
             this.chckSHowPass.Size = new System.Drawing.Size(144, 23);
             this.chckSHowPass.TabIndex = 7;
@@ -128,7 +132,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label3.Location = new System.Drawing.Point(60, 276);
+            this.label3.Location = new System.Drawing.Point(80, 273);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 19);
@@ -140,7 +144,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label2.Location = new System.Drawing.Point(58, 192);
+            this.label2.Location = new System.Drawing.Point(78, 189);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 19);
@@ -149,20 +153,22 @@
             // 
             // tbConfirmPassword
             // 
-            this.tbConfirmPassword.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbConfirmPassword.Location = new System.Drawing.Point(62, 305);
+            this.tbConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbConfirmPassword.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(130, 296);
             this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.Size = new System.Drawing.Size(331, 27);
+            this.tbConfirmPassword.Size = new System.Drawing.Size(238, 32);
             this.tbConfirmPassword.TabIndex = 2;
             // 
             // tbNewPassword
             // 
-            this.tbNewPassword.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbNewPassword.Location = new System.Drawing.Point(62, 221);
+            this.tbNewPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbNewPassword.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.tbNewPassword.Location = new System.Drawing.Point(130, 218);
             this.tbNewPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.Size = new System.Drawing.Size(331, 27);
+            this.tbNewPassword.Size = new System.Drawing.Size(238, 32);
             this.tbNewPassword.TabIndex = 1;
             // 
             // label1
@@ -195,7 +201,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(174, 188);
+            this.label10.Location = new System.Drawing.Point(194, 185);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 25);
             this.label10.TabIndex = 28;
@@ -207,7 +213,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(202, 272);
+            this.label11.Location = new System.Drawing.Point(222, 269);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(21, 25);
             this.label11.TabIndex = 28;
@@ -215,6 +221,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label7);
@@ -229,6 +237,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(429, 478);
             this.panel1.TabIndex = 9;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.pass_lock;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(84, 218);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.pass_lock_confirm1;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(84, 295);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.TabIndex = 29;
+            this.pictureBox3.TabStop = false;
             // 
             // ChangePasswordForm
             // 
@@ -251,6 +279,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +302,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

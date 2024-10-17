@@ -83,7 +83,7 @@
             // tbMessageContent
             // 
             this.tbMessageContent.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbMessageContent.Location = new System.Drawing.Point(46, 440);
+            this.tbMessageContent.Location = new System.Drawing.Point(147, 406);
             this.tbMessageContent.Margin = new System.Windows.Forms.Padding(2);
             this.tbMessageContent.Multiline = true;
             this.tbMessageContent.Name = "tbMessageContent";
@@ -119,7 +119,7 @@
             // tbEmailRecipient
             // 
             this.tbEmailRecipient.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbEmailRecipient.Location = new System.Drawing.Point(49, 352);
+            this.tbEmailRecipient.Location = new System.Drawing.Point(189, 324);
             this.tbEmailRecipient.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmailRecipient.Name = "tbEmailRecipient";
             this.tbEmailRecipient.Size = new System.Drawing.Size(266, 27);
@@ -128,7 +128,7 @@
             // dgvViewPenaltyRecords
             // 
             this.dgvViewPenaltyRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvViewPenaltyRecords.Location = new System.Drawing.Point(352, 111);
+            this.dgvViewPenaltyRecords.Location = new System.Drawing.Point(542, 120);
             this.dgvViewPenaltyRecords.Margin = new System.Windows.Forms.Padding(2);
             this.dgvViewPenaltyRecords.Name = "dgvViewPenaltyRecords";
             this.dgvViewPenaltyRecords.RowHeadersWidth = 51;
@@ -146,9 +146,9 @@
             this.label3.Location = new System.Drawing.Point(126, 37);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(649, 41);
+            this.label3.Size = new System.Drawing.Size(542, 41);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Send a Violation or Penalty Update Notice";
+            this.label3.Text = "Send a Violation or Penalty Update";
             // 
             // btnMinimize
             // 
@@ -158,7 +158,7 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Bold);
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Location = new System.Drawing.Point(1020, 25);
+            this.btnMinimize.Location = new System.Drawing.Point(1210, 34);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(38, 37);
@@ -169,13 +169,13 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(1062, 30);
+            this.btnExit.Location = new System.Drawing.Point(1252, 39);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(32, 31);
@@ -190,7 +190,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(169, 324);
+            this.label4.Location = new System.Drawing.Point(159, 324);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(16, 19);
@@ -203,7 +203,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(126, 400);
+            this.label5.Location = new System.Drawing.Point(116, 406);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(16, 19);
@@ -267,7 +267,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1120, 716);
+            this.ClientSize = new System.Drawing.Size(1295, 780);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox2);

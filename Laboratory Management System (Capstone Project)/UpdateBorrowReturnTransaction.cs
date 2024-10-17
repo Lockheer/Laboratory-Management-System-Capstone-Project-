@@ -22,6 +22,18 @@ namespace Laboratory_Management_System__Capstone_Project_
         public UpdateBorrowReturnTransaction()
         {
             InitializeComponent();
+
+            UIHelper.MakeRoundedTextBox(tbSearch, 10);
+            UIHelper.SetRoundedCorners(this, 50);
+
+            UIHelper.SetRoundedCorners(btnExportToExcel, 10);
+            UIHelper.SetRoundedCorners(btnDelete, 10);
+            UIHelper.SetRoundedCorners(btnUpdate,10);
+
+            UIHelper.SetRoundedCorners(btnExit, 30);
+
+            UIHelper.MakeRoundedTextBox(tbStudentName, 10);
+
         }
 
         private bool _hasUnsavedChanges = false;
@@ -798,8 +810,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show($"An error occurred while searching: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 
 

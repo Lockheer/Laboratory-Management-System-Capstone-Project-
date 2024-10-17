@@ -65,6 +65,17 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbAmtToBe.TextChanged += tbAmount_TextChanged;
             tbAmtPayed.TextChanged += tbAmount_TextChanged;
             cbTransact.SelectedIndexChanged += cbTransact_SelectedIndexChanged;
+
+            UIHelper.SetRoundedCorners(btnAdd, 20);
+            UIHelper.SetRoundedCorners(btnUpdate, 20);
+            UIHelper.SetRoundedCorners(btnDelete, 20);
+            UIHelper.SetRoundedCorners(btnSendEmail, 20);
+            UIHelper.SetRoundedCorners(btnDetails, 20);
+            UIHelper.SetRoundedCorners(panel2, 40);
+            UIHelper.SetRoundedCorners(panel1, 50);
+            UIHelper.SetShadow(panel1);
+
+            UIHelper.MakeRoundedTextBox(tbSearchPenalty, 10);
         }
 
         private void PenaltiesRecords_Load(object sender, EventArgs e)
@@ -606,8 +617,6 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             UpdateUnsavedChanges();
         }
-
-
     }
 }
 

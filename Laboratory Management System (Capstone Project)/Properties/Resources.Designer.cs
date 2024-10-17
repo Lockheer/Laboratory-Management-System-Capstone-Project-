@@ -63,6 +63,16 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_inventory_xxxl2 {
+            get {
+                object obj = ResourceManager.GetObject("add_inventory_xxxl2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap admin_approval_icon1 {
             get {
                 object obj = ResourceManager.GetObject("admin_approval_icon1", resourceCulture);
@@ -153,6 +163,26 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bcc_logo_bg_dashboard {
+            get {
+                object obj = ResourceManager.GetObject("bcc_logo_bg_dashboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bcc_logo_bg_dashboard2 {
+            get {
+                object obj = ResourceManager.GetObject("bcc_logo_bg_dashboard2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bcc_logo_circle {
             get {
                 object obj = ResourceManager.GetObject("bcc_logo_circle", resourceCulture);
@@ -186,6 +216,16 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         internal static System.Drawing.Bitmap bcc_logo_circle_blur21 {
             get {
                 object obj = ResourceManager.GetObject("bcc_logo_circle_blur21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bcc_logo_dashboard3 {
+            get {
+                object obj = ResourceManager.GetObject("bcc_logo_dashboard3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,6 +453,36 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap home7 {
+            get {
+                object obj = ResourceManager.GetObject("home7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_bg {
+            get {
+                object obj = ResourceManager.GetObject("icon_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_startup4 {
+            get {
+                object obj = ResourceManager.GetObject("icon_startup4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout3 {
             get {
                 object obj = ResourceManager.GetObject("logout3", resourceCulture);
@@ -456,6 +526,26 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         internal static System.Drawing.Bitmap report1 {
             get {
                 object obj = ResourceManager.GetObject("report1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap report2 {
+            get {
+                object obj = ResourceManager.GetObject("report2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -533,6 +623,26 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap student_big_xxxl2 {
+            get {
+                object obj = ResourceManager.GetObject("student_big_xxxl2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap student_big_xxxl3 {
+            get {
+                object obj = ResourceManager.GetObject("student_big_xxxl3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap student_icon {
             get {
                 object obj = ResourceManager.GetObject("student_icon", resourceCulture);
@@ -543,9 +653,59 @@ namespace Laboratory_Management_System__Capstone_Project_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap student_xxxl {
+            get {
+                object obj = ResourceManager.GetObject("student_xxxl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap toggle {
             get {
                 object obj = ResourceManager.GetObject("toggle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap typcn_home_outline {
+            get {
+                object obj = ResourceManager.GetObject("typcn_home-outline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap typcn_home_outline__2_ {
+            get {
+                object obj = ResourceManager.GetObject("typcn_home-outline (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap typcn_home_outline__3_ {
+            get {
+                object obj = ResourceManager.GetObject("typcn_home-outline (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap typcn_home_outline__4_ {
+            get {
+                object obj = ResourceManager.GetObject("typcn_home-outline (4)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

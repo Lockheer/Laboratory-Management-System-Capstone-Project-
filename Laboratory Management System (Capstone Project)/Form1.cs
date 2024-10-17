@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Laboratory_Management_System__Capstone_Project_.Helpers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -20,11 +21,12 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbPassword.KeyPress += new KeyPressEventHandler(tbPassword_KeyPress);
 
             UIHelper.SetRoundedCorners(this, 20);
-            UIHelper.SetRoundedCorners(btnLogin, 40);
+            UIHelper.SetRoundedCorners(btnLogin, 20);
             UIHelper.SetRoundedCorners(btnCloseForm, 30);
             UIHelper.SetRoundedCorners(panel1, 20);
-
+            UIHelper.SetRoundedCorners(btnCloseForm, 30);
             UIHelper.SetShadow(panel1);
+
         }
 
         RegistrationAccountDataContext db = new RegistrationAccountDataContext();

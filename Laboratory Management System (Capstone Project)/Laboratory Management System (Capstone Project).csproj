@@ -198,11 +198,23 @@
     </Compile>
     <Compile Include="smtp_Framework.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="startup.Designer.cs">
+      <DependentUpon>startup.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransactionDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TransactionDetails.Designer.cs">
       <DependentUpon>TransactionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransparentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransparentForm.Designer.cs">
+      <DependentUpon>TransparentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UIHelper.cs" />
     <Compile Include="UpdateBorrowReturnTransaction.cs">
@@ -276,8 +288,14 @@
     <EmbeddedResource Include="SendingForm.resx">
       <DependentUpon>SendingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="startup.resx">
+      <DependentUpon>startup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransactionDetails.resx">
       <DependentUpon>TransactionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransparentForm.resx">
+      <DependentUpon>TransparentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateBorrowReturnTransaction.resx">
       <DependentUpon>UpdateBorrowReturnTransaction.cs</DependentUpon>
@@ -349,6 +367,7 @@
     <None Include="Resources\warning_big_1.png" />
     <None Include="Resources\admin_approval_icon1.png" />
     <None Include="Resources\admin_approval_icon11.png" />
+    <None Include="Resources\add_inventory_xxxl2.png" />
     <Content Include="Resources\admin_icon.png" />
     <None Include="Resources\admin_icon1.png" />
     <None Include="Resources\email_pic1.png" />
@@ -379,6 +398,27 @@
     <None Include="Resources\side_bottom.png" />
     <None Include="Resources\hand_down_l.png" />
     <None Include="Resources\update_l.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\home2.png" />
+    <None Include="Resources\home3.png" />
+    <None Include="Resources\HOME4.png" />
+    <None Include="Resources\home5.png" />
+    <None Include="Resources\home6.png" />
+    <None Include="Resources\home7.png" />
+    <None Include="Resources\student_xxxl.png" />
+    <None Include="Resources\bcc_logo_dashboard3.png" />
+    <None Include="Resources\bcc_logo_bg_dashboard.png" />
+    <None Include="Resources\bcc_logo_bg_dashboard2.png" />
+    <None Include="Resources\student_big_xxxl2.png" />
+    <None Include="Resources\student_big_xxxl3.png" />
+    <None Include="Resources\icon_bg.png" />
+    <None Include="Resources\icon_startup4.gif" />
+    <None Include="Resources\report2.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\typcn_home-outline.png" />
+    <None Include="Resources\typcn_home-outline %282%29.png" />
+    <None Include="Resources\typcn_home-outline %283%29.png" />
+    <None Include="Resources\typcn_home-outline %284%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

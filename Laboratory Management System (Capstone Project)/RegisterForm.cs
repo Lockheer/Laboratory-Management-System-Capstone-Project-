@@ -38,13 +38,13 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetShadow(panel1);
             UIHelper.SetShadow(panel2);
-        
-            UIHelper.MakeRoundedTextBox(tbFirstName, 20);
-            UIHelper.MakeRoundedTextBox(tbLastName, 20);
-            UIHelper.MakeRoundedTextBox(tbMiddleName, 20);
-            UIHelper.MakeRoundedTextBox(tbEmail, 20);
-            UIHelper.MakeRoundedTextBox(tbID, 20);
-            UIHelper.MakeRoundedTextBox(tbContactNumber, 20);
+
+            UIHelper.MakeRoundedTextBox(tbFirstName, 10);
+            UIHelper.MakeRoundedTextBox(tbLastName,10);
+            UIHelper.MakeRoundedTextBox(tbMiddleName, 10);
+            UIHelper.MakeRoundedTextBox(tbEmail, 10);
+            UIHelper.MakeRoundedTextBox(tbID, 10);
+            UIHelper.MakeRoundedTextBox(tbContactNumber, 10);
 
             UIHelper.SetRoundedComboBox(cbRole, 20);
 

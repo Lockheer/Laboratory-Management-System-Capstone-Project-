@@ -76,9 +76,25 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
             // UI styling
-            UIHelper.SetRoundedCorners(panel2, 20);
-            UIHelper.SetRoundedCorners(dgvApparatusList, 20);
-            UIHelper.SetGradientBackground(panel2, Color.FromArgb(11, 44, 149), Color.FromArgb(44, 84, 215), System.Drawing.Drawing2D.LinearGradientMode.Vertical);
+            UIHelper.SetRoundedCorners(panel1, 50);
+            UIHelper.SetRoundedCorners(btnClose, 40);
+            UIHelper.SetRoundedCorners(btnUpdate, 20);
+            UIHelper.SetRoundedCorners(btnDelete, 20);
+            UIHelper.SetRoundedCorners(btnExport, 20);
+
+            UIHelper.MakeRoundedTextBox(tbAppaSearch, 10);
+            UIHelper.MakeRoundedTextBox(tbAppName,10);
+            UIHelper.MakeRoundedTextBox(tbModelNum, 10);
+            UIHelper.MakeRoundedTextBox(tbPurchaseDate, 10);
+            UIHelper.MakeRoundedTextBox(tbQuantity, 10);
+
+            UIHelper.SetRoundedComboBox(cbCategoryFilter, 20);
+            UIHelper.SetRoundedComboBox(cbStatusFilter, 20);
+
+            UIHelper.MakeRoundedTextBox(tbBrand,10);
+
+
+
 
             ViewApparatus_Load(this, null);
         }
@@ -572,8 +588,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
         }
-
-
     }
 }
 

@@ -16,7 +16,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 {
     public partial class AddApparatus : Form
     {
-
         private List<string> categoryList = new List<string>();
 
         private string PlaceHolderText = "000.00";
@@ -28,7 +27,29 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbPrice.Leave += tbPrice_Leave;
             // Set the initial placeholder text
             SetPlaceholderText();
+
+            UIHelper.SetRoundedCorners(btnSave,10);
+            UIHelper.SetRoundedCorners(lnklblRefresh, 10);
+            UIHelper.SetRoundedCorners(panel1, 30);
+            UIHelper.SetRoundedCorners(btnXMark, 30);
+
+            UIHelper.MakeRoundedTextBox(tbAppaName, 10);
+            UIHelper.MakeRoundedTextBox(tbModelNum, 10);
+            UIHelper.MakeRoundedTextBox(tbPrice, 10);
+            UIHelper.MakeRoundedTextBox(tbBrand, 10);
+            UIHelper.MakeRoundedTextBox(tbQuantity, 10);
+            UIHelper.MakeRoundedTextBox(tbRemarks, 10);
+
+            UIHelper.SetRoundedComboBox(cbStatus, 20);
+            UIHelper.SetRoundedComboBox(cbCategory, 20);
+
+            UIHelper.SetRoundedDateTimePicker(dtpDatePurchased, 20);
+
+            UIHelper.SetFormStartLocation(this, 330, 127);
+
+            UIHelper.SetShadow(panel1);
         }
+  
 
 
         private void LoadCategories()
