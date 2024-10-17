@@ -21,6 +21,24 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
            
             cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
+            UIHelper.SetShadow(panel2);
+
+            UIHelper.SetRoundedCorners(btnExit, 30);
+            UIHelper.SetRoundedCorners(btnSave, 10);
+            UIHelper.SetRoundedCorners(btnRefresh, 40);
+            UIHelper.SetRoundedCorners(panel2, 50);
+            UIHelper.SetRoundedCorners(top, 10);
+
+            UIHelper.SetRoundedComboBox(cbProgram, 20);
+            UIHelper.SetRoundedComboBox(cbDepartment, 20);
+
+            UIHelper.MakeRoundedTextBox(tbStudName, 10);
+            UIHelper.MakeRoundedTextBox(tbIDNum, 10);
+            UIHelper.MakeRoundedTextBox(tbStudContact, 10);
+            UIHelper.MakeRoundedTextBox(tbStudEmail, 10);
+
+            UIHelper.SetFormStartLocation(this, 330, 127);
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -122,16 +140,9 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
 
-
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-        }
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
 

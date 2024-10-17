@@ -12,7 +12,13 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
             dtpReturnDate.MinDate = DateTime.Today;
             tbSearchID.KeyPress += new KeyPressEventHandler(tbSearchID_KeyPress);
+            UIHelper.SetRoundedCorners(btnSearch, 20);
+            UIHelper.SetRoundedCorners(btnIssueReturn, 20);
 
+
+            UIHelper.SetShadow(panel1);
+            UIHelper.SetRoundedCorners(panel1, 50);
+            UIHelper.MakeRoundedTextBox(tbSearchID, 10);
         }
 
 
@@ -336,7 +342,5 @@ namespace Laboratory_Management_System__Capstone_Project_
             numQuantityReturned.Value = 1;
             tbRemarks.Clear();
         }
-
-    
     }
 }

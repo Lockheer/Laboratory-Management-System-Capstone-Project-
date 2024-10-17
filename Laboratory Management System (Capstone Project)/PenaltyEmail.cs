@@ -18,6 +18,14 @@ namespace Laboratory_Management_System__Capstone_Project_
         public PenaltyEmail()
         {
             InitializeComponent();
+
+            UIHelper.SetRoundedCorners(btnTransactDetails, 20);
+            UIHelper.SetRoundedCorners(btnSendEmail, 20);
+            UIHelper.MakeRoundedTextBox(tbEmailRecipient, 10);
+            UIHelper.MakeRoundedTextBox(tbMessageContent, 10);
+
+            UIHelper.SetRoundedCorners(btnExit, 30);
+            UIHelper.SetRoundedCorners(panel1, 50);
         }
 
     

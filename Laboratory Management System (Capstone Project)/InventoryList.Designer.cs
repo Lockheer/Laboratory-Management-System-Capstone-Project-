@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbAppaSearch = new System.Windows.Forms.TextBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.dgvApparatusList = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.btnExport = new System.Windows.Forms.Button();
             this.tbRemarks = new System.Windows.Forms.TextBox();
@@ -50,81 +49,85 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbQuantity = new System.Windows.Forms.TextBox();
             this.tbBrand = new System.Windows.Forms.TextBox();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbModelNum = new System.Windows.Forms.TextBox();
             this.tbAppName = new System.Windows.Forms.TextBox();
-            this.cbStatusFilter = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.cbCategoryFilter = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvApparatusList)).BeginInit();
+            this.tbAppaSearch = new System.Windows.Forms.TextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dgvApparatusList = new System.Windows.Forms.DataGridView();
+            this.cbStatusFilter = new System.Windows.Forms.ComboBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApparatusList)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // panel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(68, 147);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 28);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Apparatus Inventory List";
+            this.panel1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.cbCategoryFilter);
+            this.panel1.Controls.Add(this.tbAppaSearch);
+            this.panel1.Controls.Add(this.btnRefresh);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.dgvApparatusList);
+            this.panel1.Controls.Add(this.cbStatusFilter);
+            this.panel1.Location = new System.Drawing.Point(168, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1432, 914);
+            this.panel1.TabIndex = 13;
             // 
-            // label2
+            // pictureBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(682, 199);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Try searching";
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.app_inventory_big1;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(34, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(120, 103);
+            this.pictureBox2.TabIndex = 44;
+            this.pictureBox2.TabStop = false;
             // 
-            // tbAppaSearch
+            // label23
             // 
-            this.tbAppaSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAppaSearch.Location = new System.Drawing.Point(815, 197);
-            this.tbAppaSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbAppaSearch.Name = "tbAppaSearch";
-            this.tbAppaSearch.Size = new System.Drawing.Size(223, 24);
-            this.tbAppaSearch.TabIndex = 3;
-            this.tbAppaSearch.TextChanged += new System.EventHandler(this.tbAppaSearch_TextChanged);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(1326, 195);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(83, 25);
-            this.btnRefresh.TabIndex = 4;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // dgvApparatusList
-            // 
-            this.dgvApparatusList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvApparatusList.Location = new System.Drawing.Point(189, 247);
-            this.dgvApparatusList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgvApparatusList.Name = "dgvApparatusList";
-            this.dgvApparatusList.RowHeadersWidth = 51;
-            this.dgvApparatusList.RowTemplate.Height = 24;
-            this.dgvApparatusList.Size = new System.Drawing.Size(1306, 427);
-            this.dgvApparatusList.TabIndex = 5;
-            this.dgvApparatusList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApparatusList_CellClick);
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(168, 89);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(156, 19);
+            this.label23.TabIndex = 43;
+            this.label23.Text = "Apparatus Inventory";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.sidepanel1;
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.cbCategory);
             this.panel2.Controls.Add(this.btnExport);
             this.panel2.Controls.Add(this.tbRemarks);
@@ -141,36 +144,60 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.tbQuantity);
             this.panel2.Controls.Add(this.tbBrand);
             this.panel2.Controls.Add(this.tbPrice);
             this.panel2.Controls.Add(this.tbModelNum);
             this.panel2.Controls.Add(this.tbAppName);
-            this.panel2.Location = new System.Drawing.Point(157, 678);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(34, 582);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1391, 383);
+            this.panel2.Size = new System.Drawing.Size(1365, 298);
             this.panel2.TabIndex = 6;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label14.Location = new System.Drawing.Point(600, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(298, 29);
+            this.label14.TabIndex = 40;
+            this.label14.Text = "INVENTORY INFORMATION";
             // 
             // cbCategory
             // 
+            this.cbCategory.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(735, 133);
-            this.cbCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCategory.Location = new System.Drawing.Point(715, 190);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(92, 21);
+            this.cbCategory.Size = new System.Drawing.Size(104, 27);
             this.cbCategory.TabIndex = 29;
             // 
             // btnExport
             // 
-            this.btnExport.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(893, 183);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Location = new System.Drawing.Point(643, 243);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(156, 39);
+            this.btnExport.Size = new System.Drawing.Size(164, 38);
             this.btnExport.TabIndex = 28;
             this.btnExport.Text = "Export to Excel";
             this.btnExport.UseVisualStyleBackColor = false;
@@ -178,67 +205,74 @@
             // 
             // tbRemarks
             // 
-            this.tbRemarks.Location = new System.Drawing.Point(735, 225);
+            this.tbRemarks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbRemarks.Location = new System.Drawing.Point(955, 95);
             this.tbRemarks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
-            this.tbRemarks.Size = new System.Drawing.Size(297, 103);
+            this.tbRemarks.Size = new System.Drawing.Size(297, 123);
             this.tbRemarks.TabIndex = 27;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(451, 183);
+            this.label11.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label11.Location = new System.Drawing.Point(951, 69);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 17);
+            this.label11.Size = new System.Drawing.Size(114, 19);
             this.label11.TabIndex = 26;
             this.label11.Text = "Item Remarks:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(476, 149);
+            this.label10.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label10.Location = new System.Drawing.Point(568, 193);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 17);
+            this.label10.Size = new System.Drawing.Size(78, 19);
             this.label10.TabIndex = 24;
             this.label10.Text = "Category:";
             // 
             // cbEditStatus
             // 
+            this.cbEditStatus.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbEditStatus.FormattingEnabled = true;
             this.cbEditStatus.Items.AddRange(new object[] {
             "Ready for Use",
             "Not Ready for Use",
             "Needs Maintenance",
             "Has Missing Parts"});
-            this.cbEditStatus.Location = new System.Drawing.Point(735, 63);
-            this.cbEditStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbEditStatus.Location = new System.Drawing.Point(715, 110);
+            this.cbEditStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cbEditStatus.Name = "cbEditStatus";
-            this.cbEditStatus.Size = new System.Drawing.Size(121, 21);
+            this.cbEditStatus.Size = new System.Drawing.Size(161, 27);
             this.cbEditStatus.TabIndex = 23;
             // 
             // tbPurchaseDate
             // 
-            this.tbPurchaseDate.Location = new System.Drawing.Point(256, 118);
-            this.tbPurchaseDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPurchaseDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPurchaseDate.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbPurchaseDate.Location = new System.Drawing.Point(308, 151);
+            this.tbPurchaseDate.Margin = new System.Windows.Forms.Padding(2);
             this.tbPurchaseDate.Name = "tbPurchaseDate";
-            this.tbPurchaseDate.Size = new System.Drawing.Size(161, 20);
+            this.tbPurchaseDate.Size = new System.Drawing.Size(207, 27);
             this.tbPurchaseDate.TabIndex = 22;
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(902, 288);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(462, 243);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(156, 39);
+            this.btnDelete.Size = new System.Drawing.Size(164, 38);
             this.btnDelete.TabIndex = 21;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -246,11 +280,15 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Gray;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(1303, 20);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.ForeColor = System.Drawing.Color.Red;
+            this.btnCancel.Location = new System.Drawing.Point(1314, 13);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(49, 39);
             this.btnCancel.TabIndex = 21;
@@ -260,14 +298,15 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnUpdate.BackColor = System.Drawing.Color.Green;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(902, 234);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(820, 243);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(156, 39);
+            this.btnUpdate.Size = new System.Drawing.Size(164, 38);
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -276,161 +315,289 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(443, 110);
+            this.label9.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label9.Location = new System.Drawing.Point(570, 153);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 17);
+            this.label9.Size = new System.Drawing.Size(116, 19);
             this.label9.TabIndex = 20;
             this.label9.Text = "Stock Quantity:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(495, 67);
+            this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label8.Location = new System.Drawing.Point(572, 113);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 17);
+            this.label8.Size = new System.Drawing.Size(59, 19);
             this.label8.TabIndex = 19;
             this.label8.Text = "Status:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(498, 29);
+            this.label7.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label7.Location = new System.Drawing.Point(574, 71);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 17);
+            this.label7.Size = new System.Drawing.Size(57, 19);
             this.label7.TabIndex = 18;
             this.label7.Text = "Brand:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(194, 160);
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label6.Location = new System.Drawing.Point(149, 194);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 17);
+            this.label6.Size = new System.Drawing.Size(51, 19);
             this.label6.TabIndex = 17;
             this.label6.Text = "Price:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(133, 118);
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label5.Location = new System.Drawing.Point(149, 151);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 17);
+            this.label5.Size = new System.Drawing.Size(120, 19);
             this.label5.TabIndex = 16;
             this.label5.Text = "Purchase Date:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(134, 76);
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label4.Location = new System.Drawing.Point(149, 111);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 17);
+            this.label4.Size = new System.Drawing.Size(119, 19);
             this.label4.TabIndex = 15;
             this.label4.Text = "Model Number:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(1069, 69);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(16, 19);
+            this.label22.TabIndex = 14;
+            this.label22.Text = "*";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(690, 152);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(16, 19);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "*";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.Red;
+            this.label24.Location = new System.Drawing.Point(630, 113);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(16, 19);
+            this.label24.TabIndex = 14;
+            this.label24.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(630, 69);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(16, 19);
+            this.label21.TabIndex = 14;
+            this.label21.Text = "*";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(650, 193);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(16, 19);
+            this.label19.TabIndex = 14;
+            this.label19.Text = "*";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(204, 194);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(16, 19);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(268, 150);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(16, 19);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(268, 113);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(16, 19);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(278, 71);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(16, 19);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "*";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(122, 34);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label3.Location = new System.Drawing.Point(149, 69);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 17);
+            this.label3.Size = new System.Drawing.Size(135, 19);
             this.label3.TabIndex = 14;
             this.label3.Text = "Apparatus Name:";
             // 
             // tbQuantity
             // 
-            this.tbQuantity.Location = new System.Drawing.Point(735, 89);
+            this.tbQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbQuantity.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbQuantity.Location = new System.Drawing.Point(715, 150);
             this.tbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(80, 20);
+            this.tbQuantity.Size = new System.Drawing.Size(104, 27);
             this.tbQuantity.TabIndex = 12;
             // 
             // tbBrand
             // 
-            this.tbBrand.Location = new System.Drawing.Point(735, 34);
+            this.tbBrand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbBrand.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbBrand.Location = new System.Drawing.Point(715, 72);
             this.tbBrand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBrand.Name = "tbBrand";
-            this.tbBrand.Size = new System.Drawing.Size(161, 20);
+            this.tbBrand.Size = new System.Drawing.Size(161, 27);
             this.tbBrand.TabIndex = 10;
             // 
             // tbPrice
             // 
-            this.tbPrice.Location = new System.Drawing.Point(256, 158);
-            this.tbPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPrice.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbPrice.Location = new System.Drawing.Point(308, 191);
+            this.tbPrice.Margin = new System.Windows.Forms.Padding(2);
             this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(80, 20);
+            this.tbPrice.Size = new System.Drawing.Size(104, 27);
             this.tbPrice.TabIndex = 9;
             this.tbPrice.Enter += new System.EventHandler(this.tbPrice_Enter);
             this.tbPrice.Leave += new System.EventHandler(this.tbPrice_Leave);
             // 
             // tbModelNum
             // 
-            this.tbModelNum.Location = new System.Drawing.Point(259, 76);
-            this.tbModelNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbModelNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbModelNum.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbModelNum.Location = new System.Drawing.Point(308, 111);
+            this.tbModelNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbModelNum.Name = "tbModelNum";
-            this.tbModelNum.Size = new System.Drawing.Size(161, 20);
+            this.tbModelNum.Size = new System.Drawing.Size(204, 27);
             this.tbModelNum.TabIndex = 8;
             // 
             // tbAppName
             // 
-            this.tbAppName.Location = new System.Drawing.Point(259, 34);
-            this.tbAppName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAppName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbAppName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbAppName.Location = new System.Drawing.Point(308, 69);
+            this.tbAppName.Margin = new System.Windows.Forms.Padding(2);
             this.tbAppName.Name = "tbAppName";
-            this.tbAppName.Size = new System.Drawing.Size(161, 20);
+            this.tbAppName.Size = new System.Drawing.Size(204, 27);
             this.tbAppName.TabIndex = 7;
             // 
-            // cbStatusFilter
+            // label1
             // 
-            this.cbStatusFilter.FormattingEnabled = true;
-            this.cbStatusFilter.Items.AddRange(new object[] {
-            "Ready for Use",
-            "Not Ready for Use",
-            "Needs Maintenance",
-            "Has Missing Parts"});
-            this.cbStatusFilter.Location = new System.Drawing.Point(1179, 198);
-            this.cbStatusFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbStatusFilter.Name = "cbStatusFilter";
-            this.cbStatusFilter.Size = new System.Drawing.Size(126, 21);
-            this.cbStatusFilter.TabIndex = 9;
-            this.cbStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cbStatusFilter_SelectedIndexChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1057, 197);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 18);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Filter by Status";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(159, 48);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(486, 41);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "View and Update Inventory List";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(410, 201);
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(858, 48);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(127, 18);
+            this.label13.Size = new System.Drawing.Size(121, 19);
             this.label13.TabIndex = 12;
-            this.label13.Text = "Filter Category";
+            this.label13.Text = "Filter Category:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(915, 100);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Search:";
             // 
             // cbCategoryFilter
             // 
+            this.cbCategoryFilter.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbCategoryFilter.FormattingEnabled = true;
             this.cbCategoryFilter.Items.AddRange(new object[] {
             "Plasticware",
@@ -439,40 +606,100 @@
             "Heating Equipment",
             "Measuring Instrument",
             "Safety Equipment"});
-            this.cbCategoryFilter.Location = new System.Drawing.Point(542, 200);
-            this.cbCategoryFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCategoryFilter.Location = new System.Drawing.Point(987, 43);
+            this.cbCategoryFilter.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategoryFilter.Name = "cbCategoryFilter";
-            this.cbCategoryFilter.Size = new System.Drawing.Size(126, 21);
+            this.cbCategoryFilter.Size = new System.Drawing.Size(126, 27);
             this.cbCategoryFilter.TabIndex = 11;
             this.cbCategoryFilter.SelectedIndexChanged += new System.EventHandler(this.cbCategoryFilter_SelectedIndexChanged);
+            // 
+            // tbAppaSearch
+            // 
+            this.tbAppaSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbAppaSearch.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbAppaSearch.Location = new System.Drawing.Point(988, 95);
+            this.tbAppaSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.tbAppaSearch.Name = "tbAppaSearch";
+            this.tbAppaSearch.Size = new System.Drawing.Size(223, 27);
+            this.tbAppaSearch.TabIndex = 3;
+            this.tbAppaSearch.TextChanged += new System.EventHandler(this.tbAppaSearch_TextChanged);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(1234, 92);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(164, 30);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(1145, 46);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 19);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Filter by Status:";
+            // 
+            // dgvApparatusList
+            // 
+            this.dgvApparatusList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvApparatusList.Location = new System.Drawing.Point(34, 147);
+            this.dgvApparatusList.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvApparatusList.Name = "dgvApparatusList";
+            this.dgvApparatusList.RowHeadersWidth = 51;
+            this.dgvApparatusList.RowTemplate.Height = 24;
+            this.dgvApparatusList.Size = new System.Drawing.Size(1365, 733);
+            this.dgvApparatusList.TabIndex = 5;
+            this.dgvApparatusList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApparatusList_CellClick);
+            // 
+            // cbStatusFilter
+            // 
+            this.cbStatusFilter.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.cbStatusFilter.FormattingEnabled = true;
+            this.cbStatusFilter.Items.AddRange(new object[] {
+            "Ready for Use",
+            "Not Ready for Use",
+            "Needs Maintenance",
+            "Has Missing Parts"});
+            this.cbStatusFilter.Location = new System.Drawing.Point(1272, 43);
+            this.cbStatusFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.cbStatusFilter.Name = "cbStatusFilter";
+            this.cbStatusFilter.Size = new System.Drawing.Size(126, 27);
+            this.cbStatusFilter.TabIndex = 9;
+            this.cbStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cbStatusFilter_SelectedIndexChanged);
             // 
             // InventoryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1455, 894);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.cbCategoryFilter);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.cbStatusFilter);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dgvApparatusList);
-            this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.tbAppaSearch);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(1829, 1084);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InventoryList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Apparatus Inventory List";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvApparatusList)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApparatusList)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -509,5 +736,18 @@
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbCategoryFilter;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label24;
     }
 }

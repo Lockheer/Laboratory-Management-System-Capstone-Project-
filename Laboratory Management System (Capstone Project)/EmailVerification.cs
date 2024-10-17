@@ -23,6 +23,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
             this.email = email;
             send(email);
+            
+            UIHelper.SetRoundedCorners(this, 30);
+            UIHelper.SetRoundedCorners(btnVerify, 20);
         }
 
         private void send(string email)
@@ -86,6 +89,13 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 MessageBox.Show("Invalid PIN. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RegistrationForm register = new RegistrationForm();
+            register.ShowDialog();
         }
     }
 }

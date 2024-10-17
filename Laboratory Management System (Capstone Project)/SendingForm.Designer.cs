@@ -38,20 +38,22 @@
             // pgbSending
             // 
             this.pgbSending.ForeColor = System.Drawing.Color.Lime;
-            this.pgbSending.Location = new System.Drawing.Point(58, 52);
+            this.pgbSending.Location = new System.Drawing.Point(47, 52);
             this.pgbSending.Margin = new System.Windows.Forms.Padding(2);
             this.pgbSending.Name = "pgbSending";
-            this.pgbSending.Size = new System.Drawing.Size(284, 35);
+            this.pgbSending.Size = new System.Drawing.Size(227, 28);
             this.pgbSending.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.pgbSending.TabIndex = 0;
             // 
             // lblSending
             // 
             this.lblSending.AutoSize = true;
-            this.lblSending.Location = new System.Drawing.Point(169, 20);
+            this.lblSending.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
+            this.lblSending.ForeColor = System.Drawing.Color.White;
+            this.lblSending.Location = new System.Drawing.Point(100, 9);
             this.lblSending.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSending.Name = "lblSending";
-            this.lblSending.Size = new System.Drawing.Size(69, 16);
+            this.lblSending.Size = new System.Drawing.Size(137, 33);
             this.lblSending.TabIndex = 1;
             this.lblSending.Text = "Sending....";
             // 
@@ -63,21 +65,26 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(154, 52);
+            this.btnOk.BackColor = System.Drawing.Color.Green;
+            this.btnOk.FlatAppearance.BorderSize = 0;
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.btnOk.ForeColor = System.Drawing.Color.White;
+            this.btnOk.Location = new System.Drawing.Point(124, 52);
             this.btnOk.Margin = new System.Windows.Forms.Padding(2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(91, 35);
+            this.btnOk.Size = new System.Drawing.Size(73, 28);
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Visible = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // SendingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(408, 129);
+            this.ClientSize = new System.Drawing.Size(326, 103);
             this.ControlBox = false;
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblSending);

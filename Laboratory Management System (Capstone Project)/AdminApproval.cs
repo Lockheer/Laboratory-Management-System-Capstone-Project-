@@ -17,6 +17,11 @@ namespace Laboratory_Management_System__Capstone_Project_
         public AdminApproval()
         {
             InitializeComponent();
+
+            UIHelper.SetRoundedCorners(this, 40);
+
+            UIHelper.SetRoundedCorners(btnConfirm, 20);
+            UIHelper.SetRoundedCorners(tbReject, 20);
         }
 
         HashHelpers hashHelpers = new HashHelpers();

@@ -22,6 +22,11 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
             this.email = email;
+            UIHelper.SetRoundedCorners(this, 50);
+            UIHelper.SetShadow(pictureBox1);
+
+            UIHelper.SetRoundedCorners(btnChangePassword, 40);
+            UIHelper.SetRoundedCorners(panel1, 30);
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)

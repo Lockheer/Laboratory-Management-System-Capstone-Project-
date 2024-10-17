@@ -21,6 +21,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             printDocument1.PrintPage += PrintDocument1_PrintPage;
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
+            UIHelper.SetRoundedCorners(btnExport, 20);
+            UIHelper.SetRoundedCorners(btnPrint, 20);
+
+            UIHelper.SetRoundedComboBox(cmbViewOptions, 10);
         }
 
         private void TransactionDetails_Load(object sender, EventArgs e)

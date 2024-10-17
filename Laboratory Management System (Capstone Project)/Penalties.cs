@@ -750,7 +750,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             UpdateUnsavedChanges();
         }
 
-     
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

@@ -28,6 +28,28 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbPrice.Leave += tbPrice_Leave;
             // Set the initial placeholder text
             SetPlaceholderText();
+
+            UIHelper.SetRoundedCorners(btnSave, 10);
+            UIHelper.SetRoundedCorners(lnklblRefresh, 10);
+            UIHelper.SetRoundedCorners(panel2, 30);
+            UIHelper.SetRoundedCorners(btnXMark, 30);
+
+            UIHelper.MakeRoundedTextBox(tbAppaName, 10);
+            UIHelper.MakeRoundedTextBox(tbModelNum, 10);
+            UIHelper.MakeRoundedTextBox(tbPrice, 10);
+            UIHelper.MakeRoundedTextBox(tbBrand, 10);
+            UIHelper.MakeRoundedTextBox(tbQuantity, 10);
+            UIHelper.MakeRoundedTextBox(tbRemarks, 10);
+
+            UIHelper.SetRoundedComboBox(cbStatus, 20);
+            UIHelper.SetRoundedComboBox(cbCategory, 20);
+
+            UIHelper.SetRoundedDateTimePicker(dtpDatePurchased, 20);
+
+            UIHelper.SetFormStartLocation(this, 330, 127);
+
+            UIHelper.SetShadow(panel2);
+
         }
 
 
@@ -183,6 +205,5 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             WindowState = FormWindowState.Minimized;
         }
-
     }
 }

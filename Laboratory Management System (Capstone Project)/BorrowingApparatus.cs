@@ -20,6 +20,22 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
             //ENTER KEY for tbSearch
             this.AcceptButton = btnSearch;
+
+            UIHelper.SetRoundedCorners(btnSearch, 20);
+            UIHelper.SetRoundedCorners(btnConfirm, 20);
+            UIHelper.SetRoundedCorners(btnExit, 30);
+            UIHelper.SetRoundedCorners(panel3, 30);
+
+            UIHelper.MakeRoundedTextBox(tbSearch, 10);
+            UIHelper.MakeRoundedTextBox(tbStudName, 10);
+            UIHelper.MakeRoundedTextBox(tbIDnum, 10);
+            UIHelper.MakeRoundedTextBox(tbEmail, 10);
+            UIHelper.MakeRoundedTextBox(tbContact, 10);
+            UIHelper.MakeRoundedTextBox(tbProgram, 10);
+
+            UIHelper.SetRoundedCorners(panel2, 50);
+            UIHelper.SetFormStartLocation(this, 330, 127);
+            UIHelper.SetShadow(panel2);
         }
 
         //Loading of ID numbers

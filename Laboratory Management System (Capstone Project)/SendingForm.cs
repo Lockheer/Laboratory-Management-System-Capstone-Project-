@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
 
 namespace Laboratory_Management_System__Capstone_Project_
 {
@@ -29,6 +30,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             send.Start();
             btnOk.Visible = false;
             lblSending.Left = 170;
+
+            UIHelper.SetGradientBackground(this, Color.FromArgb(5, 21, 101), Color.FromArgb(20, 57, 175), LinearGradientMode.Horizontal);
+            UIHelper.SetRoundedCorners(btnOk, 10);
         }
         public void sending()
         {

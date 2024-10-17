@@ -22,6 +22,19 @@ namespace Laboratory_Management_System__Capstone_Project_
             cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
             cbProgramFilter.SelectedIndexChanged += new EventHandler(cbProgramFilter_SelectedIndexChanged);
             tbStudentSearch.TextChanged += new EventHandler(tbStudentSearch_TextChanged);
+
+            UIHelper.SetRoundedCorners(btnUpdate, 20);
+            UIHelper.SetRoundedCorners(btnDelete, 20);
+            UIHelper.SetRoundedCorners(btnRefresh, 20);
+            UIHelper.SetRoundedCorners(btnExport, 20);
+
+            UIHelper.SetRoundedCorners(panel1, 50);
+
+            UIHelper.MakeRoundedTextBox(tbStudentName, 10);
+            UIHelper.MakeRoundedTextBox(tbStudentSearch, 10);
+            UIHelper.SetRoundedComboBox(cbProgramFilter, 20);
+
+            UIHelper.SetShadow(panel1);
         }
 
         private bool _hasUnsavedChanges = false;

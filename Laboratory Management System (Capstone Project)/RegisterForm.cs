@@ -25,6 +25,30 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
             // Key press event handler for the Contact Number input
             tbContactNumber.KeyPress += new KeyPressEventHandler(tbContactNumber_KeyPress);
+
+            UIHelper.SetRoundedCorners(panel1, 20);
+            UIHelper.SetRoundedCorners(panel2, 20);
+
+            UIHelper.RemoveGroupBoxBorder(groupGender);
+
+            UIHelper.SetRoundedCorners(this, 20);
+            UIHelper.SetRoundedCorners(btnExit, 30);
+            UIHelper.SetRoundedCorners(btnVerify, 20);
+            UIHelper.SetRoundedCorners(btnRegister, 30);
+
+            UIHelper.SetShadow(panel1);
+            UIHelper.SetShadow(panel2);
+
+            UIHelper.MakeRoundedTextBox(tbFirstName, 10);
+            UIHelper.MakeRoundedTextBox(tbLastName, 10);
+            UIHelper.MakeRoundedTextBox(tbMiddleName, 10);
+            UIHelper.MakeRoundedTextBox(tbEmail, 10);
+            UIHelper.MakeRoundedTextBox(tbID, 10);
+            UIHelper.MakeRoundedTextBox(tbContactNumber, 10);
+
+            UIHelper.SetRoundedComboBox(cbRole, 20);
+
+            UIHelper.SetRoundedDateTimePicker(dtpBirthdate, 20);
         }
 
         // Connecting to DataContext class from SQL
@@ -40,8 +64,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             dtpBirthdate.CustomFormat = " ";
             lblGender.Visible = false;
             LoadRoles();
-
-
         }
 
         private void LoadRoles()
