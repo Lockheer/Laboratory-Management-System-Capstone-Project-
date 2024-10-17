@@ -441,11 +441,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    using (var package = new OfficeOpenXml.ExcelPackage())
+                    // Set the license context (important to avoid license-related errors)
+                    ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+                    using (var package = new ExcelPackage())
                     {
-                        // Set the license context (important to avoid license-related errors)
-                        ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
-
                         var worksheet = package.Workbook.Worksheets.Add("Students");
 
                         // Add column headers
