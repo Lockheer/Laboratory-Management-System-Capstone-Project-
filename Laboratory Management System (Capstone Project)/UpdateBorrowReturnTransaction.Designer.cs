@@ -32,8 +32,10 @@
             this.pnelUPDATE = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.tbPurpose = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.nudQuantityReturned = new System.Windows.Forms.NumericUpDown();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnExportToExcel = new System.Windows.Forms.Button();
@@ -41,6 +43,7 @@
             this.lnklblClear = new System.Windows.Forms.LinkLabel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.tbRemarks = new System.Windows.Forms.TextBox();
             this.cbProgram = new System.Windows.Forms.ComboBox();
             this.tbContact = new System.Windows.Forms.TextBox();
             this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
@@ -49,6 +52,7 @@
             this.tbEmailAdd = new System.Windows.Forms.TextBox();
             this.tbIDNum = new System.Windows.Forms.TextBox();
             this.tbStudentName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,14 +64,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbRemarks = new System.Windows.Forms.TextBox();
-            this.tbPurpose = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.pnelUPDATE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityReturned)).BeginInit();
@@ -156,6 +156,16 @@
             this.label13.TabIndex = 29;
             this.label13.Text = "Purpose:";
             // 
+            // tbPurpose
+            // 
+            this.tbPurpose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPurpose.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbPurpose.Location = new System.Drawing.Point(1121, 77);
+            this.tbPurpose.Multiline = true;
+            this.tbPurpose.Name = "tbPurpose";
+            this.tbPurpose.Size = new System.Drawing.Size(255, 75);
+            this.tbPurpose.TabIndex = 28;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -177,6 +187,24 @@
             this.label11.Size = new System.Drawing.Size(148, 19);
             this.label11.TabIndex = 27;
             this.label11.Text = "Borrowed Quantity:";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.btnRefresh.Location = new System.Drawing.Point(18, 22);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(124, 32);
+            this.btnRefresh.TabIndex = 24;
+            this.btnRefresh.Text = "CLEAR ALL";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // nudQuantityReturned
             // 
@@ -268,6 +296,16 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // tbRemarks
+            // 
+            this.tbRemarks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbRemarks.Location = new System.Drawing.Point(1121, 194);
+            this.tbRemarks.Margin = new System.Windows.Forms.Padding(2);
+            this.tbRemarks.Multiline = true;
+            this.tbRemarks.Name = "tbRemarks";
+            this.tbRemarks.Size = new System.Drawing.Size(255, 74);
+            this.tbRemarks.TabIndex = 19;
+            // 
             // cbProgram
             // 
             this.cbProgram.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
@@ -350,6 +388,18 @@
             this.tbStudentName.Name = "tbStudentName";
             this.tbStudentName.Size = new System.Drawing.Size(253, 27);
             this.tbStudentName.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
+            this.label10.Location = new System.Drawing.Point(1119, 168);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 19);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Remarks:";
             // 
             // label9
             // 
@@ -481,24 +531,6 @@
             this.lblSearch.TabIndex = 25;
             this.lblSearch.Text = "Search:";
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.btnRefresh.Location = new System.Drawing.Point(18, 22);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(124, 32);
-            this.btnRefresh.TabIndex = 24;
-            this.btnRefresh.Text = "CLEAR ALL";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -548,49 +580,17 @@
             this.panel1.Controls.Add(this.tbSearch);
             this.panel1.Controls.Add(this.lblSearch);
             this.panel1.Controls.Add(this.dgvTransaction);
-            this.panel1.Location = new System.Drawing.Point(169, 129);
+            this.panel1.Location = new System.Drawing.Point(122, 190);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1483, 914);
             this.panel1.TabIndex = 40;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label10.Location = new System.Drawing.Point(1119, 168);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 19);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Remarks:";
-            // 
-            // tbRemarks
-            // 
-            this.tbRemarks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbRemarks.Location = new System.Drawing.Point(1121, 194);
-            this.tbRemarks.Margin = new System.Windows.Forms.Padding(2);
-            this.tbRemarks.Multiline = true;
-            this.tbRemarks.Name = "tbRemarks";
-            this.tbRemarks.Size = new System.Drawing.Size(255, 74);
-            this.tbRemarks.TabIndex = 19;
-            // 
-            // tbPurpose
-            // 
-            this.tbPurpose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPurpose.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPurpose.Location = new System.Drawing.Point(1121, 77);
-            this.tbPurpose.Multiline = true;
-            this.tbPurpose.Name = "tbPurpose";
-            this.tbPurpose.Size = new System.Drawing.Size(255, 75);
-            this.tbPurpose.TabIndex = 28;
             // 
             // UpdateBorrowReturnTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1829, 1084);
             this.Controls.Add(this.panel1);
