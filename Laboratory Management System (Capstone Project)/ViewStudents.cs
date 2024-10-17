@@ -347,6 +347,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             tbStudentSearch.Clear();
+            ViewStudentInformation_Load(this, null);
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)

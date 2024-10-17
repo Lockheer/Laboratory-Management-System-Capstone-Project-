@@ -405,6 +405,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             tbSearch.Clear();
+            BorrowingApparatus_Load(sender, e);
         }
 
      

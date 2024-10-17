@@ -121,100 +121,13 @@ namespace Laboratory_Management_System__Capstone_Project_
           
         }
 
-      
+
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void btnImport_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
-                openFileDialog.Title = "Select an Excel File";
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        string filePath = openFileDialog.FileName;
-                        FileInfo fileInfo = new FileInfo(filePath);
-
-                        using (ExcelPackage package = new ExcelPackage(fileInfo))
-                        {
-                            ExcelWorksheet worksheet = package.Workbook.Worksheets[0]; // Get the first worksheet
-                            int rowCount = worksheet.Dimension.Rows;
-                            int colCount = worksheet.Dimension.Columns;
-
-                            using (SqlConnection connect = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
-                            {
-                                connect.Open();
-
-                                for (int row = 2; row <= rowCount; row++) // Assuming the first row is the header
-                                {
-                                    string name = worksheet.Cells[row, 1].Text;
-                                    string idnum = worksheet.Cells[row, 2].Text;
-                                    string email = worksheet.Cells[row, 3].Text;
-                                    string contactStr = worksheet.Cells[row, 4].Text;
-                                    string program = worksheet.Cells[row, 5].Text;
-                                    string department = worksheet.Cells[row, 6].Text;
-                              
-
-                                    if (Int64.TryParse(contactStr, out Int64 contact) && !string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(email))
-                                    {
-                                        SqlCommand checkCommand = new SqlCommand("SELECT COUNT(*) FROM Students WHERE Email_Address = @Email OR Contact_No = @Contact", connect);
-                                        checkCommand.Parameters.AddWithValue("@Email", email);
-                                        checkCommand.Parameters.AddWithValue("@Contact", contact);
-
-                                        int count = (int)checkCommand.ExecuteScalar();
-
-                                        if (count == 0)
-                                        {
-                                            SqlCommand command = new SqlCommand("INSERT INTO Students (Student_Name, ID_Number, Email_Address, Contact_No, Program, Department) VALUES (@Name, @IDNumber, @Email, @Contact, @Program, @Department)", connect);
-                                            command.Parameters.AddWithValue("@Name", name);
-                                            command.Parameters.AddWithValue("@IDNumber", idnum); // Changed from @IDNum to @IDNumber
-                                            command.Parameters.AddWithValue("@Email", email);
-                                            command.Parameters.AddWithValue("@Contact", contact);
-                                            command.Parameters.AddWithValue("@Program", program);
-                                            command.Parameters.AddWithValue("@Department", department);
-
-
-
-
-                                            command.ExecuteNonQuery();
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show($"The email address or contact number for {name} already exists. Skipping entry.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show($"Invalid data in row {row}. Skipping entry.", "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    }
-                                }
-
-                                MessageBox.Show("Import completed successfully. \n You can view the records at the View Students Form Instance.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                connect.Close();
-                            }
-                        }
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show($"SQL Error occurred during import: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"An unexpected error occurred during import: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-
-
-
-        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
