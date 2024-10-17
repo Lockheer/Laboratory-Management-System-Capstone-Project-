@@ -19,6 +19,8 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
             printDocument1.PrintPage += PrintDocument1_PrintPage;
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
         }
 
         private void TransactionDetails_Load(object sender, EventArgs e)
@@ -541,7 +543,8 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            if (currentDataGridView == null)
+            // Check if the DataGridView exists and has rows
+            if (currentDataGridView == null || currentDataGridView.Rows.Count == 0)
             {
                 MessageBox.Show("No data available to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -568,31 +571,38 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void ExportDataToExcel(string filePath, DataGridView dgv)
         {
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            // Set the EPPlus LicenseContext to avoid the exception
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
             using (ExcelPackage package = new ExcelPackage())
             {
+                // Create a worksheet in the Excel file
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Data");
 
-                // Header
+                // Add the header row (Column Headers)
                 for (int i = 0; i < dgv.Columns.Count; i++)
                 {
                     worksheet.Cells[1, i + 1].Value = dgv.Columns[i].HeaderText;
                 }
 
-                // Data
+                // Add the data from DataGridView
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
                     for (int j = 0; j < dgv.Columns.Count; j++)
                     {
-                        worksheet.Cells[i + 2, j + 1].Value = dgv.Rows[i].Cells[j].Value;
+                        var value = dgv.Rows[i].Cells[j].Value;
+
+                        // Handle null values when exporting
+                        worksheet.Cells[i + 2, j + 1].Value = value != null ? value.ToString() : string.Empty;
                     }
                 }
 
+                // Save the Excel file to the specified path
                 package.SaveAs(new FileInfo(filePath));
                 MessageBox.Show("Data exported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
         //For the Penalty Records
         public void HideControls()

@@ -67,7 +67,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
 
-        
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
             tbAppaSearch.TextChanged += tbAppaSearch_TextChanged;
             LoadCategories();
             tbPrice.Enter += tbPrice_Enter;
@@ -330,8 +330,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                         {
                             using (ExcelPackage excelPackage = new ExcelPackage())
                             {
-                                // Set the license context for EPPlus
                                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
 
                                 // Create a worksheet for the export
                                 ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Inventory List");

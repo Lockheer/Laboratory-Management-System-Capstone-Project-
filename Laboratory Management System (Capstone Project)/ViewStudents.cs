@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -434,7 +435,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
             }
         }
-
         private void btnExport_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Excel Workbook|*.xlsx" })
@@ -443,6 +443,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     using (var package = new OfficeOpenXml.ExcelPackage())
                     {
+                        // Set the license context (important to avoid license-related errors)
+                        ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
                         var worksheet = package.Workbook.Worksheets.Add("Students");
 
                         // Add column headers
@@ -473,9 +476,6 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
-
-
-
         }
 
         private void tbStudentName_TextChanged(object sender, EventArgs e)

@@ -23,6 +23,8 @@ namespace Laboratory_Management_System__Capstone_Project_
         public UpdateBorrowReturnTransaction()
         {
             InitializeComponent();
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
         }
 
         private bool _hasUnsavedChanges = false;
@@ -537,8 +539,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                // Set the license context for EPPlus
-                OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
                 using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                 {
