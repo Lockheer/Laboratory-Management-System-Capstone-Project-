@@ -21,7 +21,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
            
             cbProgram.SelectedIndexChanged += new EventHandler(cbProgram_SelectedIndexChanged);
-            UIHelper.SetShadow(panel2);
 
             UIHelper.SetRoundedCorners(btnExit, 30);
             UIHelper.SetRoundedCorners(btnSave, 10);

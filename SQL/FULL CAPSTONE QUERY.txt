@@ -137,9 +137,9 @@ Create Table LaboratoryPenalties (
 [PenaltyID] int primary key identity(100,1),
 [ID Number] nvarchar(250) not null,
 [Student Name] varchar(250) not null,
-[Contact Number] nvarchar(250) not null,
+[Contact Number] bigint not null,
 [Email Address] nvarchar(250) not null,
-[Penalty Issued Date] varchar(250) not null,
+[Penalty Issued Date] nvarchar(50) not null,
 [Violation] varchar(250) not null,
 [Penalty Condition] varchar(250) not null,
 [Amount to be Paid] decimal(18, 2), 
@@ -148,8 +148,8 @@ Create Table LaboratoryPenalties (
 [Balance] decimal (18,2),
 
 --Referencial Foreign Key--
-[Transaction Reference Number] int not null,
-CONSTRAINT FK_TransactionReferenceNumber_LabTransaction Foreign Key ([Transaction Reference Number])
+[transactionID] int not null,
+CONSTRAINT FK_TransactionReferenceNumber_LabTransaction Foreign Key ([transactionID])
 References BorrowReturnTransaction (transactionID)
 
 

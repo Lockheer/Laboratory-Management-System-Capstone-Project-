@@ -37,7 +37,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
-            cmd.CommandText = "select [ID Number], [Student Name], [Email Address], [Penalty Issued Date]a, [Violation], [Penalty Condition], [Amount to be Payed], [Amount Received], [Penalty Status], [Balance] from LaboratoryPenalties";
+            cmd.CommandText = "select [PenaltyID], [ID Number], [Student Name], [Email Address], [Penalty Issued Date], [Violation], [Penalty Condition], [Amount to be Paid], [Amount Received], [Penalty Status], [Balance] from LaboratoryPenalties";
             SqlDataAdapter DA = new SqlDataAdapter();
             DataSet DS = new DataSet();
             DA.SelectCommand = cmd; // Set the SelectCommand for the SqlDataAdapter
@@ -73,34 +73,43 @@ namespace Laboratory_Management_System__Capstone_Project_
                 if (dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null &&
                     !string.IsNullOrWhiteSpace(dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
                 {
-                    ID = int.Parse(dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    string cellValue = dgvViewPenaltyRecords.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                    string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
-
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    // Try parsing the cell value to an integer
+                    if (int.TryParse(cellValue, out ID))
                     {
-                        SqlCommand cmd = new SqlCommand("SELECT * FROM LaboratoryPenalties WHERE PenaltyID = @ID", con);
-                        cmd.Parameters.AddWithValue("@ID", ID);
-                        SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                        DataSet DS = new DataSet();
+                        string connectionString = "data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True";
 
-                        try
+                        using (SqlConnection con = new SqlConnection(connectionString))
                         {
-                            con.Open();
-                            DA.Fill(DS);
+                            SqlCommand cmd = new SqlCommand("SELECT * FROM LaboratoryPenalties WHERE PenaltyID = @ID", con);
+                            cmd.Parameters.AddWithValue("@ID", ID);
+                            SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                            DataSet DS = new DataSet();
 
-                            //Checks if the query returned any results
-                            if (DS.Tables[0].Rows.Count > 0)
+                            try
                             {
-                                //Extracts data from the first row
-                                rowid = Int64.Parse(DS.Tables[0].Rows[0]["PenaltyID"].ToString());
-                                tbEmailRecipient.Text = DS.Tables[0].Rows[0]["[Email Address]"].ToString();
+                                con.Open();
+                                DA.Fill(DS);
+
+                                // Checks if the query returned any results
+                                if (DS.Tables[0].Rows.Count > 0)
+                                {
+                                    // Extracts data from the first row
+                                    rowid = Int64.Parse(DS.Tables[0].Rows[0]["PenaltyID"].ToString());
+                                    tbEmailRecipient.Text = DS.Tables[0].Rows[0]["Email Address"].ToString();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("An error occurred: " + ex.Message);
                             }
                         }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("An error occurred: " + ex.Message);
-                        }
+                    }
+                    else
+                    {
+                        // Handle the case where the value is not a valid number
+                        MessageBox.Show("The selected cell does not contain a valid PenaltyID.", "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else

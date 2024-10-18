@@ -172,6 +172,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             lblOverview.Visible = false;
             ShowCountPanel.Visible = false;
             lblTitle.Visible = false;
+            panelDashboard.Visible = false;
+            panelRules.Visible = false;
 
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;

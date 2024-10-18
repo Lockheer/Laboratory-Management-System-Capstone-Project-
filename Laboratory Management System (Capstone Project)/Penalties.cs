@@ -377,6 +377,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 MessageBox.Show("The Penalty information has been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 // Refresh Data
                                 LoadPenaltiesData();
+                                btnUpdate.Visible = false;
+                                btnDelete.Visible = false;
                             }
                             else
                             {
@@ -420,6 +422,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                             MessageBox.Show("The Penalty record has been removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Refresh Data
                             LoadPenaltiesData();
+                            btnDelete.Enabled = false;
+                            btnUpdate.Enabled = false;
                         }
                         else
                         {

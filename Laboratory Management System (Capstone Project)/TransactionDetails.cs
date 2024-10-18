@@ -633,7 +633,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
 
 
-    
+        
         private void cmbViewOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayDataGridView();

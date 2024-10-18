@@ -56,7 +56,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void button1_Click(object sender, EventArgs e)
         {
             //Username Error Handler
-            if (string.IsNullOrEmpty(tbUsername.Text) || tbUsername.Text == "Username")
+            if (string.IsNullOrEmpty(tbUsername.Text) || tbUsername.Text == "ID-Number")
             {
                lblUsernameHandler.Visible = true;
               
@@ -144,13 +144,13 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void tbUsername_Enter(object sender, EventArgs e)
         {
-            if (tbUsername.Text == "Username")
+            if (tbUsername.Text == "ID-Number")
             {
                 tbUsername.Text = "";
                 tbUsername.Focus();
                 tbUsername.ForeColor = Color.Black;
                 
-            }else if (tbUsername.Text != "Username")
+            }else if (tbUsername.Text != "ID-Number")
             {
                 lblUsernameHandler.Visible = false;
            
@@ -161,7 +161,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             if (tbUsername.Text == "")
             {
-                tbUsername.Text = "Username";
+                tbUsername.Text = "ID-Number";
                 tbUsername.ForeColor = Color.Silver;
               
             }

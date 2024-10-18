@@ -73,7 +73,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(238, 32);
             this.tbUsername.TabIndex = 1;
-            this.tbUsername.Text = "Username";
+            this.tbUsername.Text = "ID-Number";
             this.tbUsername.Enter += new System.EventHandler(this.tbUsername_Enter);
             this.tbUsername.Leave += new System.EventHandler(this.tbUsername_Leave);
             // 
@@ -139,7 +139,7 @@
             this.CbShowPass.AutoSize = true;
             this.CbShowPass.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.CbShowPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.CbShowPass.Location = new System.Drawing.Point(75, 384);
+            this.CbShowPass.Location = new System.Drawing.Point(75, 365);
             this.CbShowPass.Margin = new System.Windows.Forms.Padding(2);
             this.CbShowPass.Name = "CbShowPass";
             this.CbShowPass.Size = new System.Drawing.Size(144, 23);

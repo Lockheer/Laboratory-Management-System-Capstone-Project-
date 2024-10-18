@@ -55,6 +55,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         private string date_borrowed;
         private string due_date;
         private long rowid;
+        private Int64 quantityBorrowed;
 
         private void ReturnApparatus_Load(object sender, EventArgs e)
         {
@@ -64,7 +65,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT transactionID, Student_Name, ID_Number, Apparatus_Name,Quantity, Borrow_Date, Due_Date,  Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT transactionID, Student_Name, ID_Number, Apparatus_Name,Quantity, Borrow_Date, Due_Date,  Quantity_Returned, Date_Returned, Remarks FROM BorrowReturnTransaction WHERE Date_Returned is NULL AND Quantity_Returned is NULL AND Remarks is NULL", con))
                 {
                     SqlDataAdapter DA = new SqlDataAdapter(cmd);
                     DataSet DS = new DataSet();
@@ -97,12 +98,15 @@ namespace Laboratory_Management_System__Capstone_Project_
                     panel2.Visible = true;
                     rowid = Convert.ToInt64(dgvReturnInformation.Rows[e.RowIndex].Cells[0].Value);
                     appa_name = dgvReturnInformation.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    quantityBorrowed = Convert.ToInt64(dgvReturnInformation.Rows[e.RowIndex].Cells[4].Value);
                     date_borrowed = dgvReturnInformation.Rows[e.RowIndex].Cells[5].Value.ToString();
                     due_date = dgvReturnInformation.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    
 
                     tbApparatusName.Text = appa_name;
                     tbBorrowedDate.Text = date_borrowed;
                     tbDue.Text = due_date;
+                    numQuantityReturned.Value = quantityBorrowed;
                 }
                 else
                 {
@@ -128,7 +132,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 }
                 else if (returnDate > dueDate)
                 {
-                    tbRemarks.Text = "This is a late return and is subjected as a violation. \nContext: Late Item Return\nPenalty: Student cannot borrow any apparatuses for 1 week.";
+                    tbRemarks.Text = "This is a late return and is subjected as a violation. \nFurther instuctions is to be consulted by the College Dean or the Laboratory in-charge.";
                 }
 
                 // Check if the return date is valid

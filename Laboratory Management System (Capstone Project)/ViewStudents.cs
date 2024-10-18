@@ -516,6 +516,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             UpdateUnsavedChanges();
         }
 
+        private bool hasShownNoResultsMessage = false;
         private void tbStudentSearch_TextChanged(object sender, EventArgs e)
         {
             // Update the search icon and label visibility based on input
@@ -548,11 +549,13 @@ namespace Laboratory_Management_System__Capstone_Project_
                         if (DS.Tables[0].Rows.Count > 0)
                         {
                             dgvStudentsInformation.DataSource = DS.Tables[0];
+                            hasShownNoResultsMessage = false;
                         }
                         else
                         {
                             dgvStudentsInformation.DataSource = null;
                             MessageBox.Show("No records found matching your search criteria.", "No Results Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            hasShownNoResultsMessage = true;
                         }
                     }
                     catch (Exception ex)
@@ -586,6 +589,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         if (DS.Tables[0].Rows.Count > 0)
                         {
                             dgvStudentsInformation.DataSource = DS.Tables[0];
+                            hasShownNoResultsMessage = false;
                         }
                         else
                         {
