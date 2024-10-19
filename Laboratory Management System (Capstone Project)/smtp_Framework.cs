@@ -8,8 +8,8 @@ namespace Laboratory_Management_System__Capstone_Project_
     internal class smtp_Framework
     {
         string domains = "smtp-mail.outlook.com";
-        string UsernameCredentials = "matthew.larrobis21@outlook.com";
-        string PasswordCredentials = "MaiSakurajima21";
+        string UsernameCredentials = "revenger45626@gmail.com";
+        string PasswordCredentials = "Revengerkyoto45626";
         public void SmtpClient(string domain = "outlook")
         {
             switch (domain) 

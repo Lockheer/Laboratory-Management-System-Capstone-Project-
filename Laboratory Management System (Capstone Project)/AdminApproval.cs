@@ -22,6 +22,8 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(btnConfirm, 20);
             UIHelper.SetRoundedCorners(tbReject, 20);
+
+            tbAdminPass.PasswordChar = '*';
         }
 
         HashHelpers hashHelpers = new HashHelpers();
@@ -50,7 +52,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                     // Add the parameters for ID-Number, Password, and RoleName ("Admin")
                     cmd.Parameters.AddWithValue("@Username", tbAdminUsername.Text); // Admin ID textbox
-                    cmd.Parameters.AddWithValue("@Password", hashHelpers.CreateMD5Hash(tbAdminPass.Text)); // Admin Password textbox (hashed)
+                    cmd.Parameters.AddWithValue("@Password", hashHelpers.CreateMD5Hash(hashHelpers.CreateMD5Hash(tbAdminPass.Text))); // Admin Password textbox (hashed)
                     cmd.Parameters.AddWithValue("@RoleName", "Admin"); // Static value "Admin" for role
 
                     // Execute the query and get the count (1 if credentials match, 0 if they don't)

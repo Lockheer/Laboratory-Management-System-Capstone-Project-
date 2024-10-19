@@ -70,7 +70,6 @@
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbMiddleName = new System.Windows.Forms.TextBox();
-            this.btnVerify = new System.Windows.Forms.Button();
             this.lbFN = new System.Windows.Forms.Label();
             this.lbLN = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
@@ -206,7 +205,6 @@
             this.panel2.Controls.Add(this.tbLastName);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.tbMiddleName);
-            this.panel2.Controls.Add(this.btnVerify);
             this.panel2.Controls.Add(this.lbFN);
             this.panel2.Controls.Add(this.lbLN);
             this.panel2.Controls.Add(this.btnBack);
@@ -633,22 +631,6 @@
             this.tbMiddleName.Size = new System.Drawing.Size(438, 27);
             this.tbMiddleName.TabIndex = 3;
             // 
-            // btnVerify
-            // 
-            this.btnVerify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
-            this.btnVerify.FlatAppearance.BorderSize = 0;
-            this.btnVerify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerify.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
-            this.btnVerify.ForeColor = System.Drawing.Color.White;
-            this.btnVerify.Location = new System.Drawing.Point(539, 472);
-            this.btnVerify.Margin = new System.Windows.Forms.Padding(2);
-            this.btnVerify.Name = "btnVerify";
-            this.btnVerify.Size = new System.Drawing.Size(107, 28);
-            this.btnVerify.TabIndex = 7;
-            this.btnVerify.Text = "Verify";
-            this.btnVerify.UseVisualStyleBackColor = false;
-            this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
-            // 
             // lbFN
             // 
             this.lbFN.AutoSize = true;
@@ -950,7 +932,6 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnVerify;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;

@@ -65,7 +65,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetRoundedCorners(btnAdd, 20);
             UIHelper.SetRoundedCorners(btnUpdate, 20);
             UIHelper.SetRoundedCorners(btnDelete, 20);
-            UIHelper.SetRoundedCorners(btnSendEmail, 20);
             UIHelper.SetRoundedCorners(btnDetails, 20);
             UIHelper.SetRoundedCorners(panel2, 30);
             UIHelper.SetRoundedCorners(panel3, 30);
@@ -576,12 +575,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         {
                             con.Open();
 
-                            // First, delete related records in PenaltyEmails
-                            SqlCommand deleteEmailsCmd = new SqlCommand("DELETE FROM PenaltyEmails WHERE penaltyID = @RowID", con);
-                            deleteEmailsCmd.Parameters.AddWithValue("@RowID", rowid);
-                            deleteEmailsCmd.ExecuteNonQuery();
-
-                            // Now, delete the penalty record
+                            
                             SqlCommand deletePenaltyCmd = new SqlCommand("DELETE FROM LaboratoryPenalties WHERE PenaltyID = @RowID", con);
                             deletePenaltyCmd.Parameters.AddWithValue("@RowID", rowid);
                             int rowsAffected = deletePenaltyCmd.ExecuteNonQuery();
@@ -743,21 +737,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        //Opens the SMTP Email sending form
-        private void btnSendEmail_Click(object sender, EventArgs e)
-        {
-            if (emailFormRestrict == 0)
-            {
-                emailFormRestrict++;
-                PenaltyEmail penaltyEmail = new PenaltyEmail();
-                penaltyEmail.FormClosed += (s, args) => { emailFormRestrict = 0; };
-                penaltyEmail.Show();
-            }
-            else
-            {
-                MessageBox.Show("The instance has already been opened.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+       
 
   
 

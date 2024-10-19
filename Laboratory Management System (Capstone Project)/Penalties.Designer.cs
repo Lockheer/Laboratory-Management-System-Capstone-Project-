@@ -46,7 +46,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.label11 = new System.Windows.Forms.Label();
             this.dtpPenaltyDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSendEmail = new System.Windows.Forms.Button();
             this.btnDetails = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.tbViolation = new System.Windows.Forms.TextBox();
@@ -64,6 +63,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbApparatusName = new System.Windows.Forms.TextBox();
             this.lblApparatusReplace = new System.Windows.Forms.Label();
             this.dgvPenalties = new System.Windows.Forms.DataGridView();
             this.tbSearchPenalty = new System.Windows.Forms.TextBox();
@@ -74,7 +74,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.label16 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
-            this.tbApparatusName = new System.Windows.Forms.TextBox();
             this.PanelCRUD.SuspendLayout();
             this.panelPayment.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -95,7 +94,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.PanelCRUD.Controls.Add(this.label11);
             this.PanelCRUD.Controls.Add(this.dtpPenaltyDate);
             this.PanelCRUD.Controls.Add(this.label1);
-            this.PanelCRUD.Controls.Add(this.btnSendEmail);
             this.PanelCRUD.Controls.Add(this.btnDetails);
             this.PanelCRUD.Controls.Add(this.label7);
             this.PanelCRUD.Controls.Add(this.tbViolation);
@@ -301,22 +299,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.label1.TabIndex = 25;
             this.label1.Text = "Penalty Issue Date:";
             // 
-            // btnSendEmail
-            // 
-            this.btnSendEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnSendEmail.FlatAppearance.BorderSize = 0;
-            this.btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSendEmail.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSendEmail.ForeColor = System.Drawing.Color.White;
-            this.btnSendEmail.Location = new System.Drawing.Point(450, 310);
-            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSendEmail.Name = "btnSendEmail";
-            this.btnSendEmail.Size = new System.Drawing.Size(164, 38);
-            this.btnSendEmail.TabIndex = 24;
-            this.btnSendEmail.Text = "Send Email";
-            this.btnSendEmail.UseVisualStyleBackColor = false;
-            this.btnSendEmail.Click += new System.EventHandler(this.btnSendEmail_Click);
-            // 
             // btnDetails
             // 
             this.btnDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -482,7 +464,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(268, 310);
+            this.btnDelete.Location = new System.Drawing.Point(443, 310);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(164, 38);
@@ -532,6 +514,18 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(354, 161);
             this.panel2.TabIndex = 41;
+            // 
+            // tbApparatusName
+            // 
+            this.tbApparatusName.BackColor = System.Drawing.Color.White;
+            this.tbApparatusName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbApparatusName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.tbApparatusName.Location = new System.Drawing.Point(67, 70);
+            this.tbApparatusName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbApparatusName.Name = "tbApparatusName";
+            this.tbApparatusName.ReadOnly = true;
+            this.tbApparatusName.Size = new System.Drawing.Size(242, 27);
+            this.tbApparatusName.TabIndex = 14;
             // 
             // lblApparatusReplace
             // 
@@ -653,18 +647,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.label17.TabIndex = 1;
             this.label17.Text = "Penalty Information window goes here:";
             // 
-            // tbApparatusName
-            // 
-            this.tbApparatusName.BackColor = System.Drawing.Color.White;
-            this.tbApparatusName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbApparatusName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbApparatusName.Location = new System.Drawing.Point(67, 70);
-            this.tbApparatusName.Margin = new System.Windows.Forms.Padding(2);
-            this.tbApparatusName.Name = "tbApparatusName";
-            this.tbApparatusName.ReadOnly = true;
-            this.tbApparatusName.Size = new System.Drawing.Size(242, 27);
-            this.tbApparatusName.TabIndex = 14;
-            // 
             // PenaltiesRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -714,7 +696,6 @@ namespace Laboratory_Management_System__Capstone_Project_
         private System.Windows.Forms.TextBox tbViolation;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnDetails;
-        private System.Windows.Forms.Button btnSendEmail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpPenaltyDate;
         private System.Windows.Forms.TextBox tbAmtPayed;

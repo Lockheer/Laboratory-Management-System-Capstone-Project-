@@ -159,18 +159,5 @@ References BorrowReturnTransaction (transactionID)
 )
 
 
---Emails
-CREATE TABLE PenaltyEmails (
-
-
-[Email_ID] int PRIMARY KEY IDENTITY(100,1),
-[Sender] nvarchar(250) NOT NULL,
-[Recipient] nvarchar(250) NOT NULL,
-[Subject] nvarchar(200) NOT NULL,
-[Mail_Description] nvarchar(255) NOT NULL,
-[penaltyID] int NOT NULL,
-CONSTRAINT FK_Violation_Email FOREIGN KEY (penaltyID) REFERENCES LaboratoryPenalties(penaltyID)
-
-
 );
 GO

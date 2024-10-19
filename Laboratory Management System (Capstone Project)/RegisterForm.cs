@@ -18,7 +18,7 @@ namespace Laboratory_Management_System__Capstone_Project_
     public partial class RegistrationForm : Form
     {
         string gender;
-        private bool emailVerified = false;
+      
 
         public RegistrationForm()
         {
@@ -33,7 +33,6 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(this, 50);
             UIHelper.SetRoundedCorners(btnExit, 30);
-            UIHelper.SetRoundedCorners(btnVerify, 20);
             UIHelper.SetRoundedCorners(btnRegister, 20);
 
             UIHelper.SetShadow(panel1);
@@ -250,12 +249,11 @@ namespace Laboratory_Management_System__Capstone_Project_
                 MessageBox.Show("You must be at least 18 years old to register.", "Age Restriction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Check if the email was verified
-            if (!emailVerified)
+            if (!tbEmail.Text.Contains("@") || !tbEmail.Text.Contains("."))
             {
-                MessageBox.Show("Please verify your email before proceeding.", "Email Not Verified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("Please enter a valid email address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+         
 
 
 
@@ -390,41 +388,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             return true;
         }
 
-        private void btnVerify_Click(object sender, EventArgs e)
-        {
-            if (tbEmail.Text == "")
-            {
-                MessageBox.Show("Please enter your email address.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else
-            {
-                EmailVerification emailVerification = new EmailVerification(tbEmail.Text);
-                emailVerification.ShowDialog();
-
-                if (emailVerification.isVerified)
-                {
-                    emailVerified = true; // Set the flag to true if verified
-                    btnVerify.Enabled = false; // Disable the button after verification
-                    btnVerify.Text = "Verified"; // Change the button text to "Verified
-                    MessageBox.Show("Email verification successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    emailVerified = false; // Reset if verification failed
-                    MessageBox.Show("Email verification failed. Please try again.", "Verification Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            if (!tbEmail.Text.Contains("@") || !tbEmail.Text.Contains("."))
-            {
-                MessageBox.Show("Please enter a valid email address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                tbEmail.Focus();
-                return;
-            }
-        }
+      
     }
 }

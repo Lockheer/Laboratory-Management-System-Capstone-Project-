@@ -37,7 +37,6 @@
             this.CbShowPass = new System.Windows.Forms.CheckBox();
             this.btnCloseForm = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.lnklblChangePass = new System.Windows.Forms.LinkLabel();
             this.lnkLblRegister = new System.Windows.Forms.LinkLabel();
             this.lblErrorHandler = new System.Windows.Forms.Label();
             this.lblUsernameHandler = new System.Windows.Forms.Label();
@@ -179,20 +178,6 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Visible = false;
             // 
-            // lnklblChangePass
-            // 
-            this.lnklblChangePass.AutoSize = true;
-            this.lnklblChangePass.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11F);
-            this.lnklblChangePass.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.lnklblChangePass.Location = new System.Drawing.Point(174, 481);
-            this.lnklblChangePass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lnklblChangePass.Name = "lnklblChangePass";
-            this.lnklblChangePass.Size = new System.Drawing.Size(128, 18);
-            this.lnklblChangePass.TabIndex = 14;
-            this.lnklblChangePass.TabStop = true;
-            this.lnklblChangePass.Text = "Forgot Password?";
-            this.lnklblChangePass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblChangePass_LinkClicked);
-            // 
             // lnkLblRegister
             // 
             this.lnkLblRegister.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(21)))));
@@ -266,7 +251,6 @@
             this.panel1.Controls.Add(this.lblErrorHandler);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.lnklblChangePass);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.CbShowPass);
             this.panel1.Location = new System.Drawing.Point(353, 214);
@@ -466,7 +450,6 @@
         private System.Windows.Forms.CheckBox CbShowPass;
         private System.Windows.Forms.Button btnCloseForm;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.LinkLabel lnklblChangePass;
         private System.Windows.Forms.LinkLabel lnkLblRegister;
         private System.Windows.Forms.Label lblErrorHandler;
         private System.Windows.Forms.Label lblUsernameHandler;

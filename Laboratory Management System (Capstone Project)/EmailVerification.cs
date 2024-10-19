@@ -34,8 +34,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             GetPin Getpin = new GetPin();
             smtp_Framework mail = new smtp_Framework();
             PIN = Getpin.Pin();
-            mail.SmtpCredentials("revenger45626@gmail.com", "Revengerkyoto45626");
+            mail.SmtpCredentials("revenger45626@gmail.com", "fwquvhusxramyfis");
             mail.Send(email, "Email Verification", "This is your verification PIN \n\n" + PIN);
+      
+
             timer = 60 * 5;
             timer1.Enabled = true;
 
@@ -54,10 +56,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             timer--;
 
             
-            if (timer > 0)
-                Text = "Email Verification " + "(" + timer.ToString() + "s" + ")";
-            else
-                Text = "Email Verification" + "(Please Resend PIN)";
+            //if (timer > 0)
+            //    Text = "Email Verification " + "(" + timer.ToString() + "s" + ")";
+            //else
+            //    Text = "Email Verification" + "(Please Resend PIN)";
 
             if (isResend)
             {

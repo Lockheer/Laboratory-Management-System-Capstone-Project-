@@ -234,13 +234,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-        private void lnklblChangePass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            ChangePassVerification changePass = new ChangePassVerification();
-            changePass.ShowDialog();
-          
-        }
+     
 
         private void lnkLblRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
