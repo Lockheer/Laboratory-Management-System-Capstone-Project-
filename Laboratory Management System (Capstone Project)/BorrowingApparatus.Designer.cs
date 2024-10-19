@@ -43,6 +43,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.lblQuantity5 = new System.Windows.Forms.Label();
             this.lblQuantity4 = new System.Windows.Forms.Label();
             this.lblQuantity3 = new System.Windows.Forms.Label();
@@ -87,6 +89,7 @@
             this.tbContact = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbProgram = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -104,7 +107,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label1.Location = new System.Drawing.Point(181, 33);
+            this.label1.Location = new System.Drawing.Point(178, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(345, 41);
@@ -238,6 +241,9 @@
             this.panel3.Controls.Add(this.label23);
             this.panel3.Controls.Add(this.label24);
             this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.label27);
+            this.panel3.Controls.Add(this.label28);
+            this.panel3.Controls.Add(this.label25);
             this.panel3.Controls.Add(this.lblQuantity5);
             this.panel3.Controls.Add(this.lblQuantity4);
             this.panel3.Controls.Add(this.lblQuantity3);
@@ -272,7 +278,7 @@
             this.panel3.Location = new System.Drawing.Point(475, 77);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(664, 666);
+            this.panel3.Size = new System.Drawing.Size(664, 656);
             this.panel3.TabIndex = 0;
             // 
             // label21
@@ -280,7 +286,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label21.Location = new System.Drawing.Point(83, 378);
+            this.label21.Location = new System.Drawing.Point(99, 379);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(22, 19);
@@ -292,7 +298,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label20.Location = new System.Drawing.Point(82, 323);
+            this.label20.Location = new System.Drawing.Point(98, 324);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(22, 19);
@@ -304,7 +310,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label22.Location = new System.Drawing.Point(84, 218);
+            this.label22.Location = new System.Drawing.Point(100, 219);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(21, 19);
@@ -316,7 +322,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label23.Location = new System.Drawing.Point(83, 272);
+            this.label23.Location = new System.Drawing.Point(99, 273);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(21, 19);
@@ -328,12 +334,38 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label24.Location = new System.Drawing.Point(84, 169);
+            this.label24.Location = new System.Drawing.Point(100, 170);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(22, 19);
             this.label24.TabIndex = 56;
             this.label24.Text = "1. ";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.Color.Red;
+            this.label27.Location = new System.Drawing.Point(156, 508);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(16, 19);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "*";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.Location = new System.Drawing.Point(203, 444);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(16, 19);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "*";
             // 
             // lblQuantity5
             // 
@@ -341,7 +373,7 @@
             this.lblQuantity5.BackColor = System.Drawing.Color.Transparent;
             this.lblQuantity5.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.lblQuantity5.ForeColor = System.Drawing.Color.Red;
-            this.lblQuantity5.Location = new System.Drawing.Point(111, 404);
+            this.lblQuantity5.Location = new System.Drawing.Point(307, 403);
             this.lblQuantity5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuantity5.Name = "lblQuantity5";
             this.lblQuantity5.Size = new System.Drawing.Size(125, 17);
@@ -354,7 +386,7 @@
             this.lblQuantity4.BackColor = System.Drawing.Color.Transparent;
             this.lblQuantity4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.lblQuantity4.ForeColor = System.Drawing.Color.Red;
-            this.lblQuantity4.Location = new System.Drawing.Point(112, 350);
+            this.lblQuantity4.Location = new System.Drawing.Point(307, 352);
             this.lblQuantity4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuantity4.Name = "lblQuantity4";
             this.lblQuantity4.Size = new System.Drawing.Size(125, 17);
@@ -367,7 +399,7 @@
             this.lblQuantity3.BackColor = System.Drawing.Color.Transparent;
             this.lblQuantity3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.lblQuantity3.ForeColor = System.Drawing.Color.Red;
-            this.lblQuantity3.Location = new System.Drawing.Point(111, 297);
+            this.lblQuantity3.Location = new System.Drawing.Point(307, 296);
             this.lblQuantity3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuantity3.Name = "lblQuantity3";
             this.lblQuantity3.Size = new System.Drawing.Size(125, 17);
@@ -380,7 +412,7 @@
             this.lblQuantity2.BackColor = System.Drawing.Color.Transparent;
             this.lblQuantity2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.lblQuantity2.ForeColor = System.Drawing.Color.Red;
-            this.lblQuantity2.Location = new System.Drawing.Point(112, 245);
+            this.lblQuantity2.Location = new System.Drawing.Point(307, 246);
             this.lblQuantity2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuantity2.Name = "lblQuantity2";
             this.lblQuantity2.Size = new System.Drawing.Size(125, 17);
@@ -393,7 +425,7 @@
             this.lblQuantity1.BackColor = System.Drawing.Color.Transparent;
             this.lblQuantity1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.lblQuantity1.ForeColor = System.Drawing.Color.Red;
-            this.lblQuantity1.Location = new System.Drawing.Point(111, 193);
+            this.lblQuantity1.Location = new System.Drawing.Point(307, 195);
             this.lblQuantity1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuantity1.Name = "lblQuantity1";
             this.lblQuantity1.Size = new System.Drawing.Size(125, 17);
@@ -406,7 +438,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPurpose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPurpose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPurpose.Location = new System.Drawing.Point(335, 471);
+            this.tbPurpose.Location = new System.Drawing.Point(332, 457);
             this.tbPurpose.Margin = new System.Windows.Forms.Padding(2);
             this.tbPurpose.Multiline = true;
             this.tbPurpose.Name = "tbPurpose";
@@ -418,7 +450,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label18.Location = new System.Drawing.Point(331, 447);
+            this.label18.Location = new System.Drawing.Point(328, 433);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(154, 19);
@@ -428,7 +460,7 @@
             // nudQuantity4
             // 
             this.nudQuantity4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.nudQuantity4.Location = new System.Drawing.Point(543, 373);
+            this.nudQuantity4.Location = new System.Drawing.Point(540, 376);
             this.nudQuantity4.Margin = new System.Windows.Forms.Padding(2);
             this.nudQuantity4.Name = "nudQuantity4";
             this.nudQuantity4.Size = new System.Drawing.Size(52, 27);
@@ -437,7 +469,7 @@
             // nudQuantity3
             // 
             this.nudQuantity3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.nudQuantity3.Location = new System.Drawing.Point(543, 319);
+            this.nudQuantity3.Location = new System.Drawing.Point(540, 322);
             this.nudQuantity3.Margin = new System.Windows.Forms.Padding(2);
             this.nudQuantity3.Name = "nudQuantity3";
             this.nudQuantity3.Size = new System.Drawing.Size(52, 27);
@@ -446,7 +478,7 @@
             // nudQuantity2
             // 
             this.nudQuantity2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.nudQuantity2.Location = new System.Drawing.Point(542, 265);
+            this.nudQuantity2.Location = new System.Drawing.Point(539, 268);
             this.nudQuantity2.Margin = new System.Windows.Forms.Padding(2);
             this.nudQuantity2.Name = "nudQuantity2";
             this.nudQuantity2.Size = new System.Drawing.Size(52, 27);
@@ -455,7 +487,7 @@
             // nudQuantity1
             // 
             this.nudQuantity1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.nudQuantity1.Location = new System.Drawing.Point(542, 213);
+            this.nudQuantity1.Location = new System.Drawing.Point(539, 216);
             this.nudQuantity1.Margin = new System.Windows.Forms.Padding(2);
             this.nudQuantity1.Name = "nudQuantity1";
             this.nudQuantity1.Size = new System.Drawing.Size(52, 27);
@@ -464,7 +496,7 @@
             // nudQuantity
             // 
             this.nudQuantity.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.nudQuantity.Location = new System.Drawing.Point(543, 163);
+            this.nudQuantity.Location = new System.Drawing.Point(540, 166);
             this.nudQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(52, 27);
@@ -475,7 +507,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label17.Location = new System.Drawing.Point(462, 377);
+            this.label17.Location = new System.Drawing.Point(459, 380);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(72, 19);
@@ -487,7 +519,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label16.Location = new System.Drawing.Point(462, 322);
+            this.label16.Location = new System.Drawing.Point(459, 325);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 19);
@@ -499,7 +531,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label15.Location = new System.Drawing.Point(462, 271);
+            this.label15.Location = new System.Drawing.Point(459, 274);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(72, 19);
@@ -511,7 +543,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label14.Location = new System.Drawing.Point(462, 217);
+            this.label14.Location = new System.Drawing.Point(459, 220);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(72, 19);
@@ -523,7 +555,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label13.Location = new System.Drawing.Point(462, 166);
+            this.label13.Location = new System.Drawing.Point(459, 169);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 19);
@@ -537,7 +569,7 @@
             this.cbApparatusName4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName4.FormattingEnabled = true;
-            this.cbApparatusName4.Location = new System.Drawing.Point(112, 373);
+            this.cbApparatusName4.Location = new System.Drawing.Point(128, 374);
             this.cbApparatusName4.Margin = new System.Windows.Forms.Padding(2);
             this.cbApparatusName4.Name = "cbApparatusName4";
             this.cbApparatusName4.Size = new System.Drawing.Size(325, 27);
@@ -551,7 +583,7 @@
             this.cbApparatusName3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName3.FormattingEnabled = true;
-            this.cbApparatusName3.Location = new System.Drawing.Point(113, 319);
+            this.cbApparatusName3.Location = new System.Drawing.Point(129, 320);
             this.cbApparatusName3.Margin = new System.Windows.Forms.Padding(2);
             this.cbApparatusName3.Name = "cbApparatusName3";
             this.cbApparatusName3.Size = new System.Drawing.Size(325, 27);
@@ -565,7 +597,7 @@
             this.cbApparatusName2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName2.FormattingEnabled = true;
-            this.cbApparatusName2.Location = new System.Drawing.Point(112, 266);
+            this.cbApparatusName2.Location = new System.Drawing.Point(128, 267);
             this.cbApparatusName2.Margin = new System.Windows.Forms.Padding(2);
             this.cbApparatusName2.Name = "cbApparatusName2";
             this.cbApparatusName2.Size = new System.Drawing.Size(325, 27);
@@ -579,7 +611,7 @@
             this.cbApparatusName1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName1.FormattingEnabled = true;
-            this.cbApparatusName1.Location = new System.Drawing.Point(113, 214);
+            this.cbApparatusName1.Location = new System.Drawing.Point(129, 215);
             this.cbApparatusName1.Margin = new System.Windows.Forms.Padding(2);
             this.cbApparatusName1.Name = "cbApparatusName1";
             this.cbApparatusName1.Size = new System.Drawing.Size(325, 27);
@@ -594,7 +626,7 @@
             this.dtpDueDate.CustomFormat = "MM/dd/yyyy hh:mm tt";
             this.dtpDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDueDate.Location = new System.Drawing.Point(86, 546);
+            this.dtpDueDate.Location = new System.Drawing.Point(83, 532);
             this.dtpDueDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(212, 24);
@@ -606,7 +638,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label12.Location = new System.Drawing.Point(84, 522);
+            this.label12.Location = new System.Drawing.Point(81, 508);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(80, 19);
@@ -618,7 +650,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(143, 76);
+            this.label19.Location = new System.Drawing.Point(140, 79);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(59, 22);
@@ -630,7 +662,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(196, 79);
+            this.label10.Location = new System.Drawing.Point(193, 82);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(338, 18);
@@ -646,7 +678,7 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(248, 599);
+            this.btnConfirm.Location = new System.Drawing.Point(252, 584);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(182, 45);
@@ -662,7 +694,7 @@
             this.cbApparatusName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApparatusName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbApparatusName.FormattingEnabled = true;
-            this.cbApparatusName.Location = new System.Drawing.Point(114, 165);
+            this.cbApparatusName.Location = new System.Drawing.Point(130, 166);
             this.cbApparatusName.Margin = new System.Windows.Forms.Padding(2);
             this.cbApparatusName.Name = "cbApparatusName";
             this.cbApparatusName.Size = new System.Drawing.Size(325, 27);
@@ -677,7 +709,7 @@
             this.dtpBorrowDate.CustomFormat = "MM/dd/yyyy hh:mm tt";
             this.dtpBorrowDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBorrowDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBorrowDate.Location = new System.Drawing.Point(88, 482);
+            this.dtpBorrowDate.Location = new System.Drawing.Point(85, 468);
             this.dtpBorrowDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBorrowDate.Name = "dtpBorrowDate";
             this.dtpBorrowDate.Size = new System.Drawing.Size(210, 24);
@@ -688,7 +720,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label9.Location = new System.Drawing.Point(84, 458);
+            this.label9.Location = new System.Drawing.Point(81, 444);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 19);
@@ -700,7 +732,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label11.Location = new System.Drawing.Point(84, 160);
+            this.label11.Location = new System.Drawing.Point(100, 161);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(0, 19);
@@ -711,7 +743,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label8.Location = new System.Drawing.Point(84, 128);
+            this.label8.Location = new System.Drawing.Point(81, 129);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(181, 19);
@@ -897,13 +929,26 @@
             this.tbProgram.Size = new System.Drawing.Size(157, 27);
             this.tbProgram.TabIndex = 17;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.Transparent;
+            this.label28.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label28.ForeColor = System.Drawing.Color.Red;
+            this.label28.Location = new System.Drawing.Point(479, 432);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(16, 19);
+            this.label28.TabIndex = 1;
+            this.label28.Text = "*";
+            // 
             // BorrowingApparatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1650, 894);
+            this.ClientSize = new System.Drawing.Size(1650, 965);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -986,5 +1031,8 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label28;
     }
 }

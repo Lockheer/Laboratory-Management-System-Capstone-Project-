@@ -56,15 +56,29 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private int ID;
         private Int64 rowid;
+        private string DecimalPlaceholder = "0.00";
 
         public PenaltiesRecords()
         {
             InitializeComponent();
 
+            UIHelper.SetRoundedCorners(btnAdd, 20);
+            UIHelper.SetRoundedCorners(btnUpdate, 20);
+            UIHelper.SetRoundedCorners(btnDelete, 20);
+            UIHelper.SetRoundedCorners(btnSendEmail, 20);
+            UIHelper.SetRoundedCorners(btnDetails, 20);
+            UIHelper.SetRoundedCorners(panel2, 30);
+            UIHelper.SetRoundedCorners(panel3, 30);
+
             // Attach event handlers
             tbAmtToBe.TextChanged += tbAmount_TextChanged;
             tbAmtPayed.TextChanged += tbAmount_TextChanged;
             cbTransact.SelectedIndexChanged += cbTransact_SelectedIndexChanged;
+            // Add focus event handlers
+            tbAmtToBe.Enter += tbAmtToBe_Enter;
+            tbAmtToBe.Leave += tbAmtToBe_Leave;
+            tbAmtPayed.Enter += tbAmtPayed_Enter;
+            tbAmtPayed.Leave += tbAmtPayed_Leave;
         }
 
         private void PenaltiesRecords_Load(object sender, EventArgs e)
@@ -74,11 +88,97 @@ namespace Laboratory_Management_System__Capstone_Project_
             btnDelete.Hide();
             panelPayment.Visible = false;
             cbCondition.SelectedIndexChanged += cbCondition_SelectedIndexChanged;
-
+            // Set placeholder text
+            tbAmtToBe.Text = "0.00";
+            tbAmtPayed.Text = "0.00";
+            panel2.Visible = false;
             // Load Penalties data and Transaction IDs into ComboBox
             LoadPenaltiesData();
             LoadTransactionIDs();
         }
+
+        private void SetPlaceHolder()
+        {
+            if (string.IsNullOrWhiteSpace(tbAmtToBe.Text))
+            {
+                tbAmtToBe.Text = DecimalPlaceholder;
+                tbAmtToBe.ForeColor = Color.Gray;
+            }
+            else
+            {
+                tbAmtToBe.ForeColor = Color.Black;
+            }
+
+            if (string.IsNullOrWhiteSpace(tbAmtPayed.Text))
+            {
+                tbAmtPayed.Text = DecimalPlaceholder;
+                tbAmtPayed.ForeColor = Color.Gray;
+            }
+            else
+            {
+                tbAmtPayed.ForeColor = Color.Black;
+            }
+        }
+
+        //Placeholder event handlers
+        private void tbAmtToBe_Enter(object sender, EventArgs e)
+        {
+            if (tbAmtToBe.Text == DecimalPlaceholder)
+            {
+                tbAmtToBe.Text = ""; // Clear placeholder
+                tbAmtToBe.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbAmtToBe_Leave(object sender, EventArgs e)
+        {
+            SetPlaceHolder();
+            string value = tbAmtToBe.Text;
+            bool thereIsDecimal = false;
+            
+            foreach (char c in value)
+            {
+                if (c == '.')
+                {
+                    thereIsDecimal = true;
+                }
+            }
+            if (thereIsDecimal == false && tbAmtToBe.Text != "")
+            {
+                tbAmtToBe.Text = value + ".00";
+            }
+
+        }
+
+        private void tbAmtPayed_Enter(object sender, EventArgs e)
+        {
+            if (tbAmtPayed.Text == DecimalPlaceholder)
+            {
+                tbAmtPayed.Text = ""; // Clear placeholder
+                tbAmtPayed.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbAmtPayed_Leave(object sender, EventArgs e)
+        {
+            SetPlaceHolder();
+            string value = tbAmtPayed.Text;
+            bool thereIsDecimal = false;
+
+            foreach (char c in value)
+            {
+                if (c == '.')
+                {
+                    thereIsDecimal = true;
+                }
+            }
+            if (thereIsDecimal == false && tbAmtPayed.Text != "")
+            {
+                tbAmtPayed.Text = value + ".00";
+            }
+
+        }
+
 
         private void LoadPenaltiesData()
         {
@@ -127,12 +227,67 @@ namespace Laboratory_Management_System__Capstone_Project_
         private void cbCondition_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool isPaymentCondition = cbCondition.SelectedItem != null && (cbCondition.SelectedItem.ToString().Equals("Payment", StringComparison.OrdinalIgnoreCase));
+            bool isItemReplacementCondition = cbCondition.SelectedItem != null &&
+                                      cbCondition.SelectedItem.ToString().Equals("ITEM REPLACEMENT", StringComparison.OrdinalIgnoreCase);
+
 
             panelPayment.Visible = isPaymentCondition;
             tbAmtToBe.Visible = isPaymentCondition;
             tbAmtPayed.Visible = isPaymentCondition;
             lblRemainingBalance.Visible = isPaymentCondition;
+
+            panel2.Visible = isItemReplacementCondition;
+
+            // If the condition is "ITEM REPLACEMENT", load the apparatus name
+            if (isItemReplacementCondition)
+            {
+                // Ensure a transaction is selected
+                if (cbTransact.SelectedItem != null && int.TryParse(cbTransact.SelectedItem.ToString(), out int transactionID))
+                {
+                    LoadApparatusName(transactionID); // Pass the transaction ID
+                }
+                else
+                {
+                    MessageBox.Show("Please select a valid transaction ID.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
             UpdateUnsavedChanges();
+        }
+
+        private void LoadApparatusName(int transactionID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                {
+                    // Update the SQL command to filter by transactionID
+                    SqlCommand cmd = new SqlCommand("SELECT Apparatus_Name FROM BorrowReturnTransaction WHERE transactionID = @TransactionID", con);
+                    cmd.Parameters.AddWithValue("@TransactionID", transactionID); // Add the parameter
+
+                    con.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Clear previous entries
+                        tbApparatusName.Text = string.Empty;
+
+                        // Load the corresponding apparatus name into the TextBox
+                        if (reader.Read()) // Read only the first matching record
+                        {
+                            tbApparatusName.Text = reader["Apparatus_Name"].ToString();
+                        }
+                        else
+                        {
+                            tbApparatusName.Text = "No apparatus found for this transaction.";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading apparatus names: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -158,6 +313,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     Decimal? toPay = null;
                     Decimal? amtPayed = null;
                     Decimal? balance = null;
+                    String itemToReplace = tbApparatusName.Text;
 
                     if (!string.IsNullOrEmpty(tbAmtToBe.Text))
                     {
@@ -201,6 +357,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                         }
                     }
 
+                 
+                   
+
                     String status = cbStatus.Text;
                     if (!int.TryParse(cbTransact.Text, out int transactionID))
                     {
@@ -209,16 +368,12 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
 
 
-                    // Add debugging log to show the values of the inputs
-                    MessageBox.Show($"IDNumber: {idNumber}, StudentName: {studentName}, ContactNumber: {contactNumber}, " +
-                                    $"EmailAddress: {emailAddress}, PenaltyDate: {penaltyDate}, Violation: {violation}, Condition: {condition}, " +
-                                    $"ToPay: {toPay}, AmtPayed: {amtPayed}, Balance: {balance}, Status: {status}, TransactionID: {transactionID}",
-                                    "Debugging Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 
 
                     using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys; integrated security=True"))
                     {
-                        SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], Balance, [Penalty Status],transactionID) " +
-                                                        "VALUES (@IDNumber, @StudentName, @ContactNumber, @EmailAddress, @PenaltyDate, @Violation, @Condition, @ToPay, @AmtPayed, @Balance, @Status, @TransactionID)", con);
+                        SqlCommand cmd = new SqlCommand("INSERT INTO LaboratoryPenalties ([ID Number],[Student Name],[Contact Number],[Email Address],[Penalty Issued Date],[Violation],[Penalty Condition],[Amount to be Paid],[Amount Received], [Item to Replace], Balance, [Penalty Status],transactionID) " +
+                                                        "VALUES (@IDNumber, @StudentName, @ContactNumber, @EmailAddress, @PenaltyDate, @Violation, @Condition, @ToPay, @AmtPayed, @ItemToReplace, @Balance, @Status, @TransactionID)", con);
 
                         // Add parameters with AddWithValue
                         cmd.Parameters.AddWithValue("@IDNumber", idNumber);
@@ -233,6 +388,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         cmd.Parameters.AddWithValue("@ToPay", toPay.HasValue ? (object)toPay.Value : DBNull.Value);
                         cmd.Parameters.AddWithValue("@AmtPayed", amtPayed.HasValue ? (object)amtPayed.Value : DBNull.Value);
                         cmd.Parameters.AddWithValue("@Balance", balance.HasValue ? (object)balance.Value : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@ItemToReplace", string.IsNullOrWhiteSpace(itemToReplace) ? (object)DBNull.Value : itemToReplace); // Handle nullable
                         cmd.Parameters.AddWithValue("@Status", status);
                         cmd.Parameters.AddWithValue("@TransactionID", transactionID);
 
@@ -242,6 +398,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                         // Refresh Data
                         LoadPenaltiesData();
+                        ClearInputs();
                     }
                 }
                 catch (SqlException ex)
@@ -315,6 +472,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                         Decimal? toPay = null;
                         Decimal? amtPayed = null;
                         Decimal? balance = null;
+                        String itemToReplace = tbApparatusName.Text;
 
                         // Validate and parse amounts
                         if (!string.IsNullOrEmpty(tbAmtToBe.Text) && Decimal.TryParse(tbAmtToBe.Text, out Decimal parsedToPay))
@@ -350,7 +508,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
                         using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                         {
-                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToPay, [Amount Received] = @AmtPayed, Balance = @Balance, [Penalty Status] = @Status, transactionID = @TransactionID WHERE PenaltyID = @RowID", con);
+                            SqlCommand cmd = new SqlCommand("UPDATE LaboratoryPenalties SET [ID Number] = @IDNumber, [Student Name] = @StudentName, [Contact Number] = @ContactNumber, [Email Address] = @Email, [Penalty Issued Date] = @PenaltyDate, [Violation] = @Violation, [Penalty Condition] = @Condition, [Amount to be Paid] = @ToPay, [Amount Received] = @AmtPayed, [Item to Replace] = @ItemToReplace, Balance = @Balance, [Penalty Status] = @Status, transactionID = @TransactionID WHERE PenaltyID = @RowID", con);
 
                             // Add parameters with appropriate checks for null values
                             cmd.Parameters.AddWithValue("@IDNumber", tbIDnum.Text);
@@ -365,6 +523,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                             cmd.Parameters.AddWithValue("@ToPay", toPay.HasValue ? (object)toPay.Value : DBNull.Value);
                             cmd.Parameters.AddWithValue("@AmtPayed", amtPayed.HasValue ? (object)amtPayed.Value : DBNull.Value);
                             cmd.Parameters.AddWithValue("@Balance", balance.HasValue ? (object)balance.Value : DBNull.Value);
+                            cmd.Parameters.AddWithValue("@ItemToReplace", string.IsNullOrWhiteSpace(itemToReplace) ? (object)DBNull.Value : itemToReplace); 
                             cmd.Parameters.AddWithValue("@Status", cbStatus.Text);
                             cmd.Parameters.AddWithValue("@TransactionID", int.Parse(cbTransact.Text)); // Ensure this is validated
                             cmd.Parameters.AddWithValue("@RowID", rowid);
@@ -377,8 +536,10 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 MessageBox.Show("The Penalty information has been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 // Refresh Data
                                 LoadPenaltiesData();
+                                ClearInputs();
                                 btnUpdate.Visible = false;
                                 btnDelete.Visible = false;
+                                btnAdd.Visible = true;
                             }
                             else
                             {
@@ -409,31 +570,48 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 try
                 {
-                    using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
+                    if (rowid > 0) // Ensure rowid is set to the correct PenaltyID
                     {
-                        SqlCommand cmd = new SqlCommand("DELETE FROM LaboratoryPenalties WHERE PenaltyID = @RowID", con);
-                        cmd.Parameters.AddWithValue("@RowID", rowid);
-
-                        con.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
+                        using (SqlConnection con = new SqlConnection("data source = LAPTOP-4KSPM38V; database = LabManagSys;integrated security=True"))
                         {
-                            MessageBox.Show("The Penalty record has been removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            // Refresh Data
-                            LoadPenaltiesData();
-                            btnDelete.Enabled = false;
-                            btnUpdate.Enabled = false;
-                        }
-                        else
-                        {
-                            MessageBox.Show("No penalty record found with the specified ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            con.Open();
+
+                            // First, delete related records in PenaltyEmails
+                            SqlCommand deleteEmailsCmd = new SqlCommand("DELETE FROM PenaltyEmails WHERE penaltyID = @RowID", con);
+                            deleteEmailsCmd.Parameters.AddWithValue("@RowID", rowid);
+                            deleteEmailsCmd.ExecuteNonQuery();
+
+                            // Now, delete the penalty record
+                            SqlCommand deletePenaltyCmd = new SqlCommand("DELETE FROM LaboratoryPenalties WHERE PenaltyID = @RowID", con);
+                            deletePenaltyCmd.Parameters.AddWithValue("@RowID", rowid);
+                            int rowsAffected = deletePenaltyCmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("The Penalty record has been removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadPenaltiesData(); // Refresh the DataGridView
+                                btnDelete.Visible = false; // Hide the delete button
+                                btnUpdate.Visible = false; // Hide the update button
+                                btnAdd.Visible = true; // Show the add button
+                            }
+                            else
+                            {
+                                MessageBox.Show("No penalty record found with the specified ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("No record selected for deletion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("SQL Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error deleting penalty record: " + ex.Message);
+                    MessageBox.Show("Error deleting penalty record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -450,6 +628,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     LoadPenaltyDetails(ID);
                     btnUpdate.Visible = true;
                     btnDelete.Visible = true;
+                    btnAdd.Visible = false;
                 }
             }
             catch (FormatException)
@@ -461,6 +640,8 @@ namespace Laboratory_Management_System__Capstone_Project_
                 // General exception handler for any other exceptions
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         private void LoadPenaltyDetails(int penaltyID)
@@ -516,6 +697,16 @@ namespace Laboratory_Management_System__Capstone_Project_
                             else
                             {
                                 lblRemainingBalance.Text = "0.00";
+                            }
+
+                            // Handle Item to Replace
+                            if (reader["Item to Replace"] != DBNull.Value)
+                            {
+                                tbApparatusName.Text = reader["Item to Replace"].ToString();
+                            }
+                            else
+                            {
+                                tbApparatusName.Text = "";
                             }
 
                             cbStatus.Text = reader["Penalty Status"].ToString();
@@ -652,7 +843,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM LaboratoryPenalties WHERE [ID Number] LIKE @SearchText + '%' OR [Student Name] LIKE @SearchText + '%' OR [Penalty Issued Date] LIKE @SearchText + '%'";
+                cmd.CommandText = "SELECT * FROM LaboratoryPenalties WHERE [ID Number] LIKE @SearchText + '%' OR [Student Name] LIKE @SearchText + '%' OR [Penalty Issued Date] LIKE @SearchText + '%' OR [Violation] LIKE @SearchText + '%' " +
+                    "OR [Penalty Status] LIKE @SearchText + '%' OR [Contact Number] LIKE @SearchText + '%' OR [Email Address] LIKE @SearchText + '%' OR [Item to Replace] LIKE @SearchText + '%' OR [Balance] LIKE @SearchText + '%'";
                 cmd.Parameters.AddWithValue("@SearchText", searchText);
 
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
@@ -713,6 +905,23 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+        private void ClearInputs()
+        {
+            tbIDnum.Clear();
+            tbStudentName.Clear();
+            tbContact.Clear();
+            tbEmail.Clear();
+            dtpPenaltyDate.Value = DateTime.Now; 
+            tbViolation.Clear();
+            cbCondition.SelectedIndex = -1; // Clear selection
+            tbAmtToBe.Text = "0.00"; 
+            tbAmtPayed.Text = "0.00"; 
+            lblRemainingBalance.Text = "0.00"; 
+            tbApparatusName.Clear();
+            cbStatus.SelectedIndex = -1; 
+            cbTransact.SelectedIndex = -1; 
+        }
+
         private void tbIDnum_TextChanged(object sender, EventArgs e)
         {
             UpdateUnsavedChanges();
@@ -743,7 +952,7 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             UpdateUnsavedChanges();
         }
-
+                
         private void tbAmtPayed_TextChanged(object sender, EventArgs e)
         {
             UpdateUnsavedChanges();
@@ -754,10 +963,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             UpdateUnsavedChanges();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+      
+
+      
     }
 }
 

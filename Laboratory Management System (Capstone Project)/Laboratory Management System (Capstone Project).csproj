@@ -193,6 +193,12 @@
     </Compile>
     <Compile Include="smtp_Framework.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startup.Designer.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransactionDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SendingForm.resx">
       <DependentUpon>SendingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Startup.resx">
+      <DependentUpon>Startup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionDetails.resx">
       <DependentUpon>TransactionDetails.cs</DependentUpon>
@@ -408,6 +417,8 @@
     <None Include="Resources\report21.png" />
     <None Include="Resources\Vector %285%29.png" />
     <None Include="Resources\hand_down_l.png" />
+    <None Include="Resources\icon_bg.png" />
+    <None Include="Resources\icon_startup4.gif" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -74,21 +74,20 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbPrice.Leave += tbPrice_Leave;
             SetPlaceholderText();
 
-            UIHelper.SetRoundedCorners(panel1, 50);
             UIHelper.SetRoundedCorners(btnUpdate, 20);
             UIHelper.SetRoundedCorners(btnDelete, 20);
             UIHelper.SetRoundedCorners(btnExport, 20);
+            UIHelper.SetRoundedCorners(btnRefresh, 20);
 
-            UIHelper.MakeRoundedTextBox(tbAppaSearch, 10);
-            UIHelper.MakeRoundedTextBox(tbAppName, 10);
-            UIHelper.MakeRoundedTextBox(tbModelNum, 10);
-            UIHelper.MakeRoundedTextBox(tbPurchaseDate, 10);
-            UIHelper.MakeRoundedTextBox(tbQuantity, 10);
+            UIHelper.SetRoundedCorners(panel1, 50);
+            UIHelper.SetRoundedCorners(panel3, 30);
+            UIHelper.SetRoundedCorners(panel2, 30);
+
+            UIHelper.SetShadow(panel1);
 
             UIHelper.SetRoundedComboBox(cbCategoryFilter, 20);
             UIHelper.SetRoundedComboBox(cbStatusFilter, 20);
-
-            UIHelper.MakeRoundedTextBox(tbBrand, 10);
+            UIHelper.MakeRoundedTextBox(tbAppaSearch, 10);
 
             ViewApparatus_Load(this, null);
         }
@@ -330,6 +329,8 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
+                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
                 if (dgvApparatusList.Rows.Count > 0) // Check if there are records to export
                 {
                     using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Excel Workbook|*.xlsx", FileName = "InventoryList.xlsx" })
@@ -587,74 +588,3 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
 
-/*
-private void btnExport_Click(object sender, EventArgs e)
-{
-    try
-    {
-        if (dgvApparatusList.Rows.Count > 0)
-        {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "InventoryList.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    using (ExcelPackage excelPackage = new ExcelPackage())
-                    {
-                        // Set the license context for EPPlus
-                        ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
-
-                        // Create a worksheet
-                        ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Inventory List");
-
-                        // Load DataGridView data into DataTable
-                        DataTable dt = new DataTable();
-
-                        // Add columns
-                        foreach (DataGridViewColumn column in dgvApparatusList.Columns)
-                        {
-                            dt.Columns.Add(column.HeaderText, typeof(string));
-                        }
-
-                        // Add rows
-                        foreach (DataGridViewRow row in dgvApparatusList.Rows)
-                        {
-                            dt.Rows.Add(row.Cells.Cast<DataGridViewCell>().Select(cell => cell.Value?.ToString() ?? "").ToArray());
-                        }
-
-                        // Load data into worksheet
-                        worksheet.Cells["A1"].LoadFromDataTable(dt, true);
-
-                        // Format the header
-                        using (ExcelRange headerRange = worksheet.Cells[1, 1, 1, dt.Columns.Count])
-                        {
-                            headerRange.Style.Font.Bold = true;
-                            headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                            headerRange.Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
-                            headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                            headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                            headerRange.AutoFitColumns();
-                        }
-
-                        // Auto-fit all columns
-                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
-
-                        // Save the Excel file
-                        FileInfo fi = new FileInfo(sfd.FileName);
-                        excelPackage.SaveAs(fi);
-
-                        MessageBox.Show("Data Exported Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-        }
-        else
-        {
-            MessageBox.Show("No records to export.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("An error occurred while exporting data:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-}
-*/

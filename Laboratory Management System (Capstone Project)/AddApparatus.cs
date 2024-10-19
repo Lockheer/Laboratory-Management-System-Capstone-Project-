@@ -19,7 +19,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private List<string> categoryList = new List<string>();
 
-        private string PlaceHolderText = "000.00";
+        private string PlaceHolderText = "0.00";
         public AddApparatus()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             // Set the initial placeholder text
             SetPlaceholderText();
 
-            UIHelper.SetRoundedCorners(btnSave, 10);
+            UIHelper.SetRoundedCorners(btnSave, 20);
             UIHelper.SetRoundedCorners(lnklblRefresh, 10);
             UIHelper.SetRoundedCorners(panel2, 30);
             UIHelper.SetRoundedCorners(btnXMark, 30);

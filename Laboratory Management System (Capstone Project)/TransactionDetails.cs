@@ -24,7 +24,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetRoundedCorners(btnExport, 20);
             UIHelper.SetRoundedCorners(btnPrint, 20);
 
-            UIHelper.SetRoundedComboBox(cmbViewOptions, 10);
+            UIHelper.SetRoundedComboBox(cmbViewOptions, 20);
         }
 
         private void TransactionDetails_Load(object sender, EventArgs e)
@@ -615,7 +615,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             btnPrint.Visible = false;
             this.ControlBox = true;        
             this.MaximizeBox = false;      
-            this.MinimizeBox = true;       
+            this.MinimizeBox = true;
+            this.Name = "Details Page";
             // Ensure form is resizable (standard window with borders)
             this.FormBorderStyle = FormBorderStyle.Sizable;
 
@@ -630,10 +631,35 @@ namespace Laboratory_Management_System__Capstone_Project_
                 "Returned Items"
             });
             cmbViewOptions.SelectedIndex = 0; // Default selection
+            RestrictControls(); 
+        }
+
+        private void RestrictControls()
+        {
+            try
+            {
+                lblBorrow.Visible = dgvBorrowDetails.Visible = cmbViewOptions.SelectedIndex == 0;
+                lblReturn.Visible = dgvReturnDetails.Visible = cmbViewOptions.SelectedIndex == 1;
+              
+
+                switch (cmbViewOptions.SelectedIndex)
+                {
+                    case 0:
+                        currentDataGridView = dgvBorrowDetails;
+                        break;
+                    case 1:
+                        currentDataGridView = dgvReturnDetails;
+                        break;
+                  
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while displaying the data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
-        
         private void cmbViewOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayDataGridView();

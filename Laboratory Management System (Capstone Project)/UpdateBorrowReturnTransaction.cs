@@ -24,15 +24,18 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
-            UIHelper.MakeRoundedTextBox(tbSearch, 10);
+            UIHelper.MakeRoundedTextBox(tbSearch, 20);
             UIHelper.SetRoundedCorners(this, 50);
 
-            UIHelper.SetRoundedCorners(btnExportToExcel, 10);
-            UIHelper.SetRoundedCorners(btnDelete, 10);
-            UIHelper.SetRoundedCorners(btnUpdate, 10);
-            UIHelper.SetRoundedCorners(btnRefresh, 10);
+            UIHelper.SetRoundedCorners(btnExportToExcel, 20);
+            UIHelper.SetRoundedCorners(btnDelete, 20);
+            UIHelper.SetRoundedCorners(btnUpdate, 20);
+            UIHelper.SetRoundedCorners(btnRefresh, 20);
 
-            UIHelper.MakeRoundedTextBox(tbStudentName, 10);
+            UIHelper.SetRoundedCorners(pnelUPDATE, 30);
+            UIHelper.SetRoundedCorners(panel3, 30);
+
+            UIHelper.MakeRoundedTextBox(tbStudentName, 20);
         }
 
         private bool _hasUnsavedChanges = false;

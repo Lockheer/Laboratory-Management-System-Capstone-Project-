@@ -28,14 +28,12 @@ namespace Laboratory_Management_System__Capstone_Project_
             InitializeComponent();
             this.dashboard = dashboard;
 
-            UIHelper.SetGradientBackground(panel1, Color.Red, Color.FromArgb(176, 16, 16), LinearGradientMode.Vertical);
-
-            UIHelper.SetRoundedCorners(btnProceed, 20);
-            UIHelper.SetRoundedCorners(panelGradient, 50);
-
+            UIHelper.SetGradientBackground(panelGradient, Color.Red, Color.FromArgb(176, 16, 16), LinearGradientMode.Vertical);
+            UIHelper.SetRoundedCorners(panel1, 50);
+            UIHelper.SetRoundedCorners(btnProceed, 10);
             UIHelper.SetFormStartLocation(this, 330, 127);
 
-            UIHelper.SetShadow(panelGradient);
+            UIHelper.SetShadow(panel1);
         }
 
         private void btnProceed_Click(object sender, EventArgs e)

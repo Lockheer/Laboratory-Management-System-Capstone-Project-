@@ -145,6 +145,7 @@ Create Table LaboratoryPenalties (
 [Amount to be Paid] decimal(18, 2), 
 [Amount Received] decimal(18, 2), 
 [Penalty Status] varchar(250) not null,
+[Item to Replace] varchar(120) null,
 [Balance] decimal (18,2),
 
 --Referencial Foreign Key--

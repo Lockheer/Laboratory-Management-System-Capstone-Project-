@@ -24,8 +24,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             this.email = email;
             send(email);
             
-            UIHelper.SetRoundedCorners(this, 30);
+            UIHelper.SetRoundedCorners(this, 50);
             UIHelper.SetRoundedCorners(btnVerify, 20);
+            UIHelper.SetShadow(panel1);
         }
 
         private void send(string email)

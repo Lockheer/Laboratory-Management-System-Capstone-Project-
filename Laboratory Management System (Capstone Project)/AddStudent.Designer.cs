@@ -74,8 +74,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_main;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main_apparatus;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.btnExit);
@@ -279,7 +279,7 @@
             "College Of Education",
             "College Of Computer Studies",
             "Senior High School Branch"});
-            this.cbDepartment.Location = new System.Drawing.Point(172, 224);
+            this.cbDepartment.Location = new System.Drawing.Point(171, 224);
             this.cbDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cbDepartment.Name = "cbDepartment";
             this.cbDepartment.Size = new System.Drawing.Size(245, 27);
@@ -308,7 +308,7 @@
             "BSIE",
             "BSCE",
             "SHS"});
-            this.cbProgram.Location = new System.Drawing.Point(172, 189);
+            this.cbProgram.Location = new System.Drawing.Point(171, 189);
             this.cbProgram.Margin = new System.Windows.Forms.Padding(2);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(143, 27);
@@ -453,7 +453,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1650, 931);
+            this.ClientSize = new System.Drawing.Size(1650, 990);
             this.Controls.Add(this.top);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

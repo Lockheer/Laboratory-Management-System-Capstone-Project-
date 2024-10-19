@@ -39,10 +39,10 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewPenaltyRecords)).BeginInit();
             this.panel1.SuspendLayout();
@@ -57,7 +57,7 @@
             this.btnTransactDetails.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
             this.btnTransactDetails.ForeColor = System.Drawing.Color.White;
             this.btnTransactDetails.Location = new System.Drawing.Point(104, 180);
-            this.btnTransactDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTransactDetails.Margin = new System.Windows.Forms.Padding(2);
             this.btnTransactDetails.Name = "btnTransactDetails";
             this.btnTransactDetails.Size = new System.Drawing.Size(153, 123);
             this.btnTransactDetails.TabIndex = 14;
@@ -73,7 +73,7 @@
             this.btnSendEmail.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnSendEmail.ForeColor = System.Drawing.Color.White;
             this.btnSendEmail.Location = new System.Drawing.Point(91, 841);
-            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(2);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(188, 39);
             this.btnSendEmail.TabIndex = 13;
@@ -86,7 +86,7 @@
             this.tbMessageContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbMessageContent.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.tbMessageContent.Location = new System.Drawing.Point(35, 512);
-            this.tbMessageContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMessageContent.Margin = new System.Windows.Forms.Padding(2);
             this.tbMessageContent.Multiline = true;
             this.tbMessageContent.Name = "tbMessageContent";
             this.tbMessageContent.Size = new System.Drawing.Size(304, 297);
@@ -123,7 +123,7 @@
             this.tbEmailRecipient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbEmailRecipient.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.tbEmailRecipient.Location = new System.Drawing.Point(34, 433);
-            this.tbEmailRecipient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEmailRecipient.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmailRecipient.Name = "tbEmailRecipient";
             this.tbEmailRecipient.Size = new System.Drawing.Size(305, 27);
             this.tbEmailRecipient.TabIndex = 9;
@@ -132,7 +132,7 @@
             // 
             this.dgvViewPenaltyRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViewPenaltyRecords.Location = new System.Drawing.Point(367, 147);
-            this.dgvViewPenaltyRecords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvViewPenaltyRecords.Margin = new System.Windows.Forms.Padding(2);
             this.dgvViewPenaltyRecords.Name = "dgvViewPenaltyRecords";
             this.dgvViewPenaltyRecords.RowHeadersWidth = 51;
             this.dgvViewPenaltyRecords.RowTemplate.Height = 24;
@@ -164,7 +164,7 @@
             this.btnMinimize.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Bold);
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Location = new System.Drawing.Point(1299, 29);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(38, 37);
             this.btnMinimize.TabIndex = 19;
@@ -181,7 +181,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(1350, 28);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(38, 37);
             this.btnExit.TabIndex = 19;
@@ -192,7 +192,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main_apparatus;
+            this.panel1.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.btnTransactDetails);
             this.panel1.Controls.Add(this.label5);
@@ -214,29 +214,18 @@
             this.panel1.Size = new System.Drawing.Size(1432, 914);
             this.panel1.TabIndex = 20;
             // 
-            // label18
+            // label5
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(170, 91);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(169, 19);
-            this.label18.TabIndex = 24;
-            this.label18.Text = "Penalty and Violations";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.warning_big_1;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(42, 29);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(120, 103);
-            this.pictureBox2.TabIndex = 54;
-            this.pictureBox2.TabStop = false;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(110, 480);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 19);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "*";
             // 
             // label4
             // 
@@ -251,18 +240,29 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "*";
             // 
-            // label5
+            // pictureBox2
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(110, 480);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(16, 19);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "*";
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.warning_big_1;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(42, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(120, 103);
+            this.pictureBox2.TabIndex = 54;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(170, 91);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(169, 19);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "Penalty and Violations";
             // 
             // label7
             // 
@@ -284,7 +284,7 @@
             this.ClientSize = new System.Drawing.Size(1829, 1084);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PenaltyEmail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Send an Email";

@@ -60,24 +60,24 @@
             // 
             this.dgvBorrowDetails.AllowUserToOrderColumns = true;
             this.dgvBorrowDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBorrowDetails.Location = new System.Drawing.Point(39, 180);
+            this.dgvBorrowDetails.Location = new System.Drawing.Point(39, 174);
             this.dgvBorrowDetails.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBorrowDetails.Name = "dgvBorrowDetails";
             this.dgvBorrowDetails.RowHeadersWidth = 51;
             this.dgvBorrowDetails.RowTemplate.Height = 24;
-            this.dgvBorrowDetails.Size = new System.Drawing.Size(1454, 710);
+            this.dgvBorrowDetails.Size = new System.Drawing.Size(1454, 677);
             this.dgvBorrowDetails.TabIndex = 0;
             // 
             // dgvReturnDetails
             // 
             this.dgvReturnDetails.AllowUserToOrderColumns = true;
             this.dgvReturnDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReturnDetails.Location = new System.Drawing.Point(39, 180);
+            this.dgvReturnDetails.Location = new System.Drawing.Point(39, 174);
             this.dgvReturnDetails.Margin = new System.Windows.Forms.Padding(2);
             this.dgvReturnDetails.Name = "dgvReturnDetails";
             this.dgvReturnDetails.RowHeadersWidth = 51;
             this.dgvReturnDetails.RowTemplate.Height = 24;
-            this.dgvReturnDetails.Size = new System.Drawing.Size(1454, 710);
+            this.dgvReturnDetails.Size = new System.Drawing.Size(1454, 677);
             this.dgvReturnDetails.TabIndex = 1;
             // 
             // lblBorrow
@@ -109,12 +109,12 @@
             // 
             this.dgvViolationRecords.AllowUserToOrderColumns = true;
             this.dgvViolationRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvViolationRecords.Location = new System.Drawing.Point(39, 180);
+            this.dgvViolationRecords.Location = new System.Drawing.Point(39, 174);
             this.dgvViolationRecords.Margin = new System.Windows.Forms.Padding(2);
             this.dgvViolationRecords.Name = "dgvViolationRecords";
             this.dgvViolationRecords.RowHeadersWidth = 51;
             this.dgvViolationRecords.RowTemplate.Height = 24;
-            this.dgvViolationRecords.Size = new System.Drawing.Size(1454, 710);
+            this.dgvViolationRecords.Size = new System.Drawing.Size(1454, 677);
             this.dgvViolationRecords.TabIndex = 40;
             // 
             // lblViolation
@@ -171,12 +171,12 @@
             // 
             this.dgvInventory.AllowUserToOrderColumns = true;
             this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventory.Location = new System.Drawing.Point(39, 180);
+            this.dgvInventory.Location = new System.Drawing.Point(39, 174);
             this.dgvInventory.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInventory.Name = "dgvInventory";
             this.dgvInventory.RowHeadersWidth = 51;
             this.dgvInventory.RowTemplate.Height = 24;
-            this.dgvInventory.Size = new System.Drawing.Size(1454, 710);
+            this.dgvInventory.Size = new System.Drawing.Size(1454, 677);
             this.dgvInventory.TabIndex = 45;
             // 
             // lblStudents
@@ -195,12 +195,12 @@
             // 
             this.dgvStudents.AllowUserToOrderColumns = true;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(39, 180);
+            this.dgvStudents.Location = new System.Drawing.Point(39, 174);
             this.dgvStudents.Margin = new System.Windows.Forms.Padding(2);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 24;
-            this.dgvStudents.Size = new System.Drawing.Size(1454, 710);
+            this.dgvStudents.Size = new System.Drawing.Size(1454, 677);
             this.dgvStudents.TabIndex = 47;
             // 
             // label1
@@ -254,9 +254,9 @@
             this.panel1.Controls.Add(this.dgvInventory);
             this.panel1.Controls.Add(this.dgvViolationRecords);
             this.panel1.Controls.Add(this.dgvBorrowDetails);
-            this.panel1.Location = new System.Drawing.Point(61, 21);
+            this.panel1.Location = new System.Drawing.Point(37, 131);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1540, 932);
+            this.panel1.Size = new System.Drawing.Size(1540, 889);
             this.panel1.TabIndex = 51;
             // 
             // pictureBox2
@@ -301,7 +301,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1829, 1084);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

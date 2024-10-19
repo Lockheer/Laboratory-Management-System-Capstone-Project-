@@ -35,9 +35,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelGradient = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panelGradient = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelGradient.SuspendLayout();
@@ -76,7 +76,7 @@
             this.btnProceed.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold);
             this.btnProceed.ForeColor = System.Drawing.Color.White;
             this.btnProceed.Location = new System.Drawing.Point(197, 432);
-            this.btnProceed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProceed.Margin = new System.Windows.Forms.Padding(2);
             this.btnProceed.Name = "btnProceed";
             this.btnProceed.Size = new System.Drawing.Size(137, 30);
             this.btnProceed.TabIndex = 2;
@@ -89,7 +89,7 @@
             this.tbConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbConfirmPass.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.tbConfirmPass.Location = new System.Drawing.Point(197, 379);
-            this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(2);
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(234, 27);
             this.tbConfirmPass.TabIndex = 3;
@@ -121,6 +121,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.tbConfirmPass);
@@ -135,14 +136,17 @@
             this.panel1.Size = new System.Drawing.Size(533, 486);
             this.panel1.TabIndex = 6;
             // 
-            // panelGradient
+            // label5
             // 
-            this.panelGradient.BackColor = System.Drawing.Color.Red;
-            this.panelGradient.Controls.Add(this.pictureBox2);
-            this.panelGradient.Location = new System.Drawing.Point(0, 0);
-            this.panelGradient.Name = "panelGradient";
-            this.panelGradient.Size = new System.Drawing.Size(537, 155);
-            this.panelGradient.TabIndex = 6;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(157, 184);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(208, 48);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "WARNING!";
             // 
             // label6
             // 
@@ -156,17 +160,14 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "*";
             // 
-            // label5
+            // panelGradient
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(157, 184);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(208, 48);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "WARNING!";
+            this.panelGradient.BackColor = System.Drawing.Color.Red;
+            this.panelGradient.Controls.Add(this.pictureBox2);
+            this.panelGradient.Location = new System.Drawing.Point(0, 0);
+            this.panelGradient.Name = "panelGradient";
+            this.panelGradient.Size = new System.Drawing.Size(537, 155);
+            this.panelGradient.TabIndex = 6;
             // 
             // pictureBox2
             // 
@@ -187,7 +188,7 @@
             this.ClientSize = new System.Drawing.Size(1650, 955);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VerificationForUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verification";

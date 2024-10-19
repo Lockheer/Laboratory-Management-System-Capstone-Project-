@@ -61,12 +61,15 @@
             this.dgvStudentsInformation = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsInformation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,9 +89,10 @@
             this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Controls.Add(this.dgvStudentsInformation);
             this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(91, 128);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1432, 914);
+            this.panel1.Size = new System.Drawing.Size(1432, 880);
             this.panel1.TabIndex = 8;
             // 
             // panel2
@@ -111,7 +115,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(310, 627);
+            this.panel2.Location = new System.Drawing.Point(310, 604);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1086, 252);
@@ -184,7 +188,7 @@
             this.btnClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnClosePanel.ForeColor = System.Drawing.Color.Red;
-            this.btnClosePanel.Location = new System.Drawing.Point(992, 17);
+            this.btnClosePanel.Location = new System.Drawing.Point(1033, 18);
             this.btnClosePanel.Margin = new System.Windows.Forms.Padding(2);
             this.btnClosePanel.Name = "btnClosePanel";
             this.btnClosePanel.Size = new System.Drawing.Size(38, 33);
@@ -381,7 +385,7 @@
             this.btnClearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearAll.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnClearAll.ForeColor = System.Drawing.Color.White;
-            this.btnClearAll.Location = new System.Drawing.Point(73, 841);
+            this.btnClearAll.Location = new System.Drawing.Point(73, 820);
             this.btnClearAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(177, 38);
@@ -472,7 +476,7 @@
             this.dgvStudentsInformation.Name = "dgvStudentsInformation";
             this.dgvStudentsInformation.RowHeadersWidth = 51;
             this.dgvStudentsInformation.RowTemplate.Height = 24;
-            this.dgvStudentsInformation.Size = new System.Drawing.Size(1086, 753);
+            this.dgvStudentsInformation.Size = new System.Drawing.Size(1086, 461);
             this.dgvStudentsInformation.TabIndex = 4;
             this.dgvStudentsInformation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudentsInformation_CellClick);
             // 
@@ -501,6 +505,26 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Location = new System.Drawing.Point(311, 605);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1086, 252);
+            this.panel3.TabIndex = 22;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label15.Location = new System.Drawing.Point(305, 117);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(489, 33);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Student Information window goes here:";
+            // 
             // ViewStudentInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,6 +548,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsInformation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -561,5 +587,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label15;
     }
 }

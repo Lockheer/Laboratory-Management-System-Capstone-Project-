@@ -19,10 +19,12 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
 
-            UIHelper.SetRoundedCorners(btnTransactDetails, 20);
+            UIHelper.SetRoundedCorners(btnTransactDetails, 270);
             UIHelper.SetRoundedCorners(btnSendEmail, 20);
             UIHelper.MakeRoundedTextBox(tbEmailRecipient, 10);
             UIHelper.MakeRoundedTextBox(tbMessageContent, 10);
+
+            UIHelper.SetShadow(panel1);
 
             UIHelper.SetRoundedCorners(btnExit, 30);
             UIHelper.SetRoundedCorners(panel1, 50);

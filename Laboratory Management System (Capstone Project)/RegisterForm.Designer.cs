@@ -65,7 +65,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
@@ -202,7 +201,6 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label20);
             this.panel2.Controls.Add(this.lblInfo);
-            this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.tbFirstName);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.tbLastName);
@@ -579,19 +577,6 @@
             this.lblInfo.TabIndex = 39;
             this.lblInfo.Text = "REGISTRATION";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(173, 271);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(16, 19);
-            this.label15.TabIndex = 53;
-            this.label15.Text = "*";
-            // 
             // tbFirstName
             // 
             this.tbFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -723,12 +708,13 @@
             // 
             // groupGender
             // 
-            this.groupGender.BackColor = System.Drawing.Color.Transparent;
+            this.groupGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(49)))), ((int)(((byte)(163)))));
             this.groupGender.Controls.Add(this.radiobtnFemale);
             this.groupGender.Controls.Add(this.radiobtnMale);
             this.groupGender.Controls.Add(this.lblGender);
             this.groupGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupGender.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.groupGender.ForeColor = System.Drawing.Color.Transparent;
             this.groupGender.Location = new System.Drawing.Point(206, 386);
             this.groupGender.Margin = new System.Windows.Forms.Padding(2);
             this.groupGender.Name = "groupGender";
@@ -986,7 +972,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
     }
