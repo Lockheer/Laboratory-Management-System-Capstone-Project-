@@ -943,9 +943,11 @@ namespace Laboratory_Management_System__Capstone_Project_
             UpdateUnsavedChanges();
         }
 
-      
+        private void lnklblClear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
 
-      
+            ClearInputs();
+        }
     }
 }
 

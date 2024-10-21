@@ -51,19 +51,27 @@
             // 
             this.tbAdminUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbAdminUsername.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.tbAdminUsername.ForeColor = System.Drawing.Color.Gray;
             this.tbAdminUsername.Location = new System.Drawing.Point(106, 298);
             this.tbAdminUsername.Name = "tbAdminUsername";
             this.tbAdminUsername.Size = new System.Drawing.Size(238, 32);
             this.tbAdminUsername.TabIndex = 1;
+            this.tbAdminUsername.Text = "ID-Number";
+            this.tbAdminUsername.Enter += new System.EventHandler(this.tbAdminUsername_Enter);
+            this.tbAdminUsername.Leave += new System.EventHandler(this.tbAdminUsername_Leave);
             // 
             // tbAdminPass
             // 
             this.tbAdminPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbAdminPass.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.tbAdminPass.ForeColor = System.Drawing.Color.Gray;
             this.tbAdminPass.Location = new System.Drawing.Point(106, 381);
             this.tbAdminPass.Name = "tbAdminPass";
             this.tbAdminPass.Size = new System.Drawing.Size(238, 32);
             this.tbAdminPass.TabIndex = 2;
+            this.tbAdminPass.Text = "Password";
+            this.tbAdminPass.Enter += new System.EventHandler(this.tbAdminPass_Enter);
+            this.tbAdminPass.Leave += new System.EventHandler(this.tbAdminPass_Leave);
             // 
             // label1
             // 

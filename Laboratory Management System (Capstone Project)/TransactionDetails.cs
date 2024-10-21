@@ -725,7 +725,10 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 
 }   

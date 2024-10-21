@@ -25,7 +25,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(btnUpdate, 20);
             UIHelper.SetRoundedCorners(btnDelete, 20);
-            UIHelper.SetRoundedCorners(btnRefresh, 20);
+          
             UIHelper.SetRoundedCorners(btnExport, 20);
 
             UIHelper.SetRoundedCorners(panel3, 30);
@@ -356,8 +356,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            tbStudentSearch.Clear();
-            ViewStudentInformation_Load(this, null);
+
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)
@@ -368,7 +367,9 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbContactNum.Clear();
             cbProgram.SelectedIndex = -1;
             cbDept.SelectedIndex = -1;
-           
+            tbStudentSearch.Clear();
+            ViewStudentInformation_Load(this, null);
+
         }
 
      
@@ -608,6 +609,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             panel2.Visible = false;
         }
 
-      
+     
     }
 }

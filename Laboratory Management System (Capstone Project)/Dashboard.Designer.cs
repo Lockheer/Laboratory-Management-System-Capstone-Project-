@@ -528,7 +528,7 @@
             this.menuStrip3.Location = new System.Drawing.Point(30, 40);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip3.Size = new System.Drawing.Size(317, 784);
+            this.menuStrip3.Size = new System.Drawing.Size(323, 784);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -628,7 +628,7 @@
             this.borrowTransactionToolStripMenuItem.Name = "borrowTransactionToolStripMenuItem";
             this.borrowTransactionToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
             this.borrowTransactionToolStripMenuItem.Size = new System.Drawing.Size(316, 98);
-            this.borrowTransactionToolStripMenuItem.Text = "Borrow Issuing";
+            this.borrowTransactionToolStripMenuItem.Text = "Borrow Apparatus";
             this.borrowTransactionToolStripMenuItem.Click += new System.EventHandler(this.borrowTransactionToolStripMenuItem_Click);
             // 
             // returnRecordsToolStripMenuItem
@@ -641,7 +641,7 @@
             this.returnRecordsToolStripMenuItem.Name = "returnRecordsToolStripMenuItem";
             this.returnRecordsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
             this.returnRecordsToolStripMenuItem.Size = new System.Drawing.Size(316, 98);
-            this.returnRecordsToolStripMenuItem.Text = "Return Transaction";
+            this.returnRecordsToolStripMenuItem.Text = "Return Apparatus";
             this.returnRecordsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.returnRecordsToolStripMenuItem.Click += new System.EventHandler(this.returnRecordsToolStripMenuItem_Click);
             // 
@@ -654,8 +654,8 @@
             this.updateTransactionsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.updateTransactionsToolStripMenuItem.Name = "updateTransactionsToolStripMenuItem";
             this.updateTransactionsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.updateTransactionsToolStripMenuItem.Size = new System.Drawing.Size(316, 92);
-            this.updateTransactionsToolStripMenuItem.Text = "Update Transactions     ";
+            this.updateTransactionsToolStripMenuItem.Size = new System.Drawing.Size(322, 92);
+            this.updateTransactionsToolStripMenuItem.Text = "Manage Transactions     ";
             this.updateTransactionsToolStripMenuItem.Click += new System.EventHandler(this.updateTransactionsToolStripMenuItem_Click);
             // 
             // comToolStripMenuItem
@@ -667,8 +667,8 @@
             this.comToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.comToolStripMenuItem.Name = "comToolStripMenuItem";
             this.comToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.comToolStripMenuItem.Size = new System.Drawing.Size(316, 100);
-            this.comToolStripMenuItem.Text = " Report Details";
+            this.comToolStripMenuItem.Size = new System.Drawing.Size(322, 100);
+            this.comToolStripMenuItem.Text = " View Details";
             this.comToolStripMenuItem.Click += new System.EventHandler(this.comToolStripMenuItem_Click);
             // 
             // penaltyRecordsToolStripMenuItem

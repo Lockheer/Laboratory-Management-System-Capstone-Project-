@@ -276,12 +276,12 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(176, 102);
+            this.label4.Location = new System.Drawing.Point(167, 102);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 19);
+            this.label4.Size = new System.Drawing.Size(98, 19);
             this.label4.TabIndex = 51;
-            this.label4.Text = "Report Details";
+            this.label4.Text = "View Details";
             // 
             // label2
             // 
@@ -289,12 +289,13 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(173, 61);
+            this.label2.Location = new System.Drawing.Point(164, 61);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(311, 41);
+            this.label2.Size = new System.Drawing.Size(317, 41);
             this.label2.TabIndex = 52;
-            this.label2.Text = "Transaction Details";
+            this.label2.Text = "View Details Listing";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // TransactionDetails
             // 

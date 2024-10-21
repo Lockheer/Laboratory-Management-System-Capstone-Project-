@@ -58,7 +58,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
 
         private List<string> categoryList = new List<string>();
-        private const string PlaceholderText = "000.00";
+        private const string PlaceholderText = "00.00";
         // Global variable to get the primary key ID from the database towards the form
         int id;
         Int64 rowid;
@@ -218,7 +218,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                                 rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
                                 tbAppName.Text = ds.Tables[0].Rows[0][1].ToString();
                                 tbModelNum.Text = ds.Tables[0].Rows[0][2].ToString();
-                                tbPurchaseDate.Text = ds.Tables[0].Rows[0][3].ToString();
+                                dtpPurchaseDate.Value = DateTime.Parse(ds.Tables[0].Rows[0][3].ToString());
                                 tbPrice.Text = ds.Tables[0].Rows[0][4].ToString();
                                 tbBrand.Text = ds.Tables[0].Rows[0][5].ToString();
                                 cbEditStatus.Text = ds.Tables[0].Rows[0][6].ToString();
@@ -254,11 +254,11 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             try
             {
-                if (MessageBox.Show("The Data will be updated\n\nPlease click on the RETURN button to update the Apparatus List. Confirm?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("The Data will be updated\n\nPlease click on the OK button to update the Apparatus List. Confirm?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     string appa_name = tbAppName.Text;
                     string model_num = string.IsNullOrEmpty(tbModelNum.Text) ? "N/A" : tbModelNum.Text;
-                    string date_purch = tbPurchaseDate.Text;
+                    string date_purch = dtpPurchaseDate.Value.ToString("dddd, dd MMMM yyyy");
                     decimal price = Decimal.Parse(tbPrice.Text);
                     string brand = tbBrand.Text;
                     string status = cbEditStatus.Text;
@@ -582,6 +582,20 @@ namespace Laboratory_Management_System__Capstone_Project_
                     }
                 }
             }
+        }
+
+        private void lnklblClear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            tbAppName.Clear();
+            tbModelNum.Clear();
+            tbBrand.Clear();
+            tbPrice.Clear();
+            tbQuantity.Clear();
+            tbRemarks.Clear();
+            dtpPurchaseDate.Value = DateTime.Now;
+            cbCategory.SelectedIndex = -1;
+            cbEditStatus.SelectedIndex = -1;
+            tbQuantity.Clear();
         }
     }
 }

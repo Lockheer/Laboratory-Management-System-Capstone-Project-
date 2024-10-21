@@ -32,7 +32,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.RemoveGroupBoxBorder(groupGender);
 
             UIHelper.SetRoundedCorners(this, 50);
-            UIHelper.SetRoundedCorners(btnExit, 30);
             UIHelper.SetRoundedCorners(btnRegister, 20);
 
             UIHelper.SetShadow(panel1);

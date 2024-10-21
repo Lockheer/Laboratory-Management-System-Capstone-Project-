@@ -73,9 +73,9 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.bg_popup_main_apparatus;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.Group_473__1_;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.btnExit);
@@ -162,7 +162,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(152, 92);
+            this.label12.Location = new System.Drawing.Point(113, 89);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(16, 19);
@@ -266,9 +266,9 @@
             this.label4.Location = new System.Drawing.Point(21, 92);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 19);
+            this.label4.Size = new System.Drawing.Size(92, 19);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Contact Number:";
+            this.label4.Text = "Contact No:";
             // 
             // cbDepartment
             // 
@@ -384,7 +384,7 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(99, 37);
             this.btnRefresh.TabIndex = 12;
-            this.btnRefresh.Text = "CLEAR ALL";
+            this.btnRefresh.Text = "Clear all";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -444,7 +444,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(252, 37);
             this.btnSave.TabIndex = 13;
-            this.btnSave.Text = "Save Information";
+            this.btnSave.Text = "Add";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 

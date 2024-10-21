@@ -23,7 +23,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetRoundedCorners(btnConfirm, 20);
             UIHelper.SetRoundedCorners(tbReject, 20);
 
-            tbAdminPass.PasswordChar = '*';
+           
         }
 
         HashHelpers hashHelpers = new HashHelpers();
@@ -33,7 +33,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             // Validate that the admin ID-Number and password are entered
             if (string.IsNullOrEmpty(tbAdminUsername.Text) || string.IsNullOrEmpty(tbAdminPass.Text))
             {
-                MessageBox.Show("Please enter both Admin ID-Number and Password.", "Missing Credentials", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter both the Administrator's ID-Number or Password.", "Missing Credentials", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -61,7 +61,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     // If count is 1, credentials match and the user has the Admin role
                     if (count == 1)
                     {
-                        MessageBox.Show("Approval successful!", "Admin Approval", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Approval successful!", "Approval Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Set DialogResult to OK to indicate approval
                         this.DialogResult = DialogResult.OK;
@@ -92,6 +92,49 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             // Close the AdminApproval form
             this.Close();
+        }
+
+        private void tbAdminUsername_Enter(object sender, EventArgs e)
+        {
+            if (tbAdminUsername.Text == "ID-Number")
+            {
+                tbAdminUsername.Text = "";
+                tbAdminUsername.Focus();
+                tbAdminUsername.ForeColor = Color.Black;
+
+            }
+        }
+
+        private void tbAdminUsername_Leave(object sender, EventArgs e)
+        {
+            if (tbAdminUsername.Text == "")
+            {
+                tbAdminUsername.Text = "ID-Number";
+                tbAdminUsername.ForeColor = Color.Silver;
+
+            }
+
+        }
+
+        private void tbAdminPass_Enter(object sender, EventArgs e)
+        {
+            if (tbAdminPass.Text == "Password")
+            {
+                tbAdminPass.Text = "";
+                tbAdminPass.ForeColor = Color.Black;
+                tbAdminPass.UseSystemPasswordChar = true;
+            }
+
+        }
+
+        private void tbAdminPass_Leave(object sender, EventArgs e)
+        {
+            if (tbAdminPass.Text == "")
+            {
+                tbAdminPass.Text = "Password";
+                tbAdminPass.ForeColor = Color.Silver;
+                tbAdminPass.UseSystemPasswordChar = false;
+            }
         }
     }
 }

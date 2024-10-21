@@ -434,6 +434,9 @@
     <None Include="Resources\hand_down_l.png" />
     <None Include="Resources\icon_bg.png" />
     <None Include="Resources\icon_startup4.gif" />
+    <None Include="Resources\Group 473.png" />
+    <None Include="Resources\Group 473 %281%29.png" />
+    <None Include="Resources\Vector.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

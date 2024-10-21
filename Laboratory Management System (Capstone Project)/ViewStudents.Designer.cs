@@ -57,19 +57,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbStudentSearch = new System.Windows.Forms.TextBox();
             this.cbProgramFilter = new System.Windows.Forms.ComboBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvStudentsInformation = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsInformation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,7 +85,6 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tbStudentSearch);
             this.panel1.Controls.Add(this.cbProgramFilter);
-            this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Controls.Add(this.dgvStudentsInformation);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.panel3);
@@ -129,9 +127,9 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
             this.label10.Location = new System.Drawing.Point(407, 17);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(291, 29);
+            this.label10.Size = new System.Drawing.Size(352, 29);
             this.label10.TabIndex = 28;
-            this.label10.Text = "STUDENTS INFORMATION";
+            this.label10.Text = "VIEW STUDENTS INFORMATION";
             // 
             // btnExport
             // 
@@ -140,7 +138,7 @@
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(289, 193);
+            this.btnExport.Location = new System.Drawing.Point(449, 193);
             this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(164, 38);
@@ -158,7 +156,7 @@
             "College Of Education",
             "College Of Computer Studies",
             "Senior High School Branch"});
-            this.cbDept.Location = new System.Drawing.Point(716, 131);
+            this.cbDept.Location = new System.Drawing.Point(746, 131);
             this.cbDept.Margin = new System.Windows.Forms.Padding(2);
             this.cbDept.Name = "cbDept";
             this.cbDept.Size = new System.Drawing.Size(190, 27);
@@ -174,7 +172,7 @@
             "BSIE",
             "BSCE",
             "SHS"});
-            this.cbProgram.Location = new System.Drawing.Point(716, 94);
+            this.cbProgram.Location = new System.Drawing.Point(746, 94);
             this.cbProgram.Margin = new System.Windows.Forms.Padding(2);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(102, 27);
@@ -204,7 +202,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(468, 193);
+            this.btnDelete.Location = new System.Drawing.Point(271, 193);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(164, 38);
@@ -220,10 +218,10 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(648, 193);
+            this.btnUpdate.Location = new System.Drawing.Point(641, 174);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(164, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(289, 66);
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -233,7 +231,7 @@
             // 
             this.tbContactNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbContactNum.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbContactNum.Location = new System.Drawing.Point(716, 61);
+            this.tbContactNum.Location = new System.Drawing.Point(746, 61);
             this.tbContactNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbContactNum.Name = "tbContactNum";
             this.tbContactNum.Size = new System.Drawing.Size(190, 27);
@@ -243,7 +241,7 @@
             // 
             this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbEmail.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbEmail.Location = new System.Drawing.Point(274, 138);
+            this.tbEmail.Location = new System.Drawing.Point(337, 137);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(263, 27);
@@ -253,7 +251,7 @@
             // 
             this.tbIDNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbIDNum.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbIDNum.Location = new System.Drawing.Point(274, 103);
+            this.tbIDNum.Location = new System.Drawing.Point(337, 102);
             this.tbIDNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbIDNum.Name = "tbIDNum";
             this.tbIDNum.Size = new System.Drawing.Size(263, 27);
@@ -263,7 +261,7 @@
             // 
             this.tbStudentName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbStudentName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbStudentName.Location = new System.Drawing.Point(274, 67);
+            this.tbStudentName.Location = new System.Drawing.Point(337, 66);
             this.tbStudentName.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudentName.Name = "tbStudentName";
             this.tbStudentName.Size = new System.Drawing.Size(263, 27);
@@ -274,7 +272,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label9.Location = new System.Drawing.Point(572, 140);
+            this.label9.Location = new System.Drawing.Point(635, 139);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 19);
@@ -286,7 +284,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label8.Location = new System.Drawing.Point(572, 105);
+            this.label8.Location = new System.Drawing.Point(635, 104);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 19);
@@ -298,19 +296,19 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label7.Location = new System.Drawing.Point(572, 68);
+            this.label7.Location = new System.Drawing.Point(635, 67);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 19);
+            this.label7.Size = new System.Drawing.Size(92, 19);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Contact Number:";
+            this.label7.Text = "Contact No:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label6.Location = new System.Drawing.Point(143, 139);
+            this.label6.Location = new System.Drawing.Point(206, 138);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 19);
@@ -322,7 +320,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label5.Location = new System.Drawing.Point(143, 105);
+            this.label5.Location = new System.Drawing.Point(206, 104);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 19);
@@ -334,7 +332,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label4.Location = new System.Drawing.Point(143, 69);
+            this.label4.Location = new System.Drawing.Point(206, 68);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 19);
@@ -346,7 +344,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.Vector__5_;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(95, 348);
+            this.pictureBox3.Location = new System.Drawing.Point(97, 335);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(120, 103);
             this.pictureBox3.TabIndex = 8;
@@ -372,9 +370,9 @@
             this.label1.Location = new System.Drawing.Point(190, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 41);
+            this.label1.Size = new System.Drawing.Size(421, 41);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Students Information";
+            this.label1.Text = "View Students Information";
             // 
             // btnClearAll
             // 
@@ -390,7 +388,7 @@
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(177, 38);
             this.btnClearAll.TabIndex = 21;
-            this.btnClearAll.Text = "CLEAR ALL";
+            this.btnClearAll.Text = "Clear all";
             this.btnClearAll.UseVisualStyleBackColor = false;
             this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
@@ -403,9 +401,9 @@
             this.label2.Location = new System.Drawing.Point(193, 81);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 19);
+            this.label2.Size = new System.Drawing.Size(301, 19);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Students List";
+            this.label2.Text = "Students List - View Student Information";
             // 
             // label12
             // 
@@ -413,7 +411,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(100, 305);
+            this.label12.Location = new System.Drawing.Point(102, 292);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(115, 24);
@@ -426,17 +424,17 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(47, 476);
+            this.label3.Location = new System.Drawing.Point(49, 463);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(233, 29);
+            this.label3.Size = new System.Drawing.Size(243, 29);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Student\'s ID number:";
+            this.label3.Text = "Enter student\'s ID No:";
             // 
             // tbStudentSearch
             // 
             this.tbStudentSearch.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbStudentSearch.Location = new System.Drawing.Point(52, 523);
+            this.tbStudentSearch.Location = new System.Drawing.Point(54, 510);
             this.tbStudentSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbStudentSearch.Name = "tbStudentSearch";
             this.tbStudentSearch.Size = new System.Drawing.Size(225, 27);
@@ -447,26 +445,12 @@
             // 
             this.cbProgramFilter.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.cbProgramFilter.FormattingEnabled = true;
-            this.cbProgramFilter.Location = new System.Drawing.Point(1256, 73);
+            this.cbProgramFilter.Location = new System.Drawing.Point(1244, 73);
             this.cbProgramFilter.Margin = new System.Windows.Forms.Padding(2);
             this.cbProgramFilter.Name = "cbProgramFilter";
             this.cbProgramFilter.Size = new System.Drawing.Size(152, 27);
             this.cbProgramFilter.TabIndex = 7;
             this.cbProgramFilter.SelectedIndexChanged += new System.EventHandler(this.cbProgramFilter_SelectedIndexChanged);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(161, 622);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(89, 26);
-            this.btnRefresh.TabIndex = 3;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Visible = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dgvStudentsInformation
             // 
@@ -486,24 +470,12 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(1110, 76);
+            this.label11.Location = new System.Drawing.Point(1098, 76);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(142, 19);
             this.label11.TabIndex = 6;
             this.label11.Text = "Filter by Program:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 103);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             // 
             // panel3
             // 
@@ -524,6 +496,18 @@
             this.label15.Size = new System.Drawing.Size(489, 33);
             this.label15.TabIndex = 1;
             this.label15.Text = "Student Information window goes here:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 103);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // ViewStudentInformation
             // 
@@ -547,9 +531,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsInformation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,7 +544,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbStudentSearch;
-        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridView dgvStudentsInformation;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tbContactNum;
