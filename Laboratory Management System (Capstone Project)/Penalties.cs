@@ -71,6 +71,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetRoundedCorners(panel3, 30);
             UIHelper.SetRoundedCorners(panel4, 30);
             UIHelper.SetRoundedCorners(panelPayment, 30);
+            UIHelper.SetRoundedCorners(dgvPenalties, 30);
 
             UIHelper.SetShadow(panel1);
             

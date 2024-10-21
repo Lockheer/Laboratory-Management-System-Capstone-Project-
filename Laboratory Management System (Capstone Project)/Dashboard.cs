@@ -20,10 +20,10 @@ namespace Laboratory_Management_System__Capstone_Project_
         {
             InitializeComponent();
 
-            menuStrip3.RenderMode = ToolStripRenderMode.Professional;
-            menuStrip3.Renderer = new CustomToolStripRenderer();
+            var customRenderer = new UIHelper.CustomToolStripRenderer();
+            menuStrip3.Renderer = customRenderer;
+            customRenderer.AttachClickHandler(menuStrip3);
 
-            UIHelper.ApplyHoverEffectToMenuStrip(menuStrip3);
 
             UIHelper.SetShadow(panel1);
             UIHelper.SetRoundedCorners(panel1, 30);
@@ -39,20 +39,6 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetGradientBackground(panelDashboard, Color.FromArgb(5, 21, 101), Color.FromArgb(20, 57, 175), LinearGradientMode.Horizontal);
         }
 
-
-        public class CustomToolStripRenderer : ToolStripProfessionalRenderer
-        {
-            protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
-            {
-                // Correct usage of Color.FromArgb with integer parameters
-                Color hoverColor = Color.FromArgb(250, 109, 21); // Orange color
-
-                if (e.Item.Selected || e.Item.Pressed)
-                {
-                    e.Graphics.FillRectangle(new SolidBrush(hoverColor), e.Item.ContentRectangle);
-                }
-            }
-        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -288,7 +274,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-     
+
         private void btnInventoryShortcut_Click(object sender, EventArgs e)
         {
             InventoryList viewApp = new InventoryList();
@@ -338,7 +324,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             ShowCountPanel.Visible = true;
         }
 
-         
+
         private void UpdateApparatusCountLabel(Label apparatusCountLabel)
         {
             // Connect to the database and retrieve the apparatus count
@@ -407,7 +393,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             }
         }
 
-       
+
         public void NavigateBackToDashboard()
         {
             // Remove the current form from the panelContainer
@@ -449,4 +435,3 @@ namespace Laboratory_Management_System__Capstone_Project_
         }
     }
 }
-

@@ -15,13 +15,14 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(btnSearch, 20);
             UIHelper.SetRoundedCorners(btnIssueReturn, 20);
-
-
-            UIHelper.SetShadow(panel1);
+            UIHelper.SetRoundedCorners(panel1, 50);
             UIHelper.SetRoundedCorners(panel2, 30);
             UIHelper.SetRoundedCorners(panel3, 30);
-            UIHelper.SetRoundedCorners(panel1, 50);
+            UIHelper.SetRoundedCorners(dgvReturnInformation, 30);
+
             UIHelper.MakeRoundedTextBox(tbSearchID, 10);
+
+            UIHelper.SetShadow(panel1);
         }
 
 

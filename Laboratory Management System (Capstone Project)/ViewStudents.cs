@@ -25,12 +25,11 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(btnUpdate, 20);
             UIHelper.SetRoundedCorners(btnDelete, 20);
-          
             UIHelper.SetRoundedCorners(btnExport, 20);
-
             UIHelper.SetRoundedCorners(panel3, 30);
+            UIHelper.SetRoundedCorners(panel1, 50);       
+            UIHelper.SetRoundedCorners(dgvStudentsInformation, 30);
 
-            UIHelper.SetRoundedCorners(panel1, 50);
             UIHelper.SetShadow(panel1);
         }
 

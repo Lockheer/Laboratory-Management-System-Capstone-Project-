@@ -141,7 +141,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 BackColor = Color.DimGray
             };
 
-            int radius = 50; 
+            int radius = 50;
             GraphicsPath path = new GraphicsPath();
             path.AddArc(0, 0, radius, radius, 180, 90); // Top-left corner
             path.AddArc(shadow.Width - radius, 0, radius, radius, 270, 90); // Top-right corner
@@ -157,7 +157,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             control.SizeChanged += (sender, e) =>
             {
                 shadow.Size = control.Size;
-                shadow.Location = new Point(control.Left + 5, control.Top + 5); 
+                shadow.Location = new Point(control.Left + 5, control.Top + 5);
 
                 path.Reset();
                 path.AddArc(0, 0, radius, radius, 180, 90);
@@ -168,39 +168,37 @@ namespace Laboratory_Management_System__Capstone_Project_
                 shadow.Region = new Region(path);
             };
         }
-
-
-        public static void ApplyHoverEffectToMenuStrip(MenuStrip menuStrip)
+        public class CustomToolStripRenderer : ToolStripProfessionalRenderer
         {
-            // Apply hover effect to main menu items and their sub-items recursively
-            foreach (ToolStripMenuItem menuItem in menuStrip.Items)
-            {
-                ApplyHoverEffectToMenuItem(menuItem);
-            }
-        }
+            private ToolStripMenuItem selectedItem = null; // Track the selected item
 
-        private static void ApplyHoverEffectToMenuItem(ToolStripMenuItem menuItem)
-        {
-            // Apply hover effect to the main menu item
-            menuItem.MouseEnter += (sender, e) =>
+            protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
             {
-                ToolStripMenuItem item = sender as ToolStripMenuItem;
-                item.Font = new Font(item.Font.FontFamily, item.Font.Size + 2, FontStyle.Bold);
-            };
+                Color hoverColor = Color.FromArgb(250, 109, 21);
 
-            menuItem.MouseLeave += (sender, e) =>
-            {
-                ToolStripMenuItem item = sender as ToolStripMenuItem;
-                item.Font = new Font(item.Font.FontFamily, item.Font.Size - 2, FontStyle.Regular);
-            };
-
-            // Apply the same hover effect to sub-items recursively
-            foreach (ToolStripItem subItem in menuItem.DropDownItems)
-            {
-                if (subItem is ToolStripMenuItem dropDownItem)
+                if (e.Item == selectedItem)
                 {
-                    ApplyHoverEffectToMenuItem(dropDownItem); 
+                    e.Graphics.FillRectangle(new SolidBrush(hoverColor), e.Item.ContentRectangle);
+                }
+                else if (e.Item.Selected || e.Item.Pressed)
+                {
+                    e.Graphics.FillRectangle(new SolidBrush(hoverColor), e.Item.ContentRectangle);
+                }
+                else
+                {
+                    base.OnRenderMenuItemBackground(e);
+                }
+            }
 
+            public void AttachClickHandler(MenuStrip menuStrip)
+            {
+                foreach (ToolStripMenuItem menuItem in menuStrip.Items)
+                {
+                    menuItem.Click += (s, e) =>
+                    {
+                        selectedItem = menuItem;
+                        menuItem.Owner.Invalidate();
+                    };
                 }
             }
         }

@@ -498,7 +498,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.menuStrip3);
             this.panel1.Controls.Add(this.lnklblLogOut);
             this.panel1.ForeColor = System.Drawing.Color.Transparent;
@@ -541,7 +541,7 @@
             this.dashboardtoolStripMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dashboardtoolStripMenu.Name = "dashboardtoolStripMenu";
             this.dashboardtoolStripMenu.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.dashboardtoolStripMenu.Size = new System.Drawing.Size(316, 96);
+            this.dashboardtoolStripMenu.Size = new System.Drawing.Size(322, 96);
             this.dashboardtoolStripMenu.Text = " Dashboard";
             this.dashboardtoolStripMenu.Click += new System.EventHandler(this.dashboardtoolStripMenu_Click);
             // 
@@ -558,7 +558,7 @@
             this.apparatusToolStripMenuItem.MergeIndex = 0;
             this.apparatusToolStripMenuItem.Name = "apparatusToolStripMenuItem";
             this.apparatusToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.apparatusToolStripMenuItem.Size = new System.Drawing.Size(316, 100);
+            this.apparatusToolStripMenuItem.Size = new System.Drawing.Size(322, 100);
             this.apparatusToolStripMenuItem.Text = " Apparatus Inventory";
             this.apparatusToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -594,7 +594,7 @@
             this.registeredToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.registeredToolStripMenuItem.Name = "registeredToolStripMenuItem";
             this.registeredToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.registeredToolStripMenuItem.Size = new System.Drawing.Size(316, 98);
+            this.registeredToolStripMenuItem.Size = new System.Drawing.Size(322, 98);
             this.registeredToolStripMenuItem.Text = " Students List";
             this.registeredToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -627,7 +627,7 @@
             this.borrowTransactionToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.borrowTransactionToolStripMenuItem.Name = "borrowTransactionToolStripMenuItem";
             this.borrowTransactionToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.borrowTransactionToolStripMenuItem.Size = new System.Drawing.Size(316, 98);
+            this.borrowTransactionToolStripMenuItem.Size = new System.Drawing.Size(322, 98);
             this.borrowTransactionToolStripMenuItem.Text = "Borrow Apparatus";
             this.borrowTransactionToolStripMenuItem.Click += new System.EventHandler(this.borrowTransactionToolStripMenuItem_Click);
             // 
@@ -640,7 +640,7 @@
             this.returnRecordsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.returnRecordsToolStripMenuItem.Name = "returnRecordsToolStripMenuItem";
             this.returnRecordsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.returnRecordsToolStripMenuItem.Size = new System.Drawing.Size(316, 98);
+            this.returnRecordsToolStripMenuItem.Size = new System.Drawing.Size(322, 98);
             this.returnRecordsToolStripMenuItem.Text = "Return Apparatus";
             this.returnRecordsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.returnRecordsToolStripMenuItem.Click += new System.EventHandler(this.returnRecordsToolStripMenuItem_Click);
@@ -680,14 +680,14 @@
             this.penaltyRecordsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.penaltyRecordsToolStripMenuItem.Name = "penaltyRecordsToolStripMenuItem";
             this.penaltyRecordsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(25, 25, 0, 25);
-            this.penaltyRecordsToolStripMenuItem.Size = new System.Drawing.Size(316, 96);
+            this.penaltyRecordsToolStripMenuItem.Size = new System.Drawing.Size(322, 96);
             this.penaltyRecordsToolStripMenuItem.Text = "Penalty Records";
             this.penaltyRecordsToolStripMenuItem.Click += new System.EventHandler(this.penaltyRecordsToolStripMenuItem_Click);
             // 
             // dToolStripMenuItem
             // 
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
-            this.dToolStripMenuItem.Size = new System.Drawing.Size(316, 4);
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(322, 4);
             // 
             // lnklblLogOut
             // 

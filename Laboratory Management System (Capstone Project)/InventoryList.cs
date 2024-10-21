@@ -89,6 +89,8 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetRoundedComboBox(cbStatusFilter, 20);
             UIHelper.MakeRoundedTextBox(tbAppaSearch, 10);
 
+            UIHelper.SetRoundedCorners(dgvApparatusList, 30);
+
             ViewApparatus_Load(this, null);
         }
 
