@@ -353,6 +353,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbConfirmPass.Clear();
             dtpBirthdate.Format = DateTimePickerFormat.Custom;
             dtpBirthdate.CustomFormat = " ";
+            cbRole.SelectedIndex = -1;
 
         }
 
@@ -369,6 +370,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbConfirmPass.Clear();
             dtpBirthdate.Format = DateTimePickerFormat.Custom;
             dtpBirthdate.CustomFormat = " ";
+            cbRole.SelectedIndex = -1;
         }
 
 
