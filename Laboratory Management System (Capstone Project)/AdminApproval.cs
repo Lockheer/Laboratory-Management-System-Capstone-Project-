@@ -22,8 +22,8 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(btnConfirm, 20);
             UIHelper.SetRoundedCorners(tbReject, 20);
-
-           
+            UIHelper.SetRoundedCorners(panel1, 30);
+            UIHelper.SetShadow(panel1);
         }
 
         HashHelpers hashHelpers = new HashHelpers();

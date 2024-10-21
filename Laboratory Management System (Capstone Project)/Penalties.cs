@@ -66,9 +66,14 @@ namespace Laboratory_Management_System__Capstone_Project_
             UIHelper.SetRoundedCorners(btnUpdate, 20);
             UIHelper.SetRoundedCorners(btnDelete, 20);
             UIHelper.SetRoundedCorners(btnDetails, 20);
+            UIHelper.SetRoundedCorners(panel1, 50);
             UIHelper.SetRoundedCorners(panel2, 30);
             UIHelper.SetRoundedCorners(panel3, 30);
+            UIHelper.SetRoundedCorners(panel4, 30);
+            UIHelper.SetRoundedCorners(panelPayment, 30);
 
+            UIHelper.SetShadow(panel1);
+            
             // Attach event handlers
             tbAmtToBe.TextChanged += tbAmount_TextChanged;
             tbAmtPayed.TextChanged += tbAmount_TextChanged;
@@ -900,6 +905,7 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbApparatusName.Clear();
             cbStatus.SelectedIndex = -1; 
             cbTransact.SelectedIndex = -1; 
+            panel4.Visible = true;
         }
 
         private void tbIDnum_TextChanged(object sender, EventArgs e)

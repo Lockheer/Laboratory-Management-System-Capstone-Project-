@@ -403,7 +403,7 @@
             this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(2);
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(235, 32);
-            this.tbConfirmPass.TabIndex = 11;
+            this.tbConfirmPass.TabIndex = 10;
             this.tbConfirmPass.UseSystemPasswordChar = true;
             // 
             // btnRefresh
@@ -418,7 +418,7 @@
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(106, 36);
-            this.btnRefresh.TabIndex = 18;
+            this.btnRefresh.TabIndex = 13;
             this.btnRefresh.Text = "Clear all";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -456,7 +456,7 @@
             this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(279, 34);
-            this.btnRegister.TabIndex = 17;
+            this.btnRegister.TabIndex = 12;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -470,7 +470,7 @@
             this.lblShowPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblShowPass.Name = "lblShowPass";
             this.lblShowPass.Size = new System.Drawing.Size(125, 19);
-            this.lblShowPass.TabIndex = 36;
+            this.lblShowPass.TabIndex = 11;
             this.lblShowPass.Text = "Show Password";
             // 
             // lblConfirm
@@ -632,7 +632,7 @@
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(106, 36);
-            this.btnBack.TabIndex = 19;
+            this.btnBack.TabIndex = 14;
             this.btnBack.Text = "Back to Login";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);

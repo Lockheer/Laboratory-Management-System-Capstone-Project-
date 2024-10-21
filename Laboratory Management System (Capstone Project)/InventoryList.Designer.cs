@@ -40,9 +40,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dgvApparatusList = new System.Windows.Forms.DataGridView();
             this.cbStatusFilter = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.lnklblClear = new System.Windows.Forms.LinkLabel();
             this.label14 = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
@@ -71,12 +70,13 @@
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbModelNum = new System.Windows.Forms.TextBox();
             this.tbAppName = new System.Windows.Forms.TextBox();
-            this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApparatusList)).BeginInit();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,7 +96,7 @@
             this.panel1.Controls.Add(this.cbStatusFilter);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(100, 130);
+            this.panel1.Location = new System.Drawing.Point(88, 132);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1432, 880);
             this.panel1.TabIndex = 13;
@@ -250,26 +250,6 @@
             this.cbStatusFilter.TabIndex = 9;
             this.cbStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cbStatusFilter_SelectedIndexChanged);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.Controls.Add(this.label22);
-            this.panel3.Location = new System.Drawing.Point(33, 560);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1365, 298);
-            this.panel3.TabIndex = 45;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label22.Location = new System.Drawing.Point(413, 132);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(595, 33);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "View and Update Information window goes here:";
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
@@ -308,6 +288,15 @@
             this.panel2.Size = new System.Drawing.Size(1365, 298);
             this.panel2.TabIndex = 6;
             // 
+            // dtpPurchaseDate
+            // 
+            this.dtpPurchaseDate.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.dtpPurchaseDate.Location = new System.Drawing.Point(280, 151);
+            this.dtpPurchaseDate.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpPurchaseDate.Name = "dtpPurchaseDate";
+            this.dtpPurchaseDate.Size = new System.Drawing.Size(275, 27);
+            this.dtpPurchaseDate.TabIndex = 45;
+            // 
             // lnklblClear
             // 
             this.lnklblClear.AutoSize = true;
@@ -341,7 +330,7 @@
             this.cbCategory.Location = new System.Drawing.Point(715, 190);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(104, 27);
+            this.cbCategory.Size = new System.Drawing.Size(161, 27);
             this.cbCategory.TabIndex = 29;
             // 
             // btnExport
@@ -351,7 +340,7 @@
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(712, 243);
+            this.btnExport.Location = new System.Drawing.Point(701, 243);
             this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(164, 38);
@@ -417,7 +406,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(531, 243);
+            this.btnDelete.Location = new System.Drawing.Point(520, 243);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(164, 38);
@@ -501,7 +490,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label6.Location = new System.Drawing.Point(188, 196);
+            this.label6.Location = new System.Drawing.Point(127, 197);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 19);
@@ -513,7 +502,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label5.Location = new System.Drawing.Point(188, 153);
+            this.label5.Location = new System.Drawing.Point(127, 154);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 19);
@@ -525,7 +514,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label4.Location = new System.Drawing.Point(188, 113);
+            this.label4.Location = new System.Drawing.Point(127, 114);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 19);
@@ -577,7 +566,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(304, 154);
+            this.label16.Location = new System.Drawing.Point(243, 155);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(16, 19);
@@ -590,7 +579,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(321, 68);
+            this.label15.Location = new System.Drawing.Point(260, 69);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(16, 19);
@@ -602,7 +591,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label3.Location = new System.Drawing.Point(188, 71);
+            this.label3.Location = new System.Drawing.Point(127, 72);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 19);
@@ -633,7 +622,7 @@
             // 
             this.tbPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPrice.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPrice.Location = new System.Drawing.Point(341, 190);
+            this.tbPrice.Location = new System.Drawing.Point(280, 191);
             this.tbPrice.Margin = new System.Windows.Forms.Padding(2);
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(104, 27);
@@ -645,30 +634,41 @@
             // 
             this.tbModelNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbModelNum.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbModelNum.Location = new System.Drawing.Point(341, 110);
+            this.tbModelNum.Location = new System.Drawing.Point(280, 111);
             this.tbModelNum.Margin = new System.Windows.Forms.Padding(2);
             this.tbModelNum.Name = "tbModelNum";
-            this.tbModelNum.Size = new System.Drawing.Size(207, 27);
+            this.tbModelNum.Size = new System.Drawing.Size(275, 27);
             this.tbModelNum.TabIndex = 8;
             // 
             // tbAppName
             // 
             this.tbAppName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbAppName.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.tbAppName.Location = new System.Drawing.Point(341, 68);
+            this.tbAppName.Location = new System.Drawing.Point(280, 69);
             this.tbAppName.Margin = new System.Windows.Forms.Padding(2);
             this.tbAppName.Name = "tbAppName";
-            this.tbAppName.Size = new System.Drawing.Size(207, 27);
+            this.tbAppName.Size = new System.Drawing.Size(275, 27);
             this.tbAppName.TabIndex = 7;
             // 
-            // dtpPurchaseDate
+            // panel3
             // 
-            this.dtpPurchaseDate.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
-            this.dtpPurchaseDate.Location = new System.Drawing.Point(341, 150);
-            this.dtpPurchaseDate.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpPurchaseDate.Name = "dtpPurchaseDate";
-            this.dtpPurchaseDate.Size = new System.Drawing.Size(207, 27);
-            this.dtpPurchaseDate.TabIndex = 45;
+            this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.Controls.Add(this.label22);
+            this.panel3.Location = new System.Drawing.Point(33, 560);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1365, 298);
+            this.panel3.TabIndex = 45;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Bahnschrift", 20F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label22.Location = new System.Drawing.Point(413, 132);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(595, 33);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "View and Update Information window goes here:";
             // 
             // InventoryList
             // 
@@ -686,10 +686,10 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApparatusList)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }

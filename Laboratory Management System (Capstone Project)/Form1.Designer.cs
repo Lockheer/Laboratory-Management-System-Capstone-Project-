@@ -53,7 +53,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -67,7 +66,7 @@
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbUsername.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
             this.tbUsername.ForeColor = System.Drawing.Color.Gray;
-            this.tbUsername.Location = new System.Drawing.Point(126, 227);
+            this.tbUsername.Location = new System.Drawing.Point(133, 246);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(238, 32);
@@ -82,7 +81,7 @@
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPassword.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
             this.tbPassword.ForeColor = System.Drawing.Color.Gray;
-            this.tbPassword.Location = new System.Drawing.Point(126, 313);
+            this.tbPassword.Location = new System.Drawing.Point(133, 332);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(238, 32);
@@ -100,7 +99,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(82, 424);
+            this.btnLogin.Location = new System.Drawing.Point(88, 425);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(283, 34);
@@ -114,19 +113,19 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label1.Location = new System.Drawing.Point(122, 134);
+            this.label1.Location = new System.Drawing.Point(62, 162);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 19);
+            this.label1.Size = new System.Drawing.Size(352, 19);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Welcome, please enter your";
+            this.label1.Text = "Welcome, please enter your details to proceed.";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label2.Location = new System.Drawing.Point(154, 78);
+            this.label2.Location = new System.Drawing.Point(160, 112);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 48);
@@ -138,7 +137,7 @@
             this.CbShowPass.AutoSize = true;
             this.CbShowPass.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.CbShowPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.CbShowPass.Location = new System.Drawing.Point(82, 367);
+            this.CbShowPass.Location = new System.Drawing.Point(89, 386);
             this.CbShowPass.Margin = new System.Windows.Forms.Padding(2);
             this.CbShowPass.Name = "CbShowPass";
             this.CbShowPass.Size = new System.Drawing.Size(144, 23);
@@ -186,7 +185,7 @@
             this.lblErrorHandler.BackColor = System.Drawing.Color.Transparent;
             this.lblErrorHandler.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Italic);
             this.lblErrorHandler.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorHandler.Location = new System.Drawing.Point(57, 178);
+            this.lblErrorHandler.Location = new System.Drawing.Point(64, 197);
             this.lblErrorHandler.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErrorHandler.Name = "lblErrorHandler";
             this.lblErrorHandler.Size = new System.Drawing.Size(334, 18);
@@ -199,7 +198,7 @@
             this.lblUsernameHandler.BackColor = System.Drawing.Color.Transparent;
             this.lblUsernameHandler.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Italic);
             this.lblUsernameHandler.ForeColor = System.Drawing.Color.Red;
-            this.lblUsernameHandler.Location = new System.Drawing.Point(158, 261);
+            this.lblUsernameHandler.Location = new System.Drawing.Point(165, 280);
             this.lblUsernameHandler.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsernameHandler.Name = "lblUsernameHandler";
             this.lblUsernameHandler.Size = new System.Drawing.Size(199, 18);
@@ -212,7 +211,7 @@
             this.lblPasswordHandler.BackColor = System.Drawing.Color.Transparent;
             this.lblPasswordHandler.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Italic);
             this.lblPasswordHandler.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswordHandler.Location = new System.Drawing.Point(167, 347);
+            this.lblPasswordHandler.Location = new System.Drawing.Point(174, 366);
             this.lblPasswordHandler.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPasswordHandler.Name = "lblPasswordHandler";
             this.lblPasswordHandler.Size = new System.Drawing.Size(198, 18);
@@ -236,12 +235,11 @@
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.CbShowPass);
             this.panel1.Location = new System.Drawing.Point(330, 216);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(430, 503);
+            this.panel1.Size = new System.Drawing.Size(446, 502);
             this.panel1.TabIndex = 19;
             // 
             // label6
@@ -250,7 +248,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(157, 287);
+            this.label6.Location = new System.Drawing.Point(164, 306);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 20);
             this.label6.TabIndex = 21;
@@ -262,7 +260,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(160, 199);
+            this.label7.Location = new System.Drawing.Point(167, 218);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(16, 20);
             this.label7.TabIndex = 22;
@@ -274,7 +272,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label8.Location = new System.Drawing.Point(78, 287);
+            this.label8.Location = new System.Drawing.Point(85, 306);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 19);
             this.label8.TabIndex = 20;
@@ -286,7 +284,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label9.Location = new System.Drawing.Point(78, 203);
+            this.label9.Location = new System.Drawing.Point(85, 222);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 19);
             this.label9.TabIndex = 19;
@@ -297,10 +295,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(148, -73);
+            this.pictureBox1.Location = new System.Drawing.Point(143, -75);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 144);
+            this.pictureBox1.Size = new System.Drawing.Size(161, 168);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -309,7 +307,7 @@
             // 
             this.pictureBox2.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.pass_lock;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(82, 313);
+            this.pictureBox2.Location = new System.Drawing.Point(89, 332);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 32);
@@ -321,7 +319,7 @@
             // 
             this.pictureBox3.BackgroundImage = global::Laboratory_Management_System__Capstone_Project_.Properties.Resources.admin_icon;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(82, 227);
+            this.pictureBox3.Location = new System.Drawing.Point(89, 246);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 32);
@@ -382,23 +380,11 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(478, 142);
+            this.pictureBox4.Location = new System.Drawing.Point(473, 141);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(144, 144);
+            this.pictureBox4.Size = new System.Drawing.Size(161, 168);
             this.pictureBox4.TabIndex = 25;
             this.pictureBox4.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(57)))), ((int)(((byte)(175)))));
-            this.label11.Location = new System.Drawing.Point(148, 153);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(144, 19);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "details to proceed.";
             // 
             // Form1
             // 
@@ -460,7 +446,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label11;
     }
 }
 

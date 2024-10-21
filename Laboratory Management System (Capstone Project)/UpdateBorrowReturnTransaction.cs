@@ -259,6 +259,7 @@ namespace Laboratory_Management_System__Capstone_Project_
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            panel3.Visible = false;
             try
             {
                 // Ensure the click is on a valid cell (not header or out-of-bounds)
@@ -396,7 +397,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     return;
                 }
 
-                if ((int)nudQuantityReturned.Value <= 0)
+                if ((int)nudQuantityReturned.Value < 0)
                 {
                     MessageBox.Show("Please enter a valid quantity returned.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     nudQuantityReturned.Focus();
@@ -436,7 +437,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                     cmd.Parameters.AddWithValue("@Purpose", tbPurpose.Text);
                     cmd.Parameters.AddWithValue("@Borrow_Date", dtpBorrowedDate.Value);
                     cmd.Parameters.AddWithValue("@Due_Date", dtpDueDate.Value);
-                    cmd.Parameters.AddWithValue("@Quantity_Returned", nudQuantityReturned.Value);
+                    cmd.Parameters.AddWithValue("@Quantity_Returned", nudQuantityReturned.Value == 0 ? (object)DBNull.Value : nudQuantityReturned.Value);
                     cmd.Parameters.AddWithValue("@Date_Returned", dtpDateReturned.Value);
                     cmd.Parameters.AddWithValue("@Remarks", string.IsNullOrEmpty(tbRemarks.Text) ? (object)DBNull.Value : tbRemarks.Text);
                     cmd.Parameters.AddWithValue("@StudentID", studentID);

@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Net;
 using System.Text.RegularExpressions;
 using Laboratory_Management_System__Capstone_Project_.Helpers;
+using System.Configuration;
 
 
 namespace Laboratory_Management_System__Capstone_Project_
@@ -150,9 +151,9 @@ namespace Laboratory_Management_System__Capstone_Project_
                     SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Accounts WHERE RoleID = @RoleID", conn);
                     cmd.Parameters.AddWithValue("@RoleID", roleID);
                     int count = (int)cmd.ExecuteScalar();
-                    if (count >= 10)
+                    if (count >= 20)
                     {
-                        MessageBox.Show("The Admin role can only have up to 10 registered users.","Attention",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show("The Admin role has already been maxed out.","Attention",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -276,6 +277,7 @@ namespace Laboratory_Management_System__Capstone_Project_
                 {
                     // Admin denied or canceled the approval
                     MessageBox.Show("Registration not approved by Admin.", "Approval Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   ResetForm();
                     return; // Exit the registration process if not approved
                 }
             }
@@ -350,9 +352,26 @@ namespace Laboratory_Management_System__Capstone_Project_
             tbPass.Clear();
             tbConfirmPass.Clear();
             dtpBirthdate.Format = DateTimePickerFormat.Custom;
-            dtpBirthdate.CustomFormat = "";
+            dtpBirthdate.CustomFormat = " ";
 
         }
+
+        // Method to reset form fields
+        private void ResetForm()
+        {
+            tbFirstName.Clear();
+            tbLastName.Clear();
+            tbMiddleName.Clear();
+            tbEmail.Clear();
+            tbID.Clear();
+            tbContactNumber.Clear();
+            tbPass.Clear();
+            tbConfirmPass.Clear();
+            dtpBirthdate.Format = DateTimePickerFormat.Custom;
+            dtpBirthdate.CustomFormat = " ";
+        }
+
+
 
         private void dtpBirthdate_ValueChanged(object sender, EventArgs e)
         {

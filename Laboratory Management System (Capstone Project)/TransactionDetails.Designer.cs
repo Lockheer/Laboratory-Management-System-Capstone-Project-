@@ -121,6 +121,7 @@
             // 
             this.lblViolation.AutoSize = true;
             this.lblViolation.Font = new System.Drawing.Font("Bahnschrift", 35F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblViolation.ForeColor = System.Drawing.Color.White;
             this.lblViolation.Location = new System.Drawing.Point(1098, 33);
             this.lblViolation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblViolation.Name = "lblViolation";
@@ -242,10 +243,6 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnExport);
-            this.panel1.Controls.Add(this.lblBorrow);
-            this.panel1.Controls.Add(this.lblStudents);
-            this.panel1.Controls.Add(this.lblReturn);
-            this.panel1.Controls.Add(this.lblApparatus);
             this.panel1.Controls.Add(this.lblViolation);
             this.panel1.Controls.Add(this.btnPrint);
             this.panel1.Controls.Add(this.cmbViewOptions);
@@ -254,6 +251,10 @@
             this.panel1.Controls.Add(this.dgvInventory);
             this.panel1.Controls.Add(this.dgvViolationRecords);
             this.panel1.Controls.Add(this.dgvBorrowDetails);
+            this.panel1.Controls.Add(this.lblBorrow);
+            this.panel1.Controls.Add(this.lblStudents);
+            this.panel1.Controls.Add(this.lblReturn);
+            this.panel1.Controls.Add(this.lblApparatus);
             this.panel1.Location = new System.Drawing.Point(37, 131);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1540, 889);

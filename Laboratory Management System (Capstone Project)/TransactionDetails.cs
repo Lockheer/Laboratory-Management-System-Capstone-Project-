@@ -23,6 +23,8 @@ namespace Laboratory_Management_System__Capstone_Project_
 
             UIHelper.SetRoundedCorners(btnExport, 20);
             UIHelper.SetRoundedCorners(btnPrint, 20);
+            UIHelper.SetRoundedCorners(panel1, 50);
+            UIHelper.SetShadow(panel1);
 
             UIHelper.SetRoundedComboBox(cmbViewOptions, 20);
         }
