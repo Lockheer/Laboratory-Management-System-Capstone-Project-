@@ -755,7 +755,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Dashboard";
-            this.Text = "Dashboard";
+            this.Text = "Laboratory Management System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panelContainer.ResumeLayout(false);
